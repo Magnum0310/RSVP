@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Coldiac";
+  /* src: url("./assets/Fonts/Coldiac.ttf") format("truetype"); */
+  src: url("./assets/Fonts/Coldiac.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Showtime";
+  src: url("./assets/Fonts/Showtime-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer utilities {
+  .border-draft {
+    @apply border-2 border-solid border-red-500;
+  }
+}
