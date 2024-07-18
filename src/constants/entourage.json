@@ -1,0 +1,68 @@
+{
+  "parentsOfTheBride": ["Mr.Parent of the Bride", "Mrs.Parent of the Bride"],
+  "parentsOfTheGroom": ["Mr.Parent of the Groom", "Mrs.Parent of the Groom"],
+  "principalSponsorsMale": [
+    "Mr. First Sponsor",
+    "Mr. Second Sponsor",
+    "Mr. Third Sponsor",
+    "Mr. Fourth Sponsor",
+    "Mr. Fifth Sponsor",
+    "Mr. Sixth Sponsor",
+    "Mr. Seventh Sponsor",
+    "Mr. Eighth Sponsor",
+    "Mr. Ninth Sponsor",
+    "Mr. Tenth Sponsor",
+    "Mr. Eleventh Sponsor",
+    "Mr. Twelfth Sponsor",
+    "Mr. Thirteenth Sponsor"
+  ],
+  "principalSponsorsFemale": [
+    "Mrs. First Sponsor",
+    "Mrs. Second Sponsor",
+    "Mrs. Third Sponsor",
+    "Mrs. Fourth Sponsor",
+    "Mrs. Fifth Sponsor",
+    "Mrs. Sixth Sponsor",
+    "Mrs. Seventh Sponsor",
+    "Mrs. Eighth Sponsor",
+    "Mrs. Ninth Sponsor",
+    "Mrs. Tenth Sponsor",
+    "Mrs. Eleventh Sponsor",
+    "Mrs. Twelfth Sponsor",
+    "Mrs. Thirteenth Sponsor"
+  ],
+  "maidOfHonor": ["Ms. Yie-Lin Cho"],
+  "bestMan": ["Mr Best Man"],
+  "groomsMen": [
+    "First Groomsmen",
+    "Second Groomsmen",
+    "Third Groomsmen",
+    "Fourth Groomsmen",
+    "Fifth Groomsmen",
+    "Sixth Groomsmen",
+    "Seventh Groomsmen",
+    "Eighth Groomsmen"
+  ],
+  "bridesMaid": [
+    "First BridesMaid",
+    "Second BridesMaid",
+    "Third BridesMaid",
+    "Fourth BridesMaid",
+    "Fifth BridesMaid",
+    "Sixth BridesMaid",
+    "Seventh BridesMaid",
+    "Eighth BridesMaid"
+  ],
+
+  "candle": ["Mr. Candle Sponsor", "Mrs. Candle Sponsor"],
+  "cord": ["Mr. Cord Sponsor", "Mrs. Cord Sponsor"],
+  "veil": ["Mr. Veil Sponsor", "Mrs. Veil Sponsor"],
+  "ringBearer": ["Mr. Ring Bearer"],
+  "coinBearer": ["Mr. Coin Bearer"],
+  "bibleBearer": ["Mr. Bible Bearer"],
+  "flowerGirls": [
+    "First flower girl",
+    "Second flower girl",
+    "Third flower girl"
+  ]
+}

@@ -7,10 +7,16 @@ import floralLeaf2 from "../assets/Vectors/HeroPage/heroPage_floralleaf2.svg";
 import floralTransition from "../assets/Vectors/HeroPage/heroPage_floralTransition.svg";
 import floralFlower from "../assets/Vectors/HeroPage/heroPage_flower.svg";
 // Entourage
-import entourage1 from "../assets/Images/Entourage/entourage1.jpg";
-import entourage2 from "../assets/Images/Entourage/entourage2.jpg";
-import entourage3 from "../assets/Images/Entourage/entourage3.jpg";
-import entourageCenter from "../assets/Images/Entourage/entourageCenter.jpg";
+import entourage1 from "../assets/Images/Entourage/entourage1.svg";
+import entourage2 from "../assets/Images/Entourage/entourage2.svg";
+import entourage3 from "../assets/Images/Entourage/entourage3.svg";
+import entourageCenter from "../assets/Images/Entourage/entourageCenter.svg";
+import entourageTransition from "../assets/Vectors/Entourage/entourage_transition.svg";
+import entourageDivider from "../assets/Vectors/Entourage/entourage_Divider.svg";
+import entourageFloralPrimarySponsor from "../assets/Vectors/Entourage/entourage_floralPrimarySponsor.svg";
+import entourageFloralSecondarySponsor from "../assets/Vectors/Entourage/entourage_floralSecondarySponsor.svg";
+import entourageTitle from "../assets/Vectors/Entourage/entourage_Title.svg";
+import entourageFloralMaidOfHonor from "../assets/Vectors/Entourage/floralMaidOfHonor.svg";
 
 const Image = {
   // Hero Page
@@ -26,6 +32,12 @@ const Image = {
   entourage2,
   entourage3,
   entourageCenter,
+  entourageTransition,
+  entourageDivider,
+  entourageFloralPrimarySponsor,
+  entourageFloralSecondarySponsor,
+  entourageTitle,
+  entourageFloralMaidOfHonor,
 };
 
 export default Image;

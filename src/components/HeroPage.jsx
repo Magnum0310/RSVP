@@ -61,7 +61,7 @@ const HeroPage = () => {
         {/* Jeffrey and Jonalyn */}
         <div
           ref={title}
-          className="font-Showtime relative top-[5%] size-fit text-center text-8xl"
+          className="relative top-[5%] size-fit text-center font-Showtime text-8xl"
         >
           <p>Jeffrey</p>
           <p className="text-5xl">and</p>
@@ -160,7 +160,7 @@ const HeroPage = () => {
         {/*Date*/}
         <div
           ref={date}
-          className="font-Showtime relative top-1/2 text-center text-5xl"
+          className="relative top-1/2 text-center font-Showtime text-5xl"
         >
           <p>12.16.24</p>
           <p>Baguio City</p>
