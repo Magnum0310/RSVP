@@ -11,6 +11,7 @@ export default {
       colors: {
         roseGold: "#D5AAB0",
         ivory: "#EDE8E2",
+        champagne: "#EAD5C4",
         mauve: "#B47377",
         barley: "#AB6D3A",
       },

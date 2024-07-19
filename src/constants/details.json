@@ -1,0 +1,16 @@
+{
+  "dressCode": [
+    "We request that our guests dress in semi-formal attire. For women, this could mean a cocktail dress or a nice skirt and blouse. For men, a suit or dress slacks with a dress shirt and tie is appropriate. We want you to feel comfortable while looking your best!"
+  ],
+  "colors": ["#D5AAB0", "#EDE8E2", "#EAD5C4", "#B47377"],
+  "soup": ["Egg drop soup"],
+  "salad": ["Caesar Salad"],
+  "mainCourses": [
+    "Buttered Highland Vegetables",
+    "Sweet and Sour Fish",
+    "Grilled Chicken Tereyaki",
+    "Roast beef Short Plate"
+  ],
+  "pasta": ["Carbonara"],
+  "dessert": ["Creme Brulee", "Fresh fruit cuts"]
+}

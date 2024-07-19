@@ -17,6 +17,13 @@ import entourageFloralPrimarySponsor from "../assets/Vectors/Entourage/entourage
 import entourageFloralSecondarySponsor from "../assets/Vectors/Entourage/entourage_floralSecondarySponsor.svg";
 import entourageTitle from "../assets/Vectors/Entourage/entourage_Title.svg";
 import entourageFloralMaidOfHonor from "../assets/Vectors/Entourage/floralMaidOfHonor.svg";
+// Details
+import details1 from "../assets/Images/Details/details1.svg";
+import details2 from "../assets/Images/Details/details2.svg";
+import details3 from "../assets/Images/Details/details3.svg";
+import details4 from "../assets/Images/Details/details4.svg";
+import detailsTransition from "../assets/Vectors/Details/details_floralTransition.svg";
+import detailsFrame from "../assets/Vectors/Details/detailsFrame.svg";
 
 const Image = {
   // Hero Page
@@ -38,6 +45,13 @@ const Image = {
   entourageFloralSecondarySponsor,
   entourageTitle,
   entourageFloralMaidOfHonor,
+  // Details
+  details1,
+  details2,
+  details3,
+  details4,
+  detailsTransition,
+  detailsFrame,
 };
 
 export default Image;

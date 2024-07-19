@@ -18,14 +18,14 @@ const EntourageCardPrincipal = ({ title, list1, list2 }) => {
       <div className="flex gap-12 text-center">
         <div className="size-fit">
           {list1.map((item, index) => (
-            <div key={index} className="font-Coldiac text-[.65rem] leading-5">
+            <div key={index} className="font-Coldiac text-xs leading-5">
               {item}
             </div>
           ))}
         </div>
         <div className="size-fit">
           {list2.map((item, index) => (
-            <div key={index} className="font-Coldiac text-[.65rem] leading-5">
+            <div key={index} className="font-Coldiac text-xs leading-5">
               {item}
             </div>
           ))}

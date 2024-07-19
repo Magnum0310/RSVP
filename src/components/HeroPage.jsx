@@ -34,12 +34,13 @@ const HeroPage = () => {
             trigger: container.current,
             start: "top top",
             // end: "bottom top",
-            end: "+=1200",
+            // end: "+=1200",
+            end: "+=135%",
             scrub: true,
           },
         })
         // .to(title.current, { color: "#FFFFFF", y: 1050 }, 0)
-        .to(title.current, { color: "#FFFFFF", y: 1100 }, 0)
+        .to(title.current, { color: "#FFFFFF", y: "450%" }, 0)
         .to(floral.current, { y: -250 }, 0)
         .to(floralLeaf.current, { y: 150 }, 0)
         .to(stem.current, { y: 350 }, 0)
@@ -52,7 +53,7 @@ const HeroPage = () => {
   }, []);
   return (
     // Main page
-    <div className="h-[200vh]">
+    <div className="h-[200svh] min-h-[200vh]">
       {/* Inner Wrapper */}
       <div
         ref={container}
@@ -167,7 +168,7 @@ const HeroPage = () => {
         </div>
         <div
           ref={imageDate}
-          className="relative top-[6%] -z-10 h-[200vh] w-full bg-red-500 opacity-100"
+          className="relative top-[6%] -z-10 h-[200vh] w-full"
           style={{
             backgroundImage: `url(${heroPageDate})`,
             backgroundSize: "cover",
