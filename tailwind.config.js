@@ -5,6 +5,7 @@ export default {
     fontFamily: {
       Coldiac: ["Coldiac", "sans-serif"],
       Showtime: ["Showtime", "san-serif"],
+      MoreLight: ["MoreLight", "san-serif"],
     },
 
     extend: {

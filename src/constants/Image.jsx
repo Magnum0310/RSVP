@@ -24,6 +24,21 @@ import details3 from "../assets/Images/Details/details3.svg";
 import details4 from "../assets/Images/Details/details4.svg";
 import detailsTransition from "../assets/Vectors/Details/details_floralTransition.svg";
 import detailsFrame from "../assets/Vectors/Details/detailsFrame.svg";
+import detailsDressCode from "../assets/Vectors/Details/detailsDressCode.svg";
+import detailsDressCodeFrame from "../assets/Vectors/Details/detailsDressCodeFrame.svg";
+// Timeline
+import timeLineDivider from "../assets/Vectors/Timeline/timeLineDivider.svg";
+import timeLineFrame from "../assets/Vectors/Timeline/timeLineFrame.svg";
+// Church Location
+import leaf1 from "../assets/Vectors/ChurchLocation/leaf1.svg";
+import leaf2 from "../assets/Vectors/ChurchLocation/leaf2.svg";
+import locationAccent from "../assets/Vectors/ChurchLocation/locationAccent.svg";
+import churchMap from "../assets/Images/ChurchLocation/churchMap.png";
+// Reception Location
+import feather1 from "../assets/Vectors/WeddingReception/feather1.svg";
+import feather2 from "../assets/Vectors/WeddingReception/feather2.svg";
+import feather3 from "../assets/Vectors/WeddingReception/feather3.svg";
+import receptionMap from "../assets/Images/ReceptionLocation/receptionMap.png";
 
 const Image = {
   // Hero Page
@@ -52,6 +67,21 @@ const Image = {
   details4,
   detailsTransition,
   detailsFrame,
+  detailsDressCode,
+  detailsDressCodeFrame,
+  // Timeline
+  timeLineDivider,
+  timeLineFrame,
+  // Church Location
+  leaf1,
+  leaf2,
+  locationAccent,
+  churchMap,
+  // Reception location
+  feather1,
+  feather2,
+  feather3,
+  receptionMap,
 };
 
 export default Image;

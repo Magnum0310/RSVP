@@ -2,6 +2,7 @@ import "./App.css";
 import Hero from "./components/HeroPage";
 import Entourage from "./components/Entourage";
 import Details from "./components/Details";
+import Timeline from "./components/TimeLine";
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
       <div className="">
         <Details />
       </div>
-      <div>TEST</div>
+      <div>
+        <Timeline />
+      </div>
+      <div className="h-screen bg-emerald-500"></div>
     </>
   );
 }
