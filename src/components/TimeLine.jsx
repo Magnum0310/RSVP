@@ -34,7 +34,7 @@ const TimeLine = () => {
   return (
     <div
       ref={transition}
-      className="relative flex flex-col items-center overflow-hidden bg-purple-500"
+      className="relative flex flex-col items-center overflow-hidden"
     >
       <div className="relative z-20 h-fit w-[85%] border-b-4 border-t-4 border-solid border-barley py-6 text-center font-Coldiac text-3xl">
         The Timeline
@@ -55,18 +55,18 @@ const TimeLine = () => {
           }}
         ></div>
         {/* Timeline contents */}
-        <div className="absolute top-1/2 flex h-[75%] w-full -translate-y-1/2 flex-col items-center justify-center bg-emerald-500 font-Coldiac">
+        <div className="absolute top-1/2 flex h-[75%] w-full -translate-y-1/2 flex-col items-center justify-center font-Coldiac">
           {Details.map((detail, index) => (
-            <div key={index} className="mb-5 flex w-[90%] gap-10">
-              <div className="flex basis-1/2 justify-end gap-2">
-                <span className="font-MoreLight flex min-h-[50px] items-center text-2xl">
+            <div key={index} className="mb-5 flex w-[90%] gap-5">
+              <div className="flex basis-1/2 justify-center gap-2">
+                <span className="flex min-h-[50px] items-center font-MoreLight text-2xl">
                   {detail.time}
                 </span>
-                <span className="font-MoreLight flex items-center text-xl">
+                <span className="flex items-center font-MoreLight text-xl">
                   {detail.med}
                 </span>
               </div>
-              <div className="basis-3/4 place-content-center text-left text-xs">
+              <div className="basis-1/2 place-content-center text-left text-xs">
                 {detail.event}
               </div>
             </div>
@@ -74,7 +74,7 @@ const TimeLine = () => {
         </div>
         {/* Divider */}
         <div
-          className="absolute -left-[25%] top-0 h-full w-[135%] opacity-25"
+          className="absolute top-0 h-full w-[100%] opacity-25"
           style={{
             backgroundImage: `url("${timeLineDivider}")`,
             backgroundPosition: "center",
