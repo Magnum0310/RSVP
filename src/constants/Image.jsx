@@ -34,6 +34,9 @@ import leaf1 from "../assets/Vectors/ChurchLocation/leaf1.svg";
 import leaf2 from "../assets/Vectors/ChurchLocation/leaf2.svg";
 import locationAccent from "../assets/Vectors/ChurchLocation/locationAccent.svg";
 import churchMap from "../assets/Images/ChurchLocation/churchMap.png";
+import church1 from "../assets/Images/ChurchLocation/church1.jpg";
+import church2 from "../assets/Images/ChurchLocation/church2.jpg";
+import church3 from "../assets/Images/ChurchLocation/church3.jpg";
 // Reception Location
 import feather1 from "../assets/Vectors/WeddingReception/feather1.svg";
 import feather2 from "../assets/Vectors/WeddingReception/feather2.svg";
@@ -77,6 +80,9 @@ const Image = {
   leaf2,
   locationAccent,
   churchMap,
+  church1,
+  church2,
+  church3,
   // Reception location
   feather1,
   feather2,

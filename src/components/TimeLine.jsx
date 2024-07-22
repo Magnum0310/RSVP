@@ -86,7 +86,7 @@ const TimeLine = () => {
         {/* BackgroundImage */}
         <div
           ref={backgroundTransition}
-          className="absolute left-[80%] top-0 hidden h-full w-[135%] opacity-25"
+          className="absolute left-[80%] top-0 h-full w-[135%] opacity-25"
           style={{
             backgroundImage: `url("${entourageTransition}")`,
             backgroundPosition: "center",

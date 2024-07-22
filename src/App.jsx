@@ -3,6 +3,7 @@ import Hero from "./components/HeroPage";
 import Entourage from "./components/Entourage";
 import Details from "./components/Details";
 import Timeline from "./components/TimeLine";
+import Church from "./components/ChurchLocation";
 
 function App() {
   return (
@@ -16,10 +17,13 @@ function App() {
       <div className="">
         <Details />
       </div>
-      <div>
+      <div className="">
         <Timeline />
       </div>
-      <div className="h-screen bg-emerald-500"></div>
+      <div className="h-screen">
+        <Church />
+      </div>
+      <div className="h-screen bg-slate-500/0"></div>
     </>
   );
 }
