@@ -37,11 +37,15 @@ import churchMap from "../assets/Images/ChurchLocation/churchMap.png";
 import church1 from "../assets/Images/ChurchLocation/church1.jpg";
 import church2 from "../assets/Images/ChurchLocation/church2.jpg";
 import church3 from "../assets/Images/ChurchLocation/church3.jpg";
+
 // Reception Location
 import feather1 from "../assets/Vectors/WeddingReception/feather1.svg";
 import feather2 from "../assets/Vectors/WeddingReception/feather2.svg";
 import feather3 from "../assets/Vectors/WeddingReception/feather3.svg";
 import receptionMap from "../assets/Images/ReceptionLocation/receptionMap.png";
+import reception1 from "../assets/Images/ReceptionLocation/reception1.jpg";
+import reception2 from "../assets/Images/ReceptionLocation/reception2.jpg";
+import reception3 from "../assets/Images/ReceptionLocation/reception3.jpg";
 
 const Image = {
   // Hero Page
@@ -88,6 +92,9 @@ const Image = {
   feather2,
   feather3,
   receptionMap,
+  reception1,
+  reception2,
+  reception3,
 };
 
 export default Image;

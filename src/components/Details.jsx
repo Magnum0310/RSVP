@@ -205,6 +205,15 @@ const Details = () => {
                 rotate: "180deg",
               }}
             ></div>
+            <div
+              className="absolute top-1/2 h-[10%] w-full -translate-y-[75%] opacity-25"
+              style={{
+                backgroundImage: `url("${detailsDressCode}")`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
           </div>
           {/* The Menu */}
           <div className="relative flex w-[100%] flex-col items-center">
