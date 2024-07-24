@@ -1,5 +1,7 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useEffect } from "react";
 import Image from "../constants/Image";
+import Card from "../components/LocationCard";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -18,12 +20,14 @@ const {
 const HeroPage = () => {
   const container = useRef(null);
   const title = useRef(null);
+  const titleImage = useRef(null);
   const floral = useRef(null);
   const floralLeaf = useRef(null);
   const stem = useRef(null);
   const transition = useRef(null);
   const transitionBottom = useRef(null);
   const imageDate = useRef(null);
+  const dateContainer = useRef(null);
   const date = useRef(null);
 
   useLayoutEffect(() => {
@@ -33,24 +37,58 @@ const HeroPage = () => {
           scrollTrigger: {
             trigger: container.current,
             start: "top top",
-            // end: "bottom top",
-            // end: "+=1200",
-            end: "+=135%",
+            // end: "+=135%",
+            end: "center top",
             scrub: true,
           },
         })
-        // .to(title.current, { color: "#FFFFFF", y: 1050 }, 0)
-        .to(title.current, { color: "#FFFFFF", y: "450%" }, 0)
+        .to(titleImage.current, { rotate: "-3deg" })
         .to(floral.current, { y: -250 }, 0)
         .to(floralLeaf.current, { y: 150 }, 0)
         .to(stem.current, { y: 350 }, 0)
         .to(transition.current, { y: -150 }, 0)
         .to(transitionBottom.current, { y: -175 }, 0)
-        .to(imageDate.current, { y: -250 }, 0)
-        .to(date.current, { color: "#FFFFFF", y: -550 }, 0);
+        .to(imageDate.current, { scale: ".9", rotate: "2deg", y: -250 }, 0);
+      // .to(dateContainer.current, { y: -250 }, 0);
     });
     return () => context.revert();
   }, []);
+
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: dateContainer.current,
+            start: "top bottom",
+            end: "20% 65%",
+            scrub: true,
+          },
+        })
+        .to(
+          date.current,
+          {
+            color: "#000000",
+            // y: -600,
+            // y: `-${window.innerHeight / 4.5}%`,
+            ease: "expo",
+          },
+          0,
+        )
+        .to(
+          title.current,
+          {
+            rotate: "2deg",
+            color: "#FFFFFF",
+            y: `${window.innerHeight / 2 - 20}%`,
+            ease: "expo",
+          },
+          0,
+        );
+    });
+    return () => context.revert();
+  }, []);
+
   return (
     // Main page
     <div className="h-[200svh] min-h-[200vh]">
@@ -62,7 +100,7 @@ const HeroPage = () => {
         {/* Jeffrey and Jonalyn */}
         <div
           ref={title}
-          className="relative top-[5%] size-fit text-center font-Showtime text-8xl"
+          className="relative top-[5%] z-10 size-fit text-center font-Showtime text-8xl"
         >
           <p>Jeffrey</p>
           <p className="text-5xl">and</p>
@@ -70,14 +108,17 @@ const HeroPage = () => {
         </div>
         {/* HeroImage */}
         <div
+          ref={titleImage}
           className="h-full w-[90%] opacity-100"
-          style={{
-            backgroundImage: `url(${heroPageMain})`,
-            backgroundSize: "cover",
-            backgroundPosition: "left",
-            backgroundRepeat: "no-repeat",
-          }}
-        ></div>
+          // style={{
+          //   backgroundImage: `url(${heroPageMain})`,
+          //   backgroundSize: "cover",
+          //   backgroundPosition: "left",
+          //   backgroundRepeat: "no-repeat",
+          // }}
+        >
+          <Card image={heroPageMain} />
+        </div>
         {/* Parallax Slides - Top - Position:Relative */}
         <div
           className="absolute top-[5%] -z-10 h-full w-full overflow-hidden"
@@ -156,25 +197,40 @@ const HeroPage = () => {
             }}
           ></div>
         </div>
+        {/* Spacer */}
         <div className="h-[50vh]"></div>
         {/* HeroDate */}
         {/*Date*/}
-        <div
+
+        {/* <div
           ref={date}
-          className="relative top-1/2 text-center font-Showtime text-5xl"
+          className="absolute bottom-[10%] z-30 bg-blue-500 text-center font-Showtime text-5xl"
         >
           <p>12.16.24</p>
           <p>Baguio City</p>
-        </div>
+        </div> */}
         <div
           ref={imageDate}
           className="relative top-[6%] -z-10 h-[200vh] w-full"
-          style={{
-            backgroundImage: `url(${heroPageDate})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center right 40%",
-            backgroundRepeat: "no-repeat",
-          }}
+          // style={{
+          //   backgroundImage: `url(${heroPageDate})`,
+          //   backgroundSize: "cover",
+          //   backgroundPosition: "center right 40%",
+          //   backgroundRepeat: "no-repeat",
+          // }}
+        >
+          <Card image={heroPageDate} />
+          <div
+            ref={date}
+            className="absolute bottom-[3%] left-1/2 z-30 -translate-x-1/2 text-center font-Showtime text-5xl"
+          >
+            <p>12.16.24</p>
+            <p>Baguio City</p>
+          </div>
+        </div>
+        <div
+          ref={dateContainer}
+          className="absolute bottom-0 h-1/4 w-full"
         ></div>
       </div>
     </div>

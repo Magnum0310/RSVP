@@ -19,7 +19,11 @@ const LocationCard = ({ image, title, address, link }) => {
             <p className="text-xl">{title}</p>
             <span className="text-xs">{address}</span>
           </span>
-          <a href={link} className="w-[50%] rounded-xl bg-slate-300">
+          <a
+            href={link}
+            className="w-[50%] rounded-xl bg-slate-300"
+            target="_blank"
+          >
             Open Map
           </a>
         </div>
