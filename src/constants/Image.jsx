@@ -1,6 +1,8 @@
 // Hero
-import heroPageMain from "../assets/Images/HeroPage/heroPageMain.jpg";
+import heroPageMain from "../assets/Vectors/HeroPage/heroPageMain.jpg";
+import heroPageMainMask from "../assets/Vectors/HeroPage/heroPageMainMask.svg";
 import heroPageDate from "../assets/Images/HeroPage/heroPageDate.jpg";
+import heroPageMask from "../assets/Images/HeroPage/heroPageDateMask.svg";
 import floralMid from "../assets/Vectors/HeroPage/heroPage_floralMid.svg";
 import floralLeaf1 from "../assets/Vectors/HeroPage/heroPage_floralleaf1.svg";
 import floralLeaf2 from "../assets/Vectors/HeroPage/heroPage_floralleaf2.svg";
@@ -51,6 +53,8 @@ const Image = {
   // Hero Page
   heroPageMain,
   heroPageDate,
+  heroPageMainMask,
+  heroPageMask,
   floralMid,
   floralLeaf1,
   floralLeaf2,
