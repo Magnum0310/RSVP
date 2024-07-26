@@ -12,6 +12,7 @@ ScrollTrigger.normalizeScroll(false);
 const {
   heroPageMain,
   heroPageMainMask,
+  heroPageBorder,
   heroPageDate,
   heroPageMask,
   floralMid,
@@ -19,6 +20,8 @@ const {
   floralLeaf2,
   floralTransition,
   floralFlower,
+  heroPhoto1,
+  heroPhoto2,
 } = Image;
 
 const ParallaxImage = ({ image, track, date }) => {
@@ -59,6 +62,26 @@ const ParallaxImage = ({ image, track, date }) => {
   );
 };
 
+const PhotoCard = ({ image, track, position }) => {
+  return (
+    <div
+      ref={track}
+      className={`relative flex size-full basis-1/2 ${position} flex-col items-center justify-center bg-white font-Coldiac`}
+    >
+      <div className="flex size-[90%] flex-col items-center gap-2">
+        <div
+          className="w-full basis-[85%]"
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+};
+
 const HeroPage = () => {
   const container = useRef(null);
   const title = useRef(null);
@@ -73,6 +96,8 @@ const HeroPage = () => {
   const imageDate = useRef(null);
   const dateContainer = useRef(null);
   const date = useRef(null);
+  const photo1 = useRef(null);
+  const photo2 = useRef(null);
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -96,24 +121,17 @@ const HeroPage = () => {
             scrub: true,
           },
         })
-        // .to(
-        //   title.current,
-        //   { opacity: 0, ease: "expo.inOut", y: `${window.innerHeight / 2}%` },
-        //   0,
-        // )
-        // .to(titleContainer.current, { y: "0%" }, 0)
         .to(floral.current, { y: -250 }, 0)
         .to(floralLeaf.current, { y: 150 }, 0)
         .to(stem.current, { y: 350 }, 0)
         .to(transition.current, { y: -250 }, 0)
-        .to(transitionBottom.current, { y: "15%" }, 0)
-        .to(imageDate.current, { rotate: "1deg", y: -350 }, 0);
+        // .to(transitionBottom.current, { y: "15%" }, 0)
+        .to(imageDate.current, { rotate: "1deg", y: -450 }, 0);
     });
     return () => context.revert();
   }, []);
 
-  //################
-
+  // Jeffrey and Jonnalyn
   useLayoutEffect(() => {
     const context = gsap.context(() => {
       const tl = gsap
@@ -133,10 +151,7 @@ const HeroPage = () => {
     });
     return () => context.revert();
   }, []);
-
-  // ###############
-
-  // Date
+  // Save the Date
   useLayoutEffect(() => {
     const context = gsap.context(() => {
       const tl = gsap
@@ -151,11 +166,33 @@ const HeroPage = () => {
         .to(
           date.current,
           {
-            y: `-${window.innerHeight / 2}%`,
+            y: `-${window.innerHeight / 3}%`,
             ease: "expo",
           },
           0,
         );
+    });
+    return () => context.revert();
+  }, []);
+  // Photo Transition
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: dateContainer.current,
+            start: "40% 80%",
+            end: "bottom 35%",
+            scrub: true,
+            markers: {
+              startColor: "green",
+              endColor: "red",
+              fontSize: "12px",
+            },
+          },
+        })
+        .to(photo1.current, { x: "100%", ease: "expo.inOut", y: "15%" }, 0)
+        .to(photo2.current, { x: "-100%", ease: "expo.inOut", y: "15%" }, 0);
     });
     return () => context.revert();
   }, []);
@@ -193,6 +230,7 @@ const HeroPage = () => {
               backgroundPosition: "center",
             }}
           ></div>
+
           {/* Jeffrey and Jonalyn */}
           <div
             ref={title}
@@ -272,51 +310,55 @@ const HeroPage = () => {
           ></div>
           <div
             ref={transitionBottom}
-            className="absolute bottom-0 right-[90%] z-20 h-1/2 w-1/2"
-            style={{
-              backgroundImage: `url(${floralMid})`,
-              backgroundSize: "contain",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              rotate: "90deg",
-              scale: "3",
-            }}
-          ></div>
+            className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2"
+            // style={{
+            //   backgroundImage: `url(${floralMid})`,
+            //   backgroundSize: "contain",
+            //   backgroundPosition: "center",
+            //   backgroundRepeat: "no-repeat",
+            //   rotate: "90deg",
+            //   scale: "3",
+            // }}
+          >
+            {/* <PhotoCard
+              image={heroPageMain}
+              track={photo1}
+              position={"right-[50%]"}
+            /> */}
+            <div
+              ref={photo1}
+              className="relative right-[50%] size-full basis-1/2 rotate-[-2deg] font-Coldiac"
+            >
+              <div
+                className="size-full"
+                style={{
+                  backgroundImage: `url(${heroPhoto1})`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                }}
+              ></div>
+            </div>
+            <div
+              ref={photo2}
+              className="relative left-[50%] size-full basis-1/2 rotate-[2deg] font-Coldiac"
+            >
+              <div
+                className="size-full"
+                style={{
+                  backgroundImage: `url(${heroPhoto2})`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                }}
+              ></div>
+            </div>
+          </div>
         </div>
         {/* Spacer */}
         <div className="h-[50vh]"></div>
         {/* HeroDate */}
         {/*Date*/}
-
-        {/* <div
-          ref={date}
-          className="absolute bottom-[10%] z-30 bg-blue-500 text-center font-Showtime text-5xl"
-        >
-          <p>12.16.24</p>
-          <p>Baguio City</p>
-        </div> */}
-        <div
-          ref={imageDate}
-          className="relative top-[6%] -z-10 h-1/2 w-full"
-          // style={{
-          //   backgroundImage: `url(${heroPageDate})`,
-          //   backgroundSize: "cover",
-          //   backgroundPosition: "center right 40%",
-          //   backgroundRepeat: "no-repeat",
-          // }}
-        >
-          <ParallaxImage
-            image={heroPageDate}
-            // track={dateContainer}
-            date={date}
-          />
-          <div
-            // ref={date}
-            className="absolute bottom-[3%] left-1/2 z-30 hidden -translate-x-1/2 text-center font-Showtime text-5xl"
-          >
-            <p>12.16.24</p>
-            <p>Baguio City</p>
-          </div>
+        <div ref={imageDate} className="relative top-[6%] -z-10 h-1/4 w-full">
+          <ParallaxImage image={heroPageDate} date={date} />
         </div>
         <div
           ref={dateContainer}

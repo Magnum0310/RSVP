@@ -1,6 +1,7 @@
 // Hero
-import heroPageMain from "../assets/Vectors/HeroPage/heroPageMain.jpg";
+import heroPageMain from "../assets/Vectors/HeroPage/heroPageMain.svg";
 import heroPageMainMask from "../assets/Vectors/HeroPage/heroPageMainMask.svg";
+import heroPageBorder from "../assets/Vectors/HeroPage/heroPageBorder.svg";
 import heroPageDate from "../assets/Images/HeroPage/heroPageDate.jpg";
 import heroPageMask from "../assets/Images/HeroPage/heroPageDateMask.svg";
 import floralMid from "../assets/Vectors/HeroPage/heroPage_floralMid.svg";
@@ -8,6 +9,8 @@ import floralLeaf1 from "../assets/Vectors/HeroPage/heroPage_floralleaf1.svg";
 import floralLeaf2 from "../assets/Vectors/HeroPage/heroPage_floralleaf2.svg";
 import floralTransition from "../assets/Vectors/HeroPage/heroPage_floralTransition.svg";
 import floralFlower from "../assets/Vectors/HeroPage/heroPage_flower.svg";
+import heroPhoto1 from "../assets/Images/HeroPage/photo1.svg";
+import heroPhoto2 from "../assets/Images/HeroPage/photo2.svg";
 // Entourage
 import entourage1 from "../assets/Images/Entourage/entourage1.svg";
 import entourage2 from "../assets/Images/Entourage/entourage2.svg";
@@ -54,12 +57,15 @@ const Image = {
   heroPageMain,
   heroPageDate,
   heroPageMainMask,
+  heroPageBorder,
   heroPageMask,
   floralMid,
   floralLeaf1,
   floralLeaf2,
   floralTransition,
   floralFlower,
+  heroPhoto1,
+  heroPhoto2,
   // Entourage
   entourage1,
   entourage2,
