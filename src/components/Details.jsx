@@ -50,9 +50,7 @@ const Details = () => {
         .to(transition.current, { y: 350 }, 0)
         .to(firstImage.current, { rotate: -10, x: "75%" }, 0)
         .to(secondImage.current, { rotate: 10, x: "175%" }, 0)
-        .to(detailTransition.current, { rotate: 30, x: 390 }, 0);
-      // .to(dressCode.current, { x: 390 }, 0)
-      // .to(menu.current, { x: 390 }, 0);
+        .to(detailTransition.current, { x: 350 }, 0);
     });
     return () => context.revert();
   }, []);

@@ -11,6 +11,11 @@ import floralTransition from "../assets/Vectors/HeroPage/heroPage_floralTransiti
 import floralFlower from "../assets/Vectors/HeroPage/heroPage_flower.svg";
 import heroPhoto1 from "../assets/Images/HeroPage/photo1.svg";
 import heroPhoto2 from "../assets/Images/HeroPage/photo2.svg";
+import flower1 from "../assets/Vectors/HeroPage/flower1.svg";
+import flower2 from "../assets/Vectors/HeroPage/flower2.svg";
+import flower3 from "../assets/Vectors/HeroPage/flower3.svg";
+import flowerStem from "../assets/Vectors/HeroPage/flowerStem.svg";
+
 // Entourage
 import entourage1 from "../assets/Images/Entourage/entourage1.svg";
 import entourage2 from "../assets/Images/Entourage/entourage2.svg";
@@ -66,6 +71,10 @@ const Image = {
   floralFlower,
   heroPhoto1,
   heroPhoto2,
+  flower1,
+  flower2,
+  flower3,
+  flowerStem,
   // Entourage
   entourage1,
   entourage2,
