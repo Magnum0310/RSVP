@@ -4,9 +4,9 @@ const { entourageDivider } = Image;
 
 const EntourageCard = ({ title, list, coldiac }) => {
   return (
-    <div className="flex h-fit min-w-[150px] flex-col items-center">
+    <div className="flex h-fit min-w-[150px] flex-col items-center sm:min-w-[250px]">
       <div
-        className={`text-center font-${coldiac ? "Coldiac" : "Showtime"} text-2xl`}
+        className={`text-center font-${coldiac ? "Coldiac" : "Showtime"} text-entourage-title`}
       >
         {title}
       </div>
@@ -20,7 +20,7 @@ const EntourageCard = ({ title, list, coldiac }) => {
         }}
       ></div>
       {list.map((item, index) => (
-        <div key={index} className="font-Coldiac text-xs leading-5">
+        <div key={index} className="text-entourage-list font-Coldiac">
           {item}
         </div>
       ))}

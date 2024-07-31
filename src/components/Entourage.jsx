@@ -86,7 +86,7 @@ const Entourage = () => {
         className="relative flex size-full flex-col justify-center overflow-hidden"
       >
         {/* Entourage Images - Position:Absolute */}
-        <div className="relative h-[75vh] w-full">
+        <div className="relative h-[75vh] w-full sm:h-[100vh] sm:bg-blue-500">
           <div className="absolute h-1/4 w-full">
             <div
               ref={imageCenter}
@@ -133,13 +133,13 @@ const Entourage = () => {
             ></div>
             <div
               ref={imageTransition}
-              className="absolute top-40 z-[5] h-full w-full"
+              className="absolute top-40 z-[5] h-full w-full scale-[3.5] sm:scale-[3]"
               style={{
                 backgroundImage: `url(${entourageTransition})`,
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
-                scale: "3.5",
+                // scale: "3.5",
               }}
             ></div>
           </div>
@@ -150,9 +150,8 @@ const Entourage = () => {
             The Entourage
           </div>
           {/* MAIN CONTENT WRAPPER */}
-          <div className="relative top-[10%] mt-10 flex w-full flex-col gap-5">
+          <div className="relative top-[10%] mt-10 flex w-full flex-col gap-5 sm:gap-8">
             {/* Parents */}
-            {/* <div className="absolute top-[5%] flex w-full justify-center gap-12"> */}
             <div className="flex w-full justify-center gap-12">
               <EntourageCard
                 title={"Parents of the Bride"}
@@ -164,7 +163,6 @@ const Entourage = () => {
               />
             </div>
             {/* Principal Sponsors */}
-            {/* <div className="absolute top-[9%] flex w-full flex-col items-center"> */}
             <div className="flex w-full flex-col items-center">
               <EntourageCardPrincipal
                 list1={principalSponsorsMale}
@@ -173,19 +171,16 @@ const Entourage = () => {
               />
             </div>
             {/* Maid of Honor and Best Man */}
-            {/* <div className="absolute top-[20%] flex w-full justify-center gap-12"> */}
             <div className="flex w-full justify-center gap-12">
               <EntourageCard title={"Maid of Honor"} list={maidOfHonor} />
               <EntourageCard title={"Best Man"} list={bestMan} />
             </div>
             {/* Groomsmen and Bridesmaid */}
-            {/* <div className="absolute top-[23%] flex w-full justify-center gap-12"> */}
             <div className="flex w-full justify-center gap-12">
               <EntourageCard title={"Groomsmen"} list={groomsMen} />
               <EntourageCard title={"BridesMaid"} list={bridesMaid} />
             </div>
             {/* Secondary Sponsor */}
-            {/* <div className="absolute top-[31%] flex h-fit min-w-[150px] flex-col items-center"> */}
             <div className="flex h-fit min-w-[150px] flex-col items-center">
               <div className="text-center font-Showtime text-2xl">
                 Secondary Sponsors
@@ -201,24 +196,20 @@ const Entourage = () => {
               ></div>
             </div>
             {/* Candle and Cord */}
-            {/* <div className="absolute top-[33%] flex w-full justify-center gap-12"> */}
             <div className="flex w-full justify-center gap-12">
               <EntourageCard title={"Candle"} list={candle} />
               <EntourageCard title={"Cord"} list={cord} />
             </div>
             {/* Veil */}
-            {/* <div className="absolute top-[36%] flex w-full justify-center gap-12"> */}
             <div className="flex w-full justify-center gap-12">
               <EntourageCard title={"Veil"} list={veil} />
             </div>
             {/* Ring and Coin Bearer */}
-            {/* <div className="absolute top-[39%] flex w-full justify-center gap-12"> */}
             <div className="flex w-full justify-center gap-12">
               <EntourageCard title={"Ring Bearer"} list={ringBearer} />
               <EntourageCard title={"Coin Bearer"} list={coinBearer} />
             </div>{" "}
             {/* Bible bearer and Flower girls */}
-            {/* <div className="absolute top-[42%] flex w-full justify-center gap-12"> */}
             <div className="flex w-full justify-center gap-12">
               <EntourageCard title={"Bible Bearer"} list={bibleBearer} />
               <EntourageCard title={"Flower Girls"} list={flowerGirls} />
@@ -231,7 +222,7 @@ const Entourage = () => {
           >
             {/* Title */}
             <div
-              className="relative top-[5%] -z-10 h-[15%] w-full opacity-25"
+              className="relative top-[5%] -z-10 h-[15%] w-full opacity-25 sm:top-[10%] sm:scale-[1.3]"
               style={{
                 backgroundImage: `url(${entourageTitle})`,
                 backgroundPosition: "center",
@@ -243,37 +234,37 @@ const Entourage = () => {
             {/* Primary Sponsors */}
             <div
               ref={primarySponsory}
-              className="relative top-[30%] -z-10 h-[15%] w-full opacity-25"
+              className="relative top-[30%] -z-10 h-[15%] w-full scale-[.6] opacity-25 sm:scale-100"
               style={{
                 backgroundImage: `url(${entourageFloralPrimarySponsor})`,
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
-                scale: ".6",
+                // scale: ".6",
               }}
             ></div>
             {/* Maid of Honor and BestMan*/}
             <div
               ref={entourageMaidOfHonor}
-              className="relative top-[45%] -z-10 h-[15%] w-full opacity-25"
+              className="relative top-[45%] -z-10 h-[15%] w-full scale-[.6] opacity-25 sm:scale-100"
               style={{
                 backgroundImage: `url(${entourageFloralMaidOfHonor})`,
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
-                scale: ".6",
+                // scale: ".6",
               }}
             ></div>
             {/* Secondary Sponsors*/}
             <div
               ref={secondarySponsory}
-              className="relative top-[55%] -z-10 h-[15%] w-full opacity-25"
+              className="relative top-[55%] -z-10 h-[15%] w-full scale-[.7] opacity-25 sm:scale-100"
               style={{
                 backgroundImage: `url(${entourageFloralSecondarySponsor})`,
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
-                scale: ".7",
+                // scale: ".7",
               }}
             ></div>
           </div>

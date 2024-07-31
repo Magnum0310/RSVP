@@ -26,4 +26,11 @@
   .border-draft {
     @apply border-2 border-solid border-red-500;
   }
+
+  .text-entourage-title {
+    @apply text-2xl sm:text-3xl;
+  }
+  .text-entourage-list {
+    @apply text-xs leading-5 sm:text-[.9rem];
+  }
 }

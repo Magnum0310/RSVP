@@ -138,15 +138,13 @@ const HeroPage = () => {
           scrollTrigger: {
             trigger: titleContainer.current,
             start: "15% 15%",
-            // start: `${innerHeight / 50}% ${innerHeight / 55}%`,
             end: "100% 65%",
             scrub: true,
           },
         })
         .to(title.current, {
-          // y: 500,
           y: `${innerHeight / 2}%`,
-          opacity: 1,
+          opacity: 0,
           ease: "power1.inOut",
         });
     });
@@ -162,18 +160,12 @@ const HeroPage = () => {
             start: "25% 60%",
             end: "55% 35%",
             scrub: true,
-            markers: {
-              startColor: "green",
-              endColor: "red",
-              fontSize: "12px",
-            },
           },
         })
         .to(
           date.current,
           {
             y: `-${window.innerHeight / 2.5}%`,
-            // y: -200,
             ease: "expo",
           },
           0,
@@ -191,10 +183,15 @@ const HeroPage = () => {
             start: "40% 80%",
             end: "bottom 35%",
             scrub: true,
+            markers: {
+              startColor: "green",
+              endColor: "red",
+              fontSize: "12px",
+            },
           },
         })
-        .to(photo1.current, { x: "100%", ease: "expo.inOut", y: "15%" }, 0)
-        .to(photo2.current, { x: "-100%", ease: "expo.inOut", y: "15%" }, 0);
+        .to(photo1.current, { x: "115%", ease: "expo.inOut", y: "15%" }, 0)
+        .to(photo2.current, { x: "-115%", ease: "expo.inOut", y: "15%" }, 0);
     });
     return () => context.revert();
   }, []);
@@ -307,11 +304,11 @@ const HeroPage = () => {
           </div>
           <div
             ref={transitionBottom}
-            className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2"
+            className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2 sm:h-[16%] sm:gap-0"
           >
             <div
               ref={photo1}
-              className="relative right-[50%] size-full basis-1/2 rotate-[-2deg] font-Coldiac"
+              className="relative right-[50%] size-full basis-1/2 rotate-[-2deg]"
             >
               <div
                 className="size-full"
@@ -325,7 +322,7 @@ const HeroPage = () => {
             </div>
             <div
               ref={photo2}
-              className="relative left-[50%] size-full basis-1/2 rotate-[2deg] font-Coldiac"
+              className="relative left-[50%] size-full basis-1/2 rotate-[2deg]"
             >
               <div
                 className="size-full"
@@ -351,7 +348,7 @@ const HeroPage = () => {
         </div>
         <div
           ref={dateContainer}
-          className="border-draft absolute bottom-1/4 h-1/4 w-full"
+          className="border-draft absolute bottom-1/4 h-1/4 w-full sm:h-[15%]"
         ></div>
       </div>
     </div>

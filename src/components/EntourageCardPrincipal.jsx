@@ -5,7 +5,9 @@ const { entourageDivider } = Image;
 const EntourageCardPrincipal = ({ title, list1, list2 }) => {
   return (
     <div className="flex h-fit flex-col items-center">
-      <div className="w-full text-center font-Showtime text-2xl">{title}</div>
+      <div className="text-entourage-title w-full text-center font-Showtime">
+        {title}
+      </div>
       <div
         className="mb-2 h-[10px] w-1/2"
         style={{
@@ -15,17 +17,17 @@ const EntourageCardPrincipal = ({ title, list1, list2 }) => {
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <div className="flex gap-12 text-center">
-        <div className="size-fit">
+      <div className="text-entourage-list flex gap-12 text-center">
+        <div className="size-fit sm:min-w-[250px]">
           {list1.map((item, index) => (
-            <div key={index} className="font-Coldiac text-xs leading-5">
+            <div key={index} className="font-Coldiac">
               {item}
             </div>
           ))}
         </div>
-        <div className="size-fit">
+        <div className="size-fit sm:min-w-[250px]">
           {list2.map((item, index) => (
-            <div key={index} className="font-Coldiac text-xs leading-5">
+            <div key={index} className="font-Coldiac">
               {item}
             </div>
           ))}
