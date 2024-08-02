@@ -22,6 +22,11 @@ const TimeLine = () => {
             start: "top bottom",
             end: "bottom top",
             scrub: true,
+            markers: {
+              startColor: "green",
+              endColor: "red",
+              fontSize: "12px",
+            },
           },
         })
         .to(timeLineContents.current, { y: "-15%" }, 0)
@@ -42,31 +47,43 @@ const TimeLine = () => {
       {/* Main Content Box */}
       <div
         ref={timeLineContents}
-        className="relative flex h-[100vh] w-[100%] -translate-y-[0%] justify-center"
+        className="relative flex h-[100vh] w-[100%] -translate-y-[0%] justify-center sm:w-[90%]"
       >
         {/* Frame - Position:Absolute */}
         <div
-          className="absolute top-0 size-full"
+          className="absolute top-0 size-full overflow-hidden sm:top-[60%] sm:h-[90%] sm:-translate-y-1/2"
           style={{
             backgroundImage: `url("${timeLineFrame}")`,
             backgroundPosition: "center",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
           }}
-        ></div>
+        >
+          {/* <div
+            ref={backgroundTransition}
+            className="absolute left-[80%] top-0 h-full w-[135%] bg-emerald-500 opacity-25"
+            style={{
+              backgroundImage: `url("${entourageTransition}")`,
+              backgroundPosition: "center",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              scale: "1",
+            }}
+          ></div> */}
+        </div>
         {/* Timeline contents */}
-        <div className="absolute top-1/2 flex h-[75%] w-full -translate-y-1/2 flex-col items-center justify-center font-Coldiac">
+        <div className="absolute top-1/2 flex h-[75%] w-full -translate-y-1/2 flex-col items-center justify-center font-Coldiac sm:top-[60%]">
           {Details.map((detail, index) => (
-            <div key={index} className="mb-5 flex w-[90%] gap-5">
+            <div key={index} className="mb-5 flex w-[90%] gap-5 sm:mb-10">
               <div className="flex basis-1/2 justify-center gap-2">
-                <span className="flex min-h-[50px] items-center font-MoreLight text-2xl">
+                <span className="text-time flex min-h-[50px] items-center font-MoreLight">
                   {detail.time}
                 </span>
-                <span className="flex items-center font-MoreLight text-xl">
+                <span className="text-time-md flex items-center font-MoreLight">
                   {detail.med}
                 </span>
               </div>
-              <div className="basis-1/2 place-content-center text-left text-xs">
+              <div className="text-entourage-list basis-1/2 place-content-center text-left">
                 {detail.event}
               </div>
             </div>
@@ -74,7 +91,7 @@ const TimeLine = () => {
         </div>
         {/* Divider */}
         <div
-          className="absolute top-0 h-full w-[100%] opacity-25"
+          className="absolute top-0 h-full w-[100%] opacity-25 sm:top-[40%] sm:-translate-x-1/2"
           style={{
             backgroundImage: `url("${timeLineDivider}")`,
             backgroundPosition: "center",

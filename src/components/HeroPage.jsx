@@ -183,11 +183,6 @@ const HeroPage = () => {
             start: "40% 80%",
             end: "bottom 35%",
             scrub: true,
-            markers: {
-              startColor: "green",
-              endColor: "red",
-              fontSize: "12px",
-            },
           },
         })
         .to(photo1.current, { x: "115%", ease: "expo.inOut", y: "15%" }, 0)
@@ -304,11 +299,11 @@ const HeroPage = () => {
           </div>
           <div
             ref={transitionBottom}
-            className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2 sm:h-[16%] sm:gap-0"
+            className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2 sm:h-[13%] sm:gap-0"
           >
             <div
               ref={photo1}
-              className="relative right-[50%] size-full basis-1/2 rotate-[-2deg]"
+              className="relative right-[50%] size-full basis-1/2 rotate-[-2deg] sm:right-[52%]"
             >
               <div
                 className="size-full"
@@ -322,7 +317,7 @@ const HeroPage = () => {
             </div>
             <div
               ref={photo2}
-              className="relative left-[50%] size-full basis-1/2 rotate-[2deg]"
+              className="relative left-[50%] size-full basis-1/2 rotate-[2deg] sm:left-[52%]"
             >
               <div
                 className="size-full"

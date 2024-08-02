@@ -47,7 +47,7 @@ const Details = () => {
             scrub: true,
           },
         })
-        .to(transition.current, { y: 350 }, 0)
+        // .to(transition.current, { y: 350 }, 0)
         .to(firstImage.current, { rotate: -10, x: "75%" }, 0)
         .to(secondImage.current, { rotate: 10, x: "175%" }, 0)
         .to(detailTransition.current, { x: 350 }, 0);
@@ -137,13 +137,12 @@ const Details = () => {
           ></div>
           <div
             ref={detailTransition}
-            className="absolute -left-1/2 top-1/4 -z-10 h-1/2 w-1/2 place-content-center"
+            className="absolute -left-1/2 top-1/4 -z-10 h-1/2 w-1/2 rotate-[-45deg] scale-[2.5] place-content-center sm:scale-[2]"
             style={{
               backgroundImage: `url("${detailsTransition}")`,
               backgroundPosition: "center",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
-              scale: "2.5",
             }}
           ></div>
         </div>
@@ -174,7 +173,10 @@ const Details = () => {
               Dress Code
             </div>
             {dressCode.map((item, index) => (
-              <div key={index} className="font-Coldiac text-xs leading-5">
+              <div
+                key={index}
+                className="text-entourage-list font-Coldiac sm:leading-6"
+              >
                 {item}
               </div>
             ))}
@@ -204,7 +206,7 @@ const Details = () => {
               }}
             ></div>
             <div
-              className="absolute top-1/2 h-[10%] w-full -translate-y-[75%] opacity-25"
+              className="absolute top-1/2 h-[10%] w-full -translate-y-[75%] opacity-25 sm:-translate-y-[125%]"
               style={{
                 backgroundImage: `url("${detailsDressCode}")`,
                 backgroundSize: "contain",
@@ -215,8 +217,8 @@ const Details = () => {
           </div>
           {/* The Menu */}
           <div className="relative flex w-[100%] flex-col items-center">
-            <div className="flex w-fit flex-col items-center">
-              <div className="mt-3 flex h-fit min-w-[150px] flex-col items-center">
+            <div className="flex w-fit flex-col items-center sm:gap-10">
+              <div className="mb-3 flex h-fit min-w-[150px] flex-col items-center sm:mb-0">
                 <div className="text-center font-Coldiac text-2xl">
                   The Menu
                 </div>
@@ -229,7 +231,7 @@ const Details = () => {
             </div>
             <div
               ref={menuList}
-              className="absolute top-[25%] -z-10 size-full pb-[25%] pt-[20%]"
+              className="absolute top-[25%] -z-10 size-full pb-[25%] pt-[20%] sm:h-[100%]"
               style={{
                 backgroundImage: `url("${detailsFrame}")`,
                 backgroundSize: "contain",

@@ -66,7 +66,7 @@ const Entourage = () => {
         })
         .to(imageCenter.current, { y: 200 }, 0)
         .to(imageTransition.current, { y: 250 }, 0)
-        .to(image1.current, { rotate: 12, y: -350 }, 0)
+        .to(image1.current, { rotate: 9, y: -350 }, 0)
         .to(image2.current, { rotate: -5, y: -750 }, 0)
         .to(image3.current, { rotate: -18, y: -1050 }, 0)
         .to(entourageTitleFloral.current, { y: -200 }, 0)
@@ -100,18 +100,18 @@ const Entourage = () => {
             ></div>
             <div
               ref={image1}
-              className="relative left-[3%] top-[55%] z-10 h-[150%] w-[30%]"
+              className="border-draft relative left-[3%] top-[55%] z-10 h-[150%] w-[30%] sm:-top-[35%] sm:left-[0%] sm:h-[175%] sm:w-[40%]"
               style={{
                 backgroundImage: `url(${entourage1})`,
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
-                rotate: "-10deg",
+                rotate: "-7deg",
               }}
             ></div>
             <div
               ref={image2}
-              className="relative left-1/2 top-[15%] z-20 h-[200%] w-[40%] -translate-x-1/2"
+              className="relative left-1/2 top-[15%] z-20 h-[200%] w-[40%] -translate-x-1/2 sm:-top-[75%] sm:w-[45%]"
               style={{
                 backgroundImage: `url(${entourage2})`,
                 backgroundPosition: "center",
@@ -122,7 +122,7 @@ const Entourage = () => {
             ></div>
             <div
               ref={image3}
-              className="relative -top-[15%] left-[65%] z-10 h-[135%] w-[35%]"
+              className="relative -top-[15%] left-[65%] z-10 h-[135%] w-[35%] sm:-top-[155%] sm:h-[180%] sm:w-[40%]"
               style={{
                 backgroundImage: `url(${entourage3})`,
                 backgroundPosition: "center",
@@ -222,7 +222,7 @@ const Entourage = () => {
           >
             {/* Title */}
             <div
-              className="relative top-[5%] -z-10 h-[15%] w-full opacity-25 sm:top-[10%] sm:scale-[1.3]"
+              className="relative top-[5%] -z-10 h-[15%] w-full opacity-25 sm:top-[6%] sm:h-[12%] sm:scale-[1.3]"
               style={{
                 backgroundImage: `url(${entourageTitle})`,
                 backgroundPosition: "center",
@@ -234,7 +234,7 @@ const Entourage = () => {
             {/* Primary Sponsors */}
             <div
               ref={primarySponsory}
-              className="relative top-[30%] -z-10 h-[15%] w-full scale-[.6] opacity-25 sm:scale-100"
+              className="relative top-[30%] -z-10 h-[15%] w-full scale-[.6] opacity-25 sm:h-[12%] sm:scale-100"
               style={{
                 backgroundImage: `url(${entourageFloralPrimarySponsor})`,
                 backgroundPosition: "center",
@@ -246,7 +246,7 @@ const Entourage = () => {
             {/* Maid of Honor and BestMan*/}
             <div
               ref={entourageMaidOfHonor}
-              className="relative top-[45%] -z-10 h-[15%] w-full scale-[.6] opacity-25 sm:scale-100"
+              className="relative top-[45%] -z-10 h-[15%] w-full scale-[.6] opacity-25 sm:h-[12%] sm:scale-100"
               style={{
                 backgroundImage: `url(${entourageFloralMaidOfHonor})`,
                 backgroundPosition: "center",
@@ -258,7 +258,7 @@ const Entourage = () => {
             {/* Secondary Sponsors*/}
             <div
               ref={secondarySponsory}
-              className="relative top-[55%] -z-10 h-[15%] w-full scale-[.7] opacity-25 sm:scale-100"
+              className="relative top-[55%] -z-10 h-[15%] w-full scale-[.7] opacity-25 sm:h-[12%] sm:scale-100"
               style={{
                 backgroundImage: `url(${entourageFloralSecondarySponsor})`,
                 backgroundPosition: "center",
