@@ -13,11 +13,11 @@ const LocationCard = ({ image, title, address, link }) => {
           }}
         ></div>
         <div
-          className={`flex ${!link && "hidden"} basis-1/4 flex-col items-center gap-2 text-center`}
+          className={`flex ${!link && "hidden"} basis-1/4 flex-col items-center gap-2 text-center sm:justify-center`}
         >
           <span>
-            <p className="text-xl">{title}</p>
-            <span className="text-xs">{address}</span>
+            <p className="text-xl sm:text-2xl">{title}</p>
+            <span className="text-xs sm:text-base">{address}</span>
           </span>
           <a
             href={link}

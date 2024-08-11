@@ -22,11 +22,6 @@ const TimeLine = () => {
             start: "top bottom",
             end: "bottom top",
             scrub: true,
-            markers: {
-              startColor: "green",
-              endColor: "red",
-              fontSize: "12px",
-            },
           },
         })
         .to(timeLineContents.current, { y: "-15%" }, 0)

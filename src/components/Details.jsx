@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, forwardRef } from "react";
 import Image from "../constants/Image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -21,6 +21,21 @@ const {
 const { dressCode, colors, soup, salad, mainCourses, pasta, dessert } =
   eventDetails;
 
+const DetailsImageTransition = ({ imageName, styleName, refName }) => {
+  return (
+    <div
+      ref={refName}
+      className={styleName}
+      style={{
+        backgroundImage: `url("${imageName}")`,
+        backgroundPosition: "center",
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+      }}
+    ></div>
+  );
+};
+
 const Details = () => {
   const container2 = useRef(null);
   const container22 = useRef(null);
@@ -35,6 +50,32 @@ const Details = () => {
   const dressCodeList1 = useRef(null);
   const menuList = useRef(null);
 
+  // DETAIL IMAGE STYLE
+  const detailStyleName =
+    "h-full max-h-[85%] w-1/2 absolute top-1/2 -translate-y-1/2 place-content-center";
+  const detailsImagesMap = [
+    {
+      imageName: details1,
+      styleName: ` -left-[50%]  ${detailStyleName} `,
+      refName: firstImage,
+    },
+    {
+      imageName: details2,
+      styleName: ` -left-[75%]  ${detailStyleName}`,
+      refName: secondImage,
+    },
+    {
+      imageName: details3,
+      styleName: ` -left-[50%] ${detailStyleName}`,
+      refName: thirdImage,
+    },
+    {
+      imageName: details4,
+      styleName: `-left-[50%] ${detailStyleName}`,
+      refName: fourthImage,
+    },
+  ];
+
   useLayoutEffect(() => {
     const context = gsap.context(() => {
       const tl = gsap
@@ -43,11 +84,9 @@ const Details = () => {
             trigger: container2.current,
             start: "top bottom",
             end: "bottom center",
-            // end: "+=1%",
             scrub: true,
           },
         })
-        // .to(transition.current, { y: 350 }, 0)
         .to(firstImage.current, { rotate: -10, x: "75%" }, 0)
         .to(secondImage.current, { rotate: 10, x: "175%" }, 0)
         .to(detailTransition.current, { x: 350 }, 0);
@@ -95,49 +134,20 @@ const Details = () => {
           ref={container2}
           className="relative top-1/2 flex h-1/2 w-full -translate-y-1/2 gap-5 text-center"
         >
-          <div
-            ref={firstImage}
-            className="absolute -left-[50%] top-1/2 h-1/2 w-1/2 -translate-y-1/2 place-content-center"
-            style={{
-              backgroundImage: `url("${details1}")`,
-              backgroundPosition: "center",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
-          <div
-            ref={secondImage}
-            className="absolute -left-[75%] top-1/2 h-1/2 w-1/2 -translate-y-1/2 place-content-center"
-            style={{
-              backgroundImage: `url("${details2}")`,
-              backgroundPosition: "center",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
-          <div
-            ref={thirdImage}
-            className="absolute -left-[50%] top-1/2 h-1/2 w-1/2 -translate-y-1/2 place-content-center"
-            style={{
-              backgroundImage: `url("${details3}")`,
-              backgroundPosition: "center",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
-          <div
-            ref={fourthImage}
-            className="absolute -left-1/2 top-1/2 h-1/2 w-1/2 -translate-y-1/2 place-content-center"
-            style={{
-              backgroundImage: `url("${details4}")`,
-              backgroundPosition: "center",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
+          {/* IMAGES */}
+          {detailsImagesMap.map((image, index) => {
+            return (
+              <DetailsImageTransition
+                key={index}
+                imageName={image.imageName}
+                styleName={image.styleName}
+                refName={image.refName}
+              />
+            );
+          })}
           <div
             ref={detailTransition}
-            className="absolute -left-1/2 top-1/4 -z-10 h-1/2 w-1/2 rotate-[-45deg] scale-[2.5] place-content-center sm:scale-[2]"
+            className="lg:2-[85%] absolute -left-1/2 top-1/4 -z-10 h-[50%] w-1/2 rotate-[-45deg] scale-[2.5] place-content-center sm:scale-[2] md:w-[75%] lg:scale-[2.5]"
             style={{
               backgroundImage: `url("${detailsTransition}")`,
               backgroundPosition: "center",
@@ -152,7 +162,7 @@ const Details = () => {
         ref={containerDetails}
         className="relative -top-[15%] flex h-fit flex-col items-center gap-5"
       >
-        <div className="relative z-20 h-fit w-[85%] border-b-4 border-t-4 border-solid border-barley py-6 text-center font-Coldiac text-3xl">
+        <div className="relative z-20 h-fit w-[85%] border-b-4 border-t-4 border-solid border-barley py-6 text-center font-Coldiac text-3xl md:text-red-500 lg:text-emerald-500">
           Details
         </div>
 

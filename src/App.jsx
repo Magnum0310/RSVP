@@ -8,7 +8,7 @@ import Reception from "./components/ReceptionLocation";
 
 function App() {
   return (
-    <>
+    <div className="mx-auto max-w-[1440px]">
       <div className="">
         <Hero />
       </div>
@@ -28,7 +28,7 @@ function App() {
         <Reception />
       </div>
       <div className="h-screen"></div>
-    </>
+    </div>
   );
 }
 

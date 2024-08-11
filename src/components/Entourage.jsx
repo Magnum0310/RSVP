@@ -86,7 +86,7 @@ const Entourage = () => {
         className="relative flex size-full flex-col justify-center overflow-hidden"
       >
         {/* Entourage Images - Position:Absolute */}
-        <div className="relative h-[75vh] w-full sm:h-[100vh] sm:bg-blue-500">
+        <div className="relative h-[75vh] w-full sm:h-[100vh]">
           <div className="absolute h-1/4 w-full">
             <div
               ref={imageCenter}
@@ -100,7 +100,7 @@ const Entourage = () => {
             ></div>
             <div
               ref={image1}
-              className="border-draft relative left-[3%] top-[55%] z-10 h-[150%] w-[30%] sm:-top-[35%] sm:left-[0%] sm:h-[175%] sm:w-[40%]"
+              className="relative left-[3%] top-[55%] z-10 h-[150%] w-[30%] sm:-top-[35%] sm:left-[0%] sm:h-[175%] sm:w-[40%]"
               style={{
                 backgroundImage: `url(${entourage1})`,
                 backgroundPosition: "center",

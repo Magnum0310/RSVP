@@ -226,7 +226,8 @@ const HeroPage = () => {
           {/* Jeffrey and Jonalyn */}
           <div
             ref={title}
-            className="absolute top-[10%] size-fit text-center font-Showtime text-7xl text-white sm:text-8xl sm:text-blue-500 md:text-red-500 lg:text-emerald-500"
+            // className="absolute top-[10%] size-fit text-center font-Showtime text-7xl text-white sm:text-8xl sm:text-blue-500 md:text-red-500 lg:text-emerald-500"
+            className="absolute top-[10%] size-fit text-center font-Showtime text-7xl text-white sm:text-8xl"
           >
             <p>Jeffrey</p>
             <p className="text-4xl">and</p>
@@ -335,15 +336,12 @@ const HeroPage = () => {
         <div className="h-[50vh]"></div>
         {/* HeroDate */}
         {/*Date*/}
-        <div
-          ref={imageDate}
-          className="border-draft relative top-[6%] -z-10 h-1/4 w-[80%]"
-        >
+        <div ref={imageDate} className="relative top-[6%] -z-10 h-1/4 w-[80%]">
           <ParallaxImage image={heroPageDate} date={date} />
         </div>
         <div
           ref={dateContainer}
-          className="border-draft absolute bottom-1/4 h-1/4 w-full sm:h-[15%]"
+          className="absolute bottom-1/4 h-1/4 w-full sm:h-[15%]"
         ></div>
       </div>
     </div>

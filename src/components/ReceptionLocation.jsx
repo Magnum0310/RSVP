@@ -124,7 +124,7 @@ const churchLocation = () => {
       </div>
       {/* Page Content - Church Pictures */}
       <div className="relative z-10 flex h-[150vh] w-full flex-col items-center justify-center">
-        <div ref={map} className="absolute top-[15%] h-[35%] w-3/4">
+        <div ref={map} className="absolute top-[15%] h-[35%] w-3/4 sm:w-[60%]">
           <Card
             image={receptionMap}
             title={"Wedding Reception"}
@@ -136,19 +136,19 @@ const churchLocation = () => {
         </div>
         <div
           ref={pic1}
-          className="absolute left-[5%] top-[60%] h-[20%] w-[45%]"
+          className="absolute left-[5%] top-[60%] h-[20%] w-[45%] sm:w-[40%]"
         >
           <Card image={reception1} />
         </div>
         <div
           ref={pic2}
-          className="absolute right-[1%] top-[65%] h-[30%] w-[55%]"
+          className="absolute right-[1%] top-[65%] h-[30%] w-[55%] sm:w-[50%]"
         >
           <Card image={reception2} />
         </div>
         <div
           ref={pic3}
-          className="absolute left-[10%] top-[70%] h-[25%] w-[50%]"
+          className="absolute left-[10%] top-[70%] h-[25%] w-[50%] sm:w-[45%]"
         >
           <Card image={reception3} />
         </div>
