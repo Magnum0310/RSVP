@@ -45,12 +45,12 @@ const ParallaxImage = ({ image, date }) => {
           ></div>
           <span
             ref={date}
-            className="absolute left-1/2 top-[75%] z-10 h-fit w-full min-w-fit -translate-x-1/2 text-center text-6xl text-white sm:text-8xl"
+            className="absolute left-1/2 top-[75%] z-10 h-fit w-full min-w-fit -translate-x-1/2 text-center text-6xl text-white sm:text-8xl lg:top-[95%] lg:text-9xl"
           >
             Save the Date
           </span>
         </div>
-        <div className="flex basis-[10%] flex-col items-center gap-2 text-center text-5xl">
+        <div className="flex basis-[10%] flex-col items-center gap-2 text-center text-5xl lg:text-6xl">
           <span>
             <p className="">12.16.24</p>
             <span className="">Baguio City</span>
@@ -60,26 +60,6 @@ const ParallaxImage = ({ image, date }) => {
     </div>
   );
 };
-
-// const PhotoCard = ({ image, track, position }) => {
-//   return (
-//     <div
-//       ref={track}
-//       className={`relative flex size-full basis-1/2 ${position} flex-col items-center justify-center bg-white font-Coldiac`}
-//     >
-//       <div className="flex size-[90%] flex-col items-center gap-2">
-//         <div
-//           className="w-full basis-[85%]"
-//           style={{
-//             backgroundImage: `url(${image})`,
-//             backgroundSize: "cover",
-//             backgroundPosition: "center",
-//           }}
-//         ></div>
-//       </div>
-//     </div>
-//   );
-// };
 
 const HeroPage = () => {
   const container = useRef(null);
@@ -193,7 +173,8 @@ const HeroPage = () => {
 
   return (
     // Main page
-    <div className="h-[250lvh] overflow-hidden sm:h-[350lvh]">
+    // <div className="flex size-full justify-center">
+    <div className="relative h-[250lvh] w-full max-w-[1024px] overflow-hidden sm:h-[350lvh]">
       {/* Inner Wrapper */}
       <div
         ref={container}
@@ -222,15 +203,13 @@ const HeroPage = () => {
               backgroundPosition: "center",
             }}
           ></div>
-
           {/* Jeffrey and Jonalyn */}
           <div
             ref={title}
-            // className="absolute top-[10%] size-fit text-center font-Showtime text-7xl text-white sm:text-8xl sm:text-blue-500 md:text-red-500 lg:text-emerald-500"
-            className="absolute top-[10%] size-fit text-center font-Showtime text-7xl text-white sm:text-8xl"
+            className="text-jeff-jona absolute top-[10%] size-fit text-center font-Showtime text-white"
           >
             <p>Jeffrey</p>
-            <p className="text-4xl">and</p>
+            <p className="text-4xl lg:text-6xl">and</p>
             <p>Jonalyn</p>
           </div>
         </div>
@@ -345,6 +324,7 @@ const HeroPage = () => {
         ></div>
       </div>
     </div>
+    // </div>
   );
 };
 

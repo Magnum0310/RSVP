@@ -126,9 +126,8 @@ const Details = () => {
     });
     return () => context.revert();
   }, []);
-
   return (
-    <div className="relative -top-32 h-[225vh]">
+    <div className="relative -top-32 h-[225vh] bg-cyan-500 lg:h-[250vh]">
       <div ref={container22} className="h-1/2 overflow-hidden">
         <div
           ref={container2}
@@ -162,94 +161,95 @@ const Details = () => {
         ref={containerDetails}
         className="relative -top-[15%] flex h-fit flex-col items-center gap-5"
       >
-        <div className="relative z-20 h-fit w-[85%] border-b-4 border-t-4 border-solid border-barley py-6 text-center font-Coldiac text-3xl md:text-red-500 lg:text-emerald-500">
-          Details
-        </div>
-
-        <div className="flex h-fit w-[85%] min-w-[150px] flex-col items-center gap-28 text-center">
-          {/* Dress Code */}
-          <div className="relative flex size-full flex-col items-center justify-center gap-5">
-            <div
-              ref={dressCodeList}
-              className="h-[100px] w-full"
-              style={{
-                backgroundImage: `url("${detailsDressCodeFrame}")`,
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
-            <div className="size-full text-center font-Coldiac text-2xl">
-              Dress Code
-            </div>
-            {dressCode.map((item, index) => (
+        <div className="flex max-w-[1024px] flex-col items-center">
+          <div className="text-pageTitle relative z-20 h-fit w-[85%] border-b-4 border-t-4 border-solid border-barley py-6 text-center font-Coldiac">
+            Details
+          </div>
+          <div className="flex h-fit w-[85%] min-w-[150px] flex-col items-center gap-28 text-center">
+            {/* Dress Code */}
+            <div className="relative flex size-full flex-col items-center justify-center gap-5 lg:top-[20px]">
               <div
-                key={index}
-                className="text-entourage-list font-Coldiac sm:leading-6"
-              >
-                {item}
+                ref={dressCodeList}
+                className="h-[100px] w-full"
+                style={{
+                  backgroundImage: `url("${detailsDressCodeFrame}")`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div className="size-full text-center font-Coldiac text-2xl lg:text-4xl">
+                Dress Code
               </div>
-            ))}
-            {/* Colors */}
-            <div className="flex w-[75%] justify-center gap-2 py-2">
-              {colors.map((color, index) => (
+              {dressCode.map((item, index) => (
                 <div
                   key={index}
-                  className="aspect-square size-[15%] rounded-full border-[1px] border-solid border-black"
-                  style={{
-                    background: `${"" + color + ""}`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-              ))}
-            </div>
-            <div
-              ref={dressCodeList1}
-              className="h-[100px] w-full"
-              style={{
-                backgroundImage: `url("${detailsDressCodeFrame}")`,
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                rotate: "180deg",
-              }}
-            ></div>
-            <div
-              className="absolute top-1/2 h-[10%] w-full -translate-y-[75%] opacity-25 sm:-translate-y-[125%]"
-              style={{
-                backgroundImage: `url("${detailsDressCode}")`,
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
-          </div>
-          {/* The Menu */}
-          <div className="relative flex w-[100%] flex-col items-center">
-            <div className="flex w-fit flex-col items-center sm:gap-10">
-              <div className="mb-3 flex h-fit min-w-[150px] flex-col items-center sm:mb-0">
-                <div className="text-center font-Coldiac text-2xl">
-                  The Menu
+                  className="text-entourage-list font-Coldiac sm:leading-6"
+                >
+                  {item}
                 </div>
+              ))}
+              {/* Colors */}
+              <div className="flex w-[75%] justify-center gap-2 py-2">
+                {colors.map((color, index) => (
+                  <div
+                    key={index}
+                    className="aspect-square size-[15%] rounded-full border-[1px] border-solid border-black lg:size-[10%]"
+                    style={{
+                      background: `${"" + color + ""}`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                ))}
               </div>
-              <Card title={"Soup"} list={soup} />
-              <Card title={"Salad"} list={salad} />
-              <Card title={"Main Courses"} list={mainCourses} />
-              <Card title={"Past"} list={pasta} />
-              <Card title={"Dessert"} list={dessert} />
+              <div
+                ref={dressCodeList1}
+                className="h-[100px] w-full"
+                style={{
+                  backgroundImage: `url("${detailsDressCodeFrame}")`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  rotate: "180deg",
+                }}
+              ></div>
+              <div
+                className="absolute top-1/2 h-[10%] w-full -translate-y-[75%] opacity-25 sm:-translate-y-[125%]"
+                style={{
+                  backgroundImage: `url("${detailsDressCode}")`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
             </div>
-            <div
-              ref={menuList}
-              className="absolute top-[25%] -z-10 size-full pb-[25%] pt-[20%] sm:h-[100%]"
-              style={{
-                backgroundImage: `url("${detailsFrame}")`,
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                scale: "1.15",
-              }}
-            ></div>
+            {/* The Menu */}
+            <div className="relative flex w-[100%] flex-col items-center">
+              <div className="flex w-fit flex-col items-center sm:gap-10">
+                <div className="mb-3 flex h-fit min-w-[150px] flex-col items-center sm:mb-0">
+                  <div className="text-center font-Coldiac text-2xl lg:text-4xl">
+                    The Menu
+                  </div>
+                </div>
+                <Card title={"Soup"} list={soup} />
+                <Card title={"Salad"} list={salad} />
+                <Card title={"Main Courses"} list={mainCourses} />
+                <Card title={"Past"} list={pasta} />
+                <Card title={"Dessert"} list={dessert} />
+              </div>
+              <div
+                ref={menuList}
+                className="absolute top-[25%] -z-10 size-full pb-[25%] pt-[20%] sm:h-[100%]"
+                style={{
+                  backgroundImage: `url("${detailsFrame}")`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  scale: "1.15",
+                }}
+              ></div>
+            </div>
           </div>
         </div>
       </div>

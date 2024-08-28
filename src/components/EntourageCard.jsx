@@ -20,7 +20,10 @@ const EntourageCard = ({ title, list, coldiac }) => {
         }}
       ></div>
       {list.map((item, index) => (
-        <div key={index} className="text-entourage-list font-Coldiac sm:mt-2">
+        <div
+          key={index}
+          className="text-entourage-list font-Coldiac sm:mt-2 lg:mt-5"
+        >
           {item}
         </div>
       ))}

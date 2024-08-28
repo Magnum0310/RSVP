@@ -79,11 +79,11 @@ const Entourage = () => {
 
   return (
     // Main Page
-    <div className="h-fit">
+    <div className="relative h-fit">
       {/* Inner Wrapper */}
       <div
         ref={container1}
-        className="relative flex size-full flex-col justify-center overflow-hidden"
+        className="relative flex size-full flex-col items-center justify-center overflow-hidden"
       >
         {/* Entourage Images - Position:Absolute */}
         <div className="relative h-[75vh] w-full sm:h-[100vh]">
@@ -145,14 +145,14 @@ const Entourage = () => {
           </div>
         </div>
         {/* Entourage Contents */}
-        <div className="relative top-[27%] flex size-full flex-col items-center text-3xl">
-          <div className="relative top-[10%] z-20 h-fit w-[85%] border-b-4 border-t-4 border-solid border-barley py-6 text-center font-Coldiac">
+        <div className="relative top-[27%] flex size-full max-w-[1024px] flex-col items-center">
+          <div className="text-pageTitle relative top-[10%] z-20 h-fit w-[85%] border-b-4 border-t-4 border-solid border-barley py-6 text-center font-Coldiac">
             The Entourage
           </div>
           {/* MAIN CONTENT WRAPPER */}
           <div className="relative top-[10%] mt-10 flex w-full flex-col gap-5 sm:gap-8">
             {/* Parents */}
-            <div className="flex w-full justify-center gap-12">
+            <div className="flex w-full justify-center gap-12 lg:gap-36">
               <EntourageCard
                 title={"Parents of the Bride"}
                 list={parentsOfTheBride}
@@ -171,18 +171,18 @@ const Entourage = () => {
               />
             </div>
             {/* Maid of Honor and Best Man */}
-            <div className="flex w-full justify-center gap-12">
+            <div className="flex w-full justify-center gap-12 lg:gap-36">
               <EntourageCard title={"Maid of Honor"} list={maidOfHonor} />
               <EntourageCard title={"Best Man"} list={bestMan} />
             </div>
             {/* Groomsmen and Bridesmaid */}
-            <div className="flex w-full justify-center gap-12">
+            <div className="flex w-full justify-center gap-12 lg:gap-36">
               <EntourageCard title={"Groomsmen"} list={groomsMen} />
               <EntourageCard title={"BridesMaid"} list={bridesMaid} />
             </div>
             {/* Secondary Sponsor */}
             <div className="flex h-fit min-w-[150px] flex-col items-center">
-              <div className="text-center font-Showtime text-2xl">
+              <div className="text-entourage-title text-center font-Showtime">
                 Secondary Sponsors
               </div>
               <div
@@ -196,21 +196,21 @@ const Entourage = () => {
               ></div>
             </div>
             {/* Candle and Cord */}
-            <div className="flex w-full justify-center gap-12">
+            <div className="flex w-full justify-center gap-12 lg:gap-36">
               <EntourageCard title={"Candle"} list={candle} />
               <EntourageCard title={"Cord"} list={cord} />
             </div>
             {/* Veil */}
-            <div className="flex w-full justify-center gap-12">
+            <div className="flex w-full justify-center gap-12 lg:gap-36">
               <EntourageCard title={"Veil"} list={veil} />
             </div>
             {/* Ring and Coin Bearer */}
-            <div className="flex w-full justify-center gap-12">
+            <div className="flex w-full justify-center gap-12 lg:gap-36">
               <EntourageCard title={"Ring Bearer"} list={ringBearer} />
               <EntourageCard title={"Coin Bearer"} list={coinBearer} />
             </div>{" "}
             {/* Bible bearer and Flower girls */}
-            <div className="flex w-full justify-center gap-12">
+            <div className="flex w-full justify-center gap-12 lg:gap-36">
               <EntourageCard title={"Bible Bearer"} list={bibleBearer} />
               <EntourageCard title={"Flower Girls"} list={flowerGirls} />
             </div>

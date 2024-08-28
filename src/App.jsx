@@ -9,10 +9,10 @@ import Reception from "./components/ReceptionLocation";
 function App() {
   return (
     <div className="mx-auto max-w-[1440px]">
-      <div className="">
+      <div className="flex w-full justify-center">
         <Hero />
       </div>
-      <div className="relative">
+      <div className="">
         <Entourage />
       </div>
       <div className="">

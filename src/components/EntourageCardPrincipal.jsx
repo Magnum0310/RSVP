@@ -17,17 +17,17 @@ const EntourageCardPrincipal = ({ title, list1, list2 }) => {
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <div className="text-entourage-list flex gap-12 text-center">
+      <div className="text-entourage-list flex gap-12 text-center lg:gap-24">
         <div className="size-fit sm:min-w-[250px]">
           {list1.map((item, index) => (
-            <div key={index} className="font-Coldiac sm:mt-2">
+            <div key={index} className="font-Coldiac sm:mt-2 lg:mt-5">
               {item}
             </div>
           ))}
         </div>
         <div className="size-fit sm:min-w-[250px]">
           {list2.map((item, index) => (
-            <div key={index} className="font-Coldiac sm:mt-2">
+            <div key={index} className="font-Coldiac sm:mt-2 lg:mt-5">
               {item}
             </div>
           ))}
