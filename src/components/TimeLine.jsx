@@ -36,7 +36,7 @@ const TimeLine = () => {
   return (
     <div
       ref={transition}
-      className="relative flex w-full flex-col items-center overflow-hidden lg:py-12"
+      className="relative flex w-full flex-col items-center overflow-clip lg:py-12"
     >
       <div className="flex h-full w-full max-w-[1024px] flex-col items-center">
         <div className="relative flex h-[150px] w-full justify-center">
@@ -50,11 +50,11 @@ const TimeLine = () => {
         {/* Main Content Box */}
         <div
           ref={timeLineContents}
-          className="relative flex h-[100vh] w-[100%] -translate-y-[0%] justify-center sm:w-[90%]"
+          className="relative flex h-[100vh] w-[100%] -translate-y-[0%] justify-center sm:w-[90%] lg:h-[150vh]"
         >
           {/* Frame - Position:Absolute */}
           <div
-            className="absolute top-0 size-full overflow-hidden sm:top-[60%] sm:h-[90%] sm:-translate-y-1/2 lg:h-[105%]"
+            className="absolute top-0 size-full sm:top-[60%] sm:h-[90%] sm:-translate-y-1/2 lg:h-[105%]"
             style={{
               backgroundImage: `url("${timeLineFrame}")`,
               backgroundPosition: "center",

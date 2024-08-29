@@ -36,7 +36,7 @@
     @apply text-xs leading-5 sm:text-[.9rem] lg:text-[1.2rem];
   }
   .text-time {
-    @apply text-2xl sm:text-5xl;
+    @apply text-2xl sm:text-5xl lg:text-6xl lg:tracking-wide;
   }
   .text-time-md {
     @apply text-xl sm:text-2xl;

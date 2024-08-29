@@ -82,14 +82,19 @@ const Details = () => {
         .timeline({
           scrollTrigger: {
             trigger: container2.current,
-            start: "top bottom",
+            start: "-25% bottom",
             end: "bottom center",
             scrub: true,
+            markers: {
+              startColor: "green",
+              endColor: "red",
+              fontSize: "12px",
+            },
           },
         })
         .to(firstImage.current, { rotate: -10, x: "75%" }, 0)
         .to(secondImage.current, { rotate: 10, x: "175%" }, 0)
-        .to(detailTransition.current, { x: 350 }, 0);
+        .to(detailTransition.current, { x: 450 }, 0);
     });
     return () => context.revert();
   }, []);
@@ -127,11 +132,14 @@ const Details = () => {
     return () => context.revert();
   }, []);
   return (
-    <div className="relative -top-32 h-[225vh] bg-cyan-500 lg:h-[250vh]">
-      <div ref={container22} className="h-1/2 overflow-hidden">
+    <div className="relative -top-32 h-[225vh] lg:h-full">
+      <div
+        ref={container22}
+        className="h-[125vh] overflow-clip lg:overflow-visible"
+      >
         <div
           ref={container2}
-          className="relative top-1/2 flex h-1/2 w-full -translate-y-1/2 gap-5 text-center"
+          className="relative top-1/2 flex h-1/2 w-full -translate-y-1/2 gap-5 text-center lg:top-[60%]"
         >
           {/* IMAGES */}
           {detailsImagesMap.map((image, index) => {
@@ -146,7 +154,7 @@ const Details = () => {
           })}
           <div
             ref={detailTransition}
-            className="lg:2-[85%] absolute -left-1/2 top-1/4 -z-10 h-[50%] w-1/2 rotate-[-45deg] scale-[2.5] place-content-center sm:scale-[2] md:w-[75%] lg:scale-[2.5]"
+            className="lg:2-[85%] absolute -left-1/2 top-1/4 -z-10 h-[50%] w-1/2 rotate-[-45deg] scale-[2.5] place-content-center sm:scale-[2] md:w-[75%] lg:-left-[35%] lg:scale-[3]"
             style={{
               backgroundImage: `url("${detailsTransition}")`,
               backgroundPosition: "center",
@@ -159,7 +167,7 @@ const Details = () => {
       {/* Details */}
       <div
         ref={containerDetails}
-        className="relative -top-[15%] flex h-fit flex-col items-center gap-5"
+        className="relative -top-[15%] flex h-fit flex-col items-center gap-5 lg:-top-[20%]"
       >
         <div className="flex max-w-[1024px] flex-col items-center">
           <div className="text-pageTitle relative z-20 h-fit w-[85%] border-b-4 border-t-4 border-solid border-barley py-6 text-center font-Coldiac">

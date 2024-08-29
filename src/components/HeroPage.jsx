@@ -165,16 +165,15 @@ const HeroPage = () => {
             scrub: true,
           },
         })
-        .to(photo1.current, { x: "115%", ease: "expo.inOut", y: "15%" }, 0)
-        .to(photo2.current, { x: "-115%", ease: "expo.inOut", y: "15%" }, 0);
+        .to(photo1.current, { x: "110%", ease: "expo.inOut", y: "15%" }, 0)
+        .to(photo2.current, { x: "-110%", ease: "expo.inOut", y: "15%" }, 0);
     });
     return () => context.revert();
   }, []);
 
   return (
     // Main page
-    // <div className="flex size-full justify-center">
-    <div className="relative h-[250lvh] w-full max-w-[1024px] overflow-hidden sm:h-[350lvh]">
+    <div className="relative h-[250lvh] w-full max-w-[1024px] overflow-clip sm:h-[350lvh] lg:overflow-visible">
       {/* Inner Wrapper */}
       <div
         ref={container}
@@ -215,7 +214,7 @@ const HeroPage = () => {
         </div>
         {/* Parallax Slides - Top - Position:Relative */}
         <div
-          className="absolute top-[5%] -z-10 h-full w-full overflow-hidden"
+          className="absolute top-[5%] -z-10 h-full w-full overflow-clip lg:overflow-visible"
           ref={floral}
         >
           {/* Flower - Position:Absolute */}
@@ -230,7 +229,7 @@ const HeroPage = () => {
           ></div>
         </div>
         {/* Flower Stem */}
-        <div className="absolute -z-10 h-full w-full overflow-hidden">
+        <div className="absolute -z-10 h-full w-full overflow-clip lg:overflow-visible">
           <div
             ref={transition}
             className="absolute bottom-[30%] left-[40%] z-30 h-1/2 w-1/2 scale-150"
@@ -279,7 +278,7 @@ const HeroPage = () => {
           </div>
           <div
             ref={transitionBottom}
-            className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2 sm:h-[13%] sm:gap-0"
+            className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2 sm:h-[13%] sm:gap-0 lg:bottom-[2%] lg:h-[19%] lg:gap-10"
           >
             <div
               ref={photo1}
@@ -315,7 +314,10 @@ const HeroPage = () => {
         <div className="h-[50vh]"></div>
         {/* HeroDate */}
         {/*Date*/}
-        <div ref={imageDate} className="relative top-[6%] -z-10 h-1/4 w-[80%]">
+        <div
+          ref={imageDate}
+          className="relative top-[6%] -z-10 h-1/4 w-[80%] lg:h-[25%] lg:w-[70%]"
+        >
           <ParallaxImage image={heroPageDate} date={date} />
         </div>
         <div

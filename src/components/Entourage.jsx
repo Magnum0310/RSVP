@@ -90,7 +90,7 @@ const Entourage = () => {
           <div className="absolute h-1/4 w-full">
             <div
               ref={imageCenter}
-              className="relative top-0 z-10 h-[300%] w-full"
+              className="relative top-0 z-10 h-[300%] w-full lg:h-[325%]"
               style={{
                 backgroundImage: `url(${entourageCenter})`,
                 backgroundPosition: "center",
@@ -100,7 +100,7 @@ const Entourage = () => {
             ></div>
             <div
               ref={image1}
-              className="relative left-[3%] top-[55%] z-10 h-[150%] w-[30%] sm:-top-[35%] sm:left-[0%] sm:h-[175%] sm:w-[40%]"
+              className="relative left-[3%] top-[55%] z-10 h-[150%] w-[30%] sm:-top-[35%] sm:left-[0%] sm:h-[175%] sm:w-[40%] lg:h-[200%]"
               style={{
                 backgroundImage: `url(${entourage1})`,
                 backgroundPosition: "center",
@@ -111,7 +111,7 @@ const Entourage = () => {
             ></div>
             <div
               ref={image2}
-              className="relative left-1/2 top-[15%] z-20 h-[200%] w-[40%] -translate-x-1/2 sm:-top-[75%] sm:w-[45%]"
+              className="relative left-1/2 top-[15%] z-20 h-[200%] w-[40%] -translate-x-1/2 sm:-top-[75%] sm:w-[45%] lg:h-[200%]"
               style={{
                 backgroundImage: `url(${entourage2})`,
                 backgroundPosition: "center",
@@ -122,7 +122,7 @@ const Entourage = () => {
             ></div>
             <div
               ref={image3}
-              className="relative -top-[15%] left-[65%] z-10 h-[135%] w-[35%] sm:-top-[155%] sm:h-[180%] sm:w-[40%]"
+              className="relative -top-[15%] left-[65%] z-10 h-[135%] w-[35%] sm:-top-[155%] sm:h-[180%] sm:w-[40%] lg:-top-[175%] lg:left-[67%] lg:h-[200%]"
               style={{
                 backgroundImage: `url(${entourage3})`,
                 backgroundPosition: "center",
@@ -133,7 +133,7 @@ const Entourage = () => {
             ></div>
             <div
               ref={imageTransition}
-              className="absolute top-40 z-[5] h-full w-full scale-[3.5] sm:scale-[3]"
+              className="absolute top-40 z-[5] h-full w-full scale-[3.5] sm:scale-[3] lg:top-72 lg:scale-[4]"
               style={{
                 backgroundImage: `url(${entourageTransition})`,
                 backgroundPosition: "center",
