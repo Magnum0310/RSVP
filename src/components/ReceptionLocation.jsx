@@ -173,7 +173,7 @@ const churchLocation = () => {
             track={leafBg2}
             leaf={feather3}
             rotate={"180deg"}
-            className={"absolute left-[28%] top-[60%] h-[40%] w-full"}
+            className={"absolute left-[38%] top-[60%] h-[40%] w-full"}
           />
           {/* Leaf 3 */}
           <Leaf

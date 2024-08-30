@@ -36,7 +36,7 @@ const TimeLine = () => {
   return (
     <div
       ref={transition}
-      className="relative flex w-full flex-col items-center overflow-clip lg:py-12"
+      className="relative flex w-full flex-col items-center overflow-clip bg-red-500/0 lg:py-12"
     >
       <div className="flex h-full w-full max-w-[1024px] flex-col items-center">
         <div className="relative flex h-[150px] w-full justify-center">
@@ -54,7 +54,7 @@ const TimeLine = () => {
         >
           {/* Frame - Position:Absolute */}
           <div
-            className="absolute top-0 size-full sm:top-[60%] sm:h-[90%] sm:-translate-y-1/2 lg:h-[105%]"
+            className="absolute top-[5%] size-full sm:top-[60%] sm:h-[90%] sm:-translate-y-1/2 md:h-[100%] lg:h-[90%]"
             style={{
               backgroundImage: `url("${timeLineFrame}")`,
               backgroundPosition: "center",
@@ -63,13 +63,14 @@ const TimeLine = () => {
             }}
           ></div>
           {/* Timeline contents */}
-          <div className="absolute top-1/2 flex h-[75%] w-full -translate-y-1/2 flex-col items-center justify-center font-Coldiac sm:top-[60%]">
+          <div className="absolute top-[5%] flex h-[75%] w-full translate-y-[17%] flex-col items-center justify-center font-Coldiac sm:top-[10%]">
             {Details.map((detail, index) => (
               <div
                 key={index}
-                className="mb-5 flex w-[90%] gap-5 sm:mb-10 lg:w-[75%]"
+                // className="mb-5 flex w-[75%] gap-5 bg-red-500 sm:mb-10 lg:w-[75%]"
+                className="mb-5 flex w-[65%] gap-10 sm:mb-10 md:w-[65%] lg:w-[75%]"
               >
-                <div className="flex basis-1/2 justify-center gap-2">
+                <div className="flex basis-1/2 justify-center gap-3">
                   <span className="text-time flex min-h-[50px] items-center font-MoreLight">
                     {detail.time}
                   </span>
@@ -77,7 +78,8 @@ const TimeLine = () => {
                     {detail.med}
                   </span>
                 </div>
-                <div className="text-entourage-list basis-1/2 place-content-center text-left lg:pl-10 lg:pr-5">
+                {/* <div className="text-entourage-list basis-1/2 place-content-center text-left lg:pl-10 lg:pr-5"> */}
+                <div className="text-entourage-list basis-1/2 place-content-center pl-5 text-left md:pl-10">
                   {detail.event}
                 </div>
               </div>
@@ -85,13 +87,14 @@ const TimeLine = () => {
           </div>
           {/* Divider */}
           <div
-            className="absolute top-0 h-full w-[100%] opacity-25 sm:top-[40%] sm:-translate-x-1/2 lg:top-[50%]"
+            // className="absolute top-[5%] size-[100%] bg-blue-500 opacity-25 sm:top-[13%] sm:size-[95%] md:top-[55%] md:w-[75%] md:-translate-x-1/2 lg:top-[50%]"
+            className="absolute top-[5%] size-[100%] rotate-90 opacity-25 sm:top-[13%] sm:size-[95%] md:w-[75%] lg:w-[95%]"
             style={{
               backgroundImage: `url("${timeLineDivider}")`,
               backgroundPosition: "center",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
-              rotate: "90deg",
+              // rotate: "90deg",
             }}
           ></div>
           {/* BackgroundImage */}

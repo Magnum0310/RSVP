@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import "./App.css";
+import Lenis from "lenis";
 import Hero from "./components/HeroPage";
 import Entourage from "./components/Entourage";
 import Details from "./components/Details";
@@ -7,6 +9,15 @@ import Church from "./components/ChurchLocation";
 import Reception from "./components/ReceptionLocation";
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
   return (
     <div className="lg:overflow-clip">
       <div className="mx-auto flex w-full max-w-[1440px] justify-center">
