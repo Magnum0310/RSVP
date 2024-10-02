@@ -36,7 +36,7 @@ const TimeLine = () => {
   return (
     <div
       ref={transition}
-      className="relative flex w-full flex-col items-center overflow-clip bg-red-500/0 lg:py-12"
+      className="relative flex w-full flex-col items-center overflow-clip lg:py-12"
     >
       <div className="flex h-full w-full max-w-[1024px] flex-col items-center">
         <div className="relative flex h-[150px] w-full justify-center">
@@ -68,7 +68,7 @@ const TimeLine = () => {
               <div
                 key={index}
                 // className="mb-5 flex w-[75%] gap-5 bg-red-500 sm:mb-10 lg:w-[75%]"
-                className="mb-5 flex w-[65%] gap-10 sm:mb-10 md:w-[65%] lg:w-[75%]"
+                className="mb-5 flex w-[85%] gap-10 sm:mb-10 md:w-[65%] lg:w-[75%]"
               >
                 <div className="flex basis-1/2 justify-center gap-3">
                   <span className="text-time flex min-h-[50px] items-center font-MoreLight">

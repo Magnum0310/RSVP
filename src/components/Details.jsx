@@ -83,7 +83,7 @@ const Details = () => {
           scrollTrigger: {
             trigger: container2.current,
             start: "-25% bottom",
-            end: "bottom 60%",
+            end: "bottom 75%",
             scrub: true,
             // markers: {
             //   startColor: "green",
@@ -133,15 +133,15 @@ const Details = () => {
   }, []);
   return (
     // <div className="relative -top-32 h-[225vh] bg-cyan-500 lg:h-full">
-    <div className="relative -top-[15rem] h-full bg-cyan-500/0 lg:h-full">
+    <div className="relative -top-[15rem] h-full lg:h-full">
       <div
         ref={container22}
-        className="h-[125vh] overflow-clip lg:overflow-visible"
+        className="h-[100vh] overflow-clip lg:h-[125vh] lg:overflow-visible"
       >
         <div
           ref={container2}
           // className="relative top-1/2 flex h-1/2 w-full -translate-y-1/2 gap-5 text-center lg:top-[60%]"
-          className="relative top-[60%] flex h-1/2 w-full -translate-y-1/2 gap-5 text-center lg:top-[60%]"
+          className="relative top-[65%] flex h-1/2 w-full -translate-y-1/2 gap-5 text-center lg:top-[65%]"
         >
           {/* IMAGES */}
           {detailsImagesMap.map((image, index) => {
@@ -156,7 +156,7 @@ const Details = () => {
           })}
           <div
             ref={detailTransition}
-            className="lg:2-[85%] absolute -left-1/2 top-1/4 -z-10 h-[50%] w-1/2 rotate-[-45deg] scale-[2.5] place-content-center sm:scale-[2] md:w-[75%] lg:-left-[35%] lg:scale-[3]"
+            className="lg:2-[85%] absolute -left-1/2 top-1/4 -z-10 h-[50%] w-1/2 rotate-[-45deg] scale-[2.5] place-content-center sm:scale-[2.5] md:w-[75%] lg:-left-[35%] lg:scale-[3]"
             style={{
               backgroundImage: `url("${detailsTransition}")`,
               backgroundPosition: "center",
