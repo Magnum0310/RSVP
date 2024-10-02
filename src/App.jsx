@@ -7,6 +7,8 @@ import Details from "./components/Details";
 import Timeline from "./components/TimeLine";
 import Church from "./components/ChurchLocation";
 import Reception from "./components/ReceptionLocation";
+import AdminPanel from "./components/AdminPanel";
+import UserForm from "./components/UserForm";
 
 function App() {
   useEffect(() => {
@@ -37,6 +39,9 @@ function App() {
       </div>
       <div className="mx-auto max-w-[1440px]">
         <Reception />
+      </div>
+      <div className="mx-auto h-screen max-w-[1440px]">
+        <UserForm />
       </div>
       {/* <div className="h-screen"></div> */}
     </div>
