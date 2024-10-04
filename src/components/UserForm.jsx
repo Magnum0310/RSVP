@@ -199,7 +199,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
 
   const [expand, setExpand] = useState("");
   const state1 = Flip.getState(".accept");
-  const state2 = Flip.getState(".decline");
+  // const state2 = Flip.getState(".decline");
   // const state3 = Flip.getState(".acceptForm");
   // const state4 = Flip.getState(".box");
   // const state5 = Flip.getState(".box1");
@@ -216,17 +216,25 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     if (!state1) return;
     Flip.from(state1, config);
 
-    if (!state2) return;
-    Flip.from(state2, config);
+    // if (!state2) return;
+    // Flip.from(state2, config);
   }, [expand]);
 
   const boxRef = useRef(null);
+  const acceptRef = useRef(null);
+  const declineRef = useRef(null);
+
   const [toggled, setToggled] = useState(false);
   useEffect(() => {
     const boxes = boxRef.current?.querySelectorAll(".box");
-    console.log(boxes);
+    const acceptButton = acceptRef.current?.querySelectorAll(".acceptButton");
+    const declineButton =
+      declineRef.current?.querySelectorAll(".declineButton");
+    console.log(declineButton);
     // Get the state of the boxes before any animation
     const state = Flip.getState(boxes);
+    const acceptState = Flip.getState(acceptButton);
+    const declineState = Flip.getState(declineButton);
 
     // Apply the changes based on the toggled state
     if (expand) {
@@ -243,6 +251,19 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         x: 0,
         scaleX: 1,
         opacity: 1,
+        ease: "power2.inOut",
+      });
+      // Accept Button
+      gsap.set([acceptButton[0]], {
+        duration: 1,
+        scaleX: 0,
+        opacity: 0,
+        ease: "power2.inOut",
+      });
+      gsap.set([declineButton[0]], {
+        duration: 1,
+        scaleX: 0,
+        opacity: 0,
         ease: "power2.inOut",
       });
     } else {
@@ -262,9 +283,39 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         opacity: 0,
         ease: "power2.inOut",
       });
+      // Accept Button
+      gsap.set([acceptButton[0]], {
+        duration: 1,
+        x: 0,
+        scaleX: 1,
+        opacity: 1,
+        ease: "power2.inOut",
+      });
+      // Decline Button
+      gsap.set([declineButton[0]], {
+        duration: 1,
+        x: 0,
+        scaleX: 1,
+        opacity: 1,
+        ease: "power2.inOut",
+      });
     }
     // Animate the transition from the previous state to the current state
     Flip.from(state, {
+      duration: 0.5,
+      stagger: 0.05,
+      ease: "power2.inOut",
+      scale: true,
+      nested: true,
+    });
+    Flip.from(acceptState, {
+      duration: 0.5,
+      stagger: 0.05,
+      ease: "power2.inOut",
+      scale: true,
+      nested: true,
+    });
+    Flip.from(declineState, {
       duration: 0.5,
       stagger: 0.05,
       ease: "power2.inOut",
@@ -289,11 +340,11 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             {/* {invite === 1 ? ( */}
             <div
               ref={boxRef}
-              className={`flex ${expand ? "basis-[85%]" : invite === 0 ? "basis-[15%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2 overflow-y-scroll bg-emerald-500`}
+              className={`flex ${expand ? "basis-[85%]" : invite === 0 ? "basis-[15%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2 bg-emerald-500`}
             >
               {/* {expand ? ( */}
               <div
-                className={`relative ${expand ? "flex" : "flex"} h-full w-full flex-col items-center justify-center gap-2 overflow-y-scroll bg-emerald-500`}
+                className={`relative ${expand ? "flex" : "flex"} h-full w-full flex-col items-center justify-center gap-2 bg-emerald-500`}
               >
                 <Box
                   className="box flex h-full w-full flex-col justify-center gap-5 bg-lime-500 p-5 max-lg:max-w-[90%] lg:max-w-[75%]"
@@ -390,21 +441,22 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   </Button>
                 </Box>
               </div>
-
               <div
-                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "hidden basis-3/4" : "basis-1/4"} flex-col items-center justify-center gap-2 overflow-y-scroll bg-emerald-500`}
+                ref={acceptRef}
+                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "hidden basis-[85%]" : "basis-1/4"} flex-col items-center justify-center gap-2 bg-emerald-500`}
               >
-                <Button
-                  // className={`${expand && invite === 1 ? "hidden" : "block"}`}
-                  className=""
-                  variant="outlined"
-                  onClick={() => {
-                    setExpand(true);
-                    setInvite(1);
-                  }}
-                >
-                  Accept
-                </Button>
+                <div className="acceptButton size-fit">
+                  <Button
+                    className=""
+                    variant="outlined"
+                    onClick={() => {
+                      setExpand(true);
+                      setInvite(1);
+                    }}
+                  >
+                    Accept
+                  </Button>
+                </div>
               </div>
             </div>
             {/* Verfiy Details */}
@@ -485,19 +537,20 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               className={`${invite === 2 ? "basis-1/2" : invite === 0 ? "basis-3/4" : "basis-1/4"} grid place-content-center bg-slate-500`}
             > */}
             {/* {invite === 0 ? ( */}
-            {!expand && invite === 0 ? (
-              <div
-                className={`decline grid ${invite === 0 ? "basis-[85%]" : "basis-1/2"} place-content-center bg-slate-500`}
-              >
-                <div className="flex flex-col justify-center gap-5 p-10 max-lg:max-w-[100%] lg:max-w-[75%]">
-                  <p className="text-center">
-                    Sorry to hear that, we wish you could be there with us
-                  </p>
-                </div>
+            {/* {!expand && invite === 0 ? ( */}
+            <div
+              className={`decline grid ${invite === 0 ? "basis-[85%]" : "basis-1/2"} place-content-center bg-slate-500`}
+            >
+              <div className="flex flex-col justify-center gap-5 p-10 max-lg:max-w-[100%] lg:max-w-[75%]">
+                <p className="text-center">
+                  Sorry to hear that, we wish you could be there with us
+                </p>
               </div>
-            ) : (
+
+              {/* ) : ( */}
               <div
-                className={`decline grid ${!expand && invite === 2 ? "basis-1/2" : "basis-[15%]"} place-content-center bg-slate-500`}
+                ref={declineRef}
+                className={`absolute ${expand.length === 0 && invite === 2 ? "basis-1/2" : invite === 0 && !expand ? "hidden basis-[85%]" : "basis-[15%]"} grid place-content-center bg-slate-500`}
               >
                 {/* <Button
                   variant="outlined"
@@ -516,26 +569,29 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 >
                   Decline
                 </Button> */}
-                <Button
-                  variant="outlined"
-                  onClick={() => {
-                    setExpand(false);
-                    setInvite(0);
-                    setDetails((details) => ({ ...details, submit: false }));
-                    setGuest({
-                      firstName: "",
-                      lastName: "",
-                      companion: false,
-                      numberOfAttendees: 0,
-                      nameOfCompanions: [],
-                    });
-                    setPlusOne(false);
-                  }}
-                >
-                  Decline
-                </Button>
+                <div className="declineButton size-fit">
+                  <Button
+                    variant="outlined"
+                    onClick={() => {
+                      setExpand(false);
+                      setInvite(0);
+                      setDetails((details) => ({ ...details, submit: false }));
+                      setGuest({
+                        firstName: "",
+                        lastName: "",
+                        companion: false,
+                        numberOfAttendees: 0,
+                        nameOfCompanions: [],
+                      });
+                      setPlusOne(false);
+                    }}
+                  >
+                    Decline
+                  </Button>
+                </div>
               </div>
-            )}
+              {/* )} */}
+            </div>
           </div>
         </div>
       </div>
