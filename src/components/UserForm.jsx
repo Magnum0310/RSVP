@@ -289,7 +289,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             {/* {invite === 1 ? ( */}
             <div
               ref={boxRef}
-              className={`flex ${expand ? "basis-3/4" : invite === 0 ? "basis-1/4" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2 overflow-y-scroll bg-emerald-500`}
+              className={`flex ${expand ? "basis-[85%]" : invite === 0 ? "basis-[15%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2 overflow-y-scroll bg-emerald-500`}
             >
               {/* {expand ? ( */}
               <div
@@ -487,7 +487,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             {/* {invite === 0 ? ( */}
             {!expand && invite === 0 ? (
               <div
-                className={`decline grid ${invite === 0 ? "basis-3/4" : "basis-1/2"} place-content-center bg-slate-500`}
+                className={`decline grid ${invite === 0 ? "basis-[85%]" : "basis-1/2"} place-content-center bg-slate-500`}
               >
                 <div className="flex flex-col justify-center gap-5 p-10 max-lg:max-w-[100%] lg:max-w-[75%]">
                   <p className="text-center">
@@ -497,7 +497,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               </div>
             ) : (
               <div
-                className={`decline grid ${!expand && invite === 2 ? "basis-1/2" : "basis-1/4"} place-content-center bg-slate-500`}
+                className={`decline grid ${!expand && invite === 2 ? "basis-1/2" : "basis-[15%]"} place-content-center bg-slate-500`}
               >
                 {/* <Button
                   variant="outlined"
