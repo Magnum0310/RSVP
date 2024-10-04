@@ -4,7 +4,7 @@ import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 
 const SubmitData = ({ guestName, setUpdateStatus, setDetails }) => {
-  console.log(guestName);
+  // console.log(guestName);
   const guestList = doc(collection(db, "guest"));
   // const testData = {
   //   firstName: "Dummy first name",
@@ -15,11 +15,11 @@ const SubmitData = ({ guestName, setUpdateStatus, setDetails }) => {
   // };
 
   const addGuest = async () => {
-    console.log("click");
+    // console.log("click");
     try {
       const newGuest = await setDoc(guestList, guestName);
-      console.log(newGuest);
-      console.log("done");
+      // console.log(newGuest);
+      // console.log("done");
       setUpdateStatus((status) => ({ ...status, success: true }));
       setDetails((details) => ({ ...details, load: true }));
       setTimeout(() => {
