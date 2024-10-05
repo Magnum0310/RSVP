@@ -57,6 +57,15 @@ import reception1 from "../assets/Images/ReceptionLocation/reception1.jpg";
 import reception2 from "../assets/Images/ReceptionLocation/reception2.jpg";
 import reception3 from "../assets/Images/ReceptionLocation/reception3.jpg";
 
+// User form
+import userformBorder from "../assets/Vectors/Userform/userformBorder.svg";
+import acceptButtonIcon from "../assets/Vectors/Userform/acceptButtonIcon.svg";
+import acceptOrnamentActiveButton from "../assets/Vectors/Userform/acceptOrnamentActiveButton.svg";
+import acceptOrnamentInactiveButton from "../assets/Vectors/Userform/acceptOrnamentInactiveButton.svg";
+import declineButtonIcon from "../assets/Vectors/Userform/declineButtonIcon.svg";
+import declineOrnamentActiveButton from "../assets/Vectors/Userform/declineOrnamentActiveButton.svg";
+import declineOrnamentInactiveButton from "../assets/Vectors/Userform/declineOrnamentInactiveButton.svg";
+
 const Image = {
   // Hero Page
   heroPageMain,
@@ -114,6 +123,14 @@ const Image = {
   reception1,
   reception2,
   reception3,
+  // Userform
+  userformBorder,
+  acceptButtonIcon,
+  acceptOrnamentActiveButton,
+  acceptOrnamentInactiveButton,
+  declineButtonIcon,
+  declineOrnamentActiveButton,
+  declineOrnamentInactiveButton,
 };
 
 export default Image;

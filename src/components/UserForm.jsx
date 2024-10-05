@@ -7,9 +7,7 @@ import {
   useLayoutEffect,
 } from "react";
 import SubmitData from "../data/SubmitData";
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
+import Image from "../constants/Image";
 
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
@@ -31,31 +29,42 @@ import { FixedSizeList } from "react-window";
 
 gsap.registerPlugin(Flip);
 
-const Inputs = ({
-  index,
-  name,
-  placeholder,
-  type,
-  value,
-  handleChange,
-  id,
-}) => {
-  return (
-    <TextField
-      required
-      className="bg-slate-200"
-      key={index}
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      type={type}
-      value={value}
-      onChange={(e) => handleChange(e)}
-    />
-  );
-};
+// const Inputs = ({
+//   index,
+//   name,
+//   placeholder,
+//   type,
+//   value,
+//   handleChange,
+//   id,
+// }) => {
+//   return (
+//     <TextField
+//       required
+//       className="bg-slate-200"
+//       key={index}
+//       name={name}
+//       id={id}
+//       placeholder={placeholder}
+//       type={type}
+//       value={value}
+//       onChange={(e) => handleChange(e)}
+//     />
+//   );
+// };
 
 const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
+  //===============Images===============//
+  const {
+    userformBorder,
+    acceptButtonIcon,
+    acceptOrnamentActiveButton,
+    acceptOrnamentInactiveButton,
+    declineButtonIcon,
+    declineOrnamentActiveButton,
+    declineOrnamentInactiveButton,
+  } = Image;
+
   //===============STATES===============//
 
   //=====Guest details=====//
@@ -294,7 +303,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       gsap.set(boxes[0], {
         // duration: 1,
         scale: 1,
-        x: -100,
+        x: 0,
         opacity: 0,
         ease: "power2.inOut",
       });
@@ -373,8 +382,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
 
   return (
     <>
-      <div className="relative flex h-full w-full flex-col justify-center gap-5 bg-red-400 font-Coldiac">
-        <div className="border-draft h-[80%] w-full bg-orange-500">
+      <div className="relative flex h-screen w-full flex-col justify-center gap-5 font-Coldiac">
+        <div className="h-[80%] w-full">
           {/* Buttons */}
           {/* <div className="relative z-10 flex w-full justify-evenly"></div> */}
           <div className="flex size-full">
@@ -385,14 +394,14 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             {/* {invite === 1 ? ( */}
             <div
               ref={boxRef}
-              className={`flex ${expand ? "basis-[85%]" : invite === 0 ? "basis-[15%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2 bg-emerald-500`}
+              className={`flex ${expand ? "basis-[85%]" : invite === 0 ? "basis-[15%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
             >
               {/* {expand ? ( */}
               <div
-                className={`relative ${expand ? "flex" : "flex"} h-full w-full flex-col items-center justify-center gap-2 bg-emerald-500`}
+                className={`relative ${expand ? "flex" : "flex"} h-full w-full flex-col items-center justify-center gap-2`}
               >
                 <Box
-                  className="box flex h-full w-full flex-col justify-center gap-5 bg-lime-500 p-5 max-lg:max-w-[90%] lg:max-w-[75%]"
+                  className="box border-motif flex size-[85%] flex-col justify-center gap-5 border-4 border-solid p-5 max-lg:max-w-[90%] lg:max-w-[75%]"
                   component="form"
                   sx={{ "& .MuiTextField-root": { mb: 0, width: "100%" } }}
                   noValidate
@@ -488,10 +497,22 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               </div>
               <div
                 ref={acceptRef}
-                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "hidden basis-[85%]" : "basis-1/4"} flex-col items-center justify-center gap-2 bg-emerald-500`}
+                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "hidden basis-[85%]" : "basis-1/4"} border-motif flex h-[85%] w-[85%] flex-col items-center justify-center gap-10 border-4 border-solid`}
               >
-                <div className="acceptButton size-fit">
-                  <Button
+                <div
+                  onClick={() => {
+                    setExpand(true);
+                    setInvite(1);
+                  }}
+                  className="acceptButton grid size-36 place-content-center bg-orange-500/0"
+                  style={{
+                    backgroundImage: `url(${acceptButtonIcon})`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                  {/* <Button
                     className=""
                     variant="outlined"
                     onClick={() => {
@@ -500,8 +521,11 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     }}
                   >
                     Accept
-                  </Button>
+                  </Button> */}
                 </div>
+                <p className="text-motif w-full text-center text-2xl font-bold">
+                  Accept
+                </p>
               </div>
             </div>
             {/* Verfiy Details */}
@@ -586,17 +610,16 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             <div
               ref={boxRightRef}
               // className={`decline grid ${invite === 0 ? "basis-[85%]" : "basis-1/2"} place-content-center bg-slate-500`}
-              className={`decline grid ${!expand && invite === 0 ? "basis-[85%]" : invite === 1 ? "basis-[15%]" : "basis-1/2"} relative place-content-center bg-slate-500`}
+              className={`decline flex ${!expand && invite === 0 ? "basis-[85%]" : invite === 1 ? "basis-[15%]" : "basis-1/2"} relative flex-col items-center justify-center bg-lime-500`}
             >
-              <div className="boxRight flex flex-col justify-center gap-5 p-10 max-lg:max-w-[100%] lg:max-w-[75%]">
+              <div className="boxRight relative flex size-[85%] flex-col justify-center gap-5 bg-red-500 p-10 max-lg:max-w-[85%] lg:max-w-[85%]">
                 <p className="boxRight text-center">
                   Sorry to hear that, we wish you could be there with us
                 </p>
               </div>
               <div
                 ref={declineRef}
-                // className={`absolute ${expand.length === 0 && invite === 2 ? "basis-1/2" : invite === 1 ? "basis-[15%]" : "hidden basis-[85%]"} z-10 grid place-content-center bg-blue-500 text-white`}
-                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 && expand ? "hidden basis-[85%]" : "basis-1/4"} z-10 flex size-full items-center justify-center text-white`}
+                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 && expand ? "hidden basis-[85%]" : "basis-1/4"} z-10 flex size-[85%] flex-col items-center justify-center gap-10 border-4 border-solid border-barley text-white`}
               >
                 {/* <Button
                   variant="outlined"
@@ -616,9 +639,28 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   Decline
                 </Button> */}
                 <div
-                  className={`declineButton size-fit bg-purple-500 text-white`}
+                  onClick={() => {
+                    setExpand(false);
+                    setInvite(0);
+                    setDetails((details) => ({ ...details, submit: false }));
+                    setGuest({
+                      firstName: "",
+                      lastName: "",
+                      companion: false,
+                      numberOfAttendees: 0,
+                      nameOfCompanions: [],
+                    });
+                    setPlusOne(false);
+                  }}
+                  className={`declineButton size-36 text-white`}
+                  style={{
+                    backgroundImage: `url(${declineButtonIcon})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                  }}
                 >
-                  <Button
+                  {/* <Button
                     variant=""
                     onClick={() => {
                       setExpand(false);
@@ -635,21 +677,24 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     }}
                   >
                     Decline
-                  </Button>
+                  </Button> */}
                 </div>
+                <p className="w-full text-center text-2xl font-bold text-barley">
+                  Decline
+                </p>
               </div>
               {/* )} */}
             </div>
           </div>
         </div>
       </div>
-      <button
+      {/* <button
         className="h-full w-full bg-slate-500"
         // onClick={() => setToggled(!toggled)}
         onClick={() => setExpand(!expand)}
       >
         Click me
-      </button>
+      </button> */}
     </>
 
     // <div ref={boxRef} className="z-10 flex items-center justify-center">

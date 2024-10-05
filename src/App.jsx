@@ -9,7 +9,6 @@ import Church from "./components/ChurchLocation";
 import Reception from "./components/ReceptionLocation";
 import AdminPanel from "./components/AdminPanel";
 import UserForm from "./components/UserForm";
-import Test from "./components/Test";
 
 function App() {
   useEffect(() => {
@@ -44,8 +43,7 @@ function App() {
       <div className="mx-auto h-screen max-w-[1440px]">
         <UserForm />
       </div>
-      <div className="mx-auto h-screen max-w-[1440px]">{/* <Test /> */}</div>
-      {/* <div className="h-screen"></div> */}
+      <div className="mx-auto h-[25vh] max-w-[1440px]"></div>
     </div>
   );
 }
