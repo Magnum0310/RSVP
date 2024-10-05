@@ -199,7 +199,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
 
   const [expand, setExpand] = useState("");
   const state1 = Flip.getState(".accept");
-  // const state2 = Flip.getState(".decline");
+  const state2 = Flip.getState(".decline");
   // const state3 = Flip.getState(".acceptForm");
   // const state4 = Flip.getState(".box");
   // const state5 = Flip.getState(".box1");
@@ -216,29 +216,35 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     if (!state1) return;
     Flip.from(state1, config);
 
-    // if (!state2) return;
-    // Flip.from(state2, config);
+    if (!state2) return;
+    Flip.from(state2, config);
   }, [expand]);
 
   const boxRef = useRef(null);
+  const boxRightRef = useRef(null);
   const acceptRef = useRef(null);
   const declineRef = useRef(null);
 
   const [toggled, setToggled] = useState(false);
   useEffect(() => {
+    //=====Initialize Ref=====//
     const boxes = boxRef.current?.querySelectorAll(".box");
+    const rightBoxes = boxRightRef.current?.querySelectorAll(".boxRight");
     const acceptButton = acceptRef.current?.querySelectorAll(".acceptButton");
     const declineButton =
       declineRef.current?.querySelectorAll(".declineButton");
+
     console.log(declineButton);
-    // Get the state of the boxes before any animation
+    //=====Get the state of the boxes before any animation=====//
     const state = Flip.getState(boxes);
+    const stateRightBox = Flip.getState(rightBoxes);
     const acceptState = Flip.getState(acceptButton);
     const declineState = Flip.getState(declineButton);
 
-    // Apply the changes based on the toggled state
+    //=====Apply the changes based on the toggled state=====//
+    //=====Active State=====//
     if (expand) {
-      // Final state (scaled box + visible inner box)
+      //=====UserForm=====//
       gsap.set(boxes[0], {
         duration: 1,
         scale: 1,
@@ -253,7 +259,22 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         opacity: 1,
         ease: "power2.inOut",
       });
-      // Accept Button
+      //=====Decline Form=====//
+      gsap.set(rightBoxes[0], {
+        duration: 1,
+        scale: 1,
+        opacity: 1,
+        ease: "power2.inOut",
+      });
+
+      gsap.set(rightBoxes[1], {
+        duration: 1,
+        scale: 0,
+        opacity: 0,
+        ease: "power2.inOut",
+      });
+
+      //=====Accept Button =====//
       gsap.set([acceptButton[0]], {
         duration: 1,
         scaleX: 0,
@@ -262,13 +283,14 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       });
       gsap.set([declineButton[0]], {
         duration: 1,
-        scaleX: 0,
-        opacity: 0,
+        scaleX: 1,
+        opacity: 1,
         ease: "power2.inOut",
       });
-    } else {
-      // Initial state (normal size box + hidden inner box)
-      // Background Emerald
+    }
+    //=====Default State=====//
+    else {
+      //=====Outer Userform=====//
       gsap.set(boxes[0], {
         // duration: 1,
         scale: 1,
@@ -283,7 +305,23 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         opacity: 0,
         ease: "power2.inOut",
       });
-      // Accept Button
+      //=====Decline Userform=====//
+      gsap.set(rightBoxes[0], {
+        // scaleX: 1,
+        // opacity: 1,
+        scaleX: `${invite === 2 ? 0 : 1}`,
+        opacity: `${invite === 2 ? 0 : 1}`,
+        ease: "power2.inOut",
+      });
+
+      gsap.set(rightBoxes[1], {
+        duration: 1,
+        scale: 1,
+        opacity: 1,
+        ease: "power2.inOut",
+      });
+
+      //=====Accept Button=====//
       gsap.set([acceptButton[0]], {
         duration: 1,
         x: 0,
@@ -291,17 +329,24 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         opacity: 1,
         ease: "power2.inOut",
       });
-      // Decline Button
+      //=====Decline Button=====//
       gsap.set([declineButton[0]], {
         duration: 1,
         x: 0,
-        scaleX: 1,
-        opacity: 1,
+        scaleX: `${invite === 2 ? 1 : 0}`,
+        opacity: `${invite === 2 ? 1 : 0}`,
         ease: "power2.inOut",
       });
     }
-    // Animate the transition from the previous state to the current state
+    //=====Animate the transition from the previous state to the current state=====//
     Flip.from(state, {
+      duration: 0.5,
+      stagger: 0.05,
+      ease: "power2.inOut",
+      scale: true,
+      nested: true,
+    });
+    Flip.from(stateRightBox, {
       duration: 0.5,
       stagger: 0.05,
       ease: "power2.inOut",
@@ -539,18 +584,19 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             {/* {invite === 0 ? ( */}
             {/* {!expand && invite === 0 ? ( */}
             <div
-              className={`decline grid ${invite === 0 ? "basis-[85%]" : "basis-1/2"} place-content-center bg-slate-500`}
+              ref={boxRightRef}
+              // className={`decline grid ${invite === 0 ? "basis-[85%]" : "basis-1/2"} place-content-center bg-slate-500`}
+              className={`decline grid ${!expand && invite === 0 ? "basis-[85%]" : invite === 1 ? "basis-[15%]" : "basis-1/2"} relative place-content-center bg-slate-500`}
             >
-              <div className="flex flex-col justify-center gap-5 p-10 max-lg:max-w-[100%] lg:max-w-[75%]">
-                <p className="text-center">
+              <div className="boxRight flex flex-col justify-center gap-5 p-10 max-lg:max-w-[100%] lg:max-w-[75%]">
+                <p className="boxRight text-center">
                   Sorry to hear that, we wish you could be there with us
                 </p>
               </div>
-
-              {/* ) : ( */}
               <div
                 ref={declineRef}
-                className={`absolute ${expand.length === 0 && invite === 2 ? "basis-1/2" : invite === 0 && !expand ? "hidden basis-[85%]" : "basis-[15%]"} grid place-content-center bg-slate-500`}
+                // className={`absolute ${expand.length === 0 && invite === 2 ? "basis-1/2" : invite === 1 ? "basis-[15%]" : "hidden basis-[85%]"} z-10 grid place-content-center bg-blue-500 text-white`}
+                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 && expand ? "hidden basis-[85%]" : "basis-1/4"} z-10 flex size-full items-center justify-center text-white`}
               >
                 {/* <Button
                   variant="outlined"
@@ -569,9 +615,11 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 >
                   Decline
                 </Button> */}
-                <div className="declineButton size-fit">
+                <div
+                  className={`declineButton size-fit bg-purple-500 text-white`}
+                >
                   <Button
-                    variant="outlined"
+                    variant=""
                     onClick={() => {
                       setExpand(false);
                       setInvite(0);
