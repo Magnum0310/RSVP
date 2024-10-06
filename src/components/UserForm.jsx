@@ -8,9 +8,11 @@ import {
 } from "react";
 import SubmitData from "../data/SubmitData";
 import Image from "../constants/Image";
-
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
+import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
+import { outlinedInputClasses } from "@mui/material/OutlinedInput";
+// import { customTheme } from "../config/muiConfig";
 
 // Textfield
 import Box from "@mui/material/Box";
@@ -26,6 +28,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { FixedSizeList } from "react-window";
+import { InputLabel } from "@mui/material";
 
 gsap.registerPlugin(Flip);
 
@@ -53,7 +56,47 @@ gsap.registerPlugin(Flip);
 //   );
 // };
 
+// const customTheme = (outerTheme) =>
+//   createTheme({
+//     palette: {
+//       mode: outerTheme.palette.mode,
+//     },
+//     components: {
+//       MuiTextField: {
+//         styleOverrides: {
+//           root: {
+//             "--TextField-brandBorderColor": "#EDE8E2",
+//             "--TextField-brandBorderHoverColor": "#EDE8E2",
+//             "--TextField-brandBorderFocusedColor": "#EDE8E2",
+//             "& label.Mui-focused": {
+//               color: "var(--TextField-brandBorderFocusedColor)",
+//             },
+//           },
+//         },
+//       },
+//       MuiOutlinedInput: {
+//         styleOverrides: {
+//           notchedOutline: {
+//             borderColor: "var(--TextField-brandBorderColor)",
+//           },
+//           root: {
+//             [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
+//               borderColor: "var(--TextField-brandBorderHoverColor)",
+//             },
+//             [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
+//               borderColor: "var(--TextField-brandBorderFocusedColor)",
+//             },
+//           },
+//         },
+//       },
+//     },
+//   });
+
+// console.log(sx);
+// console.log(inputSx);
+
 const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
+  const outerTheme = useTheme();
   //===============Images===============//
   const {
     userformBorder,
@@ -386,149 +429,197 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         <div className="h-[80%] w-full">
           {/* Buttons */}
           {/* <div className="relative z-10 flex w-full justify-evenly"></div> */}
-          <div className="flex size-full">
+          <div className="flex size-full items-center">
             {/* Accept invitation */}
-            {/* <div
-              className={`flex ${invite === 2 ? "basis-1/2" : invite === 1 ? "basis-3/4" : "basis-1/4"} relative flex-col items-center justify-center gap-2 overflow-y-scroll bg-emerald-500`}
-            > */}
-            {/* {invite === 1 ? ( */}
             <div
               ref={boxRef}
-              className={`flex ${expand ? "basis-[85%]" : invite === 0 ? "basis-[15%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
+              className={`flex ${expand && invite === 1 ? "basis-[85%]" : invite === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
             >
-              {/* {expand ? ( */}
-              <div
-                className={`relative ${expand ? "flex" : "flex"} h-full w-full flex-col items-center justify-center gap-2`}
+              <Box
+                className={`box ${invite === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col justify-center gap-5 border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
+                component="form"
+                // sx={{
+                //   "& .MuiTextField-root": { mb: 0, width: "100%" },
+                // }}
+                noValidate
+                autoComplete="off"
+                sx={{
+                  // Target all input fields inside the Box component
+                  "& .MuiTextField-root": {
+                    marginBottom: "16px", // Add space between text fields
+                  },
+                  "&.Mui-focused": {
+                    color: "ivory", // Change text color when focused
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "ivory", // Label color when focused
+                  },
+                  "& .MuiInputLabel-root": {
+                    color: "ivory", // Label color
+                    fontFamily: "'Coldiac', sans-serif", // Font family for input text
+                    fontSize: "16px", // Input font size
+                  },
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "ivory", // Default border color
+                  },
+                  "&:hover .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "ivory", // Border color on hover
+                  },
+                  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "ivory", // Border color when focused
+                  },
+                  "& .MuiTypography-root": {
+                    color: "ivory", // Default label color
+                    fontFamily: '"Coldiac", sans-serif', // Change font family for the label
+                    fontSize: "16px", // Change font size for the label
+                    "&.Mui-checked": {
+                      color: "purple", // Label color when checked
+                    },
+                  },
+                }}
               >
-                <Box
-                  className="box border-motif flex size-[85%] flex-col justify-center gap-5 border-4 border-solid p-5 max-lg:max-w-[90%] lg:max-w-[75%]"
-                  component="form"
-                  sx={{ "& .MuiTextField-root": { mb: 0, width: "100%" } }}
-                  noValidate
-                  autoComplete="off"
+                {/* <ThemeProvider theme={customTheme(outerTheme)}> */}
+                <TextField
+                  className="box"
+                  required
+                  id="outlined-firstName"
+                  name="firstName"
+                  label="First name"
+                  type="text"
+                  value={guest.firstName}
+                  onChange={handleChange}
+                />
+                {errors?.firstName && (
+                  <p className="text-base">{errors?.firstName}</p>
+                )}
+                <TextField
+                  className="box"
+                  required
+                  id="outlined-lastName"
+                  name="lastName"
+                  label="Last name"
+                  type="text"
+                  value={guest.lastName}
+                  onChange={handleChange}
+                />
+                {errors?.lastName && (
+                  <p className="text-base">{errors?.lastName}</p>
+                )}
+                {/* Verify Plus One */}
+                <FormControlLabel
+                  className="box w-fit"
+                  control={<Checkbox onChange={() => handleCheckbox()} />}
+                  label="Any companions?"
+                />
+                {/* Add full name of companion */}
+                <div
+                  className={` ${plusOne ? "block" : "hidden"} justify-left flex w-full flex-col items-center gap-3`}
                 >
                   <TextField
-                    className="box"
+                    className="size-full"
                     required
-                    id="outlined-firstName"
-                    name="firstName"
-                    label="First name"
+                    id="outlined-fullName"
+                    name="fullName"
+                    label="Full name"
                     type="text"
-                    value={guest.firstName}
-                    onChange={handleChange}
+                    value={companion}
+                    onChange={handleCompanion}
                   />
-                  {errors?.firstName && (
-                    <p className="text-base">{errors?.firstName}</p>
-                  )}
-                  <TextField
-                    className="box"
-                    required
-                    id="outlined-lastName"
-                    name="lastName"
-                    label="Last name"
-                    type="text"
-                    value={guest.lastName}
-                    onChange={handleChange}
-                  />
-                  {errors?.lastName && (
-                    <p className="text-base">{errors?.lastName}</p>
-                  )}
-                  {/* Verify Plus One */}
-                  <FormControlLabel
-                    className="box w-fit"
-                    control={<Checkbox onChange={() => handleCheckbox()} />}
-                    label="Any companions?"
-                  />
-                  {/* Add full name of companion */}
-                  <div
-                    className={` ${plusOne ? "block" : "hidden"} justify-left flex flex-col items-center gap-3`}
-                  >
-                    <TextField
-                      required
-                      id="outlined-fullName"
-                      name="fullName"
-                      label="Full name"
-                      type="text"
-                      value={companion}
-                      onChange={handleCompanion}
-                    />
-                    <Button
-                      className="size-full"
-                      disabled={companion.length < 3 ? true : false}
-                      type="submit"
-                      onClick={() => handleAddCompanion()}
-                      variant="outlined"
-                    >
-                      Add
-                    </Button>
-                    {errors?.companion && (
-                      <p className="text-base">{errors?.companion}</p>
-                    )}
-                  </div>
-                  {/* Display companion */}
-                  {guest.nameOfCompanions.length != 0 && (
-                    <Box
-                      sx={{
-                        width: "100%",
-                        height: 100,
-                        // maxWidth: 560,
-                        // bgcolor: "background.paper",
-                      }}
-                    >
-                      <FixedSizeList
-                        height={100}
-                        width="100%"
-                        itemSize={30}
-                        itemCount={guest.nameOfCompanions?.length}
-                        overscanCount={5}
-                      >
-                        {renderRow}
-                      </FixedSizeList>
-                    </Box>
-                  )}
                   <Button
-                    className="box"
+                    className="size-full"
+                    disabled={companion.length < 3 ? true : false}
+                    type="submit"
+                    onClick={() => handleAddCompanion()}
                     variant="outlined"
-                    onClick={() => handleSubmit()}
+                    sx={{
+                      backgroundColor: `${companion.length < 3 ? "gray" : "ivory"}`, // Change background color
+                      color: "black", // Change text color
+                      fontFamily: '"Coldiac", monospace', // Change font family
+                      fontSize: "16px", // Change font size
+                      "&:hover": {
+                        backgroundColor: "barley", // Background color on hover
+                        borderColor: "barley", // Border color on hover
+                        color: "barley", // Text color on hover
+                      },
+                    }}
                   >
-                    Submit
+                    Add
                   </Button>
-                </Box>
-              </div>
+                  {errors?.companion && (
+                    <p className="text-base">{errors?.companion}</p>
+                  )}
+                </div>
+                {/* Display companion */}
+                {guest.nameOfCompanions.length != 0 && (
+                  <Box
+                    sx={{
+                      width: "100%",
+                      height: 100,
+                      // maxWidth: 560,
+                      // bgcolor: "background.paper",
+                    }}
+                  >
+                    <FixedSizeList
+                      height={100}
+                      width="100%"
+                      itemSize={30}
+                      itemCount={guest.nameOfCompanions?.length}
+                      overscanCount={5}
+                    >
+                      {renderRow}
+                    </FixedSizeList>
+                  </Box>
+                )}
+                <Button
+                  className="box"
+                  variant="outlined"
+                  onClick={() => handleSubmit()}
+                  sx={{
+                    backgroundColor: "ivory", // Change background color
+                    color: "black", // Change text color
+                    fontFamily: '"Coldiac", monospace', // Change font family
+                    fontSize: "16px", // Change font size
+                    "&:hover": {
+                      backgroundColor: "barley", // Background color on hover
+                      borderColor: "barley", // Border color on hover
+                      color: "barley", // Text color on hover
+                    },
+                  }}
+                >
+                  Submit
+                </Button>
+                {/* </ThemeProvider> */}
+              </Box>
+
               <div
                 ref={acceptRef}
-                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "hidden basis-[85%]" : "basis-1/4"} border-motif flex h-[85%] w-[85%] flex-col items-center justify-center gap-10 border-4 border-solid`}
+                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "basis-[85%]" : "basis-[15%]"} flex size-[95%] flex-col items-center justify-center bg-motif`}
               >
                 <div
                   onClick={() => {
                     setExpand(true);
                     setInvite(1);
                   }}
-                  className="acceptButton grid size-36 place-content-center bg-orange-500/0"
-                  style={{
-                    backgroundImage: `url(${acceptButtonIcon})`,
-                    backgroundSize: "contain",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                  }}
+                  className={`relative z-10 flex size-full flex-col items-center justify-center gap-10`}
                 >
-                  {/* <Button
-                    className=""
-                    variant="outlined"
-                    onClick={() => {
-                      setExpand(true);
-                      setInvite(1);
+                  <div
+                    className={`acceptButton grid ${invite === 2 ? "size-[35%]" : invite === 0 ? "size-[65%]" : "size-[50%]"} place-content-center`}
+                    style={{
+                      backgroundImage: `url(${acceptButtonIcon})`,
+                      backgroundSize: "contain",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
                     }}
+                  ></div>
+                  <p
+                    className={`w-full ${invite === 2 ? "block" : "hidden"} text-center text-2xl font-bold text-ivory`}
                   >
                     Accept
-                  </Button> */}
+                  </p>
                 </div>
-                <p className="text-motif w-full text-center text-2xl font-bold">
-                  Accept
-                </p>
+                <div className="absolute size-[95%] rounded-xl border-4 border-solid border-ivory"></div>
               </div>
             </div>
-            {/* Verfiy Details */}
             <div
               className={` ${details.submit ? "block" : "hidden"} absolute z-10 flex size-full flex-col items-center justify-center gap-5 bg-slate-300`}
             >
@@ -601,100 +692,61 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 )}
               </div>
             </div>
-            {/* Decline invitation */}
-            {/* <div
-              className={`${invite === 2 ? "basis-1/2" : invite === 0 ? "basis-3/4" : "basis-1/4"} grid place-content-center bg-slate-500`}
-            > */}
-            {/* {invite === 0 ? ( */}
-            {/* {!expand && invite === 0 ? ( */}
             <div
               ref={boxRightRef}
-              // className={`decline grid ${invite === 0 ? "basis-[85%]" : "basis-1/2"} place-content-center bg-slate-500`}
-              className={`decline flex ${!expand && invite === 0 ? "basis-[85%]" : invite === 1 ? "basis-[15%]" : "basis-1/2"} relative flex-col items-center justify-center bg-lime-500`}
+              className={`decline flex ${!expand && invite === 0 ? "basis-[85%]" : invite === 1 ? "basis-[20%]" : "basis-1/2"} relative size-[95%] flex-col items-center justify-center bg-barley`}
             >
-              <div className="boxRight relative flex size-[85%] flex-col justify-center gap-5 bg-red-500 p-10 max-lg:max-w-[85%] lg:max-w-[85%]">
-                <p className="boxRight text-center">
+              <div className="boxRight z-10 flex size-[85%] flex-col justify-center gap-5 max-lg:max-w-[85%] lg:max-w-[85%]">
+                <p className="boxRight grid size-full place-content-center text-center">
                   Sorry to hear that, we wish you could be there with us
                 </p>
               </div>
+              {/* Decline Button */}
               <div
                 ref={declineRef}
-                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 && expand ? "hidden basis-[85%]" : "basis-1/4"} z-10 flex size-[85%] flex-col items-center justify-center gap-10 border-4 border-solid border-barley text-white`}
+                onClick={() => {
+                  setExpand(false);
+                  setInvite(0);
+                  setDetails((details) => ({ ...details, submit: false }));
+                  setGuest({
+                    firstName: "",
+                    lastName: "",
+                    companion: false,
+                    numberOfAttendees: 0,
+                    nameOfCompanions: [],
+                  });
+                  setPlusOne(false);
+                }}
+                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 && expand ? "hidden basis-[85%]" : "basis-[15%]"} z-10 flex size-[95%] flex-col items-center justify-center gap-10 text-white`}
               >
-                {/* <Button
-                  variant="outlined"
-                  onClick={() => {
-                    setInvite(0);
-                    setDetails((details) => ({ ...details, submit: false }));
-                    setGuest({
-                      firstName: "",
-                      lastName: "",
-                      companion: false,
-                      numberOfAttendees: 0,
-                      nameOfCompanions: [],
-                    });
-                    setPlusOne(false);
-                  }}
-                >
-                  Decline
-                </Button> */}
                 <div
-                  onClick={() => {
-                    setExpand(false);
-                    setInvite(0);
-                    setDetails((details) => ({ ...details, submit: false }));
-                    setGuest({
-                      firstName: "",
-                      lastName: "",
-                      companion: false,
-                      numberOfAttendees: 0,
-                      nameOfCompanions: [],
-                    });
-                    setPlusOne(false);
-                  }}
-                  className={`declineButton size-36 text-white`}
+                  className={`declineButton grid ${invite === 2 ? "size-[36.7%]" : invite === 1 ? "size-[65%]" : "size-[50%]"} place-content-center`}
                   style={{
                     backgroundImage: `url(${declineButtonIcon})`,
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
                   }}
+                ></div>
+                {/* <p className="w-full text-center text-2xl font-bold text-barley"> */}
+                <p
+                  className={`w-full ${invite === 2 ? "block" : "hidden"} text-center text-2xl font-bold text-ivory`}
                 >
-                  {/* <Button
-                    variant=""
-                    onClick={() => {
-                      setExpand(false);
-                      setInvite(0);
-                      setDetails((details) => ({ ...details, submit: false }));
-                      setGuest({
-                        firstName: "",
-                        lastName: "",
-                        companion: false,
-                        numberOfAttendees: 0,
-                        nameOfCompanions: [],
-                      });
-                      setPlusOne(false);
-                    }}
-                  >
-                    Decline
-                  </Button> */}
-                </div>
-                <p className="w-full text-center text-2xl font-bold text-barley">
                   Decline
                 </p>
               </div>
-              {/* )} */}
+              <div className="absolute size-[95%] rounded-xl border-4 border-solid border-ivory bg-barley"></div>
             </div>
           </div>
         </div>
       </div>
-      {/* <button
+      <button
         className="h-full w-full bg-slate-500"
-        // onClick={() => setToggled(!toggled)}
+        //  onClick={() => setToggled(!toggled)}
         onClick={() => setExpand(!expand)}
       >
         Click me
-      </button> */}
+      </button>
     </>
 
     // <div ref={boxRef} className="z-10 flex items-center justify-center">
