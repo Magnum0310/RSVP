@@ -3,8 +3,13 @@ import { db } from "../config/firebase";
 import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 
-const SubmitData = ({ guestName, setUpdateStatus, setDetails }) => {
-  // console.log(guestName);
+const SubmitData = ({
+  guestName,
+  setUpdateStatus,
+  setDetails,
+  setInvite,
+  setExpand,
+}) => {
   const guestList = doc(collection(db, "guest"));
   // const testData = {
   //   firstName: "Dummy first name",
@@ -15,11 +20,10 @@ const SubmitData = ({ guestName, setUpdateStatus, setDetails }) => {
   // };
 
   const addGuest = async () => {
-    // console.log("click");
     try {
       const newGuest = await setDoc(guestList, guestName);
-      // console.log(newGuest);
-      // console.log("done");
+      setInvite(2);
+      setExpand("");
       setUpdateStatus((status) => ({ ...status, success: true }));
       setDetails((details) => ({ ...details, load: true }));
       setTimeout(() => {
@@ -35,9 +39,23 @@ const SubmitData = ({ guestName, setUpdateStatus, setDetails }) => {
     }
   };
 
+  const triggerLoadingState = () => {
+    setUpdateStatus((status) => ({ ...status, success: true }));
+    setDetails((details) => ({ ...details, load: true }));
+    setInvite(2);
+    setExpand("");
+    setTimeout(() => {
+      setDetails((details) => ({ ...details, verify: true }));
+    }, 3000);
+  };
+
   return (
-    <div>
-      <Button className="bg-emerald-500" onClick={() => addGuest()}>
+    <div className="basis-1/2">
+      <Button
+        className="size-full rounded-full bg-ivory text-black"
+        // onClick={() => addGuest()}
+        onClick={() => triggerLoadingState()}
+      >
         Submit
       </Button>
     </div>

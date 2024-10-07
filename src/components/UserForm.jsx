@@ -29,68 +29,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { FixedSizeList } from "react-window";
 import { InputLabel } from "@mui/material";
+import { PlusCircleIcon } from "lucide-react";
 
 gsap.registerPlugin(Flip);
-
-// const Inputs = ({
-//   index,
-//   name,
-//   placeholder,
-//   type,
-//   value,
-//   handleChange,
-//   id,
-// }) => {
-//   return (
-//     <TextField
-//       required
-//       className="bg-slate-200"
-//       key={index}
-//       name={name}
-//       id={id}
-//       placeholder={placeholder}
-//       type={type}
-//       value={value}
-//       onChange={(e) => handleChange(e)}
-//     />
-//   );
-// };
-
-// const customTheme = (outerTheme) =>
-//   createTheme({
-//     palette: {
-//       mode: outerTheme.palette.mode,
-//     },
-//     components: {
-//       MuiTextField: {
-//         styleOverrides: {
-//           root: {
-//             "--TextField-brandBorderColor": "#EDE8E2",
-//             "--TextField-brandBorderHoverColor": "#EDE8E2",
-//             "--TextField-brandBorderFocusedColor": "#EDE8E2",
-//             "& label.Mui-focused": {
-//               color: "var(--TextField-brandBorderFocusedColor)",
-//             },
-//           },
-//         },
-//       },
-//       MuiOutlinedInput: {
-//         styleOverrides: {
-//           notchedOutline: {
-//             borderColor: "var(--TextField-brandBorderColor)",
-//           },
-//           root: {
-//             [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
-//               borderColor: "var(--TextField-brandBorderHoverColor)",
-//             },
-//             [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
-//               borderColor: "var(--TextField-brandBorderFocusedColor)",
-//             },
-//           },
-//         },
-//       },
-//     },
-//   });
 
 // console.log(sx);
 // console.log(inputSx);
@@ -106,6 +47,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     declineButtonIcon,
     declineOrnamentActiveButton,
     declineOrnamentInactiveButton,
+    activeOrnament,
+    inactiveOrnament,
   } = Image;
 
   //===============STATES===============//
@@ -225,7 +168,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
 
   //=====Handle home=====//
   const handleHomePage = () => {
-    setInvite(2);
+    // setInvite(2);
+    // setExpand("");
     setGuest({
       firstName: "",
       lastName: "",
@@ -260,7 +204,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     ease: "power1.Out",
     duration: 0.5,
     scale: true,
-    // nested: true,
     stagger: 0.5,
   };
 
@@ -286,7 +229,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     const declineButton =
       declineRef.current?.querySelectorAll(".declineButton");
 
-    console.log(declineButton);
     //=====Get the state of the boxes before any animation=====//
     const state = Flip.getState(boxes);
     const stateRightBox = Flip.getState(rightBoxes);
@@ -327,7 +269,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       });
 
       //=====Accept Button =====//
-      gsap.set([acceptButton[0]], {
+      gsap.set([acceptButton[0], acceptButton[1]], {
         duration: 1,
         scaleX: 0,
         opacity: 0,
@@ -337,6 +279,13 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         duration: 1,
         scaleX: 1,
         opacity: 1,
+        ease: "power2.inOut",
+      });
+
+      gsap.set([declineButton[1]], {
+        duration: 1,
+        scaleX: 1,
+        opacity: "25%",
         ease: "power2.inOut",
       });
     }
@@ -376,17 +325,32 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       //=====Accept Button=====//
       gsap.set([acceptButton[0]], {
         duration: 1,
+        scaleX: 1,
+        opacity: 1,
+        opacity: "25%",
+        ease: "power2.inOut",
+      });
+      gsap.set([acceptButton[1]], {
+        duration: 1,
         x: 0,
         scaleX: 1,
         opacity: 1,
         ease: "power2.inOut",
       });
+
       //=====Decline Button=====//
       gsap.set([declineButton[0]], {
         duration: 1,
         x: 0,
         scaleX: `${invite === 2 ? 1 : 0}`,
         opacity: `${invite === 2 ? 1 : 0}`,
+        ease: "power2.inOut",
+      });
+      gsap.set([declineButton[1]], {
+        duration: 1,
+        x: 0,
+        scaleX: `${invite === 2 ? 1 : 0}`,
+        opacity: `${invite === 2 ? 0 : "25%"}`,
         ease: "power2.inOut",
       });
     }
@@ -406,14 +370,14 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       nested: true,
     });
     Flip.from(acceptState, {
-      duration: 0.5,
+      duration: 0.6,
       stagger: 0.05,
       ease: "power2.inOut",
       scale: true,
       nested: true,
     });
     Flip.from(declineState, {
-      duration: 0.5,
+      duration: 0.6,
       stagger: 0.05,
       ease: "power2.inOut",
       scale: true,
@@ -421,14 +385,14 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     });
   }, [expand]);
 
-  console.log(expand);
+  // console.log(details);
+  // console.log(updateStatus);
 
   return (
     <>
       <div className="relative flex h-screen w-full flex-col justify-center gap-5 font-Coldiac">
         <div className="h-[80%] w-full">
           {/* Buttons */}
-          {/* <div className="relative z-10 flex w-full justify-evenly"></div> */}
           <div className="flex size-full items-center">
             {/* Accept invitation */}
             <div
@@ -436,28 +400,31 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               className={`flex ${expand && invite === 1 ? "basis-[85%]" : invite === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
             >
               <Box
-                className={`box ${invite === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col justify-center gap-5 border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
+                className={`box ${invite === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col gap-5 ${(plusOne && errors?.firstName) || errors?.lastName ? "place-content-center overflow-y-scroll" : "justify-center"} border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
                 component="form"
-                // sx={{
-                //   "& .MuiTextField-root": { mb: 0, width: "100%" },
-                // }}
                 noValidate
                 autoComplete="off"
                 sx={{
                   // Target all input fields inside the Box component
                   "& .MuiTextField-root": {
-                    marginBottom: "16px", // Add space between text fields
-                  },
-                  "&.Mui-focused": {
-                    color: "ivory", // Change text color when focused
-                  },
-                  "& .MuiInputLabel-root.Mui-focused": {
-                    color: "ivory", // Label color when focused
+                    marginBottom: "2px", // Add space between text fields
                   },
                   "& .MuiInputLabel-root": {
                     color: "ivory", // Label color
                     fontFamily: "'Coldiac', sans-serif", // Font family for input text
-                    fontSize: "16px", // Input font size
+                    // fontSize: "16px", // Input font size
+                  },
+                  "& label.Mui-focused": {
+                    color: "ivory",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    fontFamily: "'Coldiac'",
+                    color: "ivory",
+                    fontWeight: "bold",
+                    "&.Mui-focused fieldset": {
+                      borderColor: "ivory",
+                      fontFamily: "'Coldiac'",
+                    },
                   },
                   "& .MuiOutlinedInput-notchedOutline": {
                     borderColor: "ivory", // Default border color
@@ -465,15 +432,12 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   "&:hover .MuiOutlinedInput-notchedOutline": {
                     borderColor: "ivory", // Border color on hover
                   },
-                  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "ivory", // Border color when focused
-                  },
                   "& .MuiTypography-root": {
                     color: "ivory", // Default label color
                     fontFamily: '"Coldiac", sans-serif', // Change font family for the label
                     fontSize: "16px", // Change font size for the label
                     "&.Mui-checked": {
-                      color: "purple", // Label color when checked
+                      color: "ivory", // Label color when checked
                     },
                   },
                 }}
@@ -490,7 +454,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   onChange={handleChange}
                 />
                 {errors?.firstName && (
-                  <p className="text-base">{errors?.firstName}</p>
+                  <p className="text-xs">{errors?.firstName}</p>
                 )}
                 <TextField
                   className="box"
@@ -503,12 +467,20 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   onChange={handleChange}
                 />
                 {errors?.lastName && (
-                  <p className="text-base">{errors?.lastName}</p>
+                  <p className="text-xs">{errors?.lastName}</p>
                 )}
                 {/* Verify Plus One */}
                 <FormControlLabel
                   className="box w-fit"
-                  control={<Checkbox onChange={() => handleCheckbox()} />}
+                  control={
+                    <Checkbox
+                      checked={plusOne}
+                      onChange={() => handleCheckbox()}
+                      style={{
+                        color: "ivory",
+                      }}
+                    />
+                  }
                   label="Any companions?"
                 />
                 {/* Add full name of companion */}
@@ -555,8 +527,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     sx={{
                       width: "100%",
                       height: 100,
-                      // maxWidth: 560,
-                      // bgcolor: "background.paper",
                     }}
                   >
                     <FixedSizeList
@@ -588,13 +558,87 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 >
                   Submit
                 </Button>
-                {/* </ThemeProvider> */}
               </Box>
-
+              {/* ADDING Background Image */}
               <div
                 ref={acceptRef}
                 className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "basis-[85%]" : "basis-[15%]"} flex size-[95%] flex-col items-center justify-center bg-motif`}
               >
+                {/* Default View */}
+                <div
+                  className={`absolute ${invite === 2 && expand.length === 0 ? "flex" : invite === 1 && expand ? "flex" : "hidden"} h-[50%] w-[80%] opacity-25`}
+                >
+                  <div
+                    className="basis-1/2 rotate-180"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                  <div
+                    className="basis-1/2"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                </div>
+                {/* Inactive View */}
+                <div
+                  className={`absolute top-1/2 ${invite === 2 && expand.length === 0 ? "hidden" : invite === 1 && expand ? "hidden" : "flex"} acceptButton size-[95%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-25`}
+                >
+                  <div
+                    className="basis-[35%]"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "top",
+                      scale: "1.1",
+                    }}
+                  ></div>
+                  <div
+                    className="basis-[35%] rotate-180"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "top",
+                      scale: "1.1",
+                    }}
+                  ></div>
+                </div>
+                {/* Active Form View */}
+                <div
+                  className={`absolute top-1/2 ${invite === 2 && expand.length === 0 ? "hidden" : invite === 1 && expand ? "flex" : "hidden"} size-[95%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-75`}
+                >
+                  <div
+                    className="relative -top-1/4 right-1/2 basis-[50%]"
+                    style={{
+                      backgroundImage: `url(${activeOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                  <div
+                    className="relative left-1/2 top-1/4 basis-[50%] rotate-180"
+                    style={{
+                      backgroundImage: `url(${activeOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                </div>
                 <div
                   onClick={() => {
                     setExpand(true);
@@ -603,7 +647,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   className={`relative z-10 flex size-full flex-col items-center justify-center gap-10`}
                 >
                   <div
-                    className={`acceptButton grid ${invite === 2 ? "size-[35%]" : invite === 0 ? "size-[65%]" : "size-[50%]"} place-content-center`}
+                    className={`acceptButton grid ${invite === 2 ? "size-[40%] lg:size-[55%]" : invite === 0 ? "size-[35%]" : "size-[50%]"} place-content-center`}
                     style={{
                       backgroundImage: `url(${acceptButtonIcon})`,
                       backgroundSize: "contain",
@@ -620,84 +664,190 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 <div className="absolute size-[95%] rounded-xl border-4 border-solid border-ivory"></div>
               </div>
             </div>
+            {/* Verify Details Form */}
             <div
-              className={` ${details.submit ? "block" : "hidden"} absolute z-10 flex size-full flex-col items-center justify-center gap-5 bg-slate-300`}
+              className={` ${details.submit ? "block" : "hidden"} absolute z-[50] flex size-full flex-col items-center justify-center bg-motif text-ivory`}
             >
-              <div className="flex h-[80%] w-full flex-col justify-center gap-5 px-5 max-lg:max-w-[90%] lg:max-w-[75%]">
-                <p className="text-center text-2xl">Verify details</p>
-                <div>
-                  <label htmlFor="fullname">Full Name:</label>
-                  <p id="fullname">
-                    {guest.firstName} {guest.lastName}
-                  </p>
-                </div>
-                <p>{`Total number of companion/s: ${guest.numberOfAttendees}`}</p>
-                {/* <div className="flex flex-col gap-2 pl-5">
-                  {guest.nameOfCompanions.map((name, index) => (
-                    <p key={index}>-{name}</p>
-                  ))}
-                </div> */}
-                {guest.nameOfCompanions.length != 0 && (
-                  <Box
-                    sx={{
-                      width: "100%",
-                      height: 100,
-                      // maxWidth: 360,
-                      // bgcolor: "background.paper",
-                    }}
-                  >
-                    <FixedSizeList
-                      height={200}
-                      width="100%"
-                      itemSize={30}
-                      itemCount={guest.nameOfCompanions?.length}
-                      overscanCount={5}
+              {/* Verify Details  */}
+              <div
+                className={`z-[50] ${details.load ? "hidden" : "block"} flex size-full flex-col items-center justify-center gap-5`}
+              >
+                <p className="text-center text-3xl">Verify details</p>
+                <div className="flex w-full basis-[55%] flex-col justify-center gap-5 px-5 text-xl max-lg:max-w-[90%] lg:max-w-[75%]">
+                  <div className="">
+                    <label className="text-base" htmlFor="fullname ">
+                      Full Name:
+                    </label>
+                    <p id="fullname">
+                      {guest.firstName} {guest.lastName}
+                    </p>
+                  </div>
+                  <span className="flex items-center gap-2">
+                    <p className="text-base">Total number of companion/s:</p>
+                    <p>{`${guest.numberOfAttendees}`}</p>
+                  </span>
+                  {guest.nameOfCompanions.length != 0 && (
+                    <Box
+                      sx={{
+                        width: "100%",
+                        height: 200,
+                        "& .MuiTypography-root": {
+                          color: "ivory", // Default label color
+                          fontFamily: '"Coldiac", sans-serif',
+                        },
+                      }}
                     >
-                      {renderRow}
-                    </FixedSizeList>
-                  </Box>
-                )}
-              </div>
-              <div className="flex gap-5">
-                <SubmitData
-                  guestName={guest}
-                  setUpdateStatus={setUpdateStatus}
-                  setDetails={setDetails}
-                />
-                <Button
-                  onClick={() =>
-                    setDetails((details) => ({ ...details, submit: false }))
-                  }
-                  className="w-fit bg-slate-500"
+                      <FixedSizeList
+                        height={200}
+                        width="100%"
+                        itemSize={30}
+                        itemCount={guest.nameOfCompanions?.length}
+                        overscanCount={5}
+                      >
+                        {renderRow}
+                      </FixedSizeList>
+                    </Box>
+                  )}
+                </div>
+                {/* Submit form buttons */}
+                <div className="relative flex h-[3rem] w-3/4 gap-5">
+                  <SubmitData
+                    guestName={guest}
+                    setUpdateStatus={setUpdateStatus}
+                    setDetails={setDetails}
+                    setInvite={setInvite}
+                    setExpand={setExpand}
+                  />
+                  <div className="bg-returnButton size-full basis-1/2 place-content-center rounded-full text-ivory">
+                    <Button
+                      onClick={() =>
+                        setDetails((details) => ({ ...details, submit: false }))
+                      }
+                      className="w-full text-ivory"
+                    >
+                      <p className="text-ivory">Return</p>
+                    </Button>
+                  </div>
+                </div>
+                {/* Background Image */}
+                <div
+                  className={`absolute top-1/2 -z-10 flex size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-25`}
                 >
-                  Return
-                </Button>
+                  <div
+                    className="relative top-1/2 basis-[50%] -translate-y-1/2"
+                    style={{
+                      backgroundImage: `url(${activeOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                </div>
               </div>
-              {/* </div> */}
               {/* Submitting Details */}
               <div
-                className={` ${details.load ? "block" : "hidden"} absolute z-10 flex size-full flex-col items-center justify-center gap-5 bg-slate-300`}
+                className={` ${details.load ? "block" : "hidden"} z-50 flex size-full flex-col items-center justify-center gap-5 text-4xl`}
               >
                 {!details.verify && <p>Submitting Details...</p>}
                 {details.verify && (
-                  <div>
-                    <p>Success!</p>{" "}
-                    <Button
-                      onClick={() => handleHomePage()}
-                      className="bg-emerald-500"
+                  <div className="flex size-[95%] flex-col items-center justify-center gap-16">
+                    <p>Success!</p>
+                    <div className="flex w-[80%] flex-col gap-5 text-base">
+                      <p>Dear {guest.firstName},</p>
+                      <p style={{ textIndent: 30 }}>
+                        Thank you so much for confirming your attendance! We’re
+                        excited to celebrate our special day with you. Your
+                        presence means the world to us, and we can’t wait to
+                        share this moment together.
+                      </p>
+                      <p>Best,</p>
+                      <div className="relative size-fit bg-orange-500/0">
+                        <span className="w-fit bg-blue-500/0 font-Showtime text-3xl">
+                          Jeffrey and Jonalyn
+                        </span>
+                        <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between bg-lime-500/10 opacity-35">
+                          <div
+                            className="basis-[35%] rotate-[140deg]"
+                            style={{
+                              backgroundImage: `url(${inactiveOrnament})`,
+                              backgroundSize: "contain",
+                              backgroundRepeat: "no-repeat",
+                              backgroundPosition: "center",
+                              scale: "2",
+                            }}
+                          ></div>
+                          <div
+                            className="basis-[35%] rotate-[40deg]"
+                            style={{
+                              backgroundImage: `url(${inactiveOrnament})`,
+                              backgroundSize: "contain",
+                              backgroundRepeat: "no-repeat",
+                              backgroundPosition: "center",
+                              scale: "2",
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative mt-10 h-[6%] w-[35%]">
+                      <Button
+                        style={{
+                          color: "black",
+                          fontFamily: '"Coldiac"',
+                          backgroundColor: "ivory",
+                          fontWeight: "bold",
+                          width: "100%",
+                          height: "100%",
+                          borderRadius: "25px",
+                        }}
+                        onClick={() => handleHomePage()}
+                        className=""
+                      >
+                        Home
+                      </Button>
+                      <div
+                        className="absolute left-1/2 top-1/2 -z-10 size-32 -translate-x-1/2 -translate-y-1/2 opacity-45"
+                        style={{
+                          backgroundImage: `url(${activeOrnament})`,
+                          backgroundSize: "contain",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "center",
+                          scale: "1",
+                        }}
+                      ></div>
+                    </div>
+                    {/* Background Image */}
+                    <div
+                      className={`absolute top-1/2 -z-10 flex size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-45`}
                     >
-                      Home
-                    </Button>
+                      <div
+                        className="relative -top-1/4 left-1/2 basis-[50%]"
+                        style={{
+                          backgroundImage: `url(${activeOrnament})`,
+                          backgroundSize: "contain",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "center",
+                          scale: "1",
+                        }}
+                      ></div>
+                    </div>
                   </div>
                 )}
               </div>
+              <div className="absolute z-20 size-[95%] border-4 border-solid border-ivory bg-orange-500/0"></div>
             </div>
+            {/* Decline Button */}
             <div
               ref={boxRightRef}
-              className={`decline flex ${!expand && invite === 0 ? "basis-[85%]" : invite === 1 ? "basis-[20%]" : "basis-1/2"} relative size-[95%] flex-col items-center justify-center bg-barley`}
+              className={`flex ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 ? "basis-[85%]" : "basis-[15%]"} decline relative h-full flex-col items-center justify-center gap-2`}
             >
-              <div className="boxRight z-10 flex size-[85%] flex-col justify-center gap-5 max-lg:max-w-[85%] lg:max-w-[85%]">
-                <p className="boxRight grid size-full place-content-center text-center">
+              <div
+                className={`flex size-[95%] flex-col items-center justify-center bg-barley`}
+              >
+                <p
+                  className={`boxRight ${invite === 0 ? "block" : "hidden"} z-10 grid size-[75%] place-content-center text-center font-Showtime text-5xl leading-[4rem] text-ivory`}
+                >
                   Sorry to hear that, we wish you could be there with us
                 </p>
               </div>
@@ -720,7 +870,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 && expand ? "hidden basis-[85%]" : "basis-[15%]"} z-10 flex size-[95%] flex-col items-center justify-center gap-10 text-white`}
               >
                 <div
-                  className={`declineButton grid ${invite === 2 ? "size-[36.7%]" : invite === 1 ? "size-[65%]" : "size-[50%]"} place-content-center`}
+                  className={`declineButton grid ${invite === 2 ? "size-[36.7%] lg:size-[51.7%]" : invite === 1 ? "size-[35%]" : "size-[50%]"} place-content-center`}
                   style={{
                     backgroundImage: `url(${declineButtonIcon})`,
                     backgroundSize: "contain",
@@ -728,44 +878,94 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     backgroundPosition: "center",
                   }}
                 ></div>
-                {/* <p className="w-full text-center text-2xl font-bold text-barley"> */}
                 <p
                   className={`w-full ${invite === 2 ? "block" : "hidden"} text-center text-2xl font-bold text-ivory`}
                 >
                   Decline
                 </p>
+                {/* Default View */}
+                <div
+                  className={`absolute ${invite === 2 && expand.length === 0 ? "flex" : invite === 1 && expand ? "hidden" : "flex"} h-[50%] w-[80%] opacity-25`}
+                >
+                  <div
+                    className="basis-1/2 rotate-180"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                  <div
+                    className="basis-1/2"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                </div>
+                {/* Inactive View */}
+                <div
+                  className={`absolute top-1/2 ${invite === 2 && expand.length === 0 ? "hidden" : invite === 1 && expand ? "flex" : "hidden"} declineButton size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-25`}
+                >
+                  <div
+                    className="basis-[35%]"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "top",
+                      scale: "1.1",
+                    }}
+                  ></div>
+                  <div
+                    className="basis-[35%] rotate-180"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "top",
+                      scale: "1.1",
+                    }}
+                  ></div>
+                </div>
+                {/* Active Form View */}
+                <div
+                  className={`absolute top-1/2 ${invite === 2 && expand.length === 0 ? "hidden" : invite === 1 && expand ? "hidden" : "flex"} size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-75`}
+                >
+                  <div
+                    className="relative -top-1/4 left-1/2 basis-[50%]"
+                    style={{
+                      backgroundImage: `url(${activeOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                  <div
+                    className="relative right-1/2 top-1/4 basis-[50%] rotate-180"
+                    style={{
+                      backgroundImage: `url(${activeOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                </div>
               </div>
-              <div className="absolute size-[95%] rounded-xl border-4 border-solid border-ivory bg-barley"></div>
+
+              <div className="absolute size-[90%] rounded-xl border-4 border-solid border-ivory"></div>
             </div>
           </div>
         </div>
       </div>
-      <button
-        className="h-full w-full bg-slate-500"
-        //  onClick={() => setToggled(!toggled)}
-        onClick={() => setExpand(!expand)}
-      >
-        Click me
-      </button>
     </>
-
-    // <div ref={boxRef} className="z-10 flex items-center justify-center">
-    //   {/* {expand ? ( */}
-    //   <div className="box flex h-32 w-32 items-center justify-center bg-lime-500">
-    //     {/* <div
-    //       className={`box ${toggled ? "block" : "block"} h-16 w-16 bg-green-500`}
-    //     ></div> */}
-    //     <div className={`box flex h-16 w-16 flex-col gap-2 bg-red-500`}>
-    //       <div className="box relative h-1 w-full bg-black"></div>
-    //       <div className="box relative h-1 w-full bg-black"></div>
-    //       <div className="box relative h-1 w-full bg-black"></div>
-    //       <div className="box relative h-1 w-full bg-black"></div>
-    //     </div>
-    //   </div>
-    //   {/* ) : (
-    //     <div className="box size-16 bg-black"></div>
-    //   )} */}
-    // </div>
   );
 };
 

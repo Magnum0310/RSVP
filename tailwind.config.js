@@ -16,6 +16,7 @@ export default {
         mauve: "#B47377",
         barley: "#AB6D3A",
         motif: "#A2495D",
+        returnButton: "#3C444F",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
