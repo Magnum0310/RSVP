@@ -9,6 +9,7 @@ import {
 import SubmitData from "../data/SubmitData";
 import Image from "../constants/Image";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import { Flip } from "gsap/Flip";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
@@ -37,7 +38,6 @@ gsap.registerPlugin(Flip);
 // console.log(inputSx);
 
 const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
-  const outerTheme = useTheme();
   //===============Images===============//
   const {
     userformBorder,
@@ -86,6 +86,47 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     submit: false,
     load: false,
   });
+
+  //=====Submitting Details Animation=====//
+
+  const submitContainer = useRef();
+  const submitOrnament = useRef();
+  const successContainer = useRef();
+  // const submitOrnament = useRef();
+
+  useGSAP(() => {
+    if (details.load) {
+      gsap.to(submitOrnament.current, {
+        rotation: "+=360",
+        duration: 30,
+        repeat: -1,
+        opacity: 1,
+      });
+    } else {
+      gsap.to(submitOrnament.current, {
+        rotation: "+0",
+        duration: 0,
+        repeat: 0,
+        opacity: 0,
+      });
+    }
+  }, [details.load]);
+
+  //=====Success Details Animation=====//
+
+  useGSAP(() => {
+    if (details.verify) {
+      gsap.to(successContainer.current, {
+        duration: 2,
+        opacity: 1,
+      });
+    } else {
+      gsap.to(successContainer.current, {
+        duration: 0,
+        opacity: 0,
+      });
+    }
+  }, [details.verify]);
 
   //=====Handle checkbox=====//
   const handleCheckbox = () => {
@@ -187,7 +228,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     return (
       <ListItem style={style} key={index} component="div" disablePadding>
         <ListItemButton>
-          <ListItemText primary={`Item ${guest.nameOfCompanions[index]}`} />
+          <ListItemText primary={`${guest.nameOfCompanions[index]}`} />
         </ListItemButton>
       </ListItem>
     );
@@ -326,7 +367,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       gsap.set([acceptButton[0]], {
         duration: 1,
         scaleX: 1,
-        opacity: 1,
         opacity: "25%",
         ease: "power2.inOut",
       });
@@ -400,7 +440,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               className={`flex ${expand && invite === 1 ? "basis-[85%]" : invite === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
             >
               <Box
-                className={`box ${invite === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col gap-5 ${(plusOne && errors?.firstName) || errors?.lastName ? "place-content-center overflow-y-scroll" : "justify-center"} border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
+                className={`box ${invite === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col gap-5 ${(plusOne && errors?.firstName) || errors?.lastName ? "overflow-y-scroll" : "justify-center"} border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
                 component="form"
                 noValidate
                 autoComplete="off"
@@ -410,19 +450,24 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     marginBottom: "2px", // Add space between text fields
                   },
                   "& .MuiInputLabel-root": {
-                    color: "ivory", // Label color
+                    color: "black", // Label color
                     fontFamily: "'Coldiac', sans-serif", // Font family for input text
-                    // fontSize: "16px", // Input font size
+                    // backgroundColor: "rgba(237,232,226,.25)",
+                    borderRadius: "5px",
+                    paddingX: "5px",
+                    // opacity: "75%",
                   },
                   "& label.Mui-focused": {
-                    color: "ivory",
+                    color: "black",
                   },
                   "& .MuiOutlinedInput-root": {
                     fontFamily: "'Coldiac'",
-                    color: "ivory",
+                    color: "black",
                     fontWeight: "bold",
+                    backgroundColor: "ivory",
+                    opacity: "75%",
                     "&.Mui-focused fieldset": {
-                      borderColor: "ivory",
+                      borderColor: "black",
                       fontFamily: "'Coldiac'",
                     },
                   },
@@ -527,6 +572,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     sx={{
                       width: "100%",
                       height: 100,
+                      // backgroundColor: "ivory",
+                      borderColor: "ivory",
                     }}
                   >
                     <FixedSizeList
@@ -718,7 +765,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     setInvite={setInvite}
                     setExpand={setExpand}
                   />
-                  <div className="bg-returnButton size-full basis-1/2 place-content-center rounded-full text-ivory">
+                  <div className="size-full basis-1/2 place-content-center rounded-full bg-returnButton text-ivory">
                     <Button
                       onClick={() =>
                         setDetails((details) => ({ ...details, submit: false }))
@@ -749,9 +796,30 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               <div
                 className={` ${details.load ? "block" : "hidden"} z-50 flex size-full flex-col items-center justify-center gap-5 text-4xl`}
               >
-                {!details.verify && <p>Submitting Details...</p>}
+                {!details.verify && (
+                  <div
+                    // ref={submitContainer}
+                    className="absolute flex size-[94%] flex-col items-center justify-center bg-blue-500/0"
+                  >
+                    <p>Submitting Details...</p>
+                    <div
+                      ref={submitOrnament}
+                      className="absolute flex size-[75%] opacity-25"
+                      style={{
+                        backgroundImage: `url(${activeOrnament})`,
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        scale: "1",
+                      }}
+                    ></div>
+                  </div>
+                )}
                 {details.verify && (
-                  <div className="flex size-[95%] flex-col items-center justify-center gap-16">
+                  <div
+                    ref={successContainer}
+                    className="flex size-[95%] flex-col items-center justify-center gap-16 opacity-0"
+                  >
                     <p>Success!</p>
                     <div className="flex w-[80%] flex-col gap-5 text-base">
                       <p>Dear {guest.firstName},</p>
@@ -846,7 +914,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 className={`flex size-[95%] flex-col items-center justify-center bg-barley`}
               >
                 <p
-                  className={`boxRight ${invite === 0 ? "block" : "hidden"} z-10 grid size-[75%] place-content-center text-center font-Showtime text-5xl leading-[4rem] text-ivory`}
+                  className={`boxRight ${invite === 0 ? "block" : "invisible"} z-10 grid size-[75%] place-content-center text-center font-Showtime text-5xl leading-[4rem] text-ivory`}
                 >
                   Sorry to hear that, we wish you could be there with us
                 </p>

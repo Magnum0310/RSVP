@@ -21,11 +21,11 @@ const SubmitData = ({
 
   const addGuest = async () => {
     try {
+      setUpdateStatus((status) => ({ ...status, success: true }));
+      setDetails((details) => ({ ...details, load: true }));
       const newGuest = await setDoc(guestList, guestName);
       setInvite(2);
       setExpand("");
-      setUpdateStatus((status) => ({ ...status, success: true }));
-      setDetails((details) => ({ ...details, load: true }));
       setTimeout(() => {
         setDetails((details) => ({ ...details, verify: true }));
       }, 3000);
@@ -44,6 +44,7 @@ const SubmitData = ({
     setDetails((details) => ({ ...details, load: true }));
     setInvite(2);
     setExpand("");
+    // setDetails((details) => ({ ...details, verify: true }));
     setTimeout(() => {
       setDetails((details) => ({ ...details, verify: true }));
     }, 3000);
