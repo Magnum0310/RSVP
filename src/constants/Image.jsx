@@ -67,6 +67,7 @@ import declineOrnamentActiveButton from "../assets/Vectors/Userform/declineOrnam
 import declineOrnamentInactiveButton from "../assets/Vectors/Userform/declineOrnamentInactiveButton.svg";
 import activeOrnament from "../assets/Vectors/Userform/activeOrnament.svg";
 import inactiveOrnament from "../assets/Vectors/Userform/inactiveOrnament.svg";
+import deleteIcon from "../assets/Vectors/Userform/deleteIcon.svg";
 
 const Image = {
   // Hero Page
@@ -135,6 +136,7 @@ const Image = {
   declineOrnamentInactiveButton,
   activeOrnament,
   inactiveOrnament,
+  deleteIcon,
 };
 
 export default Image;

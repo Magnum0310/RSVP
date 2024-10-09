@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { UserFormProvider } from "./context/UserformContext";
 import "./App.css";
 import Lenis from "lenis";
 import Hero from "./components/HeroPage";
@@ -9,6 +10,7 @@ import Church from "./components/ChurchLocation";
 import Reception from "./components/ReceptionLocation";
 import AdminPanel from "./components/AdminPanel";
 import UserForm from "./components/UserForm";
+import AcceptInvite from "./components/AcceptInvite";
 
 function App() {
   useEffect(() => {
@@ -41,9 +43,16 @@ function App() {
         <Reception />
       </div>
       <div className="mx-auto h-screen max-w-[1440px]">
-        <UserForm />
+        <UserFormProvider>
+          <UserForm />
+        </UserFormProvider>
       </div>
-      <div className="mx-auto h-[25vh] max-w-[1440px]"></div>
+      {/* <div className="mx-auto h-screen max-w-[1440px]">
+        <UserFormProvider>
+          <AcceptInvite />
+        </UserFormProvider>
+      </div> */}
+      {/* <div className="mx-auto h-[25vh] max-w-[1440px]"></div> */}
     </div>
   );
 }

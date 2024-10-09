@@ -1,25 +1,24 @@
 import {
-  Fragment,
   useState,
   React,
   useRef,
   useEffect,
   useLayoutEffect,
+  useContext,
 } from "react";
+import UserformContext from "@/context/UserformContext";
+
+//==============================//
 import SubmitData from "../data/SubmitData";
 import Image from "../constants/Image";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Flip } from "gsap/Flip";
-import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
-import { outlinedInputClasses } from "@mui/material/OutlinedInput";
-// import { customTheme } from "../config/muiConfig";
 
 // Textfield
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 // Checkbox
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 // Button
@@ -29,15 +28,27 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { FixedSizeList } from "react-window";
-import { InputLabel } from "@mui/material";
-import { PlusCircleIcon } from "lucide-react";
 
 gsap.registerPlugin(Flip);
 
-// console.log(sx);
-// console.log(inputSx);
-
 const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
+  const {
+    guest,
+    setGuest,
+    updateStatus,
+    setUpdateStatus,
+    errors,
+    setErrors,
+    invite,
+    setInvite,
+    plusOne,
+    setPlusOne,
+    details,
+    setDetails,
+    companion,
+    setCompanion,
+  } = useContext(UserformContext);
+
   //===============Images===============//
   const {
     userformBorder,
@@ -49,50 +60,19 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     declineOrnamentInactiveButton,
     activeOrnament,
     inactiveOrnament,
+    deleteIcon,
   } = Image;
 
   //===============STATES===============//
 
-  //=====Guest details=====//
-  const [guest, setGuest] = useState({
-    firstName: "",
-    lastName: "",
-    companion: false,
-    numberOfAttendees: 0,
-    nameOfCompanions: [],
-  });
-
-  const [updateStatus, setUpdateStatus] = useState({
-    success: false,
-    error: false,
-  });
-
-  //=====Check Errors=====//
-  const [errors, setErrors] = useState();
-
-  //=====Accept Invite=====//
-  const [invite, setInvite] = useState(2);
-
-  //=====Confirm companion=====//
-  const [plusOne, setPlusOne] = useState(false);
-
   //=====Verify form=====//
   const [verify, setVerify] = useState(false);
-
-  //=====State Details=====//
-  const [details, setDetails] = useState({
-    home: false,
-    verify: false,
-    submit: false,
-    load: false,
-  });
 
   //=====Submitting Details Animation=====//
 
   const submitContainer = useRef();
   const submitOrnament = useRef();
   const successContainer = useRef();
-  // const submitOrnament = useRef();
 
   useGSAP(() => {
     if (details.load) {
@@ -146,9 +126,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     setGuest(() => ({ ...guest, [e.target.name]: e.target.value }));
   };
 
-  //=====Add Companion=====//
-  const [companion, setCompanion] = useState("");
-
   //=====Handle Companion=====//
   const handleCompanion = (e) => {
     setCompanion(() => e.target.value);
@@ -176,6 +153,12 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     }
   };
 
+  //=====Handle remove companion=====//
+  const handleRemoveCompanion = (index) => {
+    const newList = guest.nameOfCompanions.filter((_, i) => i !== index);
+    setGuest((guest) => ({ ...guest, nameOfCompanions: newList }));
+  };
+
   //=====Handle submit form=====//
   const handleSubmit = () => {
     const newErrors = {};
@@ -199,14 +182,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     }
   };
 
-  //=====Handle verify form=====//
-  const handleVerifyForm = () => {
-    setDetails((details) => ({ ...details, load: true }));
-    setTimeout(() => {
-      setDetails((details) => ({ ...details, verify: true }));
-    }, 3000);
-  };
-
   //=====Handle home=====//
   const handleHomePage = () => {
     // setInvite(2);
@@ -227,19 +202,41 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     const { index, style } = props;
     return (
       <ListItem style={style} key={index} component="div" disablePadding>
-        <ListItemButton>
-          <ListItemText primary={`${guest.nameOfCompanions[index]}`} />
+        <ListItemButton
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyItems: "center",
+          }}
+        >
+          <div className="relative flex h-full w-full">
+            <ListItemText
+              primary={`${guest.nameOfCompanions[index]}`}
+              className={`${details.submit ? "w-full text-center" : "w-[85%]"} `}
+            />
+            <ListItemText
+              secondary={
+                <div
+                  style={{
+                    backgroundImage: `url("${deleteIcon}")`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                  className={`${details.submit ? "hidden" : "block size-[1.3rem] text-center text-black"}`}
+                  onClick={() => handleRemoveCompanion(index)}
+                ></div>
+              }
+            />
+          </div>
         </ListItemButton>
       </ListItem>
     );
   }
 
   const [expand, setExpand] = useState("");
-  const state1 = Flip.getState(".accept");
-  const state2 = Flip.getState(".decline");
-  // const state3 = Flip.getState(".acceptForm");
-  // const state4 = Flip.getState(".box");
-  // const state5 = Flip.getState(".box1");
+  const state1 = Flip.getState(".accept", { simple: true });
+  const state2 = Flip.getState(".decline", { simple: true });
 
   const config = {
     ease: "power1.Out",
@@ -251,17 +248,17 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
   useLayoutEffect(() => {
     if (!state1) return;
     Flip.from(state1, config);
-
     if (!state2) return;
     Flip.from(state2, config);
   }, [expand]);
+
+  console.log(invite);
 
   const boxRef = useRef(null);
   const boxRightRef = useRef(null);
   const acceptRef = useRef(null);
   const declineRef = useRef(null);
 
-  const [toggled, setToggled] = useState(false);
   useEffect(() => {
     //=====Initialize Ref=====//
     const boxes = boxRef.current?.querySelectorAll(".box");
@@ -302,12 +299,12 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         ease: "power2.inOut",
       });
 
-      gsap.set(rightBoxes[1], {
-        duration: 1,
-        scale: 0,
-        opacity: 0,
-        ease: "power2.inOut",
-      });
+      // gsap.set(rightBoxes[1], {
+      //   duration: 1,
+      //   scale: 0,
+      //   opacity: 0,
+      //   ease: "power2.inOut",
+      // });
 
       //=====Accept Button =====//
       gsap.set([acceptButton[0], acceptButton[1]], {
@@ -349,19 +346,19 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       });
       //=====Decline Userform=====//
       gsap.set(rightBoxes[0], {
-        // scaleX: 1,
-        // opacity: 1,
-        scaleX: `${invite === 2 ? 0 : 1}`,
-        opacity: `${invite === 2 ? 0 : 1}`,
+        scaleX: 1,
+        opacity: 1,
+        // scaleX: `${invite === 2 ? 0 : 1}`,
+        // opacity: `${invite === 2 ? 0 : 1}`,
         ease: "power2.inOut",
       });
 
-      gsap.set(rightBoxes[1], {
-        duration: 1,
-        scale: 1,
-        opacity: 1,
-        ease: "power2.inOut",
-      });
+      // gsap.set(rightBoxes[1], {
+      //   duration: 1,
+      //   scale: 1,
+      //   opacity: 1,
+      //   ease: "power2.inOut",
+      // });
 
       //=====Accept Button=====//
       gsap.set([acceptButton[0]], {
@@ -425,12 +422,9 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     });
   }, [expand]);
 
-  // console.log(details);
-  // console.log(updateStatus);
-
   return (
     <>
-      <div className="relative flex h-screen w-full flex-col justify-center gap-5 font-Coldiac">
+      <div className="gap-5500 relative flex h-screen w-full flex-col justify-center font-Coldiac">
         <div className="h-[80%] w-full">
           {/* Buttons */}
           <div className="flex size-full items-center">
@@ -452,20 +446,21 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   "& .MuiInputLabel-root": {
                     color: "black", // Label color
                     fontFamily: "'Coldiac', sans-serif", // Font family for input text
-                    // backgroundColor: "rgba(237,232,226,.25)",
+                    fontWeight: "bold",
                     borderRadius: "5px",
                     paddingX: "5px",
-                    // opacity: "75%",
                   },
                   "& label.Mui-focused": {
                     color: "black",
+                    fontWeight: "bold",
                   },
                   "& .MuiOutlinedInput-root": {
                     fontFamily: "'Coldiac'",
                     color: "black",
                     fontWeight: "bold",
                     backgroundColor: "ivory",
-                    opacity: "75%",
+                    fontSize: "16px",
+                    // opacity: "75%",
                     "&.Mui-focused fieldset": {
                       borderColor: "black",
                       fontFamily: "'Coldiac'",
@@ -480,7 +475,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   "& .MuiTypography-root": {
                     color: "ivory", // Default label color
                     fontFamily: '"Coldiac", sans-serif', // Change font family for the label
-                    fontSize: "16px", // Change font size for the label
+                    fontSize: "14px", // Change font size for the label
                     "&.Mui-checked": {
                       color: "ivory", // Label color when checked
                     },
@@ -597,9 +592,9 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     fontFamily: '"Coldiac", monospace', // Change font family
                     fontSize: "16px", // Change font size
                     "&:hover": {
-                      backgroundColor: "barley", // Background color on hover
-                      borderColor: "barley", // Border color on hover
-                      color: "barley", // Text color on hover
+                      backgroundColor: "ivory", // Background color on hover
+                      borderColor: "black", // Border color on hover
+                      color: "orange", // Text color on hover
                     },
                   }}
                 >
@@ -696,7 +691,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   <div
                     className={`acceptButton grid ${invite === 2 ? "size-[40%] lg:size-[55%]" : invite === 0 ? "size-[35%]" : "size-[50%]"} place-content-center`}
                     style={{
-                      backgroundImage: `url(${acceptButtonIcon})`,
+                      backgroundImage: `url("${acceptButtonIcon}")`,
                       backgroundSize: "contain",
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
@@ -720,8 +715,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 className={`z-[50] ${details.load ? "hidden" : "block"} flex size-full flex-col items-center justify-center gap-5`}
               >
                 <p className="text-center text-3xl">Verify details</p>
-                <div className="flex w-full basis-[55%] flex-col justify-center gap-5 px-5 text-xl max-lg:max-w-[90%] lg:max-w-[75%]">
-                  <div className="">
+                <div className="flex w-full basis-[55%] flex-col items-center justify-center gap-5 px-5 text-xl max-lg:max-w-[90%] lg:max-w-[75%]">
+                  <div className="flex flex-col items-center">
                     <label className="text-base" htmlFor="fullname ">
                       Full Name:
                     </label>
@@ -778,7 +773,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 </div>
                 {/* Background Image */}
                 <div
-                  className={`absolute top-1/2 -z-10 flex size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-25`}
+                  className={`absolute top-1/2 -z-10 flex size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-[.10]`}
                 >
                   <div
                     className="relative top-1/2 basis-[50%] -translate-y-1/2"
@@ -799,7 +794,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 {!details.verify && (
                   <div
                     // ref={submitContainer}
-                    className="absolute flex size-[94%] flex-col items-center justify-center bg-blue-500/0"
+                    className="absolute flex size-[94%] flex-col items-center justify-center"
                   >
                     <p>Submitting Details...</p>
                     <div
@@ -831,7 +826,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       </p>
                       <p>Best,</p>
                       <div className="relative size-fit bg-orange-500/0">
-                        <span className="w-fit bg-blue-500/0 font-Showtime text-3xl">
+                        <span className="w-fit font-Showtime text-3xl">
                           Jeffrey and Jonalyn
                         </span>
                         <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between bg-lime-500/10 opacity-35">
@@ -908,7 +903,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             {/* Decline Button */}
             <div
               ref={boxRightRef}
-              className={`flex ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 ? "basis-[85%]" : "basis-[15%]"} decline relative h-full flex-col items-center justify-center gap-2`}
+              className={`flex ${invite === 1 ? "basis-[20%]" : invite === 0 ? "basis-[85%]" : "basis-1/2"} decline relative h-full flex-col items-center justify-center gap-2`}
+              // className={`flex ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 ? "basis-[85%]" : "basis-[15%]"} decline relative h-full flex-col items-center justify-center gap-2`}
             >
               <div
                 className={`flex size-[95%] flex-col items-center justify-center bg-barley`}
@@ -940,7 +936,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 <div
                   className={`declineButton grid ${invite === 2 ? "size-[36.7%] lg:size-[51.7%]" : invite === 1 ? "size-[35%]" : "size-[50%]"} place-content-center`}
                   style={{
-                    backgroundImage: `url(${declineButtonIcon})`,
+                    backgroundImage: `url("${declineButtonIcon}")`,
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
