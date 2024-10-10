@@ -11,14 +11,6 @@ const SubmitData = ({
   setExpand,
 }) => {
   const guestList = doc(collection(db, "guest"));
-  // const testData = {
-  //   firstName: "Dummy first name",
-  //   lastName: "Dummy last name",
-  //   attend: false,
-  //   numberOfAttendees: 2,
-  //   nameOfCompanions: ["First Companion", "Second Companion"],
-  // };
-
   const addGuest = async () => {
     try {
       setUpdateStatus((status) => ({ ...status, success: true }));
@@ -51,15 +43,13 @@ const SubmitData = ({
   };
 
   return (
-    <div className="basis-1/2">
-      <Button
-        className="size-full rounded-full bg-ivory text-black"
-        // onClick={() => addGuest()}
-        onClick={() => triggerLoadingState()}
-      >
-        Submit
-      </Button>
-    </div>
+    <Button
+      className="h-full max-w-[15rem] basis-1/2 rounded-full bg-ivory text-black"
+      // onClick={() => addGuest()}
+      onClick={() => triggerLoadingState()}
+    >
+      Submit
+    </Button>
   );
 };
 

@@ -33,9 +33,6 @@ export const UserFormProvider = ({ children }) => {
   });
   //=====Add Companion=====//
   const [companion, setCompanion] = useState("");
-
-  console.log(guest);
-
   return (
     <UserformContext.Provider
       value={{

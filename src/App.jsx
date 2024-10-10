@@ -24,7 +24,8 @@ function App() {
   }, []);
   return (
     <div className="lg:overflow-clip">
-      <div className="mx-auto flex w-full max-w-[1440px] justify-center">
+      {/* <div className="border-draft mx-auto flex w-full max-w-[1440px] justify-center"> */}
+      <div className="mx-auto flex w-full justify-center">
         <Hero />
       </div>
       <div className="mx-auto max-w-[1440px]">

@@ -21,6 +21,7 @@ const {
   flower2,
   flower3,
   flowerStem,
+  frame,
 } = Image;
 
 const ParallaxImage = ({ image, date }) => {
@@ -81,7 +82,6 @@ const HeroPage = () => {
 
   useEffect(() => {
     const lenis = new Lenis();
-
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -173,160 +173,181 @@ const HeroPage = () => {
 
   return (
     // Main page
-    <div className="relative h-[250lvh] w-full max-w-[1024px] overflow-clip sm:h-[350lvh] lg:overflow-visible">
-      {/* Inner Wrapper */}
-      <div
-        ref={container}
-        className="relative flex size-full flex-col items-center"
-      >
-        {/* TitleContainer */}
+    <div className="relative flex size-full justify-center">
+      <div className="relative h-[250lvh] w-full max-w-[1024px] overflow-clip sm:h-[350lvh] lg:overflow-visible">
+        {/* Inner Wrapper */}
         <div
-          ref={titleContainer}
-          className="relative top-[0%] flex h-1/2 w-full flex-col items-center gap-2"
+          ref={container}
+          className="relative flex size-full flex-col items-center"
         >
+          {/* TitleContainer */}
           <div
-            ref={heroImage}
-            className="relative top-[0%] size-full"
-            style={{
-              backgroundImage: `url(${heroPageMain})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></div>
-          <div
-            ref={heroMask}
-            className="absolute top-[0%] z-20 size-full"
-            style={{
-              backgroundImage: `url(${heroPageMainMask})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></div>
-          {/* Jeffrey and Jonalyn */}
-          <div
-            ref={title}
-            className="text-jeff-jona absolute top-[10%] size-fit text-center font-Showtime text-white"
+            ref={titleContainer}
+            className="relative top-[0%] flex h-1/2 w-full flex-col items-center gap-2"
           >
-            <p>Jeffrey</p>
-            <p className="text-4xl lg:text-6xl">and</p>
-            <p>Jonalyn</p>
+            <div
+              ref={heroImage}
+              className="relative top-[0%] size-full"
+              style={{
+                backgroundImage: `url(${heroPageMain})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></div>
+            <div
+              ref={heroMask}
+              className="absolute top-[0%] z-20 size-full"
+              style={{
+                backgroundImage: `url(${heroPageMainMask})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></div>
+            {/* Jeffrey and Jonalyn */}
+            <div
+              ref={title}
+              className="text-jeff-jona absolute top-[10%] size-fit text-center font-Showtime text-white"
+            >
+              <p>Jeffrey</p>
+              <p className="text-4xl lg:text-6xl">and</p>
+              <p>Jonalyn</p>
+            </div>
           </div>
-        </div>
-        {/* Parallax Slides - Top - Position:Relative */}
-        <div
-          className="absolute top-[5%] -z-10 h-full w-full overflow-clip lg:overflow-visible"
-          ref={floral}
-        >
-          {/* Flower - Position:Absolute */}
+          {/* Parallax Slides - Top - Position:Relative */}
           <div
-            className="absolute right-0 hidden h-[10%] w-1/2"
-            style={{
-              backgroundImage: `url(${floralFlower})`,
-              backgroundSize: "contain",
-              backgroundPosition: "left",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
-        </div>
-        {/* Flower Stem */}
-        <div className="absolute -z-10 h-full w-full overflow-clip lg:overflow-visible">
-          <div
-            ref={transition}
-            className="absolute bottom-[30%] left-[40%] z-30 h-1/2 w-1/2 scale-150"
-            style={{
-              backgroundImage: `url(${flowerStem})`,
-              backgroundSize: "contain",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
+            className="absolute top-[5%] -z-10 h-full w-full overflow-clip lg:overflow-visible"
+            ref={floral}
           >
-            {/* Flower - Individual */}
-            <div className="relative size-full">
-              <div className="absolute bottom-[35%] h-[25%] w-full">
+            {/* Flower - Position:Absolute */}
+            <div
+              className="absolute right-0 hidden h-[10%] w-1/2"
+              style={{
+                backgroundImage: `url(${floralFlower})`,
+                backgroundSize: "contain",
+                backgroundPosition: "left",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+          </div>
+          {/* Flower Stem */}
+          <div className="absolute -z-10 h-full w-full overflow-clip lg:overflow-visible">
+            <div
+              ref={transition}
+              className="absolute bottom-[30%] left-[40%] z-30 h-1/2 w-1/2 scale-150"
+              style={{
+                backgroundImage: `url(${flowerStem})`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              {/* Flower - Individual */}
+              <div className="relative size-full">
+                <div className="absolute bottom-[35%] h-[25%] w-full">
+                  <div
+                    ref={flower1Position}
+                    className="absolute left-[20%] top-[10%] size-1/4 scale-125"
+                    style={{
+                      backgroundImage: `url("${flower1}")`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div
+                    ref={flower2Position}
+                    className="absolute top-[50%] aspect-square size-1/4 scale-[2.5]"
+                    style={{
+                      backgroundImage: `url("${flower2}")`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div
+                    ref={flower3Position}
+                    className="absolute bottom-[25%] right-0 aspect-square size-1/4 scale-[2]"
+                    style={{
+                      backgroundImage: `url("${flower3}")`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              ref={transitionBottom}
+              className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2 sm:h-[13%] sm:gap-0 lg:bottom-[2%] lg:h-[19%] lg:gap-10"
+            >
+              <div
+                ref={photo1}
+                className="relative right-[50%] size-full basis-1/2 rotate-[-2deg] sm:right-[52%]"
+              >
                 <div
-                  ref={flower1Position}
-                  className="absolute left-[20%] top-[10%] size-1/4 scale-125"
+                  className="size-full"
                   style={{
-                    backgroundImage: `url("${flower1}")`,
+                    backgroundImage: `url(${heroPhoto1})`,
                     backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
                   }}
                 ></div>
+              </div>
+              <div
+                ref={photo2}
+                className="relative left-[50%] size-full basis-1/2 rotate-[2deg] sm:left-[52%]"
+              >
                 <div
-                  ref={flower2Position}
-                  className="absolute top-[50%] aspect-square size-1/4 scale-[2.5]"
+                  className="size-full"
                   style={{
-                    backgroundImage: `url("${flower2}")`,
+                    backgroundImage: `url(${heroPhoto2})`,
                     backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
-                  }}
-                ></div>
-                <div
-                  ref={flower3Position}
-                  className="absolute bottom-[25%] right-0 aspect-square size-1/4 scale-[2]"
-                  style={{
-                    backgroundImage: `url("${flower3}")`,
-                    backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
                   }}
                 ></div>
               </div>
             </div>
           </div>
+          {/* Spacer */}
+          <div className="h-[50vh]"></div>
+          {/* HeroDate */}
+          {/*Date*/}
           <div
-            ref={transitionBottom}
-            className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2 sm:h-[13%] sm:gap-0 lg:bottom-[2%] lg:h-[19%] lg:gap-10"
+            ref={imageDate}
+            className="relative top-[6%] -z-10 h-1/4 w-[80%] lg:h-[25%] lg:w-[70%]"
           >
-            <div
-              ref={photo1}
-              className="relative right-[50%] size-full basis-1/2 rotate-[-2deg] sm:right-[52%]"
-            >
-              <div
-                className="size-full"
-                style={{
-                  backgroundImage: `url(${heroPhoto1})`,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-            </div>
-            <div
-              ref={photo2}
-              className="relative left-[50%] size-full basis-1/2 rotate-[2deg] sm:left-[52%]"
-            >
-              <div
-                className="size-full"
-                style={{
-                  backgroundImage: `url(${heroPhoto2})`,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-            </div>
+            <ParallaxImage image={heroPageDate} date={date} />
           </div>
+          <div
+            ref={dateContainer}
+            className="absolute bottom-1/4 h-1/4 w-full sm:h-[15%]"
+          ></div>
         </div>
-        {/* Spacer */}
-        <div className="h-[50vh]"></div>
-        {/* HeroDate */}
-        {/*Date*/}
+      </div>
+      <div className="absolute top-0 -z-50 size-full">
         <div
-          ref={imageDate}
-          className="relative top-[6%] -z-10 h-1/4 w-[80%] lg:h-[25%] lg:w-[70%]"
-        >
-          <ParallaxImage image={heroPageDate} date={date} />
-        </div>
+          className="absolute -top-[7%] right-[60%] size-full scale-x-[-1] transform bg-emerald-500/0"
+          style={{
+            backgroundImage: `url("${frame}")`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        ></div>
         <div
-          ref={dateContainer}
-          className="absolute bottom-1/4 h-1/4 w-full sm:h-[15%]"
+          className="absolute -top-[7%] left-[60%] size-full bg-orange-500/0"
+          style={{
+            backgroundImage: `url("${frame}")`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
         ></div>
       </div>
     </div>
-    // </div>
   );
 };
 

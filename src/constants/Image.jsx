@@ -27,6 +27,7 @@ import entourageFloralPrimarySponsor from "../assets/Vectors/Entourage/entourage
 import entourageFloralSecondarySponsor from "../assets/Vectors/Entourage/entourage_floralSecondarySponsor.svg";
 import entourageTitle from "../assets/Vectors/Entourage/entourage_Title.svg";
 import entourageFloralMaidOfHonor from "../assets/Vectors/Entourage/floralMaidOfHonor.svg";
+
 // Details
 import details1 from "../assets/Images/Details/details1.svg";
 import details2 from "../assets/Images/Details/details2.svg";
@@ -36,9 +37,11 @@ import detailsTransition from "../assets/Vectors/Details/details_floralTransitio
 import detailsFrame from "../assets/Vectors/Details/detailsFrame.svg";
 import detailsDressCode from "../assets/Vectors/Details/detailsDressCode.svg";
 import detailsDressCodeFrame from "../assets/Vectors/Details/detailsDressCodeFrame.svg";
+
 // Timeline
 import timeLineDivider from "../assets/Vectors/Timeline/timeLineDivider.svg";
 import timeLineFrame from "../assets/Vectors/Timeline/timeLineFrame.svg";
+
 // Church Location
 import leaf1 from "../assets/Vectors/ChurchLocation/leaf1.svg";
 import leaf2 from "../assets/Vectors/ChurchLocation/leaf2.svg";
@@ -68,6 +71,9 @@ import declineOrnamentInactiveButton from "../assets/Vectors/Userform/declineOrn
 import activeOrnament from "../assets/Vectors/Userform/activeOrnament.svg";
 import inactiveOrnament from "../assets/Vectors/Userform/inactiveOrnament.svg";
 import deleteIcon from "../assets/Vectors/Userform/deleteIcon.svg";
+
+// Frame
+import frame from "../assets/Vectors/Frame/frame.svg";
 
 const Image = {
   // Hero Page
@@ -137,6 +143,8 @@ const Image = {
   activeOrnament,
   inactiveOrnament,
   deleteIcon,
+  // Frame
+  frame,
 };
 
 export default Image;

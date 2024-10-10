@@ -155,8 +155,14 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
 
   //=====Handle remove companion=====//
   const handleRemoveCompanion = (index) => {
+    // if (numberOfAttendees > 0) {
     const newList = guest.nameOfCompanions.filter((_, i) => i !== index);
-    setGuest((guest) => ({ ...guest, nameOfCompanions: newList }));
+    setGuest((guest) => ({
+      ...guest,
+      nameOfCompanions: newList,
+      numberOfAttendees: guest.numberOfAttendees - 1,
+    }));
+    // }
   };
 
   //=====Handle submit form=====//
@@ -175,7 +181,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     setErrors((errors) => ({ ...errors, ...newErrors }));
 
     if (Object.keys(newErrors).length === 0) {
-      // console.log("Submit");
       setErrors((errors) => ({ ...errors, firstName: "", lastName: "" }));
       setDetails((details) => ({ ...details, submit: true }));
       return;
@@ -223,7 +228,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
                   }}
-                  className={`${details.submit ? "hidden" : "block size-[1.3rem] text-center text-black"}`}
+                  className={`${details.submit ? "hidden" : "block size-[1.3rem] bg-[#808080] text-center text-black"}`}
                   onClick={() => handleRemoveCompanion(index)}
                 ></div>
               }
@@ -251,8 +256,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     if (!state2) return;
     Flip.from(state2, config);
   }, [expand]);
-
-  console.log(invite);
 
   const boxRef = useRef(null);
   const boxRightRef = useRef(null);
@@ -422,12 +425,14 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     });
   }, [expand]);
 
+  console.log(guest.numberOfAttendees);
+
   return (
     <>
       <div className="gap-5500 relative flex h-screen w-full flex-col justify-center font-Coldiac">
         <div className="h-[80%] w-full">
           {/* Buttons */}
-          <div className="flex size-full items-center">
+          <div className="flex size-full items-center justify-center">
             {/* Accept invitation */}
             <div
               ref={boxRef}
@@ -449,6 +454,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     fontWeight: "bold",
                     borderRadius: "5px",
                     paddingX: "5px",
+                    fontSize: "14px",
                   },
                   "& label.Mui-focused": {
                     color: "black",
@@ -460,7 +466,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     fontWeight: "bold",
                     backgroundColor: "ivory",
                     fontSize: "16px",
-                    // opacity: "75%",
+
                     "&.Mui-focused fieldset": {
                       borderColor: "black",
                       fontFamily: "'Coldiac'",
@@ -527,36 +533,38 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 <div
                   className={` ${plusOne ? "block" : "hidden"} justify-left flex w-full flex-col items-center gap-3`}
                 >
-                  <TextField
-                    className="size-full"
-                    required
-                    id="outlined-fullName"
-                    name="fullName"
-                    label="Full name"
-                    type="text"
-                    value={companion}
-                    onChange={handleCompanion}
-                  />
-                  <Button
-                    className="size-full"
-                    disabled={companion.length < 3 ? true : false}
-                    type="submit"
-                    onClick={() => handleAddCompanion()}
-                    variant="outlined"
-                    sx={{
-                      backgroundColor: `${companion.length < 3 ? "gray" : "ivory"}`, // Change background color
-                      color: "black", // Change text color
-                      fontFamily: '"Coldiac", monospace', // Change font family
-                      fontSize: "16px", // Change font size
-                      "&:hover": {
-                        backgroundColor: "barley", // Background color on hover
-                        borderColor: "barley", // Border color on hover
-                        color: "barley", // Text color on hover
-                      },
-                    }}
-                  >
-                    Add
-                  </Button>
+                  <div className="flex size-full items-center gap-2">
+                    <TextField
+                      className="basis-[85%]"
+                      required
+                      id="outlined-fullName"
+                      name="fullName"
+                      label="Full name"
+                      type="text"
+                      value={companion}
+                      onChange={handleCompanion}
+                    />
+                    <Button
+                      className="h-[85%] basis-[15%]"
+                      disabled={companion.length < 3 ? true : false}
+                      type="submit"
+                      onClick={() => handleAddCompanion()}
+                      variant="outlined"
+                      sx={{
+                        backgroundColor: `${companion.length < 3 ? "gray" : "ivory"}`, // Change background color
+                        color: "black", // Change text color
+                        fontFamily: '"Coldiac", monospace', // Change font family
+                        fontSize: "16px", // Change font size
+                        "&:hover": {
+                          backgroundColor: "barley", // Background color on hover
+                          borderColor: "barley", // Border color on hover
+                          color: "barley", // Text color on hover
+                        },
+                      }}
+                    >
+                      Add
+                    </Button>
+                  </div>
                   {errors?.companion && (
                     <p className="text-base">{errors?.companion}</p>
                   )}
@@ -584,9 +592,10 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 )}
                 <Button
                   className="box"
-                  variant="outlined"
+                  variant=""
                   onClick={() => handleSubmit()}
                   sx={{
+                    height: "7%",
                     backgroundColor: "ivory", // Change background color
                     color: "black", // Change text color
                     fontFamily: '"Coldiac", monospace', // Change font family
@@ -709,18 +718,21 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             {/* Verify Details Form */}
             <div
               className={` ${details.submit ? "block" : "hidden"} absolute z-[50] flex size-full flex-col items-center justify-center bg-motif text-ivory`}
+              // className={` ${details.submit ? "block" : "hidden"} absolute z-[50] flex size-full flex-col items-center justify-center bg-motif text-ivory`}
             >
               {/* Verify Details  */}
               <div
-                className={`z-[50] ${details.load ? "hidden" : "block"} flex size-full flex-col items-center justify-center gap-5`}
+                className={`z-[50] ${details.load ? "hidden" : "block"} flex size-[95%] flex-col items-center justify-center gap-5`}
               >
-                <p className="text-center text-3xl">Verify details</p>
+                <p className="text-center text-3xl lg:text-5xl">
+                  Verify details
+                </p>
                 <div className="flex w-full basis-[55%] flex-col items-center justify-center gap-5 px-5 text-xl max-lg:max-w-[90%] lg:max-w-[75%]">
                   <div className="flex flex-col items-center">
-                    <label className="text-base" htmlFor="fullname ">
+                    <label className="text-base" htmlFor="fullname">
                       Full Name:
                     </label>
-                    <p id="fullname">
+                    <p id="fullname" className="text-sm md:text-xl lg:text-2xl">
                       {guest.firstName} {guest.lastName}
                     </p>
                   </div>
@@ -730,9 +742,11 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   </span>
                   {guest.nameOfCompanions.length != 0 && (
                     <Box
+                      className=""
                       sx={{
                         width: "100%",
-                        height: 200,
+                        // height: 50,
+                        height: 100,
                         "& .MuiTypography-root": {
                           color: "ivory", // Default label color
                           fontFamily: '"Coldiac", sans-serif',
@@ -740,7 +754,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       }}
                     >
                       <FixedSizeList
-                        height={200}
+                        height={150}
                         width="100%"
                         itemSize={30}
                         itemCount={guest.nameOfCompanions?.length}
@@ -752,7 +766,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   )}
                 </div>
                 {/* Submit form buttons */}
-                <div className="relative flex h-[3rem] w-3/4 gap-5">
+                <div className="relative flex h-[3rem] w-3/4 justify-center gap-5">
                   <SubmitData
                     guestName={guest}
                     setUpdateStatus={setUpdateStatus}
@@ -760,7 +774,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     setInvite={setInvite}
                     setExpand={setExpand}
                   />
-                  <div className="size-full basis-1/2 place-content-center rounded-full bg-returnButton text-ivory">
+                  <div className="size-full max-w-[15rem] basis-1/2 place-content-center rounded-full bg-returnButton text-ivory">
                     <Button
                       onClick={() =>
                         setDetails((details) => ({ ...details, submit: false }))
@@ -789,14 +803,16 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               </div>
               {/* Submitting Details */}
               <div
-                className={` ${details.load ? "block" : "hidden"} z-50 flex size-full flex-col items-center justify-center gap-5 text-4xl`}
+                className={` ${details.load ? "block" : "hidden"} z-50 flex h-full w-[100%] flex-col items-center justify-center gap-5 text-4xl`}
               >
                 {!details.verify && (
                   <div
                     // ref={submitContainer}
                     className="absolute flex size-[94%] flex-col items-center justify-center"
                   >
-                    <p>Submitting Details...</p>
+                    <p className="text-base md:text-3xl lg:text-5xl">
+                      Submitting Details...
+                    </p>
                     <div
                       ref={submitOrnament}
                       className="absolute flex size-[75%] opacity-25"
@@ -815,8 +831,10 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     ref={successContainer}
                     className="flex size-[95%] flex-col items-center justify-center gap-16 opacity-0"
                   >
-                    <p>Success!</p>
-                    <div className="flex w-[80%] flex-col gap-5 text-base">
+                    <p className="text-2xl font-bold md:text-3xl lg:text-5xl">
+                      Success!
+                    </p>
+                    <div className="flex w-[80%] flex-col gap-5 text-base md:text-xl lg:gap-10 lg:text-2xl">
                       <p>Dear {guest.firstName},</p>
                       <p style={{ textIndent: 30 }}>
                         Thank you so much for confirming your attendance! We’re
@@ -825,11 +843,11 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                         share this moment together.
                       </p>
                       <p>Best,</p>
-                      <div className="relative size-fit bg-orange-500/0">
-                        <span className="w-fit font-Showtime text-3xl">
+                      <div className="relative size-fit">
+                        <span className="w-fit font-Showtime text-3xl lg:text-5xl">
                           Jeffrey and Jonalyn
                         </span>
-                        <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between bg-lime-500/10 opacity-35">
+                        <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between opacity-35">
                           <div
                             className="basis-[35%] rotate-[140deg]"
                             style={{
@@ -853,7 +871,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                         </div>
                       </div>
                     </div>
-                    <div className="relative mt-10 h-[6%] w-[35%]">
+                    <div className="relative mt-10 h-[6%] w-[35%] max-w-[15rem]">
                       <Button
                         style={{
                           color: "black",
@@ -881,6 +899,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       ></div>
                     </div>
                     {/* Background Image */}
+
                     <div
                       className={`absolute top-1/2 -z-10 flex size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-45`}
                     >
