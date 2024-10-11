@@ -23,37 +23,40 @@ function App() {
     requestAnimationFrame(raf);
   }, []);
   return (
-    <div className="lg:overflow-clip">
-      {/* <div className="border-draft mx-auto flex w-full max-w-[1440px] justify-center"> */}
-      <div className="mx-auto flex w-full justify-center">
-        <Hero />
-      </div>
-      <div className="mx-auto max-w-[1440px]">
-        <Entourage />
-      </div>
-      <div className="mx-auto max-w-[1440px]">
-        <Details />
-      </div>
-      <div className="">
-        <Timeline />
-      </div>
-      <div className="mx-auto max-w-[1440px]">
-        <Church />
-      </div>
-      <div className="mx-auto max-w-[1440px]">
-        <Reception />
-      </div>
-      <div className="mx-auto h-screen max-w-[1440px]">
-        <UserFormProvider>
-          <UserForm />
-        </UserFormProvider>
-      </div>
-      {/* <div className="mx-auto h-screen max-w-[1440px]">
+    // <div className="lg:overflow-clip">
+    <div className="overflow-clip">
+      <UserFormProvider>
+        {/* <div className="border-draft mx-auto flex w-full max-w-[1440px] justify-center"> */}
+        <div className="mx-auto flex w-full justify-center">
+          <Hero />
+        </div>
+        <div className="mx-auto max-w-[1440px]">
+          <Entourage />
+        </div>
+        <div className="mx-auto max-w-[1440px]">
+          <Details />
+        </div>
+        <div className="">
+          <Timeline />
+        </div>
+        <div className="mx-auto max-w-[1440px]">
+          <Church />
+        </div>
+        <div className="mx-auto max-w-[1440px]">
+          <Reception />
+        </div>
+        <div className="mx-auto h-screen max-w-[1440px]">
+          <UserFormProvider>
+            <UserForm />
+          </UserFormProvider>
+        </div>
+        {/* <div className="mx-auto h-screen max-w-[1440px]">
         <UserFormProvider>
           <AcceptInvite />
         </UserFormProvider>
       </div> */}
-      {/* <div className="mx-auto h-[25vh] max-w-[1440px]"></div> */}
+        {/* <div className="mx-auto h-[25vh] max-w-[1440px]"></div> */}
+      </UserFormProvider>
     </div>
   );
 }

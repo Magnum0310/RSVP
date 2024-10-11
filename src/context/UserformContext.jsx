@@ -1,8 +1,10 @@
 import { createContext, useState } from "react";
+import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 const UserformContext = createContext();
 
 export const UserFormProvider = ({ children }) => {
+  const { width } = useWindowDimensions();
   //=====Guest details=====//
   const [guest, setGuest] = useState({
     firstName: "",
@@ -50,6 +52,7 @@ export const UserFormProvider = ({ children }) => {
         setDetails,
         companion,
         setCompanion,
+        width,
       }}
     >
       {children}
