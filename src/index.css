@@ -30,10 +30,10 @@
     @apply text-7xl sm:text-8xl lg:text-9xl;
   }
   .text-entourage-title {
-    @apply text-2xl sm:text-3xl lg:text-4xl;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
   }
   .text-entourage-list {
-    @apply text-xs leading-5 sm:text-[.9rem] lg:text-[1.2rem];
+    @apply text-sm leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];
   }
   .text-time {
     @apply text-2xl sm:text-4xl lg:text-6xl lg:tracking-wide;

@@ -4,7 +4,7 @@ const { entourageDivider } = Image;
 
 const EntourageCard = ({ title, list, coldiac }) => {
   return (
-    <div className="flex h-fit min-w-[150px] flex-col items-center sm:min-w-[250px]">
+    <div className="flex h-fit min-w-[180px] flex-col items-center sm:min-w-[250px]">
       <div
         className={`text-center font-${coldiac ? "Coldiac" : "Showtime"} text-entourage-title`}
       >

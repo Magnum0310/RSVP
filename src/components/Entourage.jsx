@@ -6,6 +6,7 @@ import Info from "../constants/entourage";
 import EntourageCard from "./EntourageCard";
 import EntourageCardPrincipal from "./EntourageCardPrincipal";
 import UserformContext from "@/context/UserformContext";
+import Frame from "./Frame";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -156,7 +157,7 @@ const Entourage = () => {
               The Entourage
             </div>
             {/* MAIN CONTENT WRAPPER */}
-            <div className="relative top-[10%] mt-10 flex w-full flex-col gap-5 sm:gap-8">
+            <div className="bg-purple-500/250 relative top-[10%] mt-10 flex w-full flex-col gap-5 sm:gap-8">
               {/* Parents */}
               <div className="flex w-full justify-center gap-12 lg:gap-36">
                 <EntourageCard
@@ -218,7 +219,7 @@ const Entourage = () => {
               {/* Bible bearer and Flower girls */}
               <div className="flex w-full justify-center gap-12 lg:gap-36">
                 <EntourageCard title={"Bible Bearer"} list={bibleBearer} />
-                <EntourageCard title={"Flower Girls"} list={flowerGirls} />
+                {/* <EntourageCard title={"Flower Girls"} list={flowerGirls} /> */}
               </div>
             </div>
             {/* Entourage Background Images - Position:Absolute */}
@@ -228,7 +229,7 @@ const Entourage = () => {
             >
               {/* Title */}
               <div
-                className="relative top-[5%] -z-10 h-[15%] w-full opacity-25 sm:top-[6%] sm:h-[12%] sm:scale-[1.3]"
+                className="relative -top-[5%] -z-10 h-[15%] w-full opacity-25 sm:-top-[5%] sm:h-[12%] sm:scale-[2]"
                 style={{
                   backgroundImage: `url(${entourageTitle})`,
                   backgroundPosition: "center",
@@ -278,125 +279,7 @@ const Entourage = () => {
         </div>
       </div>
       {/* FRAME */}
-      <div className="absolute top-0 -z-50 size-full">
-        {/* First Left frame */}
-        <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[52%] max-md:right-[50%] max-sm:right-[53%]">
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(-1,1)",
-            }}
-          ></div>
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(-1,-1)",
-            }}
-          ></div>
-        </div>
-        {/* Second frame */}
-        <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:right-[52%] max-md:right-[50%] max-sm:right-[53%]">
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(-1,1)",
-            }}
-          ></div>
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(-1,-1)",
-            }}
-          ></div>
-        </div>
-
-        {/* First Right frame */}
-        <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[52%] max-md:left-[50%] max-sm:left-[53%]">
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(1,1)",
-            }}
-          ></div>
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(1,-1)",
-            }}
-          ></div>
-        </div>
-        {/* Second Right frame */}
-        <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[52%] max-md:left-[50%] max-sm:left-[53%]">
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(1,1)",
-            }}
-          ></div>
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(1,-1)",
-            }}
-          ></div>
-        </div>
-
-        {/* First Left Frame */}
-        {/* <div
-            className="absolute -top-[7%] right-[45%] h-full w-[150%] border-2 border-solid border-green-500/0 bg-emerald-500/0 max-2xl:-top-[15%] max-2xl:scale-75 max-lg:right-[40%]"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(-.75,.75)",
-            }}
-          ></div> */}
-        {/* First Right Frame */}
-        {/* <div
-            className="absolute -top-[7%] left-[45%] h-full w-[150%] border-2 border-solid border-orange-500/0 bg-orange-500/0 max-2xl:-top-[15%] max-2xl:scale-75 max-lg:left-[40%]"
-            // className="absolute -top-[7%] left-[45%] size-full border-2 border-solid border-orange-500 bg-orange-500/0"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(.75)",
-            }}
-          ></div> */}
-      </div>
+      <Frame />
     </div>
   );
 };

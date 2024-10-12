@@ -39,7 +39,7 @@ function App() {
         <div className="mx-auto max-w-[1440px]">
           <Details />
         </div>
-        <div className="">
+        <div className="mx-auto max-w-[1440px]">
           <Timeline />
         </div>
         <div className="mx-auto max-w-[1440px]">

@@ -7,6 +7,7 @@ import {
   useContext,
 } from "react";
 import UserformContext from "@/context/UserformContext";
+import Frame from "./Frame";
 
 //==============================//
 import SubmitData from "../data/SubmitData";
@@ -428,7 +429,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
   console.log(guest.numberOfAttendees);
 
   return (
-    <>
+    <div className="relative">
       <div className="gap-5500 relative flex h-screen w-full flex-col justify-center font-Coldiac">
         <div className="h-[80%] w-full">
           {/* Buttons */}
@@ -1048,7 +1049,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
           </div>
         </div>
       </div>
-    </>
+      <Frame />
+    </div>
   );
 };
 

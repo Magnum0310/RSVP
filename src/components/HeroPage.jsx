@@ -3,6 +3,7 @@ import Image from "../constants/Image";
 // import Card from "../components/LocationCard";
 import Lenis from "lenis";
 import UserformContext from "@/context/UserformContext";
+import Frame from "./Frame";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -82,7 +83,6 @@ const HeroPage = () => {
   const flower3Position = useRef(null);
 
   const { width } = useContext(UserformContext);
-  console.log(width);
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -332,125 +332,7 @@ const HeroPage = () => {
         </div>
       </div>
       {/* FRAME */}
-      <div className="absolute top-0 -z-50 size-full">
-        {/* First Left frame */}
-        <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col bg-lime-500/0 max-lg:right-[52%] max-md:right-[50%] max-sm:right-[53%]">
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(-1,1)",
-            }}
-          ></div>
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(-1,-1)",
-            }}
-          ></div>
-        </div>
-        {/* Second Left frame  */}
-        <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[52%] max-md:right-[50%] max-sm:right-[53%]">
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(-1,1)",
-            }}
-          ></div>
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(-1,-1)",
-            }}
-          ></div>
-        </div>
-
-        {/* First Right frame */}
-        <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[52%] max-md:left-[50%] max-sm:left-[53%]">
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(1,1)",
-            }}
-          ></div>
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(1,-1)",
-            }}
-          ></div>
-        </div>
-        {/* Second Right frame */}
-        <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[52%] max-md:left-[50%] max-sm:left-[53%]">
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(1,1)",
-            }}
-          ></div>
-          <div
-            className="basis-1/2"
-            style={{
-              backgroundImage: `url("${frame}")`,
-              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              transform: "scale(1,-1)",
-            }}
-          ></div>
-        </div>
-
-        {/* First Left Frame */}
-        {/* <div
-          className="absolute -top-[7%] right-[45%] h-full w-[150%] border-2 border-solid border-green-500/0 bg-emerald-500/0 max-2xl:-top-[15%] max-2xl:scale-75 max-lg:right-[40%]"
-          style={{
-            backgroundImage: `url("${frame}")`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            transform: "scale(-.75,.75)",
-          }}
-        ></div> */}
-        {/* First Right Frame */}
-        {/* <div
-          className="absolute -top-[7%] left-[45%] h-full w-[150%] border-2 border-solid border-orange-500/0 bg-orange-500/0 max-2xl:-top-[15%] max-2xl:scale-75 max-lg:left-[40%]"
-          // className="absolute -top-[7%] left-[45%] size-full border-2 border-solid border-orange-500 bg-orange-500/0"
-          style={{
-            backgroundImage: `url("${frame}")`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            transform: "scale(.75)",
-          }}
-        ></div> */}
-      </div>
+      <Frame />
     </div>
   );
 };
