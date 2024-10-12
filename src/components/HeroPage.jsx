@@ -333,8 +333,8 @@ const HeroPage = () => {
       </div>
       {/* FRAME */}
       <div className="absolute top-0 -z-50 size-full">
-        {/* Left frame */}
-        <div className="absolute right-[50%] flex size-full flex-col max-lg:right-[55%] max-md:right-[63%] max-sm:right-[73%]">
+        {/* First Left frame */}
+        <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col bg-lime-500/0 max-lg:right-[52%] max-md:right-[50%] max-sm:right-[53%]">
           <div
             className="basis-1/2"
             style={{
@@ -356,8 +356,55 @@ const HeroPage = () => {
             }}
           ></div>
         </div>
-        {/* Right frame */}
-        <div className="absolute left-[50%] top-0 flex size-full flex-col max-lg:left-[55%] max-md:left-[63%] max-sm:left-[73%]">
+        {/* Second Left frame  */}
+        <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[52%] max-md:right-[50%] max-sm:right-[53%]">
+          <div
+            className="basis-1/2"
+            style={{
+              backgroundImage: `url("${frame}")`,
+              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              transform: "scale(-1,1)",
+            }}
+          ></div>
+          <div
+            className="basis-1/2"
+            style={{
+              backgroundImage: `url("${frame}")`,
+              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              transform: "scale(-1,-1)",
+            }}
+          ></div>
+        </div>
+
+        {/* First Right frame */}
+        <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[52%] max-md:left-[50%] max-sm:left-[53%]">
+          <div
+            className="basis-1/2"
+            style={{
+              backgroundImage: `url("${frame}")`,
+              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              transform: "scale(1,1)",
+            }}
+          ></div>
+          <div
+            className="basis-1/2"
+            style={{
+              backgroundImage: `url("${frame}")`,
+              backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              transform: "scale(1,-1)",
+            }}
+          ></div>
+        </div>
+        {/* Second Right frame */}
+        <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[52%] max-md:left-[50%] max-sm:left-[53%]">
           <div
             className="basis-1/2"
             style={{
