@@ -4,11 +4,15 @@ import Card from "../components/LocationCard";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Frame from "./Frame";
+import { useContext } from "react";
+import Image from "../constants/Image";
+import UserformContext from "@/context/UserformContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const { leaf1, leaf2, churchMap, locationAccent, church1, church2, church3 } =
   Images;
+const { frame } = Image;
 
 const Leaf = ({ track, leaf, flip, rotate, className }) => {
   return (
@@ -27,6 +31,8 @@ const Leaf = ({ track, leaf, flip, rotate, className }) => {
 };
 
 const churchLocation = () => {
+  const { width } = useContext(UserformContext);
+
   const accent1 = useRef(null);
   const accent2 = useRef(null);
   const title = useRef(null);
@@ -100,9 +106,9 @@ const churchLocation = () => {
     <div className="relative">
       <div
         ref={container}
-        className="relative flex flex-col items-center overflow-hidden"
+        className="flex flex-col items-center overflow-hidden"
       >
-        <div className="relative flex size-full max-w-[1024px] flex-col items-center bg-orange-500 md:py-12">
+        <div className="flex size-full max-w-[1024px] flex-col items-center md:py-12">
           {/* Page Title - Church Location */}
           <div
             ref={title}
@@ -233,7 +239,152 @@ const churchLocation = () => {
           ></div>
         </div>
       </div>
-      <Frame />
+
+      {/* ===============FRAME=============== */}
+
+      <div className="">
+        <div className="absolute top-0 -z-50 h-[300vh] w-full">
+          {/* First Left frame */}
+          <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[53%] max-md:right-[56%] max-sm:right-[63%]">
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(-1,1)",
+              }}
+            ></div>
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(-1,-1)",
+              }}
+            ></div>
+          </div>
+          {/* Second Left frame  */}
+          <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[53%] max-md:right-[56%] max-sm:right-[63%]">
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(-1,1)",
+              }}
+            ></div>
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(-1,-1)",
+              }}
+            ></div>
+          </div>
+          {/* Third Left frame */}
+          <div className="absolute right-[50%] top-3/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[53%] max-md:right-[56%] max-sm:right-[63%]">
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(-1,1)",
+              }}
+            ></div>
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(-1,-1)",
+              }}
+            ></div>
+          </div>
+
+          {/* First Right frame */}
+          <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[63%]">
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(1,1)",
+              }}
+            ></div>
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(1,-1)",
+              }}
+            ></div>
+          </div>
+          {/* Second Right frame */}
+          <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[63%]">
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(1,1)",
+              }}
+            ></div>
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(1,-1)",
+              }}
+            ></div>
+          </div>
+          {/* Third Right frame */}
+          <div className="absolute left-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[63%]">
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(1,1)",
+              }}
+            ></div>
+            <div
+              className="basis-1/2"
+              style={{
+                backgroundImage: `url("${frame}")`,
+                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                transform: "scale(1,-1)",
+              }}
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

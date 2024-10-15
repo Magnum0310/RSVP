@@ -133,7 +133,6 @@ const Details = () => {
     return () => context.revert();
   }, []);
   return (
-    // <div className="relative -top-32 h-[225vh] bg-cyan-500 lg:h-full">
     <div className="relative">
       <div className="relative -top-[15rem] h-full lg:h-full">
         <div
@@ -142,7 +141,6 @@ const Details = () => {
         >
           <div
             ref={container2}
-            // className="relative top-1/2 flex h-1/2 w-full -translate-y-1/2 gap-5 text-center lg:top-[60%]"
             className="relative top-[65%] flex h-1/2 w-full -translate-y-1/2 gap-5 text-center lg:top-[65%]"
           >
             {/* IMAGES */}
@@ -172,7 +170,6 @@ const Details = () => {
         <div
           ref={containerDetails}
           className="relative flex h-fit flex-col items-center gap-5 lg:-top-[20%]"
-          // className="relative -top-[15%] flex h-fit flex-col items-center gap-5 lg:-top-[20%]"
         >
           <div className="flex max-w-[1024px] flex-col items-center">
             <div className="text-pageTitle relative z-20 h-fit w-[85%] border-b-4 border-t-4 border-solid border-barley py-6 text-center font-Coldiac">

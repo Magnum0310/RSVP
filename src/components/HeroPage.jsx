@@ -177,8 +177,8 @@ const HeroPage = () => {
 
   return (
     // Main page
-    <div className="relative flex size-full justify-center">
-      <div className="relative h-[250lvh] w-full max-w-[1024px] overflow-clip sm:h-[350lvh] lg:overflow-visible">
+    <div className="relative">
+      <div className="relative mx-auto flex h-[250lvh] w-full max-w-[1024px] justify-center overflow-clip sm:h-[350lvh] lg:overflow-visible">
         {/* Inner Wrapper */}
         <div
           ref={container}

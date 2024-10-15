@@ -17,7 +17,7 @@ const EntourageCardPrincipal = ({ title, list1, list2 }) => {
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <div className="text-entourage-list flex gap-12 bg-lime-500/0 text-center lg:gap-24 xl:gap-52">
+      <div className="text-entourage-list flex gap-5 bg-lime-500/0 text-center lg:gap-24 xl:gap-52">
         <div className="size-fit min-w-[200px] bg-blue-500/0 sm:min-w-[250px]">
           {list1.map((item, index) => (
             <div key={index} className="font-Coldiac sm:mt-2 lg:mt-5">

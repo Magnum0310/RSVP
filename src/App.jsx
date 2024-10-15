@@ -11,6 +11,7 @@ import Reception from "./components/ReceptionLocation";
 import AdminPanel from "./components/AdminPanel";
 import UserForm from "./components/UserForm";
 import AcceptInvite from "./components/AcceptInvite";
+import Frame from "./components/Frame";
 
 function App() {
   useEffect(() => {

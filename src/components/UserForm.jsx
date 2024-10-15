@@ -8,6 +8,9 @@ import {
 } from "react";
 import UserformContext from "@/context/UserformContext";
 import Frame from "./Frame";
+// import { useContext } from "react";
+// import Image from "../constants/Image";
+// import UserformContext from "@/context/UserformContext";
 
 //==============================//
 import SubmitData from "../data/SubmitData";
@@ -49,6 +52,9 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     companion,
     setCompanion,
   } = useContext(UserformContext);
+
+  const { frame } = Image;
+  const { width } = useContext(UserformContext);
 
   //===============Images===============//
   const {
@@ -1049,7 +1055,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
           </div>
         </div>
       </div>
-      <Frame />
     </div>
   );
 };

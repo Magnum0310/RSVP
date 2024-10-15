@@ -10,9 +10,9 @@ const Frame = () => {
   return (
     <div className="">
       {/* FRAME */}
-      <div className="absolute top-0 -z-50 size-full bg-lime-500">
+      <div className="absolute top-0 -z-50 size-full">
         {/* First Left frame */}
-        <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col bg-lime-500/0 max-lg:right-[52%] max-md:right-[50%] max-sm:right-[53%]">
+        <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[53%] max-md:right-[56%] max-sm:right-[60%]">
           <div
             className="basis-1/2"
             style={{
@@ -35,7 +35,7 @@ const Frame = () => {
           ></div>
         </div>
         {/* Second Left frame  */}
-        <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[52%] max-md:right-[50%] max-sm:right-[53%]">
+        <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-md:right-[56%] max-sm:right-[60%]">
           <div
             className="basis-1/2"
             style={{
@@ -59,7 +59,7 @@ const Frame = () => {
         </div>
 
         {/* First Right frame */}
-        <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[52%] max-md:left-[50%] max-sm:left-[53%]">
+        <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[60%]">
           <div
             className="basis-1/2"
             style={{
@@ -82,7 +82,7 @@ const Frame = () => {
           ></div>
         </div>
         {/* Second Right frame */}
-        <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[52%] max-md:left-[50%] max-sm:left-[53%]">
+        <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[60%]">
           <div
             className="basis-1/2"
             style={{
