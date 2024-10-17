@@ -245,7 +245,7 @@ const churchLocation = () => {
       <div className="">
         <div className="absolute top-0 -z-50 h-[300vh] w-full">
           {/* First Left frame */}
-          <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[53%] max-md:right-[56%] max-sm:right-[63%]">
+          <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[53%] max-md:right-[56%] max-sm:right-[40%] max-sm:h-full max-sm:w-[150%]">
             <div
               className="basis-1/2"
               style={{
@@ -268,7 +268,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Second Left frame  */}
-          <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[53%] max-md:right-[56%] max-sm:right-[63%]">
+          <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[53%] max-md:right-[56%] max-sm:right-[40%] max-sm:h-full max-sm:w-[150%]">
             <div
               className="basis-1/2"
               style={{
@@ -291,7 +291,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Third Left frame */}
-          <div className="absolute right-[50%] top-3/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[53%] max-md:right-[56%] max-sm:right-[63%]">
+          <div className="absolute right-[50%] top-3/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[53%] max-md:right-[56%] max-sm:right-[40%] max-sm:h-full max-sm:w-[150%]">
             <div
               className="basis-1/2"
               style={{
@@ -315,7 +315,7 @@ const churchLocation = () => {
           </div>
 
           {/* First Right frame */}
-          <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[63%]">
+          <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[40%] max-sm:h-full max-sm:w-[150%]">
             <div
               className="basis-1/2"
               style={{
@@ -338,7 +338,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Second Right frame */}
-          <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[63%]">
+          <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[40%] max-sm:h-full max-sm:w-[150%]">
             <div
               className="basis-1/2"
               style={{
@@ -361,7 +361,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Third Right frame */}
-          <div className="absolute left-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[63%]">
+          <div className="absolute left-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[40%] max-sm:h-full max-sm:w-[150%]">
             <div
               className="basis-1/2"
               style={{

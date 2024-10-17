@@ -91,9 +91,10 @@ const Entourage = () => {
         <div
           ref={container1}
           className="relative flex size-full flex-col items-center justify-center overflow-hidden"
+          // className="relative flex size-full flex-col items-center justify-center overflow-hidden"
         >
           {/* Entourage Images - Position:Absolute */}
-          <div className="relative h-[75vh] w-full sm:h-[100vh]">
+          <div className="relative z-[10] h-[75vh] w-full sm:h-[100vh]">
             <div className="absolute h-1/4 w-full">
               <div
                 ref={imageCenter}
@@ -157,9 +158,9 @@ const Entourage = () => {
               The Entourage
             </div>
             {/* MAIN CONTENT WRAPPER */}
-            <div className="bg-purple-500/250 relative top-[10%] mt-10 flex w-full flex-col gap-5 sm:gap-8">
+            <div className="relative top-[10%] z-20 mt-10 flex w-full flex-col items-center gap-5 sm:gap-8 lg:gap-16">
               {/* Parents */}
-              <div className="flex w-full justify-center gap-5 lg:gap-36">
+              <div className="flex w-full items-center justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard
                   title={"Parents of the Bride"}
                   list={parentsOfTheBride}
@@ -170,7 +171,7 @@ const Entourage = () => {
                 />
               </div>
               {/* Principal Sponsors */}
-              <div className="flex w-full flex-col items-center">
+              <div className="flex w-full flex-col items-center lg:w-[85%]">
                 <EntourageCardPrincipal
                   list1={principalSponsorsMale}
                   list2={principalSponsorsFemale}
@@ -178,12 +179,12 @@ const Entourage = () => {
                 />
               </div>
               {/* Maid of Honor and Best Man */}
-              <div className="flex w-full justify-center gap-5 lg:gap-36">
+              <div className="flex w-full justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard title={"Maid of Honor"} list={maidOfHonor} />
                 <EntourageCard title={"Best Man"} list={bestMan} />
               </div>
               {/* Groomsmen and Bridesmaid */}
-              <div className="flex w-full justify-center gap-5 lg:gap-36">
+              <div className="flex w-full justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard title={"Groomsmen"} list={groomsMen} />
                 <EntourageCard title={"BridesMaid"} list={bridesMaid} />
               </div>
@@ -203,23 +204,23 @@ const Entourage = () => {
                 ></div>
               </div>
               {/* Candle and Cord */}
-              <div className="flex w-full justify-center gap-5 lg:gap-36">
+              <div className="flex w-full justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard title={"Candle"} list={candle} />
                 <EntourageCard title={"Cord"} list={cord} />
               </div>
               {/* Veil */}
-              <div className="flex w-full justify-center gap-5 lg:gap-36">
+              <div className="flex w-full justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard title={"Veil"} list={veil} />
               </div>
               {/* Ring and Coin Bearer */}
-              <div className="flex w-full justify-center gap-5 lg:gap-36">
+              <div className="flex w-full justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard title={"Ring Bearer"} list={ringBearer} />
                 <EntourageCard title={"Coin Bearer"} list={coinBearer} />
               </div>{" "}
               {/* Bible bearer and Flower girls */}
-              <div className="flex w-full justify-center gap-5 lg:gap-36">
+              <div className="flex w-full justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard title={"Bible Bearer"} list={bibleBearer} />
-                {/* <EntourageCard title={"Flower Girls"} list={flowerGirls} /> */}
+                <EntourageCard title={"Flower Girl"} list={flowerGirls} />
               </div>
             </div>
             {/* Entourage Background Images - Position:Absolute */}
@@ -229,7 +230,7 @@ const Entourage = () => {
             >
               {/* Title */}
               <div
-                className="relative -top-[5%] -z-10 h-[15%] w-full opacity-25 sm:-top-[5%] sm:h-[12%] sm:scale-[2]"
+                className="relative -top-[5%] -z-50 h-[15%] w-full opacity-25 sm:-top-[5%] sm:h-[12%] sm:scale-[2]"
                 style={{
                   backgroundImage: `url(${entourageTitle})`,
                   backgroundPosition: "center",

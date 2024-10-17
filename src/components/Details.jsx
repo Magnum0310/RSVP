@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, forwardRef } from "react";
+import { useRef, useLayoutEffect, forwardRef, useState } from "react";
 import Image from "../constants/Image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -50,6 +50,11 @@ const Details = () => {
   const dressCodeList = useRef(null);
   const dressCodeList1 = useRef(null);
   const menuList = useRef(null);
+
+  const [foundWord, setFoundWord] = useState("false");
+  const dressCode0 = dressCode[0].split(" ");
+  const dressCode1 = dressCode[1].split(" ");
+  const dressCode2 = dressCode[2].split(" ");
 
   // DETAIL IMAGE STYLE
   const detailStyleName =
@@ -177,7 +182,7 @@ const Details = () => {
             </div>
             <div className="flex h-fit w-[85%] min-w-[150px] flex-col items-center gap-28 text-center">
               {/* Dress Code */}
-              <div className="relative flex size-full flex-col items-center justify-center gap-5 lg:top-[20px]">
+              <div className="text-entourage-list relative flex size-full flex-col items-center justify-center gap-5 font-Coldiac lg:top-[20px] lg:gap-10">
                 <div
                   ref={dressCodeList}
                   className="h-[100px] w-full"
@@ -188,17 +193,99 @@ const Details = () => {
                     backgroundRepeat: "no-repeat",
                   }}
                 ></div>
-                <div className="size-full text-center font-Coldiac text-2xl lg:text-4xl">
+                <div className="size-full text-center text-2xl font-bold lg:text-4xl">
                   Dress Code
                 </div>
-                {dressCode.map((item, index) => (
-                  <div
-                    key={index}
-                    className="text-entourage-list font-Coldiac sm:leading-6"
-                  >
-                    {item}
+                <div className="flex h-fit w-[85%] items-center justify-center">
+                  <div>
+                    {dressCode0.map((char, index) => {
+                      return char === "formal" ? (
+                        <span
+                          key={index}
+                          className="border-b-4 border-motif font-bold italic"
+                        >
+                          {char}{" "}
+                        </span>
+                      ) : (
+                        <span className="" key={index}>
+                          {char}{" "}
+                        </span>
+                      );
+                    })}
                   </div>
-                ))}
+                </div>
+                <div className="flex h-[10vh] w-[85%] items-center justify-center lg:h-[15vh] lg:leading-8">
+                  <div>
+                    {dressCode1.map((char, index) => {
+                      return char === "Kindly" ? (
+                        <span
+                          key={index}
+                          className="rounded-l-lg border-b-4 border-motif bg-motif font-bold italic text-ivory"
+                        >
+                          {char}{" "}
+                        </span>
+                      ) : char === "avoid" || char === "wearing" ? (
+                        <span
+                          key={index}
+                          className="border-b-4 border-motif bg-motif font-bold italic text-ivory"
+                        >
+                          {char}{" "}
+                        </span>
+                      ) : char === "white" ? (
+                        <span
+                          key={index}
+                          className="rounded-r-lg border-b-4 border-motif bg-motif font-bold italic text-ivory"
+                        >
+                          {char}{" "}
+                        </span>
+                      ) : char === "For" || char === "Women:" ? (
+                        <span
+                          key={index}
+                          className="border-b-4 border-motif font-bold italic"
+                        >
+                          {char}{" "}
+                        </span>
+                      ) : (
+                        <span key={index}>{char} </span>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="flex h-[10vh] w-[85%] items-center justify-center lg:h-[15vh] lg:leading-8">
+                  <div>
+                    {dressCode2.map((char, index) => {
+                      return char === "For" || char === "Men:" ? (
+                        <span
+                          key={index}
+                          className="border-b-4 border-motif font-bold italic"
+                        >
+                          {char}{" "}
+                        </span>
+                      ) : (
+                        <span key={index}>{char} </span>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 
+                {dressCode.map((item, index) => {
+                  console.log(typeof item);
+                  const words = item.split(" ");
+                  return (
+                    <div key={index}>
+                      {words.map((char, index) => {
+                        return char === "formal" || char === "white" ? (
+                          <span className="bg-motif text-white">{char} </span>
+                        ) : (
+                          <span>{char} </span>
+                        );
+                      })}
+                      )
+                    </div>
+                  );
+                })} */}
+
                 {/* Colors */}
                 <div className="flex w-[75%] justify-center gap-2 py-2">
                   {colors.map((color, index) => (

@@ -1,6 +1,8 @@
 {
   "dressCode": [
-    "We request that our guests dress in semi-formal attire. For women, this could mean a cocktail dress or a nice skirt and blouse. For men, a suit or dress slacks with a dress shirt and tie is appropriate. We want you to feel comfortable while looking your best!"
+    "We request our guests to join us in formal attire for our special day.",
+    "For Women: Please wear long gowns, cocktail dresses, or formal separates. Kindly avoid wearing white to honor the bride’s special day. Feel free to select from our wedding color palette.",
+    "For Men: While a formal suit is a great option, other formal combinations are also welcome. Consider pairing a well-fitted blazer or sports jacket with tailored trousers, a dress shirt, and a tie or bow tie."
   ],
   "colors": ["#a2495d", "#eed1cb", "#7b3156", "#8c8f72"],
   "soup": ["Egg drop soup"],
@@ -12,5 +14,9 @@
     "Roast beef Short Plate"
   ],
   "pasta": ["Carbonara"],
-  "dessert": ["Creme Brulee", "Fresh fruit cuts"]
+  "dessert": ["Creme Brulee", "Fresh fruit cuts"],
+  "gift": [
+    "The Presence of our friends and family is the greatest gift of all",
+    "However, if it is your wish to bless us with a gift, we would greatly appreciate a monetary contribution to our future together, or you can surprise us in your own special way."
+  ]
 }

@@ -30,10 +30,13 @@
     @apply text-7xl sm:text-8xl lg:text-9xl;
   }
   .text-entourage-title {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+    @apply text-[1.6rem] leading-8 sm:text-3xl md:text-4xl lg:text-5xl;
   }
   .text-entourage-list {
-    @apply text-xs leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];
+    @apply text-[.8rem] font-bold leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];
+  }
+  .text-dressCode {
+    @apply text-[.8rem] leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];
   }
   .text-time {
     @apply text-2xl sm:text-4xl lg:text-6xl lg:tracking-wide;
