@@ -108,7 +108,7 @@ const churchLocation = () => {
         ref={container}
         className="flex flex-col items-center overflow-hidden"
       >
-        <div className="flex size-full max-w-[1024px] flex-col items-center md:py-12">
+        <div className="flex size-full max-w-[1024px] flex-col items-center sm:py-12">
           {/* Page Title - Church Location */}
           <div
             ref={title}
@@ -120,32 +120,32 @@ const churchLocation = () => {
           <div className="relative z-10 flex h-[150vh] w-full flex-col items-center justify-center">
             <div
               ref={map}
-              className="absolute top-[15%] h-[35%] w-3/4 sm:w-[60%] lg:h-[40%] lg:w-[50%]"
+              className="absolute top-[15%] h-[35%] w-3/4 sm:w-[55%] lg:h-[33%] lg:w-[50%]"
             >
               <Card
                 image={churchMap}
                 title={"Holy Catholic Church"}
                 address={"Complete Address"}
                 link={
-                  "https://www.google.com.hk/maps/place/LifeCity+Church/@14.5724288,121.0582199,17z/data=!3m1!4b1!4m6!3m5!1s0x3397c90b0715e4a7:0x1eea62a07e2500f7!8m2!3d14.5724288!4d121.0607948!16s%2Fg%2F1pzs12k0_?entry=ttu"
+                  "https://www.google.com.hk/maps/place/LifeCity+Church/@14.5724288,121.0582199,17z/data=!3m1!4b1!4m6!3m5!1s0x3397c90b0715e4a7:0x1eea62a07e2500f7!8m2!3d14.5724288!4d121.0557948!16s%2Fg%2F1pzs12k0_?entry=ttu"
                 }
               />
             </div>
             <div
               ref={pic1}
-              className="absolute left-[5%] top-[60%] h-[30%] w-[55%] sm:w-[50%] lg:left-[10%] lg:top-[65%] lg:h-[35%] lg:w-[40%]"
+              className="bg-blue6000 absolute left-[5%] top-[55%] h-[30%] w-[55%] sm:w-[120%] sm:w-[50%] lg:left-[10%] lg:top-[65%] lg:h-[35%] lg:w-[33%]"
             >
               <Card image={church1} />
             </div>
             <div
               ref={pic2}
-              className="absolute right-[1%] top-[65%] h-[20%] w-[45%] sm:w-[40%] lg:right-[10%] lg:top-[60%] lg:h-[30%] lg:w-[35%]"
+              className="absolute right-[1%] top-[65%] h-[20%] w-[45%] sm:w-[33%] lg:right-[10%] lg:top-[55%] lg:h-[30%] lg:w-[35%]"
             >
               <Card image={church2} />
             </div>
             <div
               ref={pic3}
-              className="absolute right-[20%] top-[75%] h-[25%] w-[50%] sm:w-[45%] lg:h-[35%] lg:w-[40%]"
+              className="absolute right-[20%] top-[75%] h-[25%] w-[50%] sm:w-[45%] lg:h-[35%] lg:w-[33%]"
             >
               <Card image={church3} />
             </div>
@@ -197,10 +197,10 @@ const churchLocation = () => {
               leaf={leaf1}
               rotate={"190deg"}
               className={
-                "absolute left-[10%] top-[55%] h-[30%] w-full lg:left-[15%]"
+                "bg-blue6000 absolute left-[10%] top-[55%] h-[30%] w-full sm:w-[120%] lg:left-[15%]"
               }
             />
-            <div className="absolute left-[55%] top-[75%] hidden h-[50%] w-full">
+            <div className="bg-blue6000 absolute left-[55%] top-[75%] hidden h-[50%] w-full sm:w-[120%]">
               <Leaf leaf={leaf1} flip={true} />
             </div>
             <div className="absolute left-[30%] top-[75%] hidden h-[80%] w-full">
@@ -219,7 +219,7 @@ const churchLocation = () => {
           {/* Accents */}
           <div
             ref={accent1}
-            className="absolute -left-[5%] top-0 h-[10%] w-1/4 rotate-[80deg] md:top-[2%]"
+            className="absolute -left-[5%] top-0 h-[10%] w-1/4 rotate-[80deg] sm:top-[2%]"
             style={{
               backgroundImage: `url("${locationAccent}")`,
               backgroundPosition: "center",
@@ -229,7 +229,7 @@ const churchLocation = () => {
           ></div>
           <div
             ref={accent2}
-            className="absolute -right-[5%] top-0 h-[10%] w-1/4 -rotate-[80deg] scale-x-[-1] md:top-[2%]"
+            className="absolute -right-[5%] top-0 h-[10%] w-1/4 -rotate-[80deg] scale-x-[-1] sm:top-[2%]"
             style={{
               backgroundImage: `url("${locationAccent}")`,
               backgroundPosition: "center",
@@ -243,9 +243,9 @@ const churchLocation = () => {
       {/* ===============FRAME=============== */}
 
       <div className="">
-        <div className="absolute top-0 -z-50 h-[300vh] w-full">
+        <div className="absolute top-0 -z-50 h-[450vh] w-full">
           {/* First Left frame */}
-          <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[53%] max-md:right-[56%] max-sm:right-[40%] max-sm:h-full max-sm:w-[150%]">
+          <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[33%] max-sm:h-full max-sm:w-[190%] sm:right-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{
@@ -268,7 +268,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Second Left frame  */}
-          <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[53%] max-md:right-[56%] max-sm:right-[40%] max-sm:h-full max-sm:w-[150%]">
+          <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[33%] max-sm:h-full max-sm:w-[190%] sm:right-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{
@@ -291,7 +291,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Third Left frame */}
-          <div className="absolute right-[50%] top-3/4 flex size-full scale-50 flex-col bg-blue-500/0 max-lg:right-[53%] max-md:right-[56%] max-sm:right-[40%] max-sm:h-full max-sm:w-[150%]">
+          <div className="absolute right-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[33%] max-sm:h-full max-sm:w-[190%] sm:right-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{
@@ -315,7 +315,7 @@ const churchLocation = () => {
           </div>
 
           {/* First Right frame */}
-          <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[40%] max-sm:h-full max-sm:w-[150%]">
+          <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[33%] max-sm:h-full max-sm:w-[190%] sm:left-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{
@@ -338,7 +338,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Second Right frame */}
-          <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[40%] max-sm:h-full max-sm:w-[150%]">
+          <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[33%] max-sm:h-full max-sm:w-[190%] sm:left-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{
@@ -361,7 +361,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Third Right frame */}
-          <div className="absolute left-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[40%] max-sm:h-full max-sm:w-[150%]">
+          <div className="absolute left-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[33%] max-sm:h-full max-sm:w-[190%] sm:left-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{

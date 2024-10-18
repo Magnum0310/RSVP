@@ -1,11 +1,17 @@
-import { useRef, useLayoutEffect, forwardRef, useState } from "react";
+import {
+  useRef,
+  useLayoutEffect,
+  forwardRef,
+  useState,
+  useContext,
+} from "react";
 import Image from "../constants/Image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import eventDetails from "../constants/details.json";
 import Card from "../components/EntourageCard";
 import Frame from "./Frame";
-
+import UserformContext from "../context/UserformContext";
 gsap.registerPlugin(ScrollTrigger);
 
 const {
@@ -19,7 +25,7 @@ const {
   detailsDressCode,
   detailsDressCodeFrame,
 } = Image;
-const { dressCode, colors, soup, salad, mainCourses, pasta, dessert } =
+const { dressCode, colors, soup, salad, mainCourses, pasta, dessert, gift } =
   eventDetails;
 
 const DetailsImageTransition = ({ imageName, styleName, refName }) => {
@@ -51,7 +57,8 @@ const Details = () => {
   const dressCodeList1 = useRef(null);
   const menuList = useRef(null);
 
-  const [foundWord, setFoundWord] = useState("false");
+  const { width } = useContext(UserformContext);
+
   const dressCode0 = dressCode[0].split(" ");
   const dressCode1 = dressCode[1].split(" ");
   const dressCode2 = dressCode[2].split(" ");
@@ -182,7 +189,7 @@ const Details = () => {
             </div>
             <div className="flex h-fit w-[85%] min-w-[150px] flex-col items-center gap-28 text-center">
               {/* Dress Code */}
-              <div className="text-entourage-list relative flex size-full flex-col items-center justify-center gap-5 font-Coldiac lg:top-[20px] lg:gap-10">
+              <div className="text-entourage-list relative top-[20px] flex size-full flex-col items-center justify-center gap-5 font-Coldiac md:top-[45px] md:leading-7 lg:top-[30px] lg:gap-10">
                 <div
                   ref={dressCodeList}
                   className="h-[100px] w-full"
@@ -196,7 +203,7 @@ const Details = () => {
                 <div className="size-full text-center text-2xl font-bold lg:text-4xl">
                   Dress Code
                 </div>
-                <div className="flex h-fit w-[85%] items-center justify-center">
+                <div className="flex h-fit w-[85%] items-center justify-center lg:leading-9">
                   <div>
                     {dressCode0.map((char, index) => {
                       return char === "formal" ? (
@@ -214,27 +221,27 @@ const Details = () => {
                     })}
                   </div>
                 </div>
-                <div className="flex h-[10vh] w-[85%] items-center justify-center lg:h-[15vh] lg:leading-8">
+                <div className="flex h-[15vh] w-[85%] items-center justify-center lg:h-[20vh] lg:leading-9">
                   <div>
                     {dressCode1.map((char, index) => {
                       return char === "Kindly" ? (
                         <span
                           key={index}
-                          className="rounded-l-lg border-b-4 border-motif bg-motif font-bold italic text-ivory"
+                          className="rounded-l-lg border-motif bg-motif font-bold italic text-ivory"
                         >
                           {char}{" "}
                         </span>
                       ) : char === "avoid" || char === "wearing" ? (
                         <span
                           key={index}
-                          className="border-b-4 border-motif bg-motif font-bold italic text-ivory"
+                          className="border-motif bg-motif font-bold italic text-ivory"
                         >
                           {char}{" "}
                         </span>
                       ) : char === "white" ? (
                         <span
                           key={index}
-                          className="rounded-r-lg border-b-4 border-motif bg-motif font-bold italic text-ivory"
+                          className="rounded-r-lg border-motif bg-motif font-bold italic text-ivory"
                         >
                           {char}{" "}
                         </span>
@@ -251,7 +258,7 @@ const Details = () => {
                     })}
                   </div>
                 </div>
-                <div className="flex h-[10vh] w-[85%] items-center justify-center lg:h-[15vh] lg:leading-8">
+                <div className="flex h-[15vh] w-[85%] items-center justify-center lg:h-[20vh] lg:leading-9">
                   <div>
                     {dressCode2.map((char, index) => {
                       return char === "For" || char === "Men:" ? (
@@ -267,31 +274,12 @@ const Details = () => {
                     })}
                   </div>
                 </div>
-
-                {/* 
-                {dressCode.map((item, index) => {
-                  console.log(typeof item);
-                  const words = item.split(" ");
-                  return (
-                    <div key={index}>
-                      {words.map((char, index) => {
-                        return char === "formal" || char === "white" ? (
-                          <span className="bg-motif text-white">{char} </span>
-                        ) : (
-                          <span>{char} </span>
-                        );
-                      })}
-                      )
-                    </div>
-                  );
-                })} */}
-
                 {/* Colors */}
                 <div className="flex w-[75%] justify-center gap-2 py-2">
                   {colors.map((color, index) => (
                     <div
                       key={index}
-                      className="aspect-square size-[15%] rounded-full border-[1px] border-solid border-black lg:size-[10%]"
+                      className="aspect-square size-[15%] rounded-full border-[1px] border-solid border-black sm:size-[10%] lg:size-[10%]"
                       style={{
                         background: `${"" + color + ""}`,
                         backgroundSize: "cover",
@@ -302,7 +290,7 @@ const Details = () => {
                 </div>
                 <div
                   ref={dressCodeList1}
-                  className="h-[100px] w-full"
+                  className="relative -bottom-[20px] h-[100px] w-full bg-orange-500/0"
                   style={{
                     backgroundImage: `url("${detailsDressCodeFrame}")`,
                     backgroundSize: "contain",
@@ -321,11 +309,25 @@ const Details = () => {
                   }}
                 ></div>
               </div>
+              {/* Note on Gifts */}
+              <div className="text-entourage-list 500 flex w-full items-center justify-center border-4 border-solid border-motif font-Coldiac max-sm:h-[40vh] sm:h-[45vh] md:h-[60vh] md:w-[85%] lg:w-[95%]">
+                <div className="flex size-[90%] flex-col items-center justify-center md:leading-7 lg:leading-9">
+                  <p className="grid basis-1/3 place-items-center text-2xl font-bold md:text-3xl lg:text-4xl">
+                    A note on Gifts
+                  </p>
+                  <p className="grid w-[95%] basis-0 place-items-center sm:basis-1/4 md:basis-0">
+                    {gift[0]}
+                  </p>
+                  <p className="grid w-[95%] basis-1/3 place-items-center max-sm:mt-3 sm:basis-1/4">
+                    {gift[1]}
+                  </p>
+                </div>
+              </div>
               {/* The Menu */}
               <div className="relative flex w-[100%] flex-col items-center">
                 <div className="flex w-fit flex-col items-center sm:gap-10">
                   <div className="mb-3 flex h-fit min-w-[150px] flex-col items-center sm:mb-0">
-                    <div className="text-center font-Coldiac text-2xl lg:text-4xl">
+                    <div className="text-center font-Coldiac text-2xl font-bold md:text-3xl lg:text-4xl">
                       The Menu
                     </div>
                   </div>
@@ -340,7 +342,7 @@ const Details = () => {
                   className="absolute top-[25%] -z-10 size-full pb-[25%] pt-[20%] sm:h-[100%]"
                   style={{
                     backgroundImage: `url("${detailsFrame}")`,
-                    backgroundSize: "contain",
+                    backgroundSize: `${width < 550 ? "cover" : "contain"}`,
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
                     scale: "1.15",

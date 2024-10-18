@@ -12,7 +12,7 @@ const Frame = () => {
       {/* FRAME */}
       <div className="absolute top-0 -z-50 size-full">
         {/* First Left frame */}
-        <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[53%] max-md:right-[56%] max-sm:right-[40%] max-sm:h-full max-sm:w-[150%]">
+        <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[40%] max-sm:h-full max-sm:w-[190%] sm:right-[55%] sm:w-[120%]">
           <div
             className="basis-1/2"
             style={{
@@ -35,7 +35,7 @@ const Frame = () => {
           ></div>
         </div>
         {/* Second Left frame  */}
-        <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-md:right-[56%] max-sm:right-[40%] max-sm:h-full max-sm:w-[150%]">
+        <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[40%] max-sm:h-full max-sm:w-[190%] sm:right-[55%] sm:w-[120%]">
           <div
             className="basis-1/2"
             style={{
@@ -59,7 +59,7 @@ const Frame = () => {
         </div>
 
         {/* First Right frame */}
-        <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[40%] max-sm:h-full max-sm:w-[150%]">
+        <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[40%] max-sm:h-full max-sm:w-[190%] sm:left-[55%] sm:w-[120%]">
           <div
             className="basis-1/2"
             style={{
@@ -82,7 +82,7 @@ const Frame = () => {
           ></div>
         </div>
         {/* Second Right frame */}
-        <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-md:left-[56%] max-sm:left-[40%] max-sm:h-full max-sm:w-[150%]">
+        <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[40%] max-sm:h-full max-sm:w-[190%] sm:left-[55%] sm:w-[120%]">
           <div
             className="basis-1/2"
             style={{

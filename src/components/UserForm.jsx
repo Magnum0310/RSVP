@@ -431,9 +431,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       nested: true,
     });
   }, [expand]);
-
-  console.log(guest.numberOfAttendees);
-
   return (
     <div className="relative">
       <div className="gap-5500 relative flex h-screen w-full flex-col justify-center font-Coldiac">
