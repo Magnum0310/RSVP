@@ -1,27 +1,32 @@
 [
   {
-    "time": "8:30",
-    "med": "AM",
-    "event": "Guess arrival at the Church"
-  },
-  {
-    "time": "9:00",
-    "med": "AM",
-    "event": "Start of wedding ceremony. It has survived not only five centuries."
-  },
-  {
     "time": "10:00",
     "med": "AM",
-    "event": "Proceed to Reception Area for the Post Wedding Celebration"
+    "event": "Wedding Ceremony",
+    "icon": "rings"
+  },
+  {
+    "time": "11:00",
+    "med": "AM",
+    "event": "Wedding Photographs",
+    "icon": "camera"
+  },
+  {
+    "time": "11:30",
+    "med": "AM",
+    "event": "Reception",
+    "icon": "reception"
   },
   {
     "time": "12:00",
     "med": "NN",
-    "event": "It was popularised in the 1960s with."
+    "event": "Lunch is served",
+    "icon": "utensils"
   },
   {
-    "time": "2:00",
+    "time": "1:00",
     "med": "PM",
-    "event": "It was popularised in the 1960s with the release of Letraset sheets."
+    "event": "Wedding Reception Program",
+    "icon": "celebration"
   }
 ]

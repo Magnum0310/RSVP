@@ -41,6 +41,12 @@ import detailsDressCodeFrame from "../assets/Vectors/Details/detailsDressCodeFra
 // Timeline
 import timeLineDivider from "../assets/Vectors/Timeline/timeLineDivider.svg";
 import timeLineFrame from "../assets/Vectors/Timeline/timeLineFrame.svg";
+import rings from "../assets/Vectors/Timeline/rings.svg";
+import camera from "../assets/Vectors/Timeline/camera.svg";
+import reception from "../assets/Vectors/Timeline/reception.svg";
+import utensils from "../assets/Vectors/Timeline/utensils.svg";
+import celebration from "../assets/Vectors/Timeline/celebration.svg";
+import couples from "../assets/Vectors/Timeline/couples.svg";
 
 // Church Location
 import leaf1 from "../assets/Vectors/ChurchLocation/leaf1.svg";
@@ -116,6 +122,12 @@ const Image = {
   // Timeline
   timeLineDivider,
   timeLineFrame,
+  rings,
+  camera,
+  reception,
+  utensils,
+  celebration,
+  couples,
   // Church Location
   leaf1,
   leaf2,

@@ -310,17 +310,31 @@ const Details = () => {
                 ></div>
               </div>
               {/* Note on Gifts */}
-              <div className="text-entourage-list 500 flex w-full items-center justify-center border-4 border-solid border-motif font-Coldiac max-sm:h-[40vh] sm:h-[45vh] md:h-[60vh] md:w-[85%] lg:w-[95%]">
-                <div className="flex size-[90%] flex-col items-center justify-center md:leading-7 lg:leading-9">
-                  <p className="grid basis-1/3 place-items-center text-2xl font-bold md:text-3xl lg:text-4xl">
-                    A note on Gifts
-                  </p>
-                  <p className="grid w-[95%] basis-0 place-items-center sm:basis-1/4 md:basis-0">
-                    {gift[0]}
-                  </p>
-                  <p className="grid w-[95%] basis-1/3 place-items-center max-sm:mt-3 sm:basis-1/4">
-                    {gift[1]}
-                  </p>
+              <div className="relative flex w-[95%] flex-col items-center justify-center max-sm:h-[40vh] sm:h-[45vh] sm:w-[85%] md:h-[65vh]">
+                <div className="text-entourage-list absolute -top-[15%] flex w-[95%] flex-col items-center justify-center font-Coldiac max-sm:h-[40vh] sm:h-[45vh] sm:w-[85%] md:h-[65vh]">
+                  {/* <div className="text-entourage-list 500 flex w-full items-center justify-center border-4 border-solid border-motif font-Coldiac max-sm:h-[40vh] sm:h-[45vh] md:h-[60vh] md:w-[85%] lg:w-[95%]"> */}
+                  <div className="flex hidden h-[90%] w-[80%] flex-col items-center justify-center bg-red-500/0 md:leading-7 lg:leading-9">
+                    <div className="flex size-full basis-[55%] flex-col items-center justify-center bg-lime-500/0">
+                      <p className="text-2xl font-bold md:text-3xl lg:text-4xl">
+                        A note on Gifts
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative flex size-full basis-[20%] justify-center">
+                    <div className="absolute top-[75%] h-full w-fit bg-ivory text-2xl font-bold md:text-3xl lg:text-4xl">
+                      A note on gifts
+                    </div>
+                  </div>
+                  <div className="size-full border-4 border-solid border-motif">
+                    <div className="flex size-full basis-full flex-col items-center justify-center gap-5 bg-blue-500/0 max-sm:gap-2">
+                      <p className="grid w-[85%] basis-1/4 place-items-center">
+                        {gift[0]}
+                      </p>
+                      <p className="grid w-[85%] basis-1/4 place-items-center max-sm:mt-3">
+                        {gift[1]}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               {/* The Menu */}
