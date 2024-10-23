@@ -75,6 +75,16 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
   //=====Verify form=====//
   const [verify, setVerify] = useState(false);
 
+  //=====Verify form=====//
+  const [acceptForm, setAcceptForm] = useState(false);
+
+  const handleAcceptForm = () => {
+    console.log("click");
+    // setInvite(0);
+    setExpand(true);
+    setAcceptForm(true);
+  };
+
   //=====Submitting Details Animation=====//
 
   const submitContainer = useRef();
@@ -440,7 +450,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             {/* Accept invitation */}
             <div
               ref={boxRef}
-              className={`flex ${expand && invite === 1 ? "basis-[85%]" : invite === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
+              className={`flex ${expand && invite === 1 ? "basis-[85%]" : invite === 0 && acceptForm ? "basis-[0%]" : invite === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
+              // className={`flex ${expand && invite === 1 ? "basis-[85%]" : invite === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
             >
               <Box
                 className={`box ${invite === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col gap-5 ${(plusOne && errors?.firstName) || errors?.lastName ? "overflow-y-scroll" : "justify-center"} border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
@@ -721,7 +732,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             {/* Verify Details Form */}
             <div
               className={` ${details.submit ? "block" : "hidden"} absolute z-[50] flex size-full flex-col items-center justify-center bg-motif text-ivory`}
-              // className={` ${details.submit ? "block" : "hidden"} absolute z-[50] flex size-full flex-col items-center justify-center bg-motif text-ivory`}
             >
               {/* Verify Details  */}
               <div
@@ -930,11 +940,28 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               <div
                 className={`flex size-[95%] flex-col items-center justify-center rounded-xl bg-barley`}
               >
+                {/* Decline message option */}
                 <p
-                  className={`boxRight ${invite === 0 ? "block" : "invisible"} z-10 grid size-[75%] place-content-center text-center font-Showtime text-5xl leading-[4rem] text-ivory`}
+                  className={`boxRight hidden ${invite === 0 ? "block" : "invisible"} z-10 grid size-[75%] place-content-center text-center font-Showtime text-5xl leading-[4rem] text-ivory`}
                 >
                   Sorry to hear that, we wish you could be there with us
                 </p>
+                <div
+                  className={`z-50 ${invite === 0 ? "flex" : "hidden"} size-[55%] flex-col items-center justify-center gap-10 rounded-xl bg-ivory bg-opacity-25`}
+                >
+                  <p>Do you decline this invitation?</p>
+                  <div className="flex w-1/4 justify-evenly gap-5">
+                    <button
+                      className="basis-1/2 rounded-xl bg-slate-500"
+                      onClick={() => handleAcceptForm()}
+                    >
+                      Yes
+                    </button>
+                    <button className="basis-1/2 rounded-xl bg-slate-500">
+                      No
+                    </button>
+                  </div>
+                </div>
               </div>
               {/* Decline Button */}
               <div
@@ -970,7 +997,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 </p>
                 {/* Default View */}
                 <div
-                  className={`absolute ${invite === 2 && expand.length === 0 ? "flex" : invite === 1 && expand ? "hidden" : "flex"} h-[50%] w-[80%] opacity-25`}
+                  className={`absolute ${invite === 2 && expand.length === 0 ? "flex" : invite === 1 && expand === "" ? "hidden" : "flex"} h-[50%] w-[80%] opacity-25`}
                 >
                   <div
                     className="basis-1/2 rotate-180"
