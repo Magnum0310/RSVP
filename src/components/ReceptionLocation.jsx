@@ -23,6 +23,10 @@ const {
   reception1,
   reception2,
   reception3,
+  ionHotelFacade,
+  ionHotelLobby,
+  ionHotelEventHall,
+  ionHotelLocation,
 } = Images;
 
 const { frame } = Image;
@@ -136,34 +140,34 @@ const churchLocation = () => {
           <div className="relative z-10 flex h-[150vh] w-full flex-col items-center justify-center">
             <div
               ref={map}
-              className="absolute top-[15%] h-[35%] w-3/4 sm:w-[60%] lg:h-[40%] lg:w-[50%]"
+              className={`absolute top-[15%] z-10 h-[35%] ${width < 500 ? "w-[70%]" : "w-[65%]"} sm:w-[55%] md:h-[40%] lg:w-[40%]`}
             >
               <Card
-                image={receptionMap}
-                title={"Wedding Reception"}
-                address={"Complete Address"}
+                image={ionHotelLocation}
+                title={"Ion Hotel"}
+                address={"56 Legarda Rd, Baguio, Benguet"}
                 link={
-                  "https://www.google.com.hk/maps/place/SM+Megamall+Building+A/@14.5859462,121.0539649,17z/data=!3m1!4b1!4m6!3m5!1s0x3397c9bdea6be067:0xb72b90b4df1825fd!8m2!3d14.5859462!4d121.0565345!16zL20vMDZqaGh0?entry=ttu"
+                  "https://www.google.com/maps/place/Ion+Hotel/@16.4065608,120.5899767,17z/data=!3m1!4b1!4m9!3m8!1s0x3391a191cdabdebd:0xa2df8eaf46bc11e6!5m2!4m1!1i2!8m2!3d16.4065557!4d120.5925516!16s%2Fg%2F11v637pk89?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D"
                 }
               />
             </div>
             <div
               ref={pic1}
-              className="absolute left-[5%] top-[60%] h-[20%] w-[45%] sm:w-[40%] lg:left-[10%] lg:top-[60%] lg:h-[30%] lg:w-[35%]"
+              className={`absolute left-[5%] top-[58%] ${width < 500 ? "h-[23%] w-[45%]" : "h-[25%] w-[45%]"} sm:left-[10%] sm:top-[60%] sm:h-[30%] sm:w-[40%] md:top-[65%] md:w-[35%] lg:left-[12%] lg:h-[35%]`}
             >
-              <Card image={reception1} />
+              <Card image={ionHotelLobby} />
             </div>
             <div
               ref={pic2}
-              className="absolute right-[1%] top-[65%] h-[30%] w-[55%] sm:w-[50%] lg:right-[7%] lg:top-[65%] lg:h-[35%] lg:w-[40%]"
+              className={`absolute right-[1%] top-[65%] ${width < 500 ? "h-[30%] w-[55%]" : "h-[30%] w-[50%]"} sm:right-[7%] sm:top-[65%] sm:w-[45%] md:top-[75%] md:h-[35%] md:w-[40%] lg:right-[10%] lg:w-[35%]`}
             >
-              <Card image={reception2} />
+              <Card image={ionHotelFacade} />
             </div>
             <div
               ref={pic3}
-              className="absolute left-[10%] top-[70%] h-[25%] w-[50%] sm:w-[45%] lg:left-[25%] lg:top-[75%] lg:h-[35%] lg:w-[40%]"
+              className={`absolute left-[7%] top-[75%] ${width < 500 ? "h-[30%] w-[55%]" : "h-[30%] w-[45%]"} sm:left-[25%] sm:w-[40%] md:top-[80%] md:h-[35%] lg:top-[85%] lg:w-[35%]`}
             >
-              <Card image={reception3} />
+              <Card image={ionHotelEventHall} />
             </div>
           </div>
           {/* Background Images */}

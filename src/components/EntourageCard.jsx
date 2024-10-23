@@ -6,9 +6,10 @@ const EntourageCard = ({ title, list, coldiac }) => {
   return (
     // <div className="flex h-fit min-w-[180px] flex-col items-center bg-orange-500 sm:min-w-[250px]">
     <div className="flex min-w-[190px] basis-[35%] flex-col items-center bg-lime-500/0 text-center md:basis-[45%] lg:basis-1/2">
-      <div
-        className={`text-center font-${coldiac ? "Coldiac" : "Showtime"} text-entourage-title`}
-      >
+      <div className={`text-entourage-title relative right-1 font-Showtime`}>
+        {/* <div
+        className={`text-center font-${coldiac ? "Coldiac" : "AnastasiaScript"} text-entourage-title bg-lime-500`}
+      > */}
         {title}
       </div>
       <div
@@ -24,7 +25,7 @@ const EntourageCard = ({ title, list, coldiac }) => {
       {list.map((item, index) => (
         <div
           key={index}
-          className="text-entourage-list mt-2 grid place-items-center bg-red-500/0 font-Coldiac max-sm:h-[2.5rem] max-sm:w-[75%] sm:mt-3 md:mt-5 lg:mt-8"
+          className="text-entourage-list mt-2 grid place-items-center max-sm:h-[2.5rem] max-sm:w-[75%] sm:mt-3 md:mt-5 lg:mt-8"
         >
           {item}
         </div>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,6 +23,18 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "AnastasiaScript";
+  src: url("./assets/Fonts/AnastasiaScript.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VeniceSerif";
+  src: url("./assets/Fonts/VeniceSerif-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @layer utilities {
   .border-draft {
@@ -30,11 +44,14 @@
     @apply text-7xl sm:text-8xl lg:text-9xl;
   }
   .text-entourage-title {
-    @apply text-[1.6rem] leading-8 sm:text-3xl md:text-4xl lg:text-5xl;
+    @apply text-[1.6rem] font-bold leading-8 sm:text-3xl md:text-4xl lg:text-5xl;
   }
   .text-entourage-list {
-    @apply text-[.8rem] font-bold leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];
+    @apply font-Venice text-base font-bold uppercase sm:text-xl md:text-[1.1rem] lg:text-[1.5rem];
   }
+  /* .text-entourage-list {
+    @apply text-[.8rem] font-bold leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];
+  } */
   .text-dressCode {
     @apply text-[.8rem] leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];
   }

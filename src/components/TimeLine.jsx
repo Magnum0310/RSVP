@@ -151,7 +151,7 @@ const TimeLine = () => {
           </div>
         </div>
       </div>
-      <Frame />
+      {/* <Frame /> */}
     </div>
   );
 };

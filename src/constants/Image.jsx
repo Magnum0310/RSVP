@@ -56,6 +56,10 @@ import churchMap from "../assets/Images/ChurchLocation/churchMap.png";
 import church1 from "../assets/Images/ChurchLocation/church1.jpg";
 import church2 from "../assets/Images/ChurchLocation/church2.jpg";
 import church3 from "../assets/Images/ChurchLocation/church3.jpg";
+import churchFacade from "../assets/Images/ChurchLocation/churchFacade.jpeg";
+import churchIsle from "../assets/Images/ChurchLocation/churchIsle.jpeg";
+import churchAltar from "../assets/Images/ChurchLocation/churchAltar.jpeg";
+import ourLadyOfLourdes from "../assets/Images/ChurchLocation/ourLadyOfLourdes.png";
 
 // Reception Location
 import feather1 from "../assets/Vectors/WeddingReception/feather1.svg";
@@ -65,6 +69,10 @@ import receptionMap from "../assets/Images/ReceptionLocation/receptionMap.png";
 import reception1 from "../assets/Images/ReceptionLocation/reception1.jpg";
 import reception2 from "../assets/Images/ReceptionLocation/reception2.jpg";
 import reception3 from "../assets/Images/ReceptionLocation/reception3.jpg";
+import ionHotelFacade from "../assets/Images/ReceptionLocation/ionHotelFacade.jpeg";
+import ionHotelLobby from "../assets/Images/ReceptionLocation/ionHotelLobby.jpeg";
+import ionHotelEventHall from "../assets/Images/ReceptionLocation/ionHotelEventHall.png";
+import ionHotelLocation from "../assets/Images/ReceptionLocation/ionHotelLocation.png";
 
 // User form
 import userformBorder from "../assets/Vectors/Userform/userformBorder.svg";
@@ -136,6 +144,10 @@ const Image = {
   church1,
   church2,
   church3,
+  churchFacade,
+  churchIsle,
+  churchAltar,
+  ourLadyOfLourdes,
   // Reception location
   feather1,
   feather2,
@@ -144,6 +156,10 @@ const Image = {
   reception1,
   reception2,
   reception3,
+  ionHotelFacade,
+  ionHotelLobby,
+  ionHotelEventHall,
+  ionHotelLocation,
   // Userform
   userformBorder,
   acceptButtonIcon,

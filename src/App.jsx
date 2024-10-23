@@ -25,12 +25,8 @@ function App() {
   }, []);
   return (
     // <div className="lg:overflow-clip">
-    <div className="overflow-clip">
+    <div className="relative overflow-clip">
       <UserFormProvider>
-        {/* <div className="border-draft mx-auto flex w-full max-w-[1440px] justify-center"> */}
-        {/* <div className="mx-auto flex w-full justify-center">
-          <Hero />
-        </div> */}
         <div className="mx-auto max-w-[1440px]">
           <Hero />
         </div>
@@ -50,9 +46,10 @@ function App() {
           <Reception />
         </div>
         <div className="mx-auto h-screen max-w-[1440px]">
-          <UserFormProvider>
-            <UserForm />
-          </UserFormProvider>
+          <UserForm />
+        </div>
+        <div className="absolute top-0 size-full w-full">
+          <Frame />
         </div>
         {/* <div className="mx-auto h-screen max-w-[1440px]">
         <UserFormProvider>

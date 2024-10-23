@@ -10,8 +10,19 @@ import UserformContext from "@/context/UserformContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const { leaf1, leaf2, churchMap, locationAccent, church1, church2, church3 } =
-  Images;
+const {
+  leaf1,
+  leaf2,
+  churchMap,
+  locationAccent,
+  church1,
+  church2,
+  church3,
+  churchFacade,
+  churchIsle,
+  churchAltar,
+  ourLadyOfLourdes,
+} = Images;
 const { frame } = Image;
 
 const Leaf = ({ track, leaf, flip, rotate, className }) => {
@@ -59,10 +70,10 @@ const churchLocation = () => {
             scrub: true,
           },
         })
-        .to(map.current, { rotate: "-7deg", y: -250 }, 0)
+        .to(map.current, { rotate: "-7deg", y: -200 }, 0)
         .to(pic1.current, { rotate: "-3deg", y: -370 }, 0)
         .to(pic2.current, { rotate: "5deg", y: -350 }, 0)
-        .to(pic3.current, { rotate: "-3deg", y: -250 }, 0);
+        .to(pic3.current, { rotate: "-3deg", y: -200 }, 0);
     });
     return () => context.revert();
   }, []);
@@ -81,7 +92,7 @@ const churchLocation = () => {
         .to(leafBg2.current, { x: -10, y: -450 }, 0)
         .to(leafBg3.current, { x: 150, y: -350 }, 0)
         .to(leafBg4.current, { x: 150, y: 50 }, 0)
-        .to(leafBg5.current, { y: -250 }, 0);
+        .to(leafBg5.current, { y: -200 }, 0);
     });
     return () => context1.revert();
   }, []);
@@ -120,34 +131,46 @@ const churchLocation = () => {
           <div className="relative z-10 flex h-[150vh] w-full flex-col items-center justify-center">
             <div
               ref={map}
-              className="absolute top-[15%] h-[35%] w-3/4 sm:w-[55%] lg:h-[33%] lg:w-[50%]"
+              className={`absolute top-[15%] z-10 h-[35%] ${width < 500 ? "w-[70%]" : "w-[65%]"} sm:w-[55%] md:h-[40%] md:w-[45%] lg:w-[40%]`}
             >
               <Card
-                image={churchMap}
-                title={"Holy Catholic Church"}
-                address={"Complete Address"}
+                image={ourLadyOfLourdes}
+                title={"Church of Our Lady of Lourdes"}
+                address={"Kisad Rd, Baguio, Benguet"}
                 link={
-                  "https://www.google.com.hk/maps/place/LifeCity+Church/@14.5724288,121.0582199,17z/data=!3m1!4b1!4m6!3m5!1s0x3397c90b0715e4a7:0x1eea62a07e2500f7!8m2!3d14.5724288!4d121.0557948!16s%2Fg%2F1pzs12k0_?entry=ttu"
+                  "https://www.google.com/maps/place/Church+of+Our+Lady+of+Lourdes/@16.4095701,120.5925648,18.79z/data=!4m6!3m5!1s0x3391a1693d1b683b:0xe18011c51140cfac!8m2!3d16.409745!4d120.592533!16s%2Fg%2F1tdc2rgx?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D"
                 }
               />
             </div>
             <div
               ref={pic1}
-              className="bg-blue6000 absolute left-[5%] top-[55%] h-[30%] w-[55%] sm:w-[120%] sm:w-[50%] lg:left-[10%] lg:top-[65%] lg:h-[35%] lg:w-[33%]"
+              className={`absolute left-[5%] top-[65%] ${width < 500 ? "h-[23%] w-[45%]" : "h-[25%] w-[45%]"} sm:left-[8%] sm:top-[60%] sm:h-[30%] sm:w-[40%] md:top-[70%] md:h-[30%] md:w-[35%] lg:left-[12%] lg:top-[65%] lg:h-[35%]`}
             >
-              <Card image={church1} />
+              {/* <div
+              ref={pic1}
+              className="absolute left-[5%] top-[55%] h-[30%] w-[55%] sm:w-[50%] lg:left-[10%] lg:top-[65%] lg:h-[35%] lg:w-[27%]"
+            > */}
+              <Card image={churchFacade} />
             </div>
             <div
               ref={pic2}
-              className="absolute right-[1%] top-[65%] h-[20%] w-[45%] sm:w-[33%] lg:right-[10%] lg:top-[55%] lg:h-[30%] lg:w-[35%]"
+              className={`absolute right-[1%] top-[75%] ${width < 500 ? "h-[30%] w-[55%]" : "h-[30%] w-[50%]"} sm:right-[3%] sm:w-[45%] md:right-[7%] md:top-[75%] md:h-[35%] md:w-[40%] lg:right-[10%] lg:top-[70%] lg:w-[35%]`}
             >
-              <Card image={church2} />
+              {/* <div
+              ref={pic2}
+              className="lg: absolute right-[1%] top-[65%] h-[20%] w-[45%] sm:w-[27%] lg:right-[10%] lg:h-[30%] lg:w-[35%]"
+            > */}
+              <Card image={churchIsle} />
             </div>
             <div
               ref={pic3}
-              className="absolute right-[20%] top-[75%] h-[25%] w-[50%] sm:w-[45%] lg:h-[35%] lg:w-[33%]"
+              className={`absolute right-[35%] top-[80%] h-[25%] w-[50%] ${width < 500 ? "h-[30%] w-[55%]" : "h-[30%] w-[45%]"} sm:top-[75%] sm:w-[40%] md:top-[80%] md:h-[35%] lg:top-[80%] lg:h-[35%] lg:w-[35%]`}
             >
-              <Card image={church3} />
+              {/* <div
+              ref={pic3}
+              className="absolute right-[20%] top-[75%] h-[25%] w-[50%] sm:w-[45%] lg:h-[35%] lg:w-[27%]"
+            > */}
+              <Card image={churchAltar} />
             </div>
           </div>
           {/* Background Images */}
@@ -155,23 +178,23 @@ const churchLocation = () => {
             <Leaf
               track={leafBg1}
               leaf={leaf1}
-              rotate={"220deg"}
+              rotate={"240deg"}
               className={
                 "absolute right-[20%] top-[85%] h-[35%] w-full scale-x-[-1]"
               }
             />
-            <Leaf
+            {/* <Leaf
               track={leafBg2}
               leaf={leaf2}
-              rotate={"230deg"}
+              rotate={"240deg"}
               className={
-                "absolute right-[25%] top-[100%] h-[5%] w-full scale-x-[-1]"
+                "absolute right-[25%] top-[77%] h-[5%] w-full scale-x-[-1] bg-blue-500"
               }
-            />
+            /> */}
             <Leaf
               track={leafBg2}
               leaf={leaf2}
-              rotate={"230deg"}
+              rotate={"240deg"}
               className={
                 "absolute right-[25%] top-[100%] h-[5%] w-full scale-x-[-1]"
               }
@@ -242,10 +265,11 @@ const churchLocation = () => {
 
       {/* ===============FRAME=============== */}
 
-      <div className="">
+      <div className="hidden">
         <div className="absolute top-0 -z-50 h-[450vh] w-full">
           {/* First Left frame */}
-          <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[33%] max-sm:h-full max-sm:w-[190%] sm:right-[60%] sm:w-[120%]">
+          <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col bg-blue-500 max-lg:right-[53%] max-sm:right-[27%] max-sm:h-full max-sm:w-[240%] sm:right-[35%] sm:w-[170%] sm:scale-[.35]">
+            {/* <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col bg-blue-500 max-lg:right-[53%] max-sm:right-[27%] max-sm:h-full max-sm:w-[240%] sm:right-[60%] sm:w-[120%]"> */}
             <div
               className="basis-1/2"
               style={{
@@ -268,7 +292,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Second Left frame  */}
-          <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[33%] max-sm:h-full max-sm:w-[190%] sm:right-[60%] sm:w-[120%]">
+          <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[27%] max-sm:h-full max-sm:w-[240%] sm:right-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{
@@ -291,7 +315,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Third Left frame */}
-          <div className="absolute right-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[33%] max-sm:h-full max-sm:w-[190%] sm:right-[60%] sm:w-[120%]">
+          <div className="absolute right-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[27%] max-sm:h-full max-sm:w-[240%] sm:right-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{
@@ -315,7 +339,7 @@ const churchLocation = () => {
           </div>
 
           {/* First Right frame */}
-          <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[33%] max-sm:h-full max-sm:w-[190%] sm:left-[60%] sm:w-[120%]">
+          <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[27%] max-sm:h-full max-sm:w-[240%] sm:left-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{
@@ -338,7 +362,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Second Right frame */}
-          <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[33%] max-sm:h-full max-sm:w-[190%] sm:left-[60%] sm:w-[120%]">
+          <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[27%] max-sm:h-full max-sm:w-[240%] sm:left-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{
@@ -361,7 +385,7 @@ const churchLocation = () => {
             ></div>
           </div>
           {/* Third Right frame */}
-          <div className="absolute left-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[33%] max-sm:h-full max-sm:w-[190%] sm:left-[60%] sm:w-[120%]">
+          <div className="absolute left-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[27%] max-sm:h-full max-sm:w-[240%] sm:left-[60%] sm:w-[120%]">
             <div
               className="basis-1/2"
               style={{

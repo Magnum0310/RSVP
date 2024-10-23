@@ -48,12 +48,12 @@ const ParallaxImage = ({ image, date }) => {
           ></div>
           <span
             ref={date}
-            className="absolute left-1/2 top-[75%] z-10 h-fit w-full min-w-fit -translate-x-1/2 text-center text-6xl text-white sm:text-8xl lg:top-[95%] lg:text-9xl"
+            className="absolute left-[48%] top-[75%] z-10 h-fit w-full min-w-fit -translate-x-[50%] text-center text-5xl text-white sm:text-8xl lg:top-[85%] lg:text-8xl"
           >
             Save the Date
           </span>
         </div>
-        <div className="flex basis-[10%] flex-col items-center gap-2 text-center text-5xl lg:text-6xl">
+        <div className="relative right-1 flex basis-[10%] flex-col items-center gap-2 text-center text-5xl lg:text-6xl">
           <span>
             <p className="">12.16.24</p>
             <span className="">Baguio City</span>
@@ -210,7 +210,7 @@ const HeroPage = () => {
             {/* Jeffrey and Jonalyn */}
             <div
               ref={title}
-              className="text-jeff-jona absolute top-[10%] size-fit text-center font-Showtime text-white"
+              className="text-jeff-jona absolute right-[50%] top-[10%] flex size-fit translate-x-[48%] flex-col text-center font-Showtime text-white"
             >
               <p>Jeffrey</p>
               <p className="text-4xl lg:text-6xl">and</p>
@@ -332,7 +332,7 @@ const HeroPage = () => {
         </div>
       </div>
       {/* FRAME */}
-      <Frame />
+      {/* <Frame /> */}
     </div>
   );
 };

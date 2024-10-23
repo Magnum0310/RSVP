@@ -2,10 +2,10 @@ import React from "react";
 
 const LocationCard = ({ image, title, address, link }) => {
   return (
-    <div className="relative flex size-full flex-col items-center justify-center bg-white font-Coldiac">
+    <div className="relative flex size-full flex-col items-center justify-center border-[2px] border-solid border-black bg-white font-Coldiac">
       <div className="flex size-[90%] flex-col items-center gap-2">
         <div
-          className={`w-full ${link ? "basis-3/4" : "basis-[85%]"}`}
+          className={`w-full border-[1px] border-solid border-black ${link ? "basis-3/4" : "basis-[85%]"}`}
           style={{
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",

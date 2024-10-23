@@ -280,7 +280,7 @@ const Entourage = () => {
         </div>
       </div>
       {/* FRAME */}
-      <Frame />
+      {/* <Frame /> */}
     </div>
   );
 };

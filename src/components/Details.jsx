@@ -200,7 +200,7 @@ const Details = () => {
                     backgroundRepeat: "no-repeat",
                   }}
                 ></div>
-                <div className="size-full text-center text-2xl font-bold lg:text-4xl">
+                <div className="size-full text-center font-Coldiac text-2xl font-bold lg:text-4xl">
                   Dress Code
                 </div>
                 <div className="flex h-fit w-[85%] items-center justify-center lg:leading-9">
@@ -211,10 +211,12 @@ const Details = () => {
                           key={index}
                           className="border-b-4 border-motif font-bold italic"
                         >
-                          {char}{" "}
+                          {char}
+                          {""}
                         </span>
                       ) : (
                         <span className="" key={index}>
+                          {" "}
                           {char}{" "}
                         </span>
                       );
@@ -222,26 +224,26 @@ const Details = () => {
                   </div>
                 </div>
                 <div className="flex h-[15vh] w-[85%] items-center justify-center lg:h-[20vh] lg:leading-9">
-                  <div>
+                  <div className="">
                     {dressCode1.map((char, index) => {
                       return char === "Kindly" ? (
                         <span
                           key={index}
-                          className="rounded-l-lg border-motif bg-motif font-bold italic text-ivory"
+                          className="rounded-l-lg border-b-[5px] border-motif bg-motif font-bold italic text-ivory"
                         >
                           {char}{" "}
                         </span>
                       ) : char === "avoid" || char === "wearing" ? (
                         <span
                           key={index}
-                          className="border-motif bg-motif font-bold italic text-ivory"
+                          className="border-b-[5px] border-motif bg-motif font-bold italic text-ivory"
                         >
                           {char}{" "}
                         </span>
                       ) : char === "white" ? (
                         <span
                           key={index}
-                          className="rounded-r-lg border-motif bg-motif font-bold italic text-ivory"
+                          className="rounded-r-lg border-b-[5px] border-motif bg-motif font-bold italic text-ivory"
                         >
                           {char}{" "}
                         </span>
@@ -321,7 +323,7 @@ const Details = () => {
                     </div>
                   </div>
                   <div className="relative flex size-full basis-[20%] justify-center">
-                    <div className="absolute top-[75%] h-full w-fit bg-ivory text-2xl font-bold md:text-3xl lg:text-4xl">
+                    <div className="absolute top-[75%] h-full w-fit bg-ivory font-Coldiac text-2xl font-bold md:text-3xl lg:text-4xl">
                       A note on gifts
                     </div>
                   </div>
@@ -345,11 +347,13 @@ const Details = () => {
                       The Menu
                     </div>
                   </div>
-                  <Card title={"Soup"} list={soup} />
-                  <Card title={"Salad"} list={salad} />
-                  <Card title={"Main Courses"} list={mainCourses} />
-                  <Card title={"Past"} list={pasta} />
-                  <Card title={"Dessert"} list={dessert} />
+                  <div className="flex w-fit flex-col gap-5 sm:gap-7 lg:gap-10">
+                    <Card title={"Soup"} list={soup} />
+                    <Card title={"Salad"} list={salad} />
+                    <Card title={"Main Courses"} list={mainCourses} />
+                    <Card title={"Pasta"} list={pasta} />
+                    <Card title={"Dessert"} list={dessert} />
+                  </div>
                 </div>
                 <div
                   ref={menuList}
@@ -367,7 +371,7 @@ const Details = () => {
           </div>
         </div>
       </div>
-      <Frame />
+      {/* <Frame /> */}
     </div>
   );
 };
