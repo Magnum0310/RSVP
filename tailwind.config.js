@@ -5,11 +5,11 @@ export default {
   theme: {
     fontFamily: {
       Coldiac: ["Coldiac", "sans-serif"],
-      Showtime: ["AnastasiaScript", "san-serif"],
+      Showtime: ["AnastasiaScript", "sans-serif"],
       MoreLight: ["MoreLight", "san-serif"],
       Antic: ["Antic Didone", "serif"],
       Venice: ["VeniceSerif", "serif"],
-      AnastasiaScript: ["AnastasiaScript"],
+      AnastasiaScript: ["AnastasiaScript", "sans-serif"],
     },
     extend: {
       colors: {

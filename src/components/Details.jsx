@@ -203,7 +203,7 @@ const Details = () => {
                 <div className="size-full text-center font-Coldiac text-2xl font-bold lg:text-4xl">
                   Dress Code
                 </div>
-                <div className="flex h-fit w-[85%] items-center justify-center lg:leading-9">
+                <div className="flex h-fit w-[85%] items-center justify-center lg:leading-9 xl:leading-10">
                   <div>
                     {dressCode0.map((char, index) => {
                       return char === "formal" ? (
@@ -223,7 +223,7 @@ const Details = () => {
                     })}
                   </div>
                 </div>
-                <div className="flex h-[15vh] w-[85%] items-center justify-center lg:h-[20vh] lg:leading-9">
+                <div className="flex h-[15vh] w-[85%] items-center justify-center lg:h-[20vh] lg:leading-9 xl:leading-10">
                   <div className="">
                     {dressCode1.map((char, index) => {
                       return char === "Kindly" ? (
@@ -260,7 +260,7 @@ const Details = () => {
                     })}
                   </div>
                 </div>
-                <div className="flex h-[15vh] w-[85%] items-center justify-center lg:h-[20vh] lg:leading-9">
+                <div className="flex h-[15vh] w-[85%] items-center justify-center lg:h-[20vh] lg:leading-9 xl:leading-10">
                   <div>
                     {dressCode2.map((char, index) => {
                       return char === "For" || char === "Men:" ? (
@@ -314,14 +314,6 @@ const Details = () => {
               {/* Note on Gifts */}
               <div className="relative flex w-[95%] flex-col items-center justify-center max-sm:h-[40vh] sm:h-[45vh] sm:w-[85%] md:h-[65vh]">
                 <div className="text-entourage-list absolute -top-[15%] flex w-[95%] flex-col items-center justify-center font-Coldiac max-sm:h-[40vh] sm:h-[45vh] sm:w-[85%] md:h-[65vh]">
-                  {/* <div className="text-entourage-list 500 flex w-full items-center justify-center border-4 border-solid border-motif font-Coldiac max-sm:h-[40vh] sm:h-[45vh] md:h-[60vh] md:w-[85%] lg:w-[95%]"> */}
-                  <div className="flex hidden h-[90%] w-[80%] flex-col items-center justify-center bg-red-500/0 md:leading-7 lg:leading-9">
-                    <div className="flex size-full basis-[55%] flex-col items-center justify-center bg-lime-500/0">
-                      <p className="text-2xl font-bold md:text-3xl lg:text-4xl">
-                        A note on Gifts
-                      </p>
-                    </div>
-                  </div>
                   <div className="relative flex size-full basis-[20%] justify-center">
                     <div className="absolute top-[75%] h-full w-fit bg-ivory font-Coldiac text-2xl font-bold md:text-3xl lg:text-4xl">
                       A note on gifts
@@ -329,10 +321,10 @@ const Details = () => {
                   </div>
                   <div className="size-full border-4 border-solid border-motif">
                     <div className="flex size-full basis-full flex-col items-center justify-center gap-5 bg-blue-500/0 max-sm:gap-2">
-                      <p className="grid w-[85%] basis-1/4 place-items-center">
+                      <p className="grid w-[85%] basis-1/4 place-items-center xl:leading-8">
                         {gift[0]}
                       </p>
-                      <p className="grid w-[85%] basis-1/4 place-items-center max-sm:mt-3">
+                      <p className="grid w-[85%] basis-1/4 place-items-center max-sm:mt-3 xl:leading-8">
                         {gift[1]}
                       </p>
                     </div>

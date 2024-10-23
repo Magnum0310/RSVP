@@ -5,7 +5,7 @@ const { entourageDivider } = Image;
 const EntourageCardPrincipal = ({ title, list1, list2 }) => {
   return (
     <div className="flex h-fit w-full flex-col items-center">
-      <div className="text-entourage-title w-full text-center font-Showtime">
+      <div className="text-entourage-title relative right-2 w-full text-center font-Showtime">
         {title}
       </div>
       <div

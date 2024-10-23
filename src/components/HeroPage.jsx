@@ -48,7 +48,7 @@ const ParallaxImage = ({ image, date }) => {
           ></div>
           <span
             ref={date}
-            className="absolute left-[48%] top-[75%] z-10 h-fit w-full min-w-fit -translate-x-[50%] text-center text-5xl text-white sm:text-8xl lg:top-[85%] lg:text-8xl"
+            className="absolute left-[48%] top-[70%] z-10 h-fit w-full min-w-fit -translate-x-[50%] text-center text-5xl text-white sm:top-[65%] sm:text-7xl lg:left-[50%] lg:top-[80%] lg:text-8xl"
           >
             Save the Date
           </span>

@@ -492,7 +492,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   },
                 }}
               >
-                {/* <ThemeProvider theme={customTheme(outerTheme)}> */}
                 <TextField
                   className="box"
                   required
@@ -617,7 +616,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               {/* ADDING Background Image */}
               <div
                 ref={acceptRef}
-                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "basis-[85%]" : "basis-[15%]"} flex size-[95%] flex-col items-center justify-center bg-motif`}
+                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "basis-[85%]" : "basis-[15%]"} flex size-[95%] flex-col items-center justify-center rounded-xl bg-motif`}
               >
                 {/* Default View */}
                 <div
@@ -903,7 +902,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       ></div>
                     </div>
                     {/* Background Image */}
-
                     <div
                       className={`absolute top-1/2 -z-10 flex size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-45`}
                     >
@@ -930,7 +928,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               // className={`flex ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 ? "basis-[85%]" : "basis-[15%]"} decline relative h-full flex-col items-center justify-center gap-2`}
             >
               <div
-                className={`flex size-[95%] flex-col items-center justify-center bg-barley`}
+                className={`flex size-[95%] flex-col items-center justify-center rounded-xl bg-barley`}
               >
                 <p
                   className={`boxRight ${invite === 0 ? "block" : "invisible"} z-10 grid size-[75%] place-content-center text-center font-Showtime text-5xl leading-[4rem] text-ivory`}
@@ -1046,7 +1044,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   ></div>
                 </div>
               </div>
-
               <div className="absolute size-[90%] rounded-xl border-4 border-solid border-ivory"></div>
             </div>
           </div>

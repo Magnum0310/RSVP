@@ -242,7 +242,7 @@ const churchLocation = () => {
           {/* Accents */}
           <div
             ref={accent1}
-            className="absolute -left-[5%] top-0 h-[10%] w-1/4 rotate-[80deg] sm:top-[2%]"
+            className="absolute -left-[5%] top-0 hidden h-[10%] w-1/4 rotate-[80deg] sm:top-[2%]"
             style={{
               backgroundImage: `url("${locationAccent}")`,
               backgroundPosition: "center",
@@ -252,7 +252,7 @@ const churchLocation = () => {
           ></div>
           <div
             ref={accent2}
-            className="absolute -right-[5%] top-0 h-[10%] w-1/4 -rotate-[80deg] scale-x-[-1] sm:top-[2%]"
+            className="absolute -right-[5%] top-0 hidden h-[10%] w-1/4 -rotate-[80deg] scale-x-[-1] sm:top-[2%]"
             style={{
               backgroundImage: `url("${locationAccent}")`,
               backgroundPosition: "center",
@@ -260,153 +260,6 @@ const churchLocation = () => {
               backgroundRepeat: "no-repeat",
             }}
           ></div>
-        </div>
-      </div>
-
-      {/* ===============FRAME=============== */}
-
-      <div className="hidden">
-        <div className="absolute top-0 -z-50 h-[450vh] w-full">
-          {/* First Left frame */}
-          <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col bg-blue-500 max-lg:right-[53%] max-sm:right-[27%] max-sm:h-full max-sm:w-[240%] sm:right-[35%] sm:w-[170%] sm:scale-[.35]">
-            {/* <div className="absolute -top-1/4 right-[50%] flex size-full scale-50 flex-col bg-blue-500 max-lg:right-[53%] max-sm:right-[27%] max-sm:h-full max-sm:w-[240%] sm:right-[60%] sm:w-[120%]"> */}
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(-1,1)",
-              }}
-            ></div>
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(-1,-1)",
-              }}
-            ></div>
-          </div>
-          {/* Second Left frame  */}
-          <div className="absolute right-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[27%] max-sm:h-full max-sm:w-[240%] sm:right-[60%] sm:w-[120%]">
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(-1,1)",
-              }}
-            ></div>
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(-1,-1)",
-              }}
-            ></div>
-          </div>
-          {/* Third Left frame */}
-          <div className="absolute right-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:right-[53%] max-sm:right-[27%] max-sm:h-full max-sm:w-[240%] sm:right-[60%] sm:w-[120%]">
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(-1,1)",
-              }}
-            ></div>
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(-1,-1)",
-              }}
-            ></div>
-          </div>
-
-          {/* First Right frame */}
-          <div className="absolute -top-1/4 left-[50%] flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[27%] max-sm:h-full max-sm:w-[240%] sm:left-[60%] sm:w-[120%]">
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(1,1)",
-              }}
-            ></div>
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(1,-1)",
-              }}
-            ></div>
-          </div>
-          {/* Second Right frame */}
-          <div className="absolute left-[50%] top-1/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[27%] max-sm:h-full max-sm:w-[240%] sm:left-[60%] sm:w-[120%]">
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(1,1)",
-              }}
-            ></div>
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(1,-1)",
-              }}
-            ></div>
-          </div>
-          {/* Third Right frame */}
-          <div className="absolute left-[50%] top-3/4 flex size-full scale-50 flex-col max-lg:left-[53%] max-sm:left-[27%] max-sm:h-full max-sm:w-[240%] sm:left-[60%] sm:w-[120%]">
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(1,1)",
-              }}
-            ></div>
-            <div
-              className="basis-1/2"
-              style={{
-                backgroundImage: `url("${frame}")`,
-                backgroundSize: `${width < 1064 ? "cover" : "contain"}`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scale(1,-1)",
-              }}
-            ></div>
-          </div>
         </div>
       </div>
     </div>
