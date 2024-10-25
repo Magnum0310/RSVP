@@ -84,7 +84,7 @@ const Entourage = () => {
 
   return (
     // Main Page
-    <div className="relative">
+    <div className="relative bg-blue-500">
       {/* <div className="relative h-fit"> */}
       <div className="">
         {/* Inner Wrapper */}
@@ -189,7 +189,7 @@ const Entourage = () => {
                 <EntourageCard title={"BridesMaid"} list={bridesMaid} />
               </div>
               {/* Secondary Sponsor */}
-              <div className="flex h-fit min-w-[150px] flex-col items-center">
+              <div className="flex h-fit min-w-[150px] flex-col items-center bg-lime-500">
                 <div className="text-entourage-title text-center font-Showtime">
                   Secondary Sponsors
                 </div>
@@ -218,7 +218,7 @@ const Entourage = () => {
                 <EntourageCard title={"Coin Bearer"} list={coinBearer} />
               </div>{" "}
               {/* Bible bearer and Flower girls */}
-              <div className="flex w-full justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
+              <div className="flex min-h-[150px] w-full justify-center gap-0 bg-orange-500 max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard title={"Bible Bearer"} list={bibleBearer} />
                 <EntourageCard title={"Flower Girl"} list={flowerGirls} />
               </div>

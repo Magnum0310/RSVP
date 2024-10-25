@@ -75,7 +75,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
   //=====Verify form=====//
   const [verify, setVerify] = useState(false);
 
-  //=====Verify form=====//
+  //=====Accept form=====//
   const [acceptForm, setAcceptForm] = useState(false);
 
   const handleAcceptForm = () => {
@@ -124,6 +124,28 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       });
     }
   }, [details.verify]);
+
+  const declineForm = useRef();
+  const declineMessage = useRef();
+
+  useGSAP(() => {
+    if (acceptForm) {
+      gsap.to([declineForm.current, declineMessage.current], {
+        // rotation: "+=360",
+        duration: 0.5,
+        ease: "power3.inOut",
+        // repeat: -1,
+        opacity: 1,
+      });
+    } else {
+      gsap.to([declineForm.current, declineMessage.current], {
+        // rotation: "+0",
+        duration: 0,
+        // repeat: 0,
+        opacity: 0,
+      });
+    }
+  }, [acceptForm]);
 
   //=====Handle checkbox=====//
   const handleCheckbox = () => {
@@ -259,12 +281,20 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
   const [expand, setExpand] = useState("");
   const state1 = Flip.getState(".accept", { simple: true });
   const state2 = Flip.getState(".decline", { simple: true });
+  const declineFormState = Flip.getState(".declineForm", { simple: true });
 
   const config = {
     ease: "power1.Out",
     duration: 0.5,
     scale: true,
     stagger: 0.5,
+  };
+  const config1 = {
+    ease: "power4.inOut",
+    duration: 2,
+    opacity: 1,
+    stagger: 0.5,
+    scale: true,
   };
 
   useLayoutEffect(() => {
@@ -273,6 +303,10 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     if (!state2) return;
     Flip.from(state2, config);
   }, [expand]);
+  useLayoutEffect(() => {
+    if (!declineFormState) return;
+    Flip.from(declineFormState, config1);
+  }, [acceptForm]);
 
   const boxRef = useRef(null);
   const boxRightRef = useRef(null);
@@ -441,6 +475,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       nested: true,
     });
   }, [expand]);
+
+  console.log(acceptForm);
   return (
     <div className="relative">
       <div className="gap-5500 relative flex h-screen w-full flex-col justify-center font-Coldiac">
@@ -451,7 +487,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             <div
               ref={boxRef}
               className={`flex ${expand && invite === 1 ? "basis-[85%]" : invite === 0 && acceptForm ? "basis-[0%]" : invite === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
-              // className={`flex ${expand && invite === 1 ? "basis-[85%]" : invite === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
             >
               <Box
                 className={`box ${invite === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col gap-5 ${(plusOne && errors?.firstName) || errors?.lastName ? "overflow-y-scroll" : "justify-center"} border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
@@ -935,10 +970,9 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
             <div
               ref={boxRightRef}
               className={`flex ${invite === 1 ? "basis-[20%]" : invite === 0 ? "basis-[85%]" : "basis-1/2"} decline relative h-full flex-col items-center justify-center gap-2`}
-              // className={`flex ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 ? "basis-[85%]" : "basis-[15%]"} decline relative h-full flex-col items-center justify-center gap-2`}
             >
               <div
-                className={`flex size-[95%] flex-col items-center justify-center rounded-xl bg-barley`}
+                className={`relative flex size-[95%] flex-col items-center justify-center rounded-xl bg-barley text-ivory`}
               >
                 {/* Decline message option */}
                 <p
@@ -947,20 +981,63 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   Sorry to hear that, we wish you could be there with us
                 </p>
                 <div
-                  className={`z-50 ${invite === 0 ? "flex" : "hidden"} size-[55%] flex-col items-center justify-center gap-10 rounded-xl bg-ivory bg-opacity-25`}
+                  className={`z-50 ${invite === 0 ? "flex" : "hidden"} relative size-[55%] flex-col items-center justify-center gap-10 rounded-xl bg-opacity-25`}
                 >
-                  <p>Do you decline this invitation?</p>
-                  <div className="flex w-1/4 justify-evenly gap-5">
+                  <p
+                    className={` ${invite === 0 && acceptForm ? "opacity-0" : "flex"} text-center`}
+                  >
+                    Are you sure you want decline this invitation?
+                  </p>
+                  <p
+                    ref={declineMessage}
+                    className={` ${acceptForm ? "flex text-ivory" : "flex opacity-0"} absolute top-1/2 -translate-y-1/2 text-center`}
+                  >
+                    Sorry to hear that, we wish you could be there with us
+                  </p>
+                  <div
+                    className={`w-full ${acceptForm ? "hidden" : "flex"} justify-evenly gap-5`}
+                  >
                     <button
                       className="basis-1/2 rounded-xl bg-slate-500"
                       onClick={() => handleAcceptForm()}
                     >
                       Yes
                     </button>
-                    <button className="basis-1/2 rounded-xl bg-slate-500">
+                    <button
+                      onClick={() => {
+                        setExpand(true);
+                        setInvite(1);
+                      }}
+                      className="basis-1/2 rounded-xl bg-slate-500"
+                    >
                       No
                     </button>
                   </div>
+                </div>
+                <div
+                  ref={declineForm}
+                  className={`absolute flex size-[94%] rounded-xl`}
+                >
+                  <div
+                    className="basis-1/2 rotate-180 opacity-25"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
+                  <div
+                    className="basis-1/2 opacity-25"
+                    style={{
+                      backgroundImage: `url(${inactiveOrnament})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      scale: "1",
+                    }}
+                  ></div>
                 </div>
               </div>
               {/* Decline Button */}
@@ -991,7 +1068,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   }}
                 ></div>
                 <p
-                  className={`w-full ${invite === 2 ? "block" : "hidden"} text-center text-2xl font-bold text-ivory`}
+                  className={`w-full ${invite === 2 ? "block" : "hidden"} relative top-[.6rem] text-center text-2xl font-bold text-ivory`}
                 >
                   Decline
                 </p>
