@@ -9,6 +9,7 @@ const SubmitData = ({
   setDetails,
   setInvite,
   setExpand,
+  setShowAcceptMessage,
 }) => {
   const guestList = doc(collection(db, "guest"));
   const addGuest = async () => {
@@ -18,6 +19,7 @@ const SubmitData = ({
       const newGuest = await setDoc(guestList, guestName);
       setInvite(2);
       setExpand("");
+      setShowAcceptMessage(1);
       setTimeout(() => {
         setDetails((details) => ({ ...details, verify: true }));
       }, 3000);
@@ -36,6 +38,7 @@ const SubmitData = ({
     setDetails((details) => ({ ...details, load: true }));
     setInvite(2);
     setExpand("");
+    setShowAcceptMessage(1);
     // setDetails((details) => ({ ...details, verify: true }));
     setTimeout(() => {
       setDetails((details) => ({ ...details, verify: true }));
