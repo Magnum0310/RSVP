@@ -316,7 +316,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     Flip.from(state2, config);
   }, [expand]);
   useLayoutEffect(() => {
-    if (!declineFormState) return;
+    if (declineFormState) return;
     Flip.from(declineFormState, config1);
   }, [acceptForm]);
 
@@ -419,13 +419,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         ease: "power2.inOut",
       });
 
-      // gsap.set(rightBoxes[1], {
-      //   duration: 1,
-      //   scale: 1,
-      //   opacity: 1,
-      //   ease: "power2.inOut",
-      // });
-
       //=====Accept Button=====//
       gsap.set([acceptButton[0]], {
         duration: 1,
@@ -445,15 +438,15 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       gsap.set([declineButton[0]], {
         duration: 1,
         x: 0,
-        scaleX: `${invite === 2 ? 1 : 0}`,
-        opacity: `${invite === 2 ? 1 : 0}`,
+        scaleX: `${formState === 2 ? 1 : 0}`,
+        opacity: `${formState === 2 ? 1 : 0}`,
         ease: "power2.inOut",
       });
       gsap.set([declineButton[1]], {
         duration: 1,
         x: 0,
-        scaleX: `${invite === 2 ? 1 : 0}`,
-        opacity: `${invite === 2 ? 0 : "25%"}`,
+        scaleX: `${formState === 2 ? 1 : 0}`,
+        opacity: `${formState === 2 ? 0 : "25%"}`,
         ease: "power2.inOut",
       });
     }
@@ -488,10 +481,9 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     });
   }, [expand]);
 
-  console.log(acceptForm);
   return (
     <div className="relative">
-      <div className="gap-5500 relative flex h-screen w-full flex-col justify-center font-Coldiac">
+      <div className="relative flex h-screen w-full flex-col justify-center gap-5 font-Coldiac">
         <div className="h-[80%] w-full">
           {/* Buttons */}
           <div className="flex size-full items-center justify-center">
@@ -500,14 +492,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               ref={boxRef}
               className={`flex ${formState === 0 && showDeclineMessage === 1 ? "basis-[0%]" : formState === 1 ? "basis-[85%]" : formState === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
             >
-              {/* <div
-              ref={boxRef}
-              className={`flex ${expand && invite === 1 ? "basis-[85%]" : invite === 0 && acceptForm ? "basis-[0%]" : invite === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
-            > */}
               <Box
                 className={`box ${formState === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col gap-5 ${(plusOne && errors?.firstName) || errors?.lastName ? "overflow-y-scroll" : "justify-center"} border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
-                // <Box
-                //   className={`box ${invite === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col gap-5 ${(plusOne && errors?.firstName) || errors?.lastName ? "overflow-y-scroll" : "justify-center"} border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
                 component="form"
                 noValidate
                 autoComplete="off"
@@ -682,17 +668,10 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 ref={acceptRef}
                 className={`absolute ${formState === 1 ? "basis-[85%]" : formState === 0 ? "basis-20" : "basis-1/2"} flex size-[95%] flex-col items-center justify-center rounded-xl bg-motif`}
               >
-                {/* <div
-                ref={acceptRef}
-                className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 1 && expand ? "basis-[85%]" : "basis-[15%]"} flex size-[95%] flex-col items-center justify-center rounded-xl bg-motif`}
-              > */}
-                {/* Default View */}
+                {/* Default View - hidden flex*/}
                 <div
                   className={`absolute ${(formState === 1 && !showAcceptMessage) || (formState === 2 && !showAcceptMessage) ? "flex" : formState === 1 && showAcceptMessage === 1 ? "hidden" : "hidden"} h-[50%] w-[80%] opacity-25`}
                 >
-                  {/* <div
-                  className={`absolute ${invite === 2 && expand.length === 0 ? "flex" : invite === 1 && expand ? "flex" : "hidden"} h-[50%] w-[80%] opacity-25`}
-                > */}
                   <div
                     className="basis-1/2 rotate-180"
                     style={{
@@ -718,9 +697,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 <div
                   className={`absolute top-1/2 ${formState === 2 ? "hidden" : formState === 0 && "flex"} acceptButton size-[95%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-25`}
                 >
-                  {/* <div
-                  className={`absolute top-1/2 ${invite === 2 && expand.length === 0 ? "hidden" : invite === 1 && expand ? "hidden" : "flex"} acceptButton size-[95%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-25`}
-                > */}
                   <div
                     className="basis-[35%]"
                     style={{
@@ -746,9 +722,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 <div
                   className={`absolute top-1/2 ${formState === 2 ? "hidden" : showVerifyMessage === 1 ? "hidden" : formState === 1 ? "flex" : "hidden"} size-[95%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-75`}
                 >
-                  {/* <div
-                  className={`absolute top-1/2 ${invite === 2 && expand.length === 0 ? "hidden" : invite === 1 && expand ? "flex" : "hidden"} size-[95%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-75`}
-                > */}
                   <div
                     className="relative -top-1/4 right-1/2 basis-[50%]"
                     style={{
@@ -777,14 +750,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   }}
                   className={`relative ${showVerifyMessage === 0 ? "flex" : "hidden"} z-10 size-full flex-col items-center justify-center gap-10`}
                 >
-                  {/* <div
-                  onClick={() => {
-                    setAcceptForm(true);
-                    setExpand(true);
-                    setInvite(1);
-                  }}
-                  className={`relative z-10 flex size-full flex-col items-center justify-center gap-10`}
-                > */}
                   <div
                     className={`acceptButton grid ${formState === 2 ? "size-[40%] lg:size-[55%]" : formState === 1 ? "size-[50%]" : "size-[35%]"} place-content-center`}
                     style={{
@@ -800,18 +765,15 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     Accept
                   </p>
                 </div>
-                {/* <div className="size-[95%] rounded-xl bg-lime-500">TEST</div> */}
-                {/* <div
-                  className={` ${details.submit ? "flex" : "hidden"} absolute z-[50] h-[80%] w-[75%] flex-col items-center justify-center rounded-2xl bg-motif text-ivory`}
-                > */}
                 {/* Verify Details  */}
                 <div
-                  className={`z-[50] ${details.load ? "hidden" : showVerifyMessage === 1 ? "block" : "hidden"} flex size-full flex-col items-center justify-center gap-5`}
+                  className={`z-[50] ${details.load ? "hidden" : showVerifyMessage === 1 && formState === 1 ? "flex" : "hidden"} size-full flex-col items-center justify-center gap-5 text-ivory`}
                 >
                   <p className="text-center text-3xl lg:text-5xl">
                     Verify details
                   </p>
                   <div className="flex w-full basis-[55%] flex-col items-center justify-center gap-5 px-5 text-xl max-lg:max-w-[90%] lg:max-w-[75%]">
+                    {/* Verify Details */}
                     <div className="flex flex-col items-center">
                       <label className="text-base" htmlFor="fullname">
                         Full Name:
@@ -853,7 +815,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     )}
                   </div>
                   {/* Submit form buttons */}
-                  <div className="relative z-50 flex h-[3rem] w-3/4 justify-center gap-5 bg-red-500">
+                  <div className="relative z-50 flex h-[3rem] w-3/4 justify-center gap-5">
                     <SubmitData
                       guestName={guest}
                       setUpdateStatus={setUpdateStatus}
@@ -861,6 +823,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       setInvite={setInvite}
                       setExpand={setExpand}
                       setShowAcceptMessage={setShowAcceptMessage}
+                      handleAcceptForm={handleAcceptForm}
                     />
                     <div className="size-full max-w-[15rem] basis-1/2 place-content-center rounded-full bg-returnButton text-ivory">
                       <Button
@@ -877,7 +840,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       >
                         <p className="text-ivory">Return</p>
                       </Button>
-                      {/* </div> */}
                     </div>
                     {/* Background Image */}
                     <div
@@ -896,126 +858,11 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     </div>
                   </div>
                   {/* Submitting Details */}
-                  <div
-                    className={` ${details.load ? "block" : "hidden"} z-50 flex h-full w-[100%] flex-col items-center justify-center gap-5 text-4xl text-ivory`}
-                  >
-                    {!details.verify && (
-                      <div
-                        // ref={submitContainer}
-                        className="absolute flex size-[94%] flex-col items-center justify-center"
-                      >
-                        <p className="text-base md:text-3xl lg:text-5xl">
-                          Submitting Details...
-                        </p>
-                        <div
-                          ref={submitOrnament}
-                          className="absolute flex size-[75%] opacity-25"
-                          style={{
-                            backgroundImage: `url(${activeOrnament})`,
-                            backgroundSize: "contain",
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "center",
-                            scale: "1",
-                          }}
-                        ></div>
-                      </div>
-                    )}
-                    {details.verify && (
-                      <div
-                        ref={successContainer}
-                        className="flex size-[95%] flex-col items-center justify-center gap-16 opacity-0"
-                      >
-                        <p className="text-2xl font-bold md:text-3xl lg:text-5xl">
-                          Success!
-                        </p>
-                        <div className="flex w-[80%] flex-col gap-5 text-base md:text-xl lg:gap-10 lg:text-2xl">
-                          <p>Dear {guest.firstName},</p>
-                          <p style={{ textIndent: 30 }}>
-                            Thank you so much for confirming your attendance!
-                            We’re excited to celebrate our special day with you.
-                            Your presence means the world to us, and we can’t
-                            wait to share this moment together.
-                          </p>
-                          <p>Best,</p>
-                          <div className="relative size-fit">
-                            <span className="w-fit font-Showtime text-3xl lg:text-5xl">
-                              Jeffrey and Jonalyn
-                            </span>
-                            <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between opacity-35">
-                              <div
-                                className="basis-[35%] rotate-[140deg]"
-                                style={{
-                                  backgroundImage: `url(${inactiveOrnament})`,
-                                  backgroundSize: "contain",
-                                  backgroundRepeat: "no-repeat",
-                                  backgroundPosition: "center",
-                                  scale: "2",
-                                }}
-                              ></div>
-                              <div
-                                className="basis-[35%] rotate-[40deg]"
-                                style={{
-                                  backgroundImage: `url(${inactiveOrnament})`,
-                                  backgroundSize: "contain",
-                                  backgroundRepeat: "no-repeat",
-                                  backgroundPosition: "center",
-                                  scale: "2",
-                                }}
-                              ></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="relative mt-10 h-[6%] w-[35%] max-w-[15rem]">
-                          <Button
-                            style={{
-                              color: "black",
-                              fontFamily: '"Coldiac"',
-                              backgroundColor: "ivory",
-                              fontWeight: "bold",
-                              width: "100%",
-                              height: "100%",
-                              borderRadius: "25px",
-                            }}
-                            onClick={() => handleHomePage()}
-                            className=""
-                          >
-                            Home
-                          </Button>
-                          <div
-                            className="absolute left-1/2 top-1/2 -z-10 size-32 -translate-x-1/2 -translate-y-1/2 opacity-45"
-                            style={{
-                              backgroundImage: `url(${activeOrnament})`,
-                              backgroundSize: "contain",
-                              backgroundRepeat: "no-repeat",
-                              backgroundPosition: "center",
-                              scale: "1",
-                            }}
-                          ></div>
-                        </div>
-                        {/* Background Image */}
-                        <div
-                          className={`absolute top-1/2 -z-10 flex size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-45`}
-                        >
-                          <div
-                            className="relative -top-1/4 left-1/2 basis-[50%]"
-                            style={{
-                              backgroundImage: `url(${activeOrnament})`,
-                              backgroundSize: "contain",
-                              backgroundRepeat: "no-repeat",
-                              backgroundPosition: "center",
-                              scale: "1",
-                            }}
-                          ></div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
                   <div className="absolute z-20 size-[95%] border-4 border-solid border-ivory bg-orange-500/0"></div>
                 </div>
-
                 {/* Submit Details - inview*/}
                 <div
-                  className={` ${details.load ? "flex" : "hidden"} z-50 h-full w-[100%] flex-col items-center justify-center gap-5 text-4xl`}
+                  className={` ${details.load ? "flex" : "hidden"} z-50 h-full w-[100%] flex-col items-center justify-center gap-5 text-4xl text-ivory`}
                 >
                   {!details.verify && (
                     <div
@@ -1128,118 +975,44 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     </div>
                   )}
                 </div>
-
                 <div className="absolute size-[95%] rounded-xl border-4 border-solid border-ivory"></div>
               </div>
             </div>
-            {/* Verify Details Form HIDDEN */}
+            {/* Decline Button */}
             <div
-              className={` ${details.submit ? "hidden" : "hidden"} absolute z-[50] flex h-[80%] w-[75%] flex-col items-center justify-center rounded-2xl bg-motif text-ivory`}
+              ref={boxRightRef}
+              className={`flex ${formState === 1 && showVerifyMessage === 1 ? "basis-[0%]" : formState === 0 ? "basis-[85%]" : formState === 1 ? "basis-[20%]" : "basis-1/2"} decline relative h-full flex-col items-center justify-center gap-2`}
             >
-              {/* Verify Details  */}
               <div
-                className={`z-[50] ${details.load ? "hidden" : "block"} flex size-full flex-col items-center justify-center gap-5`}
+                className={`relative flex size-[95%] flex-col items-center justify-center rounded-xl bg-barley text-ivory`}
               >
-                <p className="text-center text-3xl lg:text-5xl">
-                  Verify details
-                </p>
-                <div className="flex w-full basis-[55%] flex-col items-center justify-center gap-5 px-5 text-xl max-lg:max-w-[90%] lg:max-w-[75%]">
-                  <div className="flex flex-col items-center">
-                    <label className="text-base" htmlFor="fullname">
-                      Full Name:
-                    </label>
-                    <p id="fullname" className="text-sm md:text-xl lg:text-2xl">
-                      {guest.firstName} {guest.lastName}
-                    </p>
-                  </div>
-                  <span className="flex items-center gap-2">
-                    <p className="text-base">Total number of companion/s:</p>
-                    <p>{`${guest.numberOfAttendees}`}</p>
-                  </span>
-                  {guest.nameOfCompanions.length != 0 && (
-                    <Box
-                      className=""
-                      sx={{
-                        width: "100%",
-                        // height: 50,
-                        height: 100,
-                        "& .MuiTypography-root": {
-                          color: "ivory", // Default label color
-                          fontFamily: '"Coldiac", sans-serif',
-                        },
-                      }}
-                    >
-                      <FixedSizeList
-                        height={150}
-                        width="100%"
-                        itemSize={30}
-                        itemCount={guest.nameOfCompanions?.length}
-                        overscanCount={5}
-                      >
-                        {renderRow}
-                      </FixedSizeList>
-                    </Box>
-                  )}
-                </div>
-                {/* Submit form buttons */}
-                <div className="relative flex h-[3rem] w-3/4 justify-center gap-5">
-                  <SubmitData
-                    guestName={guest}
-                    setUpdateStatus={setUpdateStatus}
-                    setDetails={setDetails}
-                    setInvite={setInvite}
-                    setExpand={setExpand}
-                  />
-                  <div className="size-full max-w-[15rem] basis-1/2 place-content-center rounded-full bg-returnButton text-ivory">
-                    <Button
-                      onClick={() => {
-                        handleAcceptForm(true);
-                        setShowAcceptMessage(0);
-                        setInvite(1);
-                        setDetails((details) => ({
-                          ...details,
-                          submit: false,
-                        }));
-                      }}
-                      className="w-full text-ivory"
-                    >
-                      <p className="text-ivory">Return</p>
-                    </Button>
-                  </div>
-                </div>
-                {/* Background Image */}
+                {/* Decline message section */}
                 <div
-                  className={`absolute top-1/2 -z-10 flex size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-[.10]`}
+                  className={`relative z-50 ${formState === 0 ? "flex" : "hidden"} size-[95%] flex-col items-center justify-center gap-10 rounded-xl bg-opacity-25`}
                 >
-                  <div
-                    className="relative top-1/2 basis-[50%] -translate-y-1/2"
-                    style={{
-                      backgroundImage: `url(${activeOrnament})`,
-                      backgroundSize: "contain",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center",
-                      scale: "1",
-                    }}
-                  ></div>
-                </div>
-              </div>
-              {/* Submitting Details */}
-              {/* <div
-                className={` ${details.load ? "hidden" : "hidden"} z-50 h-full w-[100%] flex-col items-center justify-center gap-5 text-4xl`}
-              >
-                {!details.verify && (
-                  <div
-                    ref={submitContainer}
-                    className="absolute flex size-[94%] flex-col items-center justify-center"
+                  <p
+                    className={` ${formState === 0 && showDeclineMessage === 0 ? "flex" : "hidden"} h-1/2 w-[65%] flex-col justify-center rounded-xl bg-ivory/25 text-base md:text-xl lg:gap-10 lg:text-2xl`}
                   >
-                    <p className="text-base md:text-3xl lg:text-5xl">
-                      Submitting Details...
+                    <p>Dear guest,</p>
+                    <p style={{ textIndent: 30 }}>
+                      Are you sure you want decline this invitation?
                     </p>
+                  </p>
+                  <div className="absolute right-1/2 top-1/2 -z-10 flex h-[50%] w-[80%] -translate-y-1/2 translate-x-1/2 justify-between opacity-35">
                     <div
-                      ref={submitOrnament}
-                      className="absolute flex size-[75%] opacity-25"
+                      className="basis-[50%] rotate-[180deg]"
                       style={{
-                        backgroundImage: `url(${activeOrnament})`,
+                        backgroundImage: `url(${inactiveOrnament})`,
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        scale: "1",
+                      }}
+                    ></div>
+                    <div
+                      className="basis-[35%]"
+                      style={{
+                        backgroundImage: `url(${inactiveOrnament})`,
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center",
@@ -1247,128 +1020,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       }}
                     ></div>
                   </div>
-                )}
-                {details.verify && (
-                  <div
-                    ref={successContainer}
-                    className="flex size-[95%] flex-col items-center justify-center gap-16 opacity-0"
-                  >
-                    <p className="text-2xl font-bold md:text-3xl lg:text-5xl">
-                      Success!
-                    </p>
-                    <div className="flex w-[80%] flex-col gap-5 text-base md:text-xl lg:gap-10 lg:text-2xl">
-                      <p>Dear {guest.firstName},</p>
-                      <p style={{ textIndent: 30 }}>
-                        Thank you so much for confirming your attendance! We’re
-                        excited to celebrate our special day with you. Your
-                        presence means the world to us, and we can’t wait to
-                        share this moment together.
-                      </p>
-                      <p>Best,</p>
-                      <div className="relative size-fit">
-                        <span className="w-fit font-Showtime text-3xl lg:text-5xl">
-                          Jeffrey and Jonalyn
-                        </span>
-                        <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between opacity-35">
-                          <div
-                            className="basis-[35%] rotate-[140deg]"
-                            style={{
-                              backgroundImage: `url(${inactiveOrnament})`,
-                              backgroundSize: "contain",
-                              backgroundRepeat: "no-repeat",
-                              backgroundPosition: "center",
-                              scale: "2",
-                            }}
-                          ></div>
-                          <div
-                            className="basis-[35%] rotate-[40deg]"
-                            style={{
-                              backgroundImage: `url(${inactiveOrnament})`,
-                              backgroundSize: "contain",
-                              backgroundRepeat: "no-repeat",
-                              backgroundPosition: "center",
-                              scale: "2",
-                            }}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="relative mt-10 h-[6%] w-[35%] max-w-[15rem]">
-                      <Button
-                        style={{
-                          color: "black",
-                          fontFamily: '"Coldiac"',
-                          backgroundColor: "ivory",
-                          fontWeight: "bold",
-                          width: "100%",
-                          height: "100%",
-                          borderRadius: "25px",
-                        }}
-                        onClick={() => handleHomePage()}
-                        className=""
-                      >
-                        Home
-                      </Button>
-                      <div
-                        className="absolute left-1/2 top-1/2 -z-10 size-32 -translate-x-1/2 -translate-y-1/2 opacity-45"
-                        style={{
-                          backgroundImage: `url(${activeOrnament})`,
-                          backgroundSize: "contain",
-                          backgroundRepeat: "no-repeat",
-                          backgroundPosition: "center",
-                          scale: "1",
-                        }}
-                      ></div>
-                    </div>
-
-                    <div
-                      className={`absolute top-1/2 -z-10 flex size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-45`}
-                    >
-                      <div
-                        className="relative -top-1/4 left-1/2 basis-[50%]"
-                        style={{
-                          backgroundImage: `url(${activeOrnament})`,
-                          backgroundSize: "contain",
-                          backgroundRepeat: "no-repeat",
-                          backgroundPosition: "center",
-                          scale: "1",
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                )}
-              </div> */}
-              <div className="absolute z-20 size-[95%] border-4 border-solid border-ivory bg-orange-500/0"></div>
-            </div>
-            {/* Decline Button */}
-            <div
-              ref={boxRightRef}
-              className={`flex ${formState === 1 && showVerifyMessage === 1 ? "basis-[0%]" : formState === 0 ? "basis-[85%]" : formState === 1 ? "basis-[20%]" : "basis-1/2"} decline relative h-full flex-col items-center justify-center gap-2`}
-            >
-              {/* <div
-              ref={boxRightRef}
-              className={`flex ${expand && invite === 0 ? "basis-[85%]" : invite === 2 && !acceptForm ? "basis-1/2" : acceptForm && expand ? "basis-[20%]" : "basis-[0%]"} decline relative h-full flex-col items-center justify-center gap-2`}
-            > */}
-              <div
-                className={`relative flex size-[95%] flex-col items-center justify-center rounded-xl bg-barley text-ivory`}
-              >
-                {/* Decline message option */}
-                {/* <p
-                  className={`boxRight hidden ${formState === 0 ? "block" : "invisible"} z-10 grid size-[75%] place-content-center text-center font-Showtime text-5xl leading-[4rem] text-ivory`}
-                >
-                  Sorry to hear that, we wish you could be there with us
-                </p> */}
-                <div
-                  className={`z-50 ${formState === 0 ? "flex" : "hidden"} relative size-[75%] flex-col items-center justify-center gap-10 rounded-xl bg-opacity-25`}
-                >
-                  <p
-                    className={` ${formState === 0 && showDeclineMessage === 0 ? "flex" : "hidden"} text-center`}
-                  >
-                    {/* <p
-                    className={` ${invite === 0 && !acceptForm ? "flex" : "hidden"} text-center`}
-                  > */}
-                    Are you sure you want decline this invitation?
-                  </p>
+                  {/* SHow Decline Message */}
                   <div
                     ref={declineMessage}
                     className="flex h-full w-[100%] flex-col items-center justify-center gap-5 text-base md:text-xl lg:gap-10 lg:text-2xl"
@@ -1382,7 +1034,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       <span className="w-fit font-Showtime text-3xl lg:text-5xl">
                         Jeffrey and Jonalyn
                       </span>
-                      <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between opacity-35">
+                      <div className="absolute right-1/2 top-0 flex h-full w-[75%] translate-x-1/2 justify-between opacity-35">
                         <div
                           className="basis-[35%] rotate-[140deg]"
                           style={{
@@ -1406,12 +1058,12 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       </div>
                     </div>
                   </div>
-
+                  {/* Yes/No Button */}
                   <div
-                    className={`w-full ${formState === 0 && showDeclineMessage === 0 ? "flex" : "hidden"} justify-evenly gap-5`}
+                    className={`w-full ${formState === 0 && showDeclineMessage === 0 ? "flex" : "hidden"} justify-center gap-5`}
                   >
                     <button
-                      className="basis-1/2 rounded-xl bg-slate-500"
+                      className="basis-1/4 rounded-xl bg-slate-500"
                       onClick={() => {
                         setExpand(true);
                         setShowDeclineMessage(1);
@@ -1422,20 +1074,21 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     <button
                       onClick={() => {
                         setExpand(true);
-                        // setInvite(1);
+                        setFormState(1);
                       }}
-                      className="basis-1/2 rounded-xl bg-slate-500"
+                      className="basis-1/4 rounded-xl bg-slate-500"
                     >
                       No
                     </button>
                   </div>
                 </div>
+                {/* Decline */}
                 <div
                   ref={declineForm}
-                  className={`absolute flex size-[%] rounded-xl`}
+                  className={`absolute size-[95%] justify-center rounded-xl bg-red-500`}
                 >
                   <div
-                    className="basis-1/2 rotate-180 opacity-25"
+                    className="hi basis-[35%] rotate-180 opacity-25"
                     style={{
                       backgroundImage: `url(${inactiveOrnament})`,
                       backgroundSize: "contain",
@@ -1445,7 +1098,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     }}
                   ></div>
                   <div
-                    className="basis-1/2 opacity-25"
+                    className="basis-[35%] opacity-25"
                     style={{
                       backgroundImage: `url(${inactiveOrnament})`,
                       backgroundSize: "contain",
@@ -1462,7 +1115,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 onClick={() => {
                   setFormState(0);
                   setExpand(false);
-                  // setAcceptForm(false);
+                  setShowDeclineMessage(0);
+                  setAcceptForm(false);
                   // setExpand(false);
                   // setInvite(0);
                   setDetails((details) => ({ ...details, submit: false }));
@@ -1476,7 +1130,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   setPlusOne(false);
                 }}
                 className={`absolute ${formState === 2 ? "basis-1/2" : formState === 0 ? "hidden basis-[85%]" : "basis-[15%]"} z-10 flex size-[95%] flex-col items-center justify-center gap-10 text-white`}
-                // className={`absolute ${invite === 2 && expand.length === 0 ? "basis-1/2" : invite === 0 && expand ? "hidden basis-[85%]" : "basis-[15%]"} z-10 flex size-[95%] flex-col items-center justify-center gap-10 text-white`}
               >
                 <div
                   className={`declineButton grid ${formState === 2 ? "size-[36.7%] lg:size-[51.7%]" : formState === 1 ? "size-[35%]" : "size-[50%]"} place-content-center`}
@@ -1496,9 +1149,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 <div
                   className={`absolute ${formState === 2 ? "flex" : formState === 1 ? "hidden" : "flex"} h-[50%] w-[80%] opacity-25`}
                 >
-                  {/* <div
-                  className={`absolute ${invite === 2 && expand.length === 0 ? "flex" : invite === 1 && expand === "" ? "hidden" : "flex"} h-[50%] w-[80%] opacity-25`}
-                > */}
                   <div
                     className="basis-1/2 rotate-180"
                     style={{
@@ -1522,11 +1172,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 </div>
                 {/* Inactive View */}
                 <div
-                  className={`absolute ${formState === 2 ? "hidden" : formState === 1 ? "flex" : "hidden"} declineButton top-[65%] size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip bg-blue-500 opacity-25`}
+                  className={`absolute ${formState === 2 ? "hidden" : formState === 1 ? "flex" : "hidden"} declineButton top-1/2 size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-25`}
                 >
-                  {/* <div
-                  className={`absolute top-1/2 ${formState === 2 && expand.length === 0 ? "hidden" : invite === 1 && expand ? "flex" : "hidden"} declineButton size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-25`}
-                > */}
                   <div
                     className="basis-[35%]"
                     style={{
@@ -1552,9 +1199,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 <div
                   className={`absolute top-1/2 ${formState === 2 ? "hidden" : formState === 1 ? "hidden" : "flex"} size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-75`}
                 >
-                  {/* <div
-                  className={`absolute top-1/2 ${invite === 2 && expand.length === 0 ? "hidden" : invite === 1 && expand ? "hidden" : "flex"} size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-75`}
-                > */}
                   <div
                     className="relative -top-1/4 left-1/2 basis-[50%]"
                     style={{
