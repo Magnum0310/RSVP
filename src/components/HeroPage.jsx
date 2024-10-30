@@ -39,7 +39,7 @@ const ParallaxImage = ({ image, date }) => {
           }}
         >
           <div
-            className="absolute top-0 z-20 size-full bg-blue-500/0"
+            className="absolute top-0 z-20 hidden size-full bg-blue-500/0"
             style={{
               backgroundImage: `url(${heroPageMask})`,
               backgroundSize: "cover",
@@ -195,12 +195,12 @@ const HeroPage = () => {
               style={{
                 backgroundImage: `url(${heroPageMain})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundPosition: "right 46% bottom 0%",
               }}
             ></div>
             <div
               ref={heroMask}
-              className="absolute top-[0%] z-20 size-full"
+              className="absolute top-[0%] z-20 hidden size-full"
               style={{
                 backgroundImage: `url(${heroPageMainMask})`,
                 backgroundSize: "cover",
@@ -287,19 +287,21 @@ const HeroPage = () => {
             >
               <div
                 ref={photo1}
-                className="relative right-[50%] size-full basis-1/2 rotate-[-2deg] sm:right-[52%]"
+                className="size-90% relative right-[50%] flex basis-1/2 rotate-[-2deg] items-center justify-center bg-white sm:right-[52%]"
               >
-                <div
-                  className="size-full"
-                  style={{
-                    backgroundImage: `url(${heroPhoto1})`,
-                    backgroundSize: "contain",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                ></div>
+                <div className="flex size-[90%] flex-col">
+                  <div
+                    className="basis-[85%]"
+                    style={{
+                      backgroundImage: `url(${heroPhoto1})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  ></div>
+                </div>
               </div>
-              <div
+              {/* <div
                 ref={photo2}
                 className="relative left-[50%] size-full basis-1/2 rotate-[2deg] sm:left-[52%]"
               >
@@ -312,6 +314,22 @@ const HeroPage = () => {
                     backgroundRepeat: "no-repeat",
                   }}
                 ></div>
+              </div> */}
+              <div
+                ref={photo2}
+                className="size-90% relative left-[50%] flex basis-1/2 rotate-[2deg] items-center justify-center bg-white sm:left-[52%]"
+              >
+                <div className="flex size-[90%] flex-col">
+                  <div
+                    className="basis-[85%]"
+                    style={{
+                      backgroundImage: `url(${heroPhoto2})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>

@@ -46,13 +46,13 @@ const SubmitData = ({
   };
 
   return (
-    <Button
-      className="h-full max-w-[15rem] basis-1/2 rounded-full bg-ivory text-black"
+    <button
+      className="h-full max-w-[15rem] basis-1/2 rounded-full bg-ivory font-bold text-black duration-200 hover:scale-[1.05] hover:ease-in-out"
       // onClick={() => addGuest()}
       onClick={() => triggerLoadingState()}
     >
       Submit
-    </Button>
+    </button>
   );
 };
 

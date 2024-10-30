@@ -1,5 +1,5 @@
 // Hero
-import heroPageMain from "../assets/Vectors/HeroPage/heroPageMain.svg";
+import heroPageMain from "../assets/Vectors/HeroPage/heroPageMain.jpg";
 import heroPageMainMask from "../assets/Vectors/HeroPage/heroPageMainMask.svg";
 import heroPageBorder from "../assets/Vectors/HeroPage/heroPageBorder.svg";
 import heroPageDate from "../assets/Images/HeroPage/heroPageDate.jpg";
@@ -9,18 +9,24 @@ import floralLeaf1 from "../assets/Vectors/HeroPage/heroPage_floralleaf1.svg";
 import floralLeaf2 from "../assets/Vectors/HeroPage/heroPage_floralleaf2.svg";
 import floralTransition from "../assets/Vectors/HeroPage/heroPage_floralTransition.svg";
 import floralFlower from "../assets/Vectors/HeroPage/heroPage_flower.svg";
-import heroPhoto1 from "../assets/Images/HeroPage/photo1.svg";
-import heroPhoto2 from "../assets/Images/HeroPage/photo2.svg";
+import heroPhoto1 from "../assets/Images/HeroPage/photo1.jpg";
+import heroPhoto2 from "../assets/Images/HeroPage/photo2.jpg";
+// import heroPhoto1 from "../assets/Images/HeroPage/photo1.svg";
+// import heroPhoto2 from "../assets/Images/HeroPage/photo2.svg";
 import flower1 from "../assets/Vectors/HeroPage/flower1.svg";
 import flower2 from "../assets/Vectors/HeroPage/flower2.svg";
 import flower3 from "../assets/Vectors/HeroPage/flower3.svg";
 import flowerStem from "../assets/Vectors/HeroPage/flowerStem.svg";
 
 // Entourage
-import entourage1 from "../assets/Images/Entourage/entourage1.svg";
-import entourage2 from "../assets/Images/Entourage/entourage2.svg";
-import entourage3 from "../assets/Images/Entourage/entourage3.svg";
-import entourageCenter from "../assets/Images/Entourage/entourageCenter.svg";
+import entourage1 from "../assets/Images/Entourage/entourage1.jpg";
+// import entourage1 from "../assets/Images/Entourage/entourage1.svg";
+import entourage2 from "../assets/Images/Entourage/entourage2.jpg";
+// import entourage2 from "../assets/Images/Entourage/entourage2.svg";
+import entourage3 from "../assets/Images/Entourage/entourage3.jpg";
+// import entourage3 from "../assets/Images/Entourage/entourage3.svg";
+import entourageCenter from "../assets/Images/Entourage/entourageCenter.jpg";
+// import entourageCenter from "../assets/Images/Entourage/entourageCenter.svg";
 import entourageTransition from "../assets/Vectors/Entourage/entourage_transition.svg";
 import entourageDivider from "../assets/Vectors/Entourage/entourage_Divider.svg";
 import entourageFloralPrimarySponsor from "../assets/Vectors/Entourage/entourage_floralPrimarySponsor.svg";
