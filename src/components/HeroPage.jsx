@@ -24,11 +24,12 @@ const {
   flower3,
   flowerStem,
   frame,
+  heroMainFrame,
 } = Image;
 
 const ParallaxImage = ({ image, date }) => {
   return (
-    <div className="relative flex size-full flex-col items-center justify-center bg-white font-Showtime">
+    <div className="relative mx-auto flex size-full flex-col items-center justify-center bg-white font-Showtime">
       <div className="relative flex size-[90%] flex-col items-center gap-2">
         <div
           className="relative w-full basis-[85%]"
@@ -39,7 +40,7 @@ const ParallaxImage = ({ image, date }) => {
           }}
         >
           <div
-            className="absolute top-0 z-20 hidden size-full bg-blue-500/0"
+            className="absolute top-0 z-20 hidden size-full"
             style={{
               backgroundImage: `url(${heroPageMask})`,
               backgroundSize: "cover",
@@ -177,8 +178,9 @@ const HeroPage = () => {
 
   return (
     // Main page
-    <div className="relative">
-      <div className="relative mx-auto flex h-[250lvh] w-full max-w-[1024px] justify-center overflow-clip sm:h-[350lvh] lg:overflow-visible">
+    <div className="relative flex justify-center">
+      <div className="relative flex h-[250lvh] w-full max-w-[1024px] justify-center sm:h-[350lvh] lg:overflow-visible">
+        {/* <div className="relative mx-auto flex h-[250lvh] w-full  justify-center overflow-clip sm:h-[350lvh] lg:overflow-visible"> */}
         {/* Inner Wrapper */}
         <div
           ref={container}
@@ -191,7 +193,7 @@ const HeroPage = () => {
           >
             <div
               ref={heroImage}
-              className="relative top-[0%] size-full"
+              className="relative top-[0%] z-40 size-full"
               style={{
                 backgroundImage: `url(${heroPageMain})`,
                 backgroundSize: "cover",
@@ -200,26 +202,37 @@ const HeroPage = () => {
             ></div>
             <div
               ref={heroMask}
-              className="absolute top-[0%] z-20 hidden size-full"
+              className="absolute top-[0%] z-20 size-full"
               style={{
                 backgroundImage: `url(${heroPageMainMask})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundPosition: "right 46% bottom 0%",
+                // backgroundPosition: "center",
               }}
             ></div>
             {/* Jeffrey and Jonalyn */}
             <div
               ref={title}
-              className="text-jeff-jona absolute right-[50%] top-[10%] flex size-fit translate-x-[48%] flex-col text-center font-Showtime text-white"
+              className="text-jeff-jona absolute right-[50%] top-[10%] z-30 flex size-fit translate-x-[48%] flex-col text-center font-Showtime text-white"
             >
               <p>Jeffrey</p>
               <p className="text-4xl lg:text-6xl">and</p>
               <p>Jonalyn</p>
             </div>
+            <div
+              className="absolute z-50 size-3/4"
+              style={{
+                backgroundImage: `url("${heroMainFrame}")`,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                scale: "1.5",
+              }}
+            ></div>
           </div>
           {/* Parallax Slides - Top - Position:Relative */}
           <div
-            className="absolute top-[5%] -z-10 h-full w-full overflow-clip lg:overflow-visible"
+            className="absolute top-[5%] -z-10 mx-auto h-full w-full overflow-clip lg:overflow-visible"
             ref={floral}
           >
             {/* Flower - Position:Absolute */}
@@ -234,10 +247,10 @@ const HeroPage = () => {
             ></div>
           </div>
           {/* Flower Stem */}
-          <div className="absolute -z-10 h-full w-full overflow-clip lg:overflow-visible">
+          <div className="absolute -z-10 flex h-full w-full justify-center overflow-clip lg:overflow-visible">
             <div
               ref={transition}
-              className="absolute bottom-[30%] left-[40%] z-30 h-1/2 w-1/2 scale-150"
+              className="absolute bottom-[30%] left-[40%] z-30 hidden h-1/2 w-1/2 scale-150"
               style={{
                 backgroundImage: `url(${flowerStem})`,
                 backgroundSize: "contain",
@@ -246,7 +259,7 @@ const HeroPage = () => {
               }}
             >
               {/* Flower - Individual */}
-              <div className="relative size-full">
+              <div className="relative hidden size-full">
                 <div className="absolute bottom-[35%] h-[25%] w-full">
                   <div
                     ref={flower1Position}
@@ -283,7 +296,7 @@ const HeroPage = () => {
             </div>
             <div
               ref={transitionBottom}
-              className="absolute bottom-[5%] z-20 flex h-[15%] w-full gap-2 sm:h-[13%] sm:gap-0 lg:bottom-[2%] lg:h-[19%] lg:gap-10"
+              className="absolute bottom-[5%] z-20 mx-auto flex h-[15%] w-full gap-2 sm:h-[13%] sm:gap-0 lg:bottom-[2%] lg:h-[19%] lg:gap-10"
             >
               <div
                 ref={photo1}
@@ -334,18 +347,18 @@ const HeroPage = () => {
             </div>
           </div>
           {/* Spacer */}
-          <div className="h-[50vh]"></div>
+          <div className="mx-auto h-[50vh]"></div>
           {/* HeroDate */}
           {/*Date*/}
           <div
             ref={imageDate}
-            className="relative top-[6%] -z-10 h-1/4 w-[80%] lg:h-[25%] lg:w-[70%]"
+            className="relative top-[6%] -z-10 mx-auto h-1/4 w-[80%] lg:h-[25%] lg:w-[70%]"
           >
             <ParallaxImage image={heroPageDate} date={date} />
           </div>
           <div
             ref={dateContainer}
-            className="absolute bottom-1/4 h-1/4 w-full sm:h-[15%]"
+            className="absolute bottom-1/4 mx-auto h-1/4 w-full sm:h-[15%]"
           ></div>
         </div>
       </div>

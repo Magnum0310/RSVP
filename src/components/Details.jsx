@@ -65,7 +65,8 @@ const Details = () => {
 
   // DETAIL IMAGE STYLE
   const detailStyleName =
-    "h-full max-h-[85%] w-1/2 absolute top-1/2 -translate-y-1/2 place-content-center";
+    "h-full max-h-[85%] w-1/2 absolute top-1/2  -translate-y-1/2 place-content-center";
+
   const detailsImagesMap = [
     {
       imageName: details1,
