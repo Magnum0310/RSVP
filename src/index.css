@@ -47,7 +47,7 @@
     @apply text-[1.5rem] leading-8 sm:text-4xl md:text-5xl;
   }
   .text-entourage-list {
-    @apply font-Venice text-[.85rem] font-bold uppercase sm:text-xl md:text-[1.1rem] lg:text-[1.5rem] xl:text-[2rem];
+    @apply font-Venice text-[.85rem] font-bold uppercase sm:text-xl lg:text-[1.5rem] xl:text-[2rem];
   }
   /* .text-entourage-list {
     @apply text-[.8rem] font-bold leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];

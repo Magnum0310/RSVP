@@ -6,7 +6,6 @@ import Info from "../constants/entourage";
 import EntourageCard from "./EntourageCard";
 import EntourageCardPrincipal from "./EntourageCardPrincipal";
 import UserformContext from "@/context/UserformContext";
-import Frame from "./Frame";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,7 +21,6 @@ const {
   entourageFloralPrimarySponsor,
   entourageFloralSecondarySponsor,
   entourageTitle,
-  frame,
 } = Image;
 
 // Invitation Details
@@ -85,28 +83,15 @@ const Entourage = () => {
   return (
     // Main Page
     <div className="relative">
-      {/* <div className="relative h-fit"> */}
       <div className="">
         {/* Inner Wrapper */}
         <div
           ref={container1}
           className="relative flex size-full flex-col items-center justify-center overflow-hidden"
-          // className="relative flex size-full flex-col items-center justify-center overflow-hidden"
         >
           {/* Entourage Images - Position:Absolute */}
           <div className="relative z-[10] h-[75vh] w-full sm:h-[100vh]">
             <div className="absolute h-1/4 w-full">
-              {/* <div
-                ref={imageCenter}
-                className="relative top-0 z-10 h-[300%] w-full bg-lime-500 lg:h-[325%]"
-                style={{
-                  backgroundImage: `url(${entourageCenter})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div> */}
-
               <div
                 ref={imageCenter}
                 className={`relative left-1/2 top-0 z-10 flex ${width < 460 ? "h-[240%]" : "h-[300%]"} w-[65%] -translate-x-1/2 items-center justify-center border-[1px] border-solid border-black bg-white sm:h-[275%] sm:w-[55%] lg:h-[325%] lg:w-[45%] xl:w-[40%]`}
@@ -123,18 +108,6 @@ const Entourage = () => {
                   ></div>
                 </div>
               </div>
-
-              {/* <div
-                ref={image1}
-                className="relative left-[3%] top-[55%] z-10 h-[150%] w-[30%] sm:-top-[35%] sm:left-[0%] sm:h-[175%] sm:w-[40%] lg:-top-[15%] lg:h-[215%]"
-                style={{
-                  backgroundImage: `url(${entourage1})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  rotate: "-7deg",
-                }}
-              ></div> */}
               <div
                 ref={image1}
                 className={`relative left-[3%] z-10 flex ${width < 460 ? "top-[75%] h-[140%] w-[35%]" : "h-[150%]"} w-[30%] items-center justify-center border-[1px] border-solid border-black bg-white sm:-top-[35%] sm:left-[0%] sm:h-[175%] lg:-top-[55%] lg:left-[3%] lg:h-[215%] xl:-top-[50%] xl:left-[7%] xl:w-[25%]`}
@@ -151,18 +124,6 @@ const Entourage = () => {
                   ></div>
                 </div>
               </div>
-
-              {/* <div
-                ref={image2}
-                className="relative left-1/2 top-[15%] z-20 h-[200%] w-[40%] -translate-x-1/2 sm:-top-[75%] sm:w-[45%] lg:-top-[150%] lg:h-[215%]"
-                style={{
-                  backgroundImage: `url(${entourage2})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  rotate: "5deg",
-                }}
-              ></div> */}
               <div
                 ref={image2}
                 className={`relative left-1/2 top-[15%] z-20 flex ${width < 460 ? "top-[55%] h-[150%]" : "h-[200%]"} w-[40%] -translate-x-1/2 items-center justify-center border-[1px] border-solid border-black bg-white sm:-top-[75%] sm:w-[35%] lg:-top-[175%] lg:h-[215%] lg:w-[30%] xl:-top-[190%] xl:w-[25%]`}
@@ -179,18 +140,6 @@ const Entourage = () => {
                   ></div>
                 </div>
               </div>
-              {/* <div
-                ref={image3}
-                className="relative -top-[15%] left-[65%] z-10 h-[135%] w-[35%] sm:-top-[155%] sm:h-[180%] sm:w-[40%] lg:-top-[230%] lg:left-[63%] lg:h-[215%]"
-                style={{
-                  backgroundImage: `url(${entourage3})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  rotate: "10deg",
-                }}
-              ></div> */}
-
               <div
                 ref={image3}
                 className={`relative -top-[15%] left-[65%] z-10 flex ${width < 460 ? "top-[10%] h-[145%] w-[30%]" : "h-[170%]"} w-[35%] items-center justify-center border-[1px] border-solid border-black bg-white sm:-top-[155%] sm:h-[180%] sm:w-[35%] lg:-top-[315%] lg:left-[68%] lg:h-[215%] lg:w-[30%] xl:-top-[325%] xl:w-[25%]`}
@@ -215,7 +164,6 @@ const Entourage = () => {
                   backgroundPosition: "center",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
-                  // scale: "3.5",
                 }}
               ></div>
             </div>
@@ -316,7 +264,6 @@ const Entourage = () => {
                   backgroundPosition: "center",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
-                  // scale: ".6",
                 }}
               ></div>
               {/* Maid of Honor and BestMan*/}
@@ -328,7 +275,6 @@ const Entourage = () => {
                   backgroundPosition: "center",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
-                  // scale: ".6",
                 }}
               ></div>
               {/* Secondary Sponsors*/}
@@ -340,15 +286,12 @@ const Entourage = () => {
                   backgroundPosition: "center",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
-                  // scale: ".7",
                 }}
               ></div>
             </div>
           </div>
         </div>
       </div>
-      {/* FRAME */}
-      {/* <Frame /> */}
     </div>
   );
 };
