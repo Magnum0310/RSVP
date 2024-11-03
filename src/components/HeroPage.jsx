@@ -141,7 +141,7 @@ const HeroPage = () => {
           },
         })
         .to(title.current, {
-          y: `${width < 640 ? window.innerHeight / 4.5 : width > 1024 ? window.innerHeight / 5 : window.innerHeight / 3.7}%`,
+          y: `${width < 640 ? window.innerHeight / 4.2 : width > 1024 ? window.innerHeight / 5 : window.innerHeight / 3.7}%`,
           ease: "circ.inOut",
         });
     });
@@ -188,6 +188,7 @@ const HeroPage = () => {
             x: `${width > 1023 ? "150%" : "110%"}`,
             ease: "expo.inOut",
             y: "15%",
+            opacity: 1,
           },
           0,
         )
@@ -197,6 +198,7 @@ const HeroPage = () => {
             x: `${width > 1023 ? "-150%" : "-110%"}`,
             ease: "expo.inOut",
             y: "15%",
+            opacity: 1,
           },
           0,
         );
@@ -275,7 +277,7 @@ const HeroPage = () => {
             >
               <div
                 ref={photo1}
-                className="size-90% relative right-[50%] flex basis-1/2 rotate-[-2deg] items-center justify-center bg-white sm:right-[52%] lg:right-[70%]"
+                className="size-90% relative right-[50%] flex basis-1/2 rotate-[-2deg] items-center justify-center bg-white opacity-0 sm:right-[52%] lg:right-[70%]"
               >
                 <div className="flex size-[90%] flex-col">
                   <div
@@ -291,7 +293,7 @@ const HeroPage = () => {
               </div>
               <div
                 ref={photo2}
-                className="size-90% relative left-[50%] flex basis-1/2 rotate-[2deg] items-center justify-center bg-white sm:left-[52%] lg:left-[70%]"
+                className="size-90% relative left-[50%] flex basis-1/2 rotate-[2deg] items-center justify-center bg-white opacity-0 sm:left-[52%] lg:left-[70%]"
               >
                 <div className="flex size-[90%] flex-col">
                   <div
