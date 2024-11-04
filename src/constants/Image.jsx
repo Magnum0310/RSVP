@@ -6,6 +6,10 @@ import heroPageMask from "../assets/Images/HeroPage/heroPageDateMask.svg";
 import heroPhoto1 from "../assets/Images/HeroPage/photo1.jpg";
 import heroPhoto2 from "../assets/Images/HeroPage/photo2.jpg";
 import heroMainFrame from "../assets/Vectors/HeroPage/heroMainFrame.svg";
+import flower1 from "../assets/Vectors/HeroPage/flower1.svg";
+import flower2 from "../assets/Vectors/HeroPage/flower2.svg";
+import flower3 from "../assets/Vectors/HeroPage/flower3.svg";
+import weddingRings from "../assets/Vectors/HeroPage/rings.svg";
 
 // Entourage
 import entourage1 from "../assets/Images/Entourage/entourage1.jpg";
@@ -89,6 +93,10 @@ const Image = {
   heroPhoto1,
   heroPhoto2,
   heroMainFrame,
+  flower1,
+  flower2,
+  flower3,
+  weddingRings,
   // Entourage
   entourage1,
   entourage2,

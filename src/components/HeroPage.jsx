@@ -17,6 +17,10 @@ const {
   floralFlower,
   heroPhoto1,
   heroPhoto2,
+  flower1,
+  flower2,
+  flower3,
+  weddingRings,
 } = Image;
 
 const ParallaxImage = ({ image, date }) => {
@@ -41,15 +45,15 @@ const ParallaxImage = ({ image, date }) => {
           ></div>
           <span
             ref={date}
-            className="absolute left-[48%] top-[70%] z-10 h-fit w-full min-w-fit -translate-x-[50%] text-center text-5xl text-white sm:top-[65%] sm:text-7xl lg:left-[50%] lg:top-[80%] lg:text-8xl"
+            className="absolute left-[50%] top-[60%] z-10 h-fit w-[95vw] min-w-fit -translate-x-[50%] text-center text-5xl text-white max-sm:text-3xl sm:top-[65%] sm:text-6xl lg:left-[50%] lg:top-[70%] lg:text-7xl"
           >
             Save the Date
           </span>
         </div>
-        <div className="relative right-1 flex basis-[10%] flex-col items-center gap-2 text-center text-5xl lg:text-6xl">
-          <span>
+        <div className="relative top-5 flex w-full basis-[10%] flex-col items-center gap-2 text-center text-5xl max-sm:text-4xl lg:text-6xl">
+          <span className="w-full">
             <p className="">12.16.24</p>
-            <span className="">Baguio City</span>
+            <p className="">Baguio City</p>
           </span>
         </div>
       </div>
@@ -75,6 +79,10 @@ const HeroPage = () => {
   const flower1Position = useRef(null);
   const flower2Position = useRef(null);
   const flower3Position = useRef(null);
+  const weddingRingsRef = useRef(null);
+  const floral1Ref = useRef(null);
+  const floral2Ref = useRef(null);
+  const floral3Ref = useRef(null);
 
   const { width } = useContext(UserformContext);
 
@@ -104,7 +112,8 @@ const HeroPage = () => {
         .to(flower2Position.current, { rotate: "35deg" }, 0)
         .to(flower3Position.current, { rotate: "40deg" }, 0)
         .to(transition.current, { y: 150 }, 0)
-        .to(imageDate.current, { rotate: "1deg", y: -450 }, 0);
+        .to(imageDate.current, { rotate: "1deg", y: -450 }, 0)
+        .to(weddingRingsRef.current, { left: "40%", y: -450 }, 0);
     });
     return () => context.revert();
   }, []);
@@ -121,7 +130,7 @@ const HeroPage = () => {
           },
         })
         .to(titleContainer.current, {
-          y: 450,
+          y: 350,
           opacity: 0,
           ease: "power4.inOut",
         });
@@ -162,7 +171,7 @@ const HeroPage = () => {
         .to(
           date.current,
           {
-            y: `-${width < 640 ? window.innerHeight / 2 : window.innerHeight / 2.3}%`,
+            y: `-${width < 640 ? window.innerHeight / 2.5 : window.innerHeight / 2.5}%`,
             ease: "expo",
           },
           0,
@@ -243,10 +252,39 @@ const HeroPage = () => {
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
+            <div
+              className="absolute right-[65%] top-0 size-[55%] opacity-25"
+              style={{
+                backgroundImage: `url(${flower2})`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+            <div
+              className="absolute left-[65%] top-0 size-[55%] opacity-25"
+              style={{
+                backgroundImage: `url(${flower3})`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+            <div
+              ref={floral1Ref}
+              className="absolute right-1/2 top-[50%] size-3/4 translate-x-1/2 opacity-25 max-sm:top-[40%]"
+              style={{
+                backgroundImage: `url(${flower1})`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+
             {/* Jeffrey and Jonalyn */}
             <div
               ref={title}
-              className="text-jeff-jona absolute -top-[25%] right-[50%] z-30 flex size-fit translate-x-[48%] flex-col text-center font-Showtime text-white"
+              className="text-jeff-jona font-GreatVibes absolute -top-[25%] right-[50%] z-30 flex size-fit translate-x-[48%] flex-col text-center text-white"
             >
               <p className="text-motif">Jeffrey</p>
               <p className="text-4xl text-motif lg:text-6xl">and</p>
@@ -315,9 +353,24 @@ const HeroPage = () => {
           {/*Date*/}
           <div
             ref={imageDate}
-            className="relative top-[6%] -z-10 mx-auto h-1/4 w-[80%] lg:h-[25%] lg:w-[70%]"
+            className="relative top-[6%] z-10 mx-auto h-1/4 w-[80%] lg:h-[25%] lg:w-[70%]"
           >
             <ParallaxImage image={heroPageDate} date={date} />
+            <div
+              ref={weddingRingsRef}
+              className="absolute top-[30%] -z-10 h-[40%] w-[95%] rotate-[30deg] opacity-25"
+            >
+              <div
+                className="relative left-[0%] size-full sm:-top-[35%]"
+                style={{
+                  backgroundImage: `url("${weddingRings}")`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  scale: "1",
+                }}
+              ></div>
+            </div>
           </div>
           <div
             ref={dateContainer}
