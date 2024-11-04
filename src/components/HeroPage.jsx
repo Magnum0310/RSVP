@@ -50,9 +50,9 @@ const ParallaxImage = ({ image, date }) => {
             Save the Date
           </span>
         </div>
-        <div className="relative top-5 flex w-full basis-[10%] flex-col items-center gap-2 text-center text-5xl max-sm:text-4xl lg:text-6xl">
+        <div className="relative top-5 flex w-full basis-[10%] flex-col items-center gap-2 text-center text-5xl max-sm:top-2 max-sm:text-4xl lg:text-6xl">
           <span className="w-full">
-            <p className="">12.16.24</p>
+            <p className="">12-16-24</p>
             <p className="">Baguio City</p>
           </span>
         </div>
@@ -113,7 +113,7 @@ const HeroPage = () => {
         .to(flower3Position.current, { rotate: "40deg" }, 0)
         .to(transition.current, { y: 150 }, 0)
         .to(imageDate.current, { rotate: "1deg", y: -450 }, 0)
-        .to(weddingRingsRef.current, { left: "40%", y: -450 }, 0);
+        .to(weddingRingsRef.current, { left: "40%", y: -350 }, 0);
     });
     return () => context.revert();
   }, []);
@@ -171,7 +171,7 @@ const HeroPage = () => {
         .to(
           date.current,
           {
-            y: `-${width < 640 ? window.innerHeight / 2.5 : window.innerHeight / 2.5}%`,
+            y: `-${width < 640 ? window.innerHeight / 2 : window.innerHeight / 2.5}%`,
             ease: "expo",
           },
           0,
@@ -253,7 +253,7 @@ const HeroPage = () => {
               }}
             ></div>
             <div
-              className="absolute right-[65%] top-0 size-[55%] opacity-25"
+              className="absolute right-[65%] top-0 -z-10 size-[55%] opacity-25"
               style={{
                 backgroundImage: `url(${flower2})`,
                 backgroundSize: "contain",
@@ -262,7 +262,7 @@ const HeroPage = () => {
               }}
             ></div>
             <div
-              className="absolute left-[65%] top-0 size-[55%] opacity-25"
+              className="absolute left-[65%] top-0 -z-10 size-[55%] opacity-25"
               style={{
                 backgroundImage: `url(${flower3})`,
                 backgroundSize: "contain",
@@ -272,7 +272,7 @@ const HeroPage = () => {
             ></div>
             <div
               ref={floral1Ref}
-              className="absolute right-1/2 top-[50%] size-3/4 translate-x-1/2 opacity-25 max-sm:top-[40%]"
+              className="absolute right-1/2 top-[50%] -z-10 size-3/4 translate-x-1/2 opacity-25 max-sm:top-[40%]"
               style={{
                 backgroundImage: `url(${flower1})`,
                 backgroundSize: "contain",
@@ -284,7 +284,7 @@ const HeroPage = () => {
             {/* Jeffrey and Jonalyn */}
             <div
               ref={title}
-              className="text-jeff-jona font-GreatVibes absolute -top-[25%] right-[50%] z-30 flex size-fit translate-x-[48%] flex-col text-center text-white"
+              className="text-jeff-jona font-GreatVibes absolute -top-[25%] right-[50%] z-30 flex size-fit translate-x-[48%] flex-col p-2 text-center text-white"
             >
               <p className="text-motif">Jeffrey</p>
               <p className="text-4xl text-motif lg:text-6xl">and</p>
@@ -293,7 +293,7 @@ const HeroPage = () => {
           </div>
           {/* Parallax Slides - Top - Position:Relative */}
           <div
-            className="absolute top-[5%] -z-10 mx-auto h-full w-full overflow-clip lg:overflow-visible"
+            className="absolute top-[5%] -z-10 mx-auto h-full w-full lg:overflow-visible"
             ref={floral}
           >
             {/* Flower - Position:Absolute */}

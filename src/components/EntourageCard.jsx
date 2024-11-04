@@ -4,7 +4,9 @@ const { entourageDivider } = Image;
 
 const EntourageCard = ({ title, list, coldiac }) => {
   return (
-    <div className="flex min-w-[190px] basis-[35%] flex-col items-center text-center sm:min-w-[270px] md:basis-[45%] lg:basis-1/2">
+    <div
+      className={`flex ${title === "Parents of the Bride" || title === "Parents of the Groom" ? "min-h-[160px]" : "h-full"} min-w-[190px] basis-[35%] flex-col items-center text-center sm:min-w-[270px] md:basis-[45%] lg:basis-1/2`}
+    >
       <div className={`text-entourage-title relative right-1 font-Showtime`}>
         {title}
       </div>
@@ -20,7 +22,7 @@ const EntourageCard = ({ title, list, coldiac }) => {
       {list.map((item, index) => (
         <div
           key={index}
-          className="text-entourage-list mt-2 grid place-items-center max-sm:h-[1.5rem] max-sm:w-[75%] sm:mt-3 md:mt-5 lg:mt-8"
+          className="text-entourage-list mt-2 grid flex-1 place-items-center max-sm:h-fit max-sm:w-[75%] sm:mt-3 md:mt-5 lg:mt-8"
         >
           {item}
         </div>

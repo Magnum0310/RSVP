@@ -913,7 +913,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                         </p>
                         <p>Best,</p>
                         <div className="relative size-fit">
-                          <span className="w-fit font-Showtime text-3xl lg:text-5xl">
+                          <span className="w-fit font-Showtime text-2xl lg:text-5xl">
                             Jeffrey and Jonalyn
                           </span>
                           <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between opacity-35">
@@ -1059,7 +1059,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     </p>
                     <p>Best,</p>
                     <div className="relative size-fit">
-                      <span className="w-fit font-Showtime text-3xl lg:text-5xl">
+                      <span className="w-fit font-Showtime text-2xl lg:text-5xl">
                         Jeffrey and Jonalyn
                       </span>
                       <div className="absolute right-1/2 top-0 flex h-full w-[200%] translate-x-1/2 justify-between opacity-35">
@@ -1200,7 +1200,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 </div>
                 {/* Inactive View */}
                 <div
-                  className={`absolute ${formState === 2 ? "hidden" : formState === 1 ? "flex" : "hidden"} declineButton top-1/2 size-[94%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-25`}
+                  className={`absolute ${formState === 2 ? "hidden" : formState === 1 ? "flex" : "hidden"} declineButton top-[50%] size-[94%] -translate-y-[50%] flex-col justify-between overflow-clip opacity-25`}
                 >
                   <div
                     className="basis-[35%]"

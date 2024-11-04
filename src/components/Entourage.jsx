@@ -176,7 +176,7 @@ const Entourage = () => {
             {/* MAIN CONTENT WRAPPER */}
             <div className="relative top-[10%] z-20 mt-10 flex w-full flex-col items-center gap-5 sm:gap-8 lg:gap-16">
               {/* Parents */}
-              <div className="flex w-full items-center justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
+              <div className="flex items-start justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard
                   title={"Parents of the Bride"}
                   list={parentsOfTheBride}
