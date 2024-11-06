@@ -245,20 +245,10 @@ const Entourage = () => {
               ref={entourageTitleFloral}
             >
               {/* Title */}
-              <div
-                className="relative -top-[5%] -z-50 h-[15%] w-full opacity-25 sm:-top-[15%] sm:h-[12%] sm:scale-[1.5]"
-                style={{
-                  backgroundImage: `url(${entourageTitle})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  rotate: "180deg",
-                }}
-              ></div>
               {/* Primary Sponsors */}
               <div
                 ref={primarySponsory}
-                className="relative top-[30%] -z-10 h-[15%] w-full scale-[.6] opacity-25 sm:h-[12%] sm:scale-100 lg:top-[15%]"
+                className="relative top-[30%] -z-10 h-[15%] w-full scale-[.7] opacity-15 sm:h-[12%] sm:scale-100 lg:top-[15%]"
                 style={{
                   backgroundImage: `url(${entourageFloralPrimarySponsor})`,
                   backgroundPosition: "center",
@@ -269,7 +259,7 @@ const Entourage = () => {
               {/* Maid of Honor and BestMan*/}
               <div
                 ref={entourageMaidOfHonor}
-                className="relative top-[45%] -z-10 h-[15%] w-full scale-[.6] opacity-25 sm:h-[12%] sm:scale-100"
+                className="relative top-[45%] -z-10 h-[15%] w-full scale-[.6] opacity-15 sm:h-[12%] sm:scale-100"
                 style={{
                   backgroundImage: `url(${entourageFloralMaidOfHonor})`,
                   backgroundPosition: "center",
@@ -280,7 +270,7 @@ const Entourage = () => {
               {/* Secondary Sponsors*/}
               <div
                 ref={secondarySponsory}
-                className="relative top-[55%] -z-10 h-[15%] w-full scale-[.7] opacity-25 sm:h-[12%] sm:scale-100"
+                className="relative top-[55%] -z-10 h-[15%] w-full scale-[.6] opacity-15 sm:h-[12%] sm:scale-100"
                 style={{
                   backgroundImage: `url(${entourageFloralSecondarySponsor})`,
                   backgroundPosition: "center",

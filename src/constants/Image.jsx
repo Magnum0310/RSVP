@@ -5,7 +5,7 @@ import heroPageDate from "../assets/Images/HeroPage/heroPageDate.jpg";
 import heroPageMask from "../assets/Images/HeroPage/heroPageDateMask.svg";
 import heroPhoto1 from "../assets/Images/HeroPage/photo1.jpg";
 import heroPhoto2 from "../assets/Images/HeroPage/photo2.jpg";
-import heroMainFrame from "../assets/Vectors/HeroPage/heroMainFrame.svg";
+// import heroMainFrame from "../assets/Vectors/HeroPage/heroMainFrame.svg";
 import flower1 from "../assets/Vectors/HeroPage/flower1.svg";
 import flower2 from "../assets/Vectors/HeroPage/flower2.svg";
 import flower3 from "../assets/Vectors/HeroPage/flower3.svg";
@@ -13,7 +13,7 @@ import weddingRings from "../assets/Vectors/HeroPage/rings.svg";
 
 // Entourage
 import entourage1 from "../assets/Images/Entourage/entourage1.jpg";
-import entourage2 from "../assets/Images/Entourage/entourage2.jpg";
+import entourage2 from "../assets/Images/Entourage/entourage2.jpeg";
 import entourage3 from "../assets/Images/Entourage/entourage3.jpg";
 import entourageCenter from "../assets/Images/Entourage/entourageCenter.jpg";
 import entourageTransition from "../assets/Vectors/Entourage/entourage_transition.svg";
@@ -24,10 +24,10 @@ import entourageTitle from "../assets/Vectors/Entourage/entourage_Title.svg";
 import entourageFloralMaidOfHonor from "../assets/Vectors/Entourage/floralMaidOfHonor.svg";
 
 // Details
-import details1 from "../assets/Images/Details/details1.svg";
-import details2 from "../assets/Images/Details/details2.svg";
-import details3 from "../assets/Images/Details/details3.svg";
-import details4 from "../assets/Images/Details/details4.svg";
+import details1 from "../assets/Images/Details/details1.jpg";
+import details2 from "../assets/Images/Details/details2.jpg";
+import details3 from "../assets/Images/Details/details3.jpg";
+import details4 from "../assets/Images/Details/details4.jpg";
 import detailsTransition from "../assets/Vectors/Details/details_floralTransition.svg";
 import detailsFrame from "../assets/Vectors/Details/detailsFrame.svg";
 import detailsDressCode from "../assets/Vectors/Details/detailsDressCode.svg";
@@ -92,7 +92,6 @@ const Image = {
   heroPageMainMask,
   heroPhoto1,
   heroPhoto2,
-  heroMainFrame,
   flower1,
   flower2,
   flower3,

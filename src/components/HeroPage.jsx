@@ -150,8 +150,9 @@ const HeroPage = () => {
           },
         })
         .to(title.current, {
-          y: `${width < 640 ? window.innerHeight / 4.2 : width > 1024 ? window.innerHeight / 5 : window.innerHeight / 3.7}%`,
+          y: `${width < 420 ? window.innerHeight / 4 : width < 640 ? window.innerHeight / 4.2 : width > 1024 ? window.innerHeight / 5 : window.innerHeight / 3.7}%`,
           ease: "circ.inOut",
+          opacity: 0,
         });
     });
     return () => context.revert();
@@ -284,7 +285,7 @@ const HeroPage = () => {
             {/* Jeffrey and Jonalyn */}
             <div
               ref={title}
-              className="text-jeff-jona font-GreatVibes absolute -top-[25%] right-[50%] z-30 flex size-fit translate-x-[48%] flex-col p-2 text-center text-white"
+              className="text-jeff-jona absolute -top-[25%] right-[50%] z-30 flex size-fit translate-x-[48%] flex-col p-2 text-center font-GreatVibes text-white"
             >
               <p className="text-motif">Jeffrey</p>
               <p className="text-4xl text-motif lg:text-6xl">and</p>

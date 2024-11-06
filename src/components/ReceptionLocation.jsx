@@ -97,7 +97,7 @@ const churchLocation = () => {
           },
         })
         .to(leafBg1.current, { rotate: "-200deg", x: 100, y: -350 }, 0)
-        .to(leafBg2.current, { rotate: "150deg", y: -275 }, 0)
+        .to(leafBg2.current, { x: 175, y: -275 }, 0)
         .to(leafBg3.current, { rotate: "10deg", x: -50, y: -250 }, 0)
         .to(leafBg4.current, { rotate: "-20deg", x: -50, y: -350 }, 0)
         .to(leafBg5.current, { y: 100 }, 0);
@@ -185,8 +185,8 @@ const churchLocation = () => {
             <Leaf
               track={leafBg2}
               leaf={feather3}
-              rotate={"180deg"}
-              className={"absolute left-[38%] top-[60%] h-[40%] w-full"}
+              rotate={"80deg"}
+              className={"absolute left-[20%] top-[65%] h-[40%] w-full"}
             />
             {/* Leaf 3 */}
             <Leaf
@@ -209,8 +209,10 @@ const churchLocation = () => {
           <Leaf
             track={leafBg5}
             leaf={feather2}
-            rotate={"175deg"}
-            className={"absolute right-[5%] top-[45%] h-[38%] w-full"}
+            rotate={"145deg"}
+            className={
+              "absolute left-[15%] top-[60%] h-[38%] w-full max-md:top-[55%] max-md:scale-75"
+            }
           />
           {/* Accents */}
           <div

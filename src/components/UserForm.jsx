@@ -757,7 +757,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   <p className="text-center text-3xl lg:text-5xl">
                     Verify details
                   </p>
-                  <div className="flex w-full basis-[55%] flex-col items-center justify-center gap-5 px-5 text-xl max-lg:max-w-[90%] lg:max-w-[75%]">
+                  <div className="flex w-full basis-[55%] flex-col items-center justify-center gap-5 px-5 text-center text-xl max-lg:max-w-[90%] lg:max-w-[75%]">
                     {/* Verify Details */}
                     <div className="flex flex-col items-center">
                       <label className="text-base" htmlFor="fullname">
@@ -771,7 +771,9 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       </p>
                     </div>
                     <span className="flex flex-col items-center">
-                      <p className="text-base">Total number of companion/s:</p>
+                      <p className="text-center text-base">
+                        Total number of companion/s:
+                      </p>
                       <p>{`${guest.numberOfAttendees}`}</p>
                     </span>
                     {guest.nameOfCompanions.length != 0 && (
@@ -891,61 +893,63 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                             ? "You’ve already confirmed your attendance."
                             : "Thank you so much for confirming your attendance! We’re excited to celebrate our special day with you. Your presence means the world to us, and we can’t wait to share this moment together."}
                         </p>
-                        <p>Best,</p>
-                        <div className="text-userform-jeff-jona relative size-fit">
-                          <span className="w-fit font-Showtime">
-                            Jeffrey and Jonalyn
-                          </span>
-                          <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between opacity-35">
-                            <div
-                              className="basis-[35%] rotate-[140deg]"
-                              style={{
-                                backgroundImage: `url(${inactiveOrnament})`,
-                                backgroundSize: "contain",
-                                backgroundRepeat: "no-repeat",
-                                backgroundPosition: "center",
-                                scale: "2",
-                              }}
-                            ></div>
-                            <div
-                              className="basis-[35%] rotate-[40deg]"
-                              style={{
-                                backgroundImage: `url(${inactiveOrnament})`,
-                                backgroundSize: "contain",
-                                backgroundRepeat: "no-repeat",
-                                backgroundPosition: "center",
-                                scale: "2",
-                              }}
-                            ></div>
+                        <div className="flex w-full flex-col gap-2 text-center">
+                          <p>Best,</p>
+                          <div className="text-userform-jeff-jona relative">
+                            <span className="w-fit font-Showtime">
+                              Jeffrey and Jonalyn
+                            </span>
+                            <div className="absolute right-1/2 top-0 flex h-full w-[125%] translate-x-1/2 justify-between opacity-35">
+                              <div
+                                className="basis-[35%] rotate-[140deg]"
+                                style={{
+                                  backgroundImage: `url(${inactiveOrnament})`,
+                                  backgroundSize: "contain",
+                                  backgroundRepeat: "no-repeat",
+                                  backgroundPosition: "center",
+                                  scale: "2",
+                                }}
+                              ></div>
+                              <div
+                                className="basis-[35%] rotate-[40deg]"
+                                style={{
+                                  backgroundImage: `url(${inactiveOrnament})`,
+                                  backgroundSize: "contain",
+                                  backgroundRepeat: "no-repeat",
+                                  backgroundPosition: "center",
+                                  scale: "2",
+                                }}
+                              ></div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="relative mt-10 hidden h-[6%] w-[35%] max-w-[15rem]">
-                        <Button
-                          style={{
-                            color: "black",
-                            fontFamily: '"Coldiac"',
-                            backgroundColor: "ivory",
-                            fontWeight: "bold",
-                            width: "100%",
-                            height: "100%",
-                            borderRadius: "25px",
-                          }}
-                          onClick={() => handleHomePage()}
-                          className=""
-                        >
-                          Home
-                        </Button>
-                        <div
-                          className="absolute left-1/2 top-1/2 -z-10 size-32 -translate-x-1/2 -translate-y-1/2 opacity-45"
-                          style={{
-                            backgroundImage: `url(${activeOrnament})`,
-                            backgroundSize: "contain",
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "center",
-                            scale: "1",
-                          }}
-                        ></div>
+                        <div className="relative mt-10 hidden h-[6%] w-[35%] max-w-[15rem]">
+                          <Button
+                            style={{
+                              color: "black",
+                              fontFamily: '"Coldiac"',
+                              backgroundColor: "ivory",
+                              fontWeight: "bold",
+                              width: "100%",
+                              height: "100%",
+                              borderRadius: "25px",
+                            }}
+                            onClick={() => handleHomePage()}
+                            className=""
+                          >
+                            Home
+                          </Button>
+                          <div
+                            className="absolute left-1/2 top-1/2 -z-10 size-32 -translate-x-1/2 -translate-y-1/2 opacity-45"
+                            style={{
+                              backgroundImage: `url(${activeOrnament})`,
+                              backgroundSize: "contain",
+                              backgroundRepeat: "no-repeat",
+                              backgroundPosition: "center",
+                              scale: "1",
+                            }}
+                          ></div>
+                        </div>
                       </div>
                       {/* Background Image */}
                       <div
@@ -981,7 +985,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   className={`relative z-50 ${formState === 0 ? "flex" : "hidden"} size-[95%] flex-col items-center justify-center gap-5 overflow-clip overflow-x-clip rounded-xl lg:gap-10`}
                 >
                   <p
-                    className={` ${formState === 0 && showDeclineMessage === 0 ? "flex" : "hidden"} h-1/4 w-[65%] flex-col justify-center rounded-xl text-base text-ivory md:text-xl lg:gap-10 lg:text-2xl`}
+                    className={` ${formState === 0 && showDeclineMessage === 0 ? "flex" : "hidden"} text-userform h-1/4 w-[65%] flex-col justify-center rounded-xl text-ivory lg:gap-10`}
                   >
                     <p className="text-3xl underline lg:text-5xl">
                       Dear guest,
@@ -1033,18 +1037,18 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   {/* SHow Decline Message */}
                   <div
                     ref={declineMessage}
-                    className="text-userform flex h-full w-[75%] flex-col items-center justify-center gap-5 lg:gap-10"
+                    className="flex h-full w-[75%] flex-col items-center justify-center gap-5 lg:gap-10"
                   >
-                    <p style={{ textIndent: 30 }}>
+                    <p className="text-userform" style={{ textIndent: 30 }}>
                       Thank you for letting us know. While we’ll miss
                       celebrating with you, we’re grateful for your well wishes!
                     </p>
                     <p>Best,</p>
                     <div className="relative size-fit">
-                      <span className="w-fit font-Showtime text-2xl lg:text-5xl">
+                      <span className="text-userform-jeff-jona w-fit font-Showtime">
                         Jeffrey and Jonalyn
                       </span>
-                      <div className="absolute right-1/2 top-0 flex h-full w-[200%] translate-x-1/2 justify-between opacity-35">
+                      <div className="absolute right-1/2 top-0 flex h-full w-[150%] translate-x-1/2 justify-between opacity-35">
                         <div
                           className="basis-[35%] rotate-[140deg]"
                           style={{
