@@ -57,9 +57,15 @@
     @apply font-Venice text-[.85rem] font-bold uppercase sm:text-xl lg:text-[1.5rem] xl:text-[2rem];
   }
   .text-userform {
-    @apply text-sm max-sm:text-xs md:text-xl lg:text-2xl;
+    @apply text-base md:text-xl lg:text-2xl;
   }
-  .text-userfor-title {
+  /* .text-userform {
+    @apply text-sm max-sm:text-xs md:text-xl lg:text-2xl;
+  } */
+  .text-userform-jeff-jona {
+    @apply text-base sm:text-xl lg:text-3xl;
+  }
+  .text-userform-title {
     @apply text-xl md:text-3xl lg:text-5xl;
   }
   .text-dressCode {

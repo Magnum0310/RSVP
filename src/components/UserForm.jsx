@@ -216,7 +216,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
-    const validateName = /^[A-Za-z0-9 ]{3,}$/;
+    const validateName = /^[A-Za-z\d-]{1,}/;
+    // const validateName = /^[A-Za-z0-9 ]{1,}$/;
 
     if (!validateName.test(guest.firstName)) {
       newErrors.firstName =
@@ -252,7 +253,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     });
     setDetails({ home: false, verify: false, submit: false, load: false });
     setPlusOne(false);
-    // setDetails((details)=>({}))
   };
 
   function renderRow(props) {
@@ -366,13 +366,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
         ease: "power2.inOut",
       });
 
-      // gsap.set(rightBoxes[1], {
-      //   duration: 1,
-      //   scale: 0,
-      //   opacity: 0,
-      //   ease: "power2.inOut",
-      // });
-
       //=====Accept Button =====//
       gsap.set([acceptButton[0], acceptButton[1]], {
         duration: 1,
@@ -415,8 +408,6 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
       gsap.set(rightBoxes[0], {
         scaleX: 1,
         opacity: 1,
-        // scaleX: `${invite === 2 ? 0 : 1}`,
-        // opacity: `${invite === 2 ? 0 : 1}`,
         ease: "power2.inOut",
       });
 
@@ -494,7 +485,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               className={`flex ${formState === 0 && showDeclineMessage === 1 ? "basis-[0%]" : formState === 1 ? "basis-[85%]" : formState === 0 ? "basis-[20%]" : "basis-1/2"} accept relative h-full flex-col items-center justify-center gap-2`}
             >
               <Box
-                className={`box ${formState === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col gap-5 ${(plusOne && errors?.firstName) || errors?.lastName ? "overflow-y-scroll" : "justify-center"} justify-center border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
+                className={`box ${formState === 1 ? "flex" : "hidden"} z-20 size-[85%] flex-col gap-4 ${(plusOne && errors?.firstName) || errors?.lastName ? "overflow-y-scroll" : "justify-center"} justify-center border-0 border-solid border-motif p-5 max-lg:max-w-[90%] lg:max-w-[75%]`}
                 component="form"
                 noValidate
                 autoComplete="off"
@@ -516,9 +507,9 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     fontWeight: "bold",
                   },
                   "& .MuiOutlinedInput-root": {
-                    fontFamily: "'Coldiac'",
+                    fontFamily: "'Venice'",
                     color: "black",
-                    fontWeight: "bold",
+                    // fontWeight: "bold",
                     backgroundColor: "ivory",
                     fontSize: "16px",
 
@@ -634,7 +625,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   <Box
                     sx={{
                       width: "100%",
-                      height: 100,
+                      height: 75,
                       // backgroundColor: "ivory",
                       borderColor: "ivory",
                     }}
@@ -650,27 +641,8 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     </FixedSizeList>
                   </Box>
                 )}
-                {/* <Button
-                  className="box"
-                  variant=""
-                  onClick={() => handleSubmit()}
-                  sx={{
-                    height: "7%",
-                    backgroundColor: "ivory", // Change background color
-                    color: "black", // Change text color
-                    fontFamily: '"Coldiac", monospace', // Change font family
-                    fontSize: "16px", // Change font size
-                    "&:hover": {
-                      backgroundColor: "ivory", // Background color on hover
-                      borderColor: "black", // Border color on hover
-                      scale: ".5", // Text color on hover
-                    },
-                  }}
-                >
-                  Submit
-                </Button> */}
                 <button
-                  className="box h-[7%] w-full rounded-lg bg-ivory font-bold"
+                  className="box h-[2rem] w-full rounded-lg bg-ivory font-bold"
                   onClick={(e) => handleSubmit(e)}
                 >
                   Submit
@@ -683,7 +655,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
               >
                 {/* Default View - hidden flex*/}
                 <div
-                  className={`absolute ${(formState === 1 && !showAcceptMessage) || (formState === 2 && !showAcceptMessage) ? "flex" : formState === 1 && showAcceptMessage === 1 ? "hidden" : "hidden"} h-[50%] w-[80%] opacity-25`}
+                  className={`absolute ${(formState === 1 && !showAcceptMessage) || (formState === 2 && !showAcceptMessage) ? "flex" : formState === 1 && showAcceptMessage === 1 ? "hidden" : "hidden"} h-[50%] w-[80%] opacity-15`}
                 >
                   <div
                     className="basis-1/2 rotate-180"
@@ -736,7 +708,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   className={`absolute top-1/2 ${formState === 2 ? "hidden" : showVerifyMessage === 1 ? "hidden" : formState === 1 ? "flex" : "hidden"} size-[95%] -translate-y-1/2 flex-col justify-between overflow-clip opacity-75`}
                 >
                   <div
-                    className="relative -top-1/4 right-1/2 basis-[50%]"
+                    className="relative -top-[30%] right-[55%] basis-[50%]"
                     style={{
                       backgroundImage: `url(${activeOrnament})`,
                       backgroundSize: "contain",
@@ -746,7 +718,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     }}
                   ></div>
                   <div
-                    className="relative left-1/2 top-1/4 basis-[50%] rotate-180"
+                    className="relative left-[55%] top-[30%] basis-[50%] rotate-180"
                     style={{
                       backgroundImage: `url(${activeOrnament})`,
                       backgroundSize: "contain",
@@ -798,7 +770,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                         {guest.firstName} {guest.lastName}
                       </p>
                     </div>
-                    <span className="flex items-center gap-2">
+                    <span className="flex flex-col items-center">
                       <p className="text-base">Total number of companion/s:</p>
                       <p>{`${guest.numberOfAttendees}`}</p>
                     </span>
@@ -828,7 +800,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     )}
                   </div>
                   {/* Submit form buttons */}
-                  <div className="relative z-50 flex h-[3rem] w-3/4 justify-center gap-5">
+                  <div className="relative z-50 flex h-[2rem] w-3/4 justify-center gap-5">
                     <SubmitData
                       guestName={guest}
                       setUpdateStatus={setUpdateStatus}
@@ -838,7 +810,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       setShowAcceptMessage={setShowAcceptMessage}
                       handleAcceptForm={handleAcceptForm}
                     />
-                    <div className="size-full max-w-[15rem] basis-1/2 place-content-center rounded-full bg-returnButton text-ivory duration-200 hover:scale-[1.05] hover:ease-in-out">
+                    <div className="size-full max-w-[15rem] basis-1/2 place-content-center rounded-lg bg-returnButton text-ivory duration-200 hover:scale-[1.05] hover:ease-in-out">
                       <button
                         onClick={() => {
                           handleAcceptForm(true);
@@ -904,7 +876,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       className="flex size-[95%] flex-col items-center justify-center gap-8 text-ivory opacity-0 sm:gap-16"
                     >
                       <p
-                        className={`${details.guestExist ? "w-1/2 text-center" : ""} text-userfor-title font-bold`}
+                        className={`${details.guestExist ? "w-1/2 text-center" : ""} text-userform-title font-bold`}
                       >
                         {details.guestExist
                           ? "Attendance Confirmed"
@@ -920,7 +892,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                             : "Thank you so much for confirming your attendance! We’re excited to celebrate our special day with you. Your presence means the world to us, and we can’t wait to share this moment together."}
                         </p>
                         <p>Best,</p>
-                        <div className="relative size-fit">
+                        <div className="text-userform-jeff-jona relative size-fit">
                           <span className="w-fit font-Showtime">
                             Jeffrey and Jonalyn
                           </span>
@@ -1011,7 +983,9 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   <p
                     className={` ${formState === 0 && showDeclineMessage === 0 ? "flex" : "hidden"} h-1/4 w-[65%] flex-col justify-center rounded-xl text-base text-ivory md:text-xl lg:gap-10 lg:text-2xl`}
                   >
-                    <p>Dear guest,</p>
+                    <p className="text-3xl underline lg:text-5xl">
+                      Dear guest,
+                    </p>
                     <p
                       style={{
                         textIndent: 30,
@@ -1024,7 +998,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   </p>
 
                   <div
-                    className="absolute top-1/2 -z-10 flex size-1/2 -translate-y-1/2 flex-col justify-center opacity-25"
+                    className="absolute top-1/2 -z-10 flex size-1/2 -translate-y-1/2 flex-col justify-center opacity-15"
                     style={{
                       backgroundImage: `url(${activeOrnament})`,
                       backgroundSize: "contain",
@@ -1034,9 +1008,9 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     }}
                   ></div>
 
-                  <div className="absolute top-1/2 -z-10 flex size-full -translate-y-1/2 flex-col justify-center opacity-75">
+                  <div className="absolute top-1/2 -z-10 flex size-[99%] -translate-y-1/2 flex-col justify-center overflow-clip opacity-75">
                     <div
-                      className="relative -top-1/4 left-1/2 basis-[50%] rotate-[180deg]"
+                      className="relative -top-[30%] left-[55%] basis-[50%] rotate-[180deg]"
                       style={{
                         backgroundImage: `url(${activeOrnament})`,
                         backgroundSize: "contain",
@@ -1046,7 +1020,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                       }}
                     ></div>
                     <div
-                      className="relative -bottom-1/4 right-1/2 basis-[50%] rotate-[180deg]"
+                      className="relative -bottom-[30%] right-[55%] basis-[50%] rotate-[180deg]"
                       style={{
                         backgroundImage: `url(${activeOrnament})`,
                         backgroundSize: "contain",
@@ -1059,7 +1033,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   {/* SHow Decline Message */}
                   <div
                     ref={declineMessage}
-                    className="flex h-full w-[75%] flex-col items-center justify-center gap-5 text-base md:text-xl lg:gap-10 lg:text-2xl"
+                    className="text-userform flex h-full w-[75%] flex-col items-center justify-center gap-5 lg:gap-10"
                   >
                     <p style={{ textIndent: 30 }}>
                       Thank you for letting us know. While we’ll miss
@@ -1096,7 +1070,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   </div>
                   {/* Yes/No Button */}
                   <div
-                    className={`w-full ${formState === 0 && showDeclineMessage === 0 ? "flex" : "hidden"} h-[2rem] justify-center gap-5 font-bold lg:h-[3rem]`}
+                    className={`w-full ${formState === 0 && showDeclineMessage === 0 ? "flex" : "hidden"} h-[2rem] justify-center gap-5 font-bold`}
                   >
                     <button
                       className="basis-[20%] rounded-lg bg-ivory text-black"

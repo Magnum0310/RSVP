@@ -13,15 +13,14 @@ const SubmitData = ({
 }) => {
   const addGuest = async () => {
     const guestId =
-      guestName.firstName.split(" ").join("") + guestName.lastName;
+      guestName.firstName.trim().split(" ").join("") +
+      guestName.lastName.trim().split(" ").join("");
     try {
       const checkDocument = doc(db, "guest", guestId.toLocaleLowerCase());
       console.log(guestId);
       const checkGuest = await getDoc(checkDocument);
       console.log(checkGuest.exists());
       if (checkGuest.exists()) {
-        // setDetails((details) => ({ ...details, guestExist: true }));
-
         setUpdateStatus((status) => ({ ...status, success: true }));
         setDetails((details) => ({ ...details, load: true }));
         setInvite(2);
@@ -75,7 +74,7 @@ const SubmitData = ({
 
   return (
     <button
-      className="h-full max-w-[15rem] basis-1/2 rounded-full bg-ivory font-bold text-black duration-200 hover:scale-[1.05] hover:ease-in-out"
+      className="h-full max-w-[15rem] basis-1/2 rounded-lg bg-ivory font-bold text-black duration-200 hover:scale-[1.05] hover:ease-in-out"
       onClick={() => addGuest()}
       // onClick={() => triggerLoadingState()}
     >
