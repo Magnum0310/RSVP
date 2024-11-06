@@ -547,6 +547,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   Guest Details
                 </div>
                 <TextField
+                  size="small"
                   className="box"
                   required
                   id="outlined-firstName"
@@ -560,6 +561,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   <p className="text-xs text-ivory">{errors?.firstName}</p>
                 )}
                 <TextField
+                  size="small"
                   className="box"
                   required
                   id="outlined-lastName"
@@ -592,6 +594,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 >
                   <div className="flex size-full items-center gap-2">
                     <TextField
+                      size="small"
                       className="basis-[85%]"
                       required
                       id="outlined-fullName"
@@ -868,7 +871,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                     </div>
                   </div>
                   {/* Submitting Details */}
-                  <div className="absolute z-20 size-[95%] border-4 border-solid border-ivory bg-orange-500/0"></div>
+                  <div className="absolute z-20 size-[95%] border-4 border-solid border-ivory"></div>
                 </div>
                 {/* Submit Details - inview*/}
                 <div
@@ -898,22 +901,27 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                   {details.verify && (
                     <div
                       ref={successContainer}
-                      className="flex size-[95%] flex-col items-center justify-center gap-16 text-ivory opacity-0"
+                      className="flex size-[95%] flex-col items-center justify-center gap-8 text-ivory opacity-0 sm:gap-16"
                     >
-                      <p className="text-2xl font-bold md:text-3xl lg:text-5xl">
-                        Success!
+                      <p
+                        className={`${details.guestExist ? "w-1/2 text-center" : ""} text-userfor-title font-bold`}
+                      >
+                        {details.guestExist
+                          ? "Attendance Confirmed"
+                          : "Success!"}
                       </p>
-                      <div className="flex w-[80%] flex-col gap-5 text-base md:text-xl lg:gap-10 lg:text-2xl">
+                      {/* SUCCESS MESSAGE */}
+                      <div className="text-userform flex w-[80%] flex-col gap-5 lg:gap-10">
+                        {/* <div className="flex w-[80%] flex-col gap-5 text-base md:text-xl lg:gap-10 lg:text-2xl"> */}
                         <p>Dear {guest.firstName},</p>
                         <p style={{ textIndent: 30 }}>
-                          Thank you so much for confirming your attendance!
-                          We’re excited to celebrate our special day with you.
-                          Your presence means the world to us, and we can’t wait
-                          to share this moment together.
+                          {details.guestExist
+                            ? "You’ve already confirmed your attendance."
+                            : "Thank you so much for confirming your attendance! We’re excited to celebrate our special day with you. Your presence means the world to us, and we can’t wait to share this moment together."}
                         </p>
                         <p>Best,</p>
                         <div className="relative size-fit">
-                          <span className="w-fit font-Showtime text-2xl lg:text-5xl">
+                          <span className="w-fit font-Showtime">
                             Jeffrey and Jonalyn
                           </span>
                           <div className="absolute right-1/2 top-0 flex h-full w-[175%] translate-x-1/2 justify-between opacity-35">

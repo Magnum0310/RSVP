@@ -56,9 +56,12 @@
   .text-entourage-list {
     @apply font-Venice text-[.85rem] font-bold uppercase sm:text-xl lg:text-[1.5rem] xl:text-[2rem];
   }
-  /* .text-entourage-list {
-    @apply text-[.8rem] font-bold leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];
-  } */
+  .text-userform {
+    @apply text-sm max-sm:text-xs md:text-xl lg:text-2xl;
+  }
+  .text-userfor-title {
+    @apply text-xl md:text-3xl lg:text-5xl;
+  }
   .text-dressCode {
     @apply text-[.8rem] leading-5 sm:text-[.9rem] md:text-[1.1rem] lg:text-[1.5rem];
   }

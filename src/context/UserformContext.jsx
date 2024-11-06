@@ -31,6 +31,7 @@ export const UserFormProvider = ({ children }) => {
     home: false,
     verify: false,
     submit: false,
+    guestExist: false,
     load: false,
   });
   //=====Add Companion=====//

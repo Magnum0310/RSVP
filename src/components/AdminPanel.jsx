@@ -90,11 +90,6 @@ const AdminPanel = ({ statePanel, setPanel, setAdmin, admin }) => {
         </Button>
       </div>
       {!load ? (
-        // <div>
-        //   {data?.map((details, index) => {
-        //     return <div key={index}>{details.firstName}</div>;
-        //   })}
-        // </div>
         <Table>
           <TableCaption className="text-black">Master Guest List.</TableCaption>
           <TableHeader>
@@ -117,8 +112,6 @@ const AdminPanel = ({ statePanel, setPanel, setAdmin, admin }) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {/* {data?.map((details, index) => { */}
-            {/* return <div key={index}>{details.firstName}</div>; */}
             {data?.map((details, index) => {
               return (
                 <TableRow key={index}>
