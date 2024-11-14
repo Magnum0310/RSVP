@@ -44,11 +44,14 @@
 }
 
 @layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px #000000;
+  }
   .border-draft {
     @apply border-2 border-solid border-red-500;
   }
   .text-jeff-jona {
-    @apply text-6xl sm:text-8xl lg:text-9xl;
+    @apply text-6xl sm:text-8xl;
   }
   .text-entourage-title {
     @apply text-[1.5rem] leading-8 sm:text-4xl md:text-5xl;

@@ -158,7 +158,7 @@ const Entourage = () => {
               </div>
               <div
                 ref={imageTransition}
-                className="absolute top-48 z-[5] h-full w-full scale-[3.5] sm:scale-[3] lg:top-72 lg:scale-[4]"
+                className="absolute top-[85%] z-[5] h-full w-full scale-[3] opacity-25 lg:top-72"
                 style={{
                   backgroundImage: `url(${entourageTransition})`,
                   backgroundPosition: "center",

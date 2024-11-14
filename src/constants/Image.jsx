@@ -13,7 +13,7 @@ import weddingRings from "../assets/Vectors/HeroPage/rings.svg";
 
 // Entourage
 import entourage1 from "../assets/Images/Entourage/entourage1.jpg";
-import entourage2 from "../assets/Images/Entourage/entourage2.jpeg";
+import entourage2 from "../assets/Images/Entourage/entourage2.jpg";
 import entourage3 from "../assets/Images/Entourage/entourage3.jpg";
 import entourageCenter from "../assets/Images/Entourage/entourageCenter.jpg";
 import entourageTransition from "../assets/Vectors/Entourage/entourage_transition.svg";

@@ -1,16 +1,9 @@
-import {
-  useRef,
-  useLayoutEffect,
-  forwardRef,
-  useState,
-  useContext,
-} from "react";
+import { useRef, useLayoutEffect, useContext } from "react";
 import Image from "../constants/Image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import eventDetails from "../constants/details.json";
 import Card from "../components/EntourageCard";
-import Frame from "./Frame";
 import UserformContext from "../context/UserformContext";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,7 +13,6 @@ const {
   details3,
   details4,
   detailsTransition,
-  entourageDivider,
   detailsFrame,
   detailsDressCode,
   detailsDressCodeFrame,
@@ -47,7 +39,6 @@ const Details = () => {
   const container2 = useRef(null);
   const container22 = useRef(null);
   const containerDetails = useRef(null);
-  const transition = useRef(null);
   const firstImage = useRef(null);
   const secondImage = useRef(null);
   const thirdImage = useRef(null);

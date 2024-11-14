@@ -25,14 +25,16 @@ const {
 
 const ParallaxImage = ({ image, date }) => {
   return (
-    <div className="relative mx-auto flex size-full flex-col items-center justify-center bg-white font-Showtime">
+    <div className="relative mx-auto flex h-[90%] w-[75%] flex-col items-center justify-center bg-white font-Showtime max-sm:size-full">
       <div className="relative flex size-[90%] flex-col items-center gap-2">
         <div
           className="relative w-full basis-[85%]"
           style={{
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            // backgroundPosition: "50% 95%",
+            backgroundPosition: "50% 50%",
+            backgroundRepeat: "no-repeat",
           }}
         >
           <div
@@ -40,17 +42,22 @@ const ParallaxImage = ({ image, date }) => {
             style={{
               backgroundImage: `url("${heroPageMask}")`,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              // backgroundPosition: "50% 95%",
+              backgroundPosition: "50% 50%",
+              backgroundRepeat: "no-repeat",
             }}
           ></div>
           <span
             ref={date}
-            className="absolute left-[50%] top-[60%] z-10 h-fit w-[95vw] min-w-fit -translate-x-[50%] text-center text-5xl text-white max-sm:text-3xl sm:top-[65%] sm:text-6xl lg:left-[50%] lg:top-[70%] lg:text-7xl"
+            className="absolute left-[50%] top-[90%] z-10 h-fit w-[95vw] min-w-fit -translate-x-[50%] text-center text-white max-sm:text-4xl sm:top-[75%] sm:w-[85%] sm:text-center sm:text-6xl lg:left-[50%] lg:top-[75%]"
           >
-            Save the Date
+            <p className="text-left max-sm:hidden">Save</p>
+            <p className="text-center max-sm:hidden">the</p>
+            <p className="text-right max-sm:hidden">Date</p>
+            <p className="sm:hidden">Save the Date</p>
           </span>
         </div>
-        <div className="relative top-5 flex w-full basis-[10%] flex-col items-center gap-2 text-center text-5xl max-sm:top-2 max-sm:text-4xl lg:text-6xl">
+        <div className="relative top-5 flex w-full basis-[10%] flex-col items-center gap-2 text-center text-5xl max-sm:top-2 max-sm:text-4xl lg:text-5xl">
           <span className="w-full">
             <p className="">12-16-24</p>
             <p className="">Baguio City</p>
@@ -172,7 +179,7 @@ const HeroPage = () => {
         .to(
           date.current,
           {
-            y: `-${width < 640 ? window.innerHeight / 2 : window.innerHeight / 2.5}%`,
+            y: `-${width < 640 ? window.innerHeight / 1.4 : window.innerHeight / 5}%`,
             ease: "expo",
           },
           0,
@@ -231,7 +238,7 @@ const HeroPage = () => {
           {/* TitleContainer */}
           <div
             ref={titleContainer}
-            className="relative top-[10%] flex h-1/4 w-full flex-col items-center gap-2"
+            className="relative top-[5%] flex h-[30%] w-full flex-col items-center gap-2 xl:top-[2%] xl:h-[40%]"
           >
             <div
               ref={heroImage}
@@ -239,7 +246,8 @@ const HeroPage = () => {
               style={{
                 backgroundImage: `url(${heroPageMain})`,
                 backgroundSize: "contain",
-                backgroundPosition: "right 46% bottom 50%",
+                // backgroundPosition: "right 46% bottom 50%",
+                backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
@@ -249,12 +257,12 @@ const HeroPage = () => {
               style={{
                 backgroundImage: `url(${heroPageMainMask})`,
                 backgroundSize: "contain",
-                backgroundPosition: "right 46% bottom 50%",
+                backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
             <div
-              className="absolute right-[65%] top-0 -z-10 size-[55%] opacity-25"
+              className="absolute right-[50%] top-1/4 -z-10 size-[55%] opacity-25"
               style={{
                 backgroundImage: `url(${flower2})`,
                 backgroundSize: "contain",
@@ -263,7 +271,7 @@ const HeroPage = () => {
               }}
             ></div>
             <div
-              className="absolute left-[65%] top-0 -z-10 size-[55%] opacity-25"
+              className="absolute left-[50%] top-1/4 -z-10 size-[55%] opacity-25"
               style={{
                 backgroundImage: `url(${flower3})`,
                 backgroundSize: "contain",
@@ -273,7 +281,7 @@ const HeroPage = () => {
             ></div>
             <div
               ref={floral1Ref}
-              className="absolute right-1/2 top-[50%] -z-10 size-3/4 translate-x-1/2 opacity-25 max-sm:top-[40%]"
+              className="absolute right-1/2 top-[50%] -z-10 size-3/4 translate-x-1/2 opacity-25 max-sm:top-[60%]"
               style={{
                 backgroundImage: `url(${flower1})`,
                 backgroundSize: "contain",
@@ -285,11 +293,17 @@ const HeroPage = () => {
             {/* Jeffrey and Jonalyn */}
             <div
               ref={title}
-              className="text-jeff-jona absolute -top-[25%] right-[50%] z-30 flex size-fit translate-x-[48%] flex-col p-2 text-center font-GreatVibes text-white"
+              className="text-jeff-jona absolute right-[50%] top-[5%] z-30 flex size-fit w-full translate-x-[50%] flex-col text-center font-GreatVibes text-black"
             >
-              <p className="text-motif">Jeffrey</p>
-              <p className="text-4xl text-motif lg:text-6xl">and</p>
-              <p className="text-motif">Jonalyn</p>
+              <p className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text py-3 text-transparent">
+                Jeffrey
+              </p>
+              <p className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text text-4xl text-transparent lg:text-6xl">
+                and
+              </p>
+              <p className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text py-3 text-transparent">
+                Jonalyn
+              </p>
             </div>
           </div>
           {/* Parallax Slides - Top - Position:Relative */}
