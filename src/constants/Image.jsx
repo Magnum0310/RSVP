@@ -1,6 +1,6 @@
 // Hero
-import heroPageMain from "../assets/Vectors/HeroPage/heroPageMain.svg";
-import heroPageMainMask from "../assets/Vectors/HeroPage/heroPageMainMask.svg";
+import heroPageMain from "../assets/Vectors/HeroPage/heroPageMainRevised.svg";
+import heroPageMainMask from "../assets/Vectors/HeroPage/heroPageMainMaskRevised.svg";
 import heroPageDate from "../assets/Images/HeroPage/heroPageDate.jpg";
 import heroPageMask from "../assets/Images/HeroPage/heroPageDateMask.svg";
 import heroPhoto1 from "../assets/Images/HeroPage/photo1.jpg";

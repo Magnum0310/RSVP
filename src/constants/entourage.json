@@ -1,17 +1,18 @@
 {
-  "parentsOfTheBride": ["Renato Casuga", "Arlene Nedic"],
-  "parentsOfTheGroom": ["Capt. Antonio Mondoñedo", "Bernadine Mondoñedo"],
+  "parentsOfTheBride": ["Renato F. Casuga", "Arlene S. Casuga"],
+  "parentsOfTheGroom": ["Capt. Antonio Mondoñedo", "Bernadine E. Mondoñedo"],
   "principalSponsorsMale": [
     "Engr. Ruben E. Sy",
     "Dr. Delfin E. Gubatan",
     "Jose S. Escaño",
     "Col. Ramon E. Florece",
-    "Jovino Fuselero",
+    "Jovino S. Fuselero",
     "Col. Vicente L. Co",
-    "Lito Suano",
-    "Ludivico Caoile",
-    "Aljhun Tanagon",
+    "Lito B. Suano",
+    "Ludivico S. Caoile",
+    "Aljhun F. Tanagon",
     "Dancio Martinez",
+    "Joel P. Aguilar",
     "Dr. Roberto M. Arguelles"
   ],
   "principalSponsorsFemale": [
@@ -19,26 +20,27 @@
     "Dra. Marilou E. Gubatan",
     "Editha S. Escaño",
     "Jocelyn E. Florece",
-    "Fuselero",
-    "Tyrese L. Co",
-    "Rosey Suano",
-    "Merlita Caoile",
-    "Rogie Tanagon",
+    "Rose Marie S. Fuselero",
+    "Ma. Theresa B. Co",
+    "Rosie T. Suano",
+    "Merlita S. Caoile",
+    "Rogie F. Tanagon",
     "Merica Wrenn E. Martinez",
+    "Mercedita S. Aguilar",
     "Carina Kisha Falalimpa-Malong"
   ],
   "maidOfHonor": ["Yie-Lin P. Cho"],
   "bestMan": ["Kenneth Lee Tiukeng"],
   "groomsMen": [
     "Jose Ramon E. Florece",
-    "Martin Bascos",
+    "Martin R. Bascos",
     "Al Fisher P. Diazen",
     "Juan S. Niwane",
     "Anton B. Cortes"
   ],
   "bridesMaid": [
     "Melanie S. Caoile",
-    "Angie S. Suano",
+    "Angie T. Suano",
     "Kristine Nicole E. Florece",
     "Justine Rose G. Barcelo",
     "Janine E. Mondoñedo-Pimentel"
@@ -46,7 +48,7 @@
 
   "candle": ["Ruben E. Mari Sy", "Jessica Escaño-Jimenez"],
   "cord": ["Ryan Jan E. Florece", "Melanie S. Caoile"],
-  "veil": ["Atty. Keiron E. Gubatan", "Angie S. Suano"],
+  "veil": ["Atty. Keiron E. Gubatan", "Angie T. Suano"],
   "ringBearer": ["Jose Ramon E. Florece"],
   "coinBearer": ["Jessie Jay S. Escaño"],
   "bibleBearer": ["Jeric E. Mondoñedo"],

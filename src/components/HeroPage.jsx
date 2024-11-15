@@ -25,7 +25,7 @@ const {
 
 const ParallaxImage = ({ image, date }) => {
   return (
-    <div className="relative mx-auto flex h-[90%] w-[75%] flex-col items-center justify-center bg-white font-Showtime max-sm:size-full">
+    <div className="relative mx-auto flex h-[90%] w-[75%] flex-col items-center justify-center border-[0px] border-solid border-black bg-white font-Showtime max-sm:size-full">
       <div className="relative flex size-[90%] flex-col items-center gap-2">
         <div
           className="relative w-full basis-[85%]"
@@ -330,7 +330,7 @@ const HeroPage = () => {
             >
               <div
                 ref={photo1}
-                className="size-90% relative right-[50%] flex basis-1/2 rotate-[-2deg] items-center justify-center bg-white opacity-0 sm:right-[52%] lg:right-[70%]"
+                className="size-90% relative right-[50%] flex basis-1/2 rotate-[-2deg] items-center justify-center border-[0px] border-solid border-black bg-white opacity-0 sm:right-[52%] lg:right-[70%] lg:top-[25%]"
               >
                 <div className="flex size-[90%] flex-col">
                   <div
@@ -346,7 +346,7 @@ const HeroPage = () => {
               </div>
               <div
                 ref={photo2}
-                className="size-90% relative left-[50%] flex basis-1/2 rotate-[2deg] items-center justify-center bg-white opacity-0 sm:left-[52%] lg:left-[70%]"
+                className="size-90% relative left-[50%] flex basis-1/2 rotate-[2deg] items-center justify-center border-[0px] border-solid border-black bg-white opacity-0 sm:left-[52%] lg:left-[70%] lg:top-[25%]"
               >
                 <div className="flex size-[90%] flex-col">
                   <div
