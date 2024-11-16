@@ -45,18 +45,12 @@ function App() {
         <div className="mx-auto max-w-[1440px]">
           <Reception />
         </div>
-        <div className="mx-auto h-screen max-w-[1440px]">
+        <div className="mx-auto max-w-[1440px]">
           <UserForm />
         </div>
         <div className="absolute top-0 size-full w-full">
           <Frame />
         </div>
-        {/* <div className="mx-auto h-screen max-w-[1440px]">
-        <UserFormProvider>
-          <AcceptInvite />
-        </UserFormProvider>
-      </div> */}
-        {/* <div className="mx-auto h-[25vh] max-w-[1440px]"></div> */}
       </UserFormProvider>
     </div>
   );

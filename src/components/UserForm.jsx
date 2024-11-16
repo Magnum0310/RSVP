@@ -74,6 +74,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
     activeOrnament,
     inactiveOrnament,
     deleteIcon,
+    userFormBar,
   } = Image;
 
   //===============STATES===============//
@@ -474,8 +475,31 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
   }, [expand]);
 
   return (
-    <div className="relative">
-      <div className="relative flex h-screen w-full flex-col justify-center gap-5 font-Coldiac">
+    <div className="relative flex flex-col items-center justify-center">
+      <div className="h-[100px] w-full"></div>
+      <div className="userForm-pageTitle absolute left-1/2 top-[9%] z-50 flex h-fit w-[90%] -translate-x-1/2 flex-col place-content-center items-center rounded-lg bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text text-center font-Showtime text-transparent max-sm:from-45% max-sm:via-75% max-sm:to-85% lg:w-[90%]">
+        Kindly send your response on or before November 25, 2024
+        <div
+          className="absolute -top-[75%] h-[50px] w-full"
+          style={{
+            backgroundImage: `url("${userFormBar}")`,
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
+        <div
+          className="absolute top-[100%] h-[50px] w-full"
+          style={{
+            backgroundImage: `url("${userFormBar}")`,
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
+      </div>
+      <div className="h-[50px] w-full sm:h-[100px]"></div>
+      <div className="relative mt-5 flex h-screen w-full flex-col items-center justify-center gap-5 font-Coldiac">
         <div className="h-[80%] w-full">
           {/* Buttons */}
           <div className="flex size-full items-center justify-center">
@@ -893,13 +917,13 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                             ? "You’ve already confirmed your attendance."
                             : "Thank you so much for confirming your attendance! We’re excited to celebrate our special day with you. Your presence means the world to us, and we can’t wait to share this moment together."}
                         </p>
-                        <div className="flex w-full flex-col gap-2 text-center">
+                        <div className="flex w-full flex-col items-center gap-2 text-center">
                           <p>Best,</p>
-                          <div className="text-userform-jeff-jona relative">
+                          <div className="text-userform-jeff-jona relative w-fit">
                             <span className="w-fit font-Showtime">
                               Jeffrey and Jonalyn
                             </span>
-                            <div className="absolute right-1/2 top-0 flex h-full w-[125%] translate-x-1/2 justify-between opacity-35">
+                            <div className="absolute right-1/2 top-0 flex h-full w-[150%] translate-x-1/2 justify-between opacity-35">
                               <div
                                 className="basis-[35%] rotate-[140deg]"
                                 style={{

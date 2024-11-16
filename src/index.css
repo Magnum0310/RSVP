@@ -83,6 +83,9 @@
   .text-pageTitle {
     @apply text-3xl lg:text-5xl;
   }
+  .userForm-pageTitle {
+    @apply py-2 max-sm:text-3xl sm:py-5 sm:text-4xl md:text-5xl lg:px-5;
+  }
 }
 
 @layer base {

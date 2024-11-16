@@ -80,6 +80,7 @@ import declineOrnamentInactiveButton from "../assets/Vectors/Userform/declineOrn
 import activeOrnament from "../assets/Vectors/Userform/activeOrnament.svg";
 import inactiveOrnament from "../assets/Vectors/Userform/inactiveOrnament.svg";
 import deleteIcon from "../assets/Vectors/Userform/deleteIcon.svg";
+import userFormBar from "../assets/Vectors/Userform/userFormBar.svg";
 
 // Frame
 import frame from "../assets/Vectors/Frame/frame.svg";
@@ -160,6 +161,7 @@ const Image = {
   activeOrnament,
   inactiveOrnament,
   deleteIcon,
+  userFormBar,
   // Frame
   frame,
 };
