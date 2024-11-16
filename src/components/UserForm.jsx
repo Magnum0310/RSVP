@@ -477,8 +477,38 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
   return (
     <div className="relative flex flex-col items-center justify-center">
       <div className="h-[100px] w-full"></div>
-      <div className="userForm-pageTitle absolute left-1/2 top-[9%] z-50 flex h-fit w-[90%] -translate-x-1/2 flex-col place-content-center items-center rounded-lg bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text text-center font-Showtime text-transparent max-sm:from-45% max-sm:via-75% max-sm:to-85% lg:w-[90%]">
-        Kindly send your response on or before November 25, 2024
+      <div className="userForm-pageTitle absolute left-1/2 top-[9%] z-50 h-fit w-[90%] -translate-x-1/2 flex-col place-content-center items-center rounded-lg text-center font-Showtime text-transparent max-sm:from-45% max-sm:via-75% max-sm:to-85% lg:w-[90%]">
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          Kindly{" "}
+        </span>
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          send{" "}
+        </span>
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          your{" "}
+        </span>
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          response{" "}
+        </span>
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          on{" "}
+        </span>
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          or{" "}
+        </span>
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          before{" "}
+        </span>
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          November{" "}
+        </span>
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          25,{" "}
+        </span>
+        <span className="bg-gradient-to-b from-motif from-35% via-black/85 via-50% to-black to-55% bg-clip-text">
+          2024
+        </span>
+
         <div
           className="absolute -top-[75%] h-[50px] w-full"
           style={{

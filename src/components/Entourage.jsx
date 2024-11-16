@@ -235,7 +235,7 @@ const Entourage = () => {
                 <EntourageCard title={"Coin Bearer"} list={coinBearer} />
               </div>{" "}
               {/* Bible bearer and Flower girls */}
-              <div className="flex min-h-[250px] w-full justify-center gap-0 max-sm:gap-0 lg:w-[85%] lg:gap-10">
+              <div className="flex min-h-[250px] w-full justify-center gap-0 max-sm:min-h-[150px] max-sm:gap-0 lg:w-[85%] lg:gap-10">
                 <EntourageCard title={"Bible Bearer"} list={bibleBearer} />
                 <EntourageCard title={"Flower Girl"} list={flowerGirls} />
               </div>
