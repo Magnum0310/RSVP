@@ -697,7 +697,7 @@ const UserForm = ({ statePanel, setPanel, stateForm, setForm }) => {
                 )}
                 <button
                   className="box h-[2rem] w-full rounded-lg bg-ivory font-bold"
-                  onClick={(e) => handleSubmit(e)}
+                  // onClick={(e) => handleSubmit(e)}
                 >
                   Submit
                 </button>
